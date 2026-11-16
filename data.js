@@ -143,5 +143,115 @@ window.REZEPTE = [
   n: "Zopf", folder: "Brote", src: "", ing: [], steps: [],
   cover: "G:TPAF7xCKCs_uM-OMeBXNuJXrGkK6blsIKFgiI_h6ZdjH6t0aPRrj-rJMSp4Ad9-fiu7Gp5YSi0iIuPUQln6sVA",
   pages: ["G:nI3e4mimAGgJhj3qqDqh1H0F6iqF_vIYEhnKImopy3NKcZ0600VP5SZ8MmmofDuPLC88vTxO78LBwpn8aCA6nQ", "G:ApzOFbndIu60BdExJggSaMGBEeiMiJGk_FbLS5-pR3X90ggf-RhrNo-wBcxLGX-UA3oF4MkomX5nGNx-nVgEmQ"]
+},
+
+// ---------- Ordner «Reisgerichte» ----------
+{
+  n: "Bärlauchrisotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  cover: "G:pZOu9k2NyGgJbFw_Eq5wg0Eg_pkruTO44Tokckz596HQaSVIR1g4nmCRstlKksUafEqRWrk7OwjwJsS9-G456rYXqCvlEcz9iv0",
+  pages: ["G:gkOK541B7_8kU8sAneDz-4Yiy2qaS1W9ZVbZCIjV76d0ZOTIPx6W-ZyT8kEqIOKzZkOMFhhWgiPeu9f8Ube7AJp2_Wm2Y4vD354", "G:_le9IFSMuHR750Dcx-XB_2xi61il9L4Gpxuj82p2oX72BCSZE9KRtqOh9wAoJ1g2Lur2r8T2ndY3gwVSF0mT7IuYiCWjRi8ZspNd"]
+},
+{
+  n: "Crevetten auf Reis-Frittata", folder: "Reisgerichte", src: "https://migusto.migros.ch/de/rezepte/crevetten-auf-reis-frittata",
+  ing: ["6 Eier", "3 EL Kokosfett", "250 g gekochter Basmatireis", "Salz", "100 g tiefgekühlte geschälte Edamame", "2 Frühlingszwiebeln", "1 Peperoncino", "500 g tiefgekühlte gekochte Crevetten, Tail-on, vor Gebrauch aufgetaut", "2 TL Wok Gewürzzubereitung", "20 g Brunnenkresse oder Kresse", "1 Limette"],
+  steps: [
+    "Eier in einer Schüssel aufschlagen",
+    "Die Hälfte des Kokosfetts in einer beschichteten Bratpfanne erhitzen",
+    "Reis darin knusprig braten",
+    "Mit Salz abschmecken",
+    "Edamame und Eier dazugeben",
+    "Bei kleiner Hitze ca. … Minuten stocken lassen",
+    "Frittata mithilfe eines Tellers wenden und kurz weiterbraten",
+    "Inzwischen Frühlingszwiebeln fein schneiden",
+    "Peperoncino längs halbieren, entkernen und fein schneiden",
+    "Crevetten, Wok-Gewürz, Peperoncino und Zwiebeln im restlichen Kokosfett anbraten",
+    "Mit Kresse auf der Reis-Frittata anrichten",
+    "Limette in Schnitze schneiden und dazuservieren"
+  ],
+  cover: "G:DOL5evbKkFYM4CKC0RGEXfMPgAM7nYkWZqJ5ZyHCBmZPCKL-dniQAUrHTDuXonKDtH-Vwe7JnTbBUjRJiyEyJBoRKaO5w7yvwBw?uuid=dc7ffbdc-8594-44de-b564-3b006d02c5f8", pages: []
+},
+{
+  n: "Meeresfrüchte-Risotto mit Bärlauch", folder: "Reisgerichte", src: "https://www.chefkoch.de/rezepte/1115401217593454/Meeresfruechte-Risotto-mit-Baerlauch.html",
+  ing: ["500 g Risottoreis (Arborio oder Vialone)", "1 Liter Gemüsefond", "125 ml Weißwein, trockener", "5 Schalotte(n)", "1 große Zwiebel(n)", "5 EL Olivenöl", "50 g Butter", "900 g Meeresfrüchte, TK oder frisch, küchenfertig", "1 Handvoll Bärlauch", "1 Tüte/n Safranfäden", "40 g Parmesan, geriebener"],
+  steps: ["Schalotten und Zwiebel fein hacken und in Olivenöl anschwitzen. Den Risottoreis einstreuen, glasig anschwitzen und mit dem Weißwein ablöschen. Aufkochen lassen und den Reis so lange kochen, bis die Flüssigkeit verdampft ist, dabei nicht zu viel rühren. Den Gemüsefond nach und nach dazugießen und den Reis unter wiederholtem Umrühren 18 - 20 Minuten kochen, bis er al dente ist. Nach der halben Garzeit die Meeresfrüchte (TK-Meeresfrüchte zuerst auftauen lassen), den Safran und klein gehackten Bärlauch hinzufügen und im Risotto ziehen lassen. Dann Butter sowie frisch geriebenen Parmesan einrühren, mit Salz abschmecken und servieren."],
+  cover: "https://img.chefkoch-cdn.de/ck.de/rezepte/111/111540/119769-420x280-fix-meeresfruechte-risotto-mit-baerlauch.jpg", pages: []
+},
+{
+  n: "Morchel-Schaumwein-Risotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  cover: "G:DhtudDuPMaFsL9BAT6BEgfsRcq4mE3aq4jhn5Hca7fr60oU-IqciTOpoOss6ZRpK0EJfH_90Gy-vY55isjBI11aFUt-Dto4s3Q",
+  pages: ["G:tsvNEyyncVEXAndsTOCbZ6W9MPrzbeyFpYkuxQpP0GTbjvjDtlyJ9CvEsJwblTaDp5edgEyE5Qz_ZbcdqZEvTOp1renGM3ZnEcU", "G:9nn5yhevZ4MvJldf9bzc2BNmVeUaVESyHqPweHjjb5n6GkDnhAMYlwL-TwRfBEGTjkNtPUubquTO_7g-vPbPPZ9ZhjNr-nwbr6E"]
+},
+{
+  n: "Nasi Goreng", folder: "Reisgerichte", tags: ["Asiatisch"], src: "https://www.bettybossi.ch/de/Rezept/ShowRezept/BB_RKXX050115_0092A-40-de?title=Nasi-Goreng",
+  ing: ["200 g Parfümreis", "3 dl Wasser", "Öl zum Rührbraten", "300 g geschnetzeltes Pouletfleisch", "0.25 TL Salz", "wenig Pfeffer", "200 g Bohnen", "Salzwasser, siedend", "200 g Rüebli", "1 rote Peperoni", "2 Bundzwiebeln mit dem Grün", "2 Knoblauchzehen", "200 g gekochte Crevetten", "2 EL Sojasauce", "1 TL Sambal Oelek", "0.5 TL Korianderpulver", "Salz, Pfeffer, nach Bedarf"],
+  steps: [
+    "Reis im Sieb unter fliessendem, kaltem Wasser so lange spülen, bis dieses klar ist, gut abtropfen. Reis mit dem Wasser in eine Pfanne geben, aufkochen, zugedeckt auf ausgeschalteter Platte ca. 15 Min. quellen lassen, dabei Deckel nie abheben. Reis mit einer Gabel lockern.",
+    "Öl im Wok oder in einer weiten beschichteten Bratpfanne heiss werden lassen, Pouletfleisch portionenweise ca. 4 Min. rührbraten, herausnehmen, würzen, zugedeckt beiseite stellen. Wenig Öl in dieselbe Pfanne geben.",
+    "Bohnen quer halbieren, im siedenden Salzwasser knapp weich kochen, abtropfen. Rüebli schälen, in feine Streifen, Peperoni in Streifen, Bundzwiebeln in Ringe schneiden, Knoblauch pressen. Gemüse beigeben, ca. 5 Min. rührbraten.",
+    "Crevetten, Sojasauce, Sambal Oelek und Korianderpulver mit dem beiseite gestellten Poulet und dem Reis beigeben, ca. 5 Min. weiterrührbraten, würzen."
+  ],
+  cover: "https://www.bettybossi.ch/static/rezepte/x/bb_rkxx050115_0092a_x.jpg", pages: []
+},
+{
+  n: "Risotto milanese", folder: "Reisgerichte", src: "https://www.bettybossi.ch/de/Rezept/ShowRezept/BB_ONLI050401_0004C-40-de?title=Risotto-milanese",
+  ing: ["1 Zwiebel", "1 Knoblauchzehe", "1 EL Olivenöl", "400 g Risottoreis (z. B. Arborio)", "2 Briefchen Safran", "4 dl Weisswein", "1 l Gemüsebouillon, heiss", "50 g geriebener Parmesan", "1 EL Olivenöl", "Salz, Pfeffer, nach Bedarf"],
+  steps: [
+    "Zwiebel und Knoblauch schälen, fein hacken.",
+    "Öl in einer Pfanne warm werden lassen. Zwiebel und Knoblauch andämpfen. Risotto und Safran beigeben, unter Rühren dünsten, bis er glasig ist. Die Hälfte des Weins dazugiessen, vollständig einkochen, restlichen Wein dazugiessen, vollständig einkochen. Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist, ca. 20 Min. köcheln, bis der Reis cremig und al dente ist.",
+    "Käse und Öl unter den Reis mischen, würzen."
+  ],
+  cover: "https://www.bettybossi.ch/static/rezepte/x/bb_onli050401_0004c_x.jpg", pages: []
+},
+{
+  n: "Risotto mit getrockneten Steinpilzen", folder: "Reisgerichte", tags: ["Vegetarisch"], src: "https://www.chefkoch.de/rezepte/2158421346400554/Risotto-mit-getrockneten-Steinpilzen.html",
+  ing: ["45 g Steinpilze, getrocknete", "400 ml Wasser", "1 Zwiebel(n), fein gewürfelt", "80 g Butter", "500 g Risottoreis", "400 ml Hühnerbrühe", "400 ml Gemüsebrühe", "120 ml Weißwein, trockener", "80 g Parmesan, frisch gerieben"],
+  steps: [
+    "Die Steinpilze in 400 ml warmem Wasser ca. 20 Minuten einweichen. Man kann auch frische Steinpilze verwenden, aber die getrockneten sind vom Geschmack her intensiver. Dann abtropfen lassen und das Wasser auffangen.",
+    "Die Butter schmelzen lassen und die Zwiebel darin glasig andünsten. Die Pilze dazugeben und ebenfalls andünsten. Dann den Reis hinzugeben und ebenfalls glasig dünsten. Dann mit dem Weißwein ablöschen und warten, bis dieser komplett vom Reis aufgesogen ist. Nun gut die Hälfte der beiden Brühen und das Pilzwasser hinzugeben. Unter stetigem Rühren aufkochen lassen. Dann Temperatur senken auf mittlere Hitze und den Reis bei regelmäßigem Umrühren ca. 20 Minuten quellen lassen. Dabei darauf achten, dass die Flüssigkeit nicht ausgeht und ggf. nachgießen.",
+    "Das Risotto anrichten und mit Parmesan bestreuen.",
+    "Dazu gibt es einen grünen Salat.",
+    "Selbstverständlich kann dies auch als Gang bei einem Menü verwendet werden, dann ist die Menge für 8 Personen ausreichend."
+  ],
+  cover: "https://img.chefkoch-cdn.de/rezepte/2158421346400554/bilder/1024750/crop-960x720/risotto-mit-getrockneten-steinpilzen.jpg", pages: []
+},
+{
+  n: "Risotto mit getrockneten Tomaten", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  cover: "G:iDYUhedD6BM0Tg0zZeg-P_qF5zbnCu9L0Gjg4DjT1VBYGYM0BvuoQOS79BvmD7UxizuG_wMNTsYKi42SFGl1bBRQeapBeK_jUl73?uuid=f26c14aa-ed01-4048-a52f-b53c454c13ee",
+  pages: ["G:QF83B-kdaQvIrQBm628cvzIb2Nw5r2_6_ZqS_gGbJkrPdc_Luyf6oSQ5CD3Q7nu-clNCWjvmCytv4EGrLPYYFy94B-miqoc4k4Ig?uuid=82ff19c0-89ae-4eb5-aad6-622a49772375"]
+},
+{
+  n: "Safranrisotto", folder: "Reisgerichte", src: "https://fooby.ch/de/rezepte/24385/safranrisotto",
+  ing: ["2 Knoblauchzehen", "1 Zwiebel", "2 Briefchen Safran", "einige Safranfäden", "Salz, Pfeffer, nach Bedarf", "1 EL Butter", "20 g Butter", "80 g Parmesan am Stück", "9 dl Gemüsebouillon", "300 g Risottoreis (z.B. Carnaroli)", "2 dl Weisswein"],
+  steps: [
+    "Butter in einer Pfanne erwärmen",
+    "Zwiebel und Knoblauch andämpfen",
+    "Reis beigeben, unter Rühren dünsten, bis er glasig ist",
+    "Wein dazugiessen, fast vollständig einkochen",
+    "Safran beigeben, Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist",
+    "Ca. … Min. köcheln, bis der Reis cremig und al dente ist",
+    "Parmesan und Butter darunterrühren, würzen"
+  ],
+  cover: "https://recipecontent.fooby.ch/24385_3-2_1200-800.jpg", pages: []
+},
+{
+  n: "Spargel-Kräuter-Risotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  cover: "G:PgPScUgi_KZYqBLLsDMTzPghExzZP1UaArwGRLrZ0L5wHmQgsRUYLj0AbW7vd4YcnFrcfjtGO49fcbyqwXDSGd5JpXeaCewHng",
+  pages: ["G:khTF3NNZO54Qh5cibXZS3ONcEsDrYSPPl6ejCmrLI3tQYAO2R1nIQ_RVA0lFOr6UVwZy6Nu-ufLNZ3eLDG-U8Cj73hZZsfw-sw", "G:waft5l0hrF3VBv9Mfnd0TCWK1Xcda4uLrIBDY8q-tGbLkOwa_CGawn__e7IgkRMRjaPoM-hNZnLbPviSqrrB3hisMDc1B2mbHqM"]
+},
+{
+  n: "Spargel-Risotto", folder: "Reisgerichte", src: "https://www.bettybossi.ch/de/Rezept/ShowRezept/BB_BBZE140515_0005A-40-de?title=Spargel-Risotto",
+  ing: ["500 g grüne Spargeln", "2 Schalotten", "1 EL Butter", "300 g Risottoreis (z. B. Carnaroli)", "2 dl Weisswein", "1 l Gemüsebouillon, heiss", "0.5 Bund Petersilie", "100 g Crème fraîche", "60 g geriebener Gruyère"],
+  steps: [
+    "Von den Spargeln unteres Drittel schälen, in Stücke schneiden, Schalotten fein hacken, in der warmen Butter ca. 5 Min. andämpfen. Spargeln herausnehmen, Reis beigeben, unter Rühren dünsten, bis er glasig ist.",
+    "Wein dazugiessen, vollständig einkochen. Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist, ca. 15 Min. köcheln.",
+    "Spargeln wieder beigeben, ca. 5 Min. fertig köcheln, bis der Reis cremig und al dente ist. Petersilie grob schneiden, mit Crème fraîche und Käse darunterrühren."
+  ],
+  cover: "https://www.bettybossi.ch/static/rezepte/x/bb_bbze140515_0005a_x.jpg", pages: []
+},
+{
+  n: "Tomatenrisotto", folder: "Reisgerichte", src: "",
+  ing: ["Rüebli", "Zwiebel", "Olivenöl", "Risottoreis", "Gehackte Tomaten", "Cherry-Tomaten", "Gemüsebouillon", "Butter", "Geriebener Sprinz", "Salz, Pfeffer", "Basilikum"], steps: [],
+  cover: "G:CQ_dphCatrQQFCmFClneWaZqG_r_-vjyo1ugzv2RkQBTlodQHCfQgUeKf4XSNSFRFRIzJOUCux2NWr1irN-jLIMn2rtp2PtEIw",
+  pages: ["G:KZ4-IB9bTPbXkl89U7OsR__HOKJHupjITrfnP3mh83vHnBn9QP5pxeJV4xt01dL9O0d87Ei3_SxxA2SAOejQzhMa_zY0dTs8ASJg", "G:r0uq31ya51wYHuUbtE99lNmwWO5u-7p2V4YihAZ-N7LqNQN5Dtobk9_sBdiU4_dga3JXHOjAuAOcumwEhMzTGeYyUWXs2RolLDA"]
 }
 ];

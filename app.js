@@ -35,7 +35,7 @@ const R = window.REZEPTE.map(r => {
   o.fTitle = norm(r.n);
   o.fIng = norm(r.ing.join(' | '));
   o.fSteps = norm(r.steps.join(' | '));
-  o.fMisc = norm(r.folder + ' ' + (r.src || ''));
+  o.fMisc = norm(r.folder + ' ' + (r.tags || []).join(' ') + ' ' + (r.src || ''));
   return o;
 }).sort((a, b) => a.n.localeCompare(b.n, 'de'));
 const byId = Object.fromEntries(R.map(r => [r.id, r]));
@@ -176,7 +176,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><span class="tag">${esc(r.folder)}</span>${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta"><span class="tag">${esc(r.folder)}</span>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
