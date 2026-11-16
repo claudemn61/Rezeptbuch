@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.6.0';
+const APP_VERSION = '1.6.1';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -422,8 +422,11 @@ function openImport() {
     const fid = (cfg.folders.find(f => f.name.toLowerCase() === String(rec.folder || '').toLowerCase()) || {}).id || (cfg.folders[0] || {}).id;
     sheet(`<h3>Prüfen und speichern</h3>
       ${rec.notes ? `<p class="note tiny warn">Hinweis: ${esc(rec.notes)}</p>` : ''}
-      ${images.length ? `<div class="thumbs">${images.map(u => `<img src="${u}" alt="">`).join('')}</div>
-        <label class="chk"><input id="r-keep" type="checkbox" checked> Originalfoto${images.length > 1 ? 's' : ''} beim Rezept behalten</label>` : ''}
+      ${images.length ? `<div class="pics">${images.map((u, i) => `<div class="pic"><img src="${u}" alt="">
+          <label class="chk"><input type="radio" name="r-cov" value="${i}"${i === 0 ? ' checked' : ''}> Titelbild</label>
+          <label class="chk"><input type="checkbox" data-keep="${i}" checked> behalten</label></div>`).join('')}</div>
+        <div class="acts" style="justify-content:flex-start"><button type="button" class="chip" id="r-only">Nur Titelbild behalten</button><button type="button" class="chip" id="r-none">Keine Bilder</button></div>
+        <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den gewählten Ordner verwenden</label>` : ''}
       <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
       <label>Ordner<select id="r-f">${folderOpts(fid)}</select></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value="${esc((rec.tags || []).join(', '))}"></label>
@@ -438,18 +441,32 @@ function openImport() {
       if (!n) { msg.textContent = 'Bitte einen Namen eingeben.'; return; }
       const btn = $('#r-save', o); btn.disabled = true; btn.textContent = 'Speichere …'; msg.textContent = '';
       let id = slug(n) || 'rezept'; if (byId[id]) id += '-' + Date.now().toString(36).slice(-4);
-      const keep = $('#r-keep', o) ? $('#r-keep', o).checked : false;
-      const files = keep ? images.map((u, i) => ({ path: `img/u/${id}-${i + 1}.jpg`, b64: u.split(',')[1] })) : [];
+      const covI = Number((o.querySelector('input[name=r-cov]:checked') || { value: 0 }).value);
+      const kept = images.map((u, i) => i).filter(i => o.querySelector(`[data-keep="${i}"]`).checked);
+      const order = kept.includes(covI) ? [covI, ...kept.filter(i => i !== covI)] : kept;
+      const files = order.map((i, n) => ({ path: `img/u/${id}-${n + 1}.jpg`, b64: images[i].split(',')[1] }));
       const out = {
         id, n, folder: $('#r-f', o).value, src: srcUrl || '',
         tags: $('#r-t', o).value.split(',').map(x => x.trim()).filter(Boolean),
         ing: lines('#r-i'), steps: lines('#r-s'),
         cover: files[0] ? files[0].path : '', pages: files.slice(1).map(f => f.path), added: new Date().toISOString().slice(0, 10)
       };
-      try { await saveUserRecipe(out, files); o.remove(); location.hash = '#/r/' + id; }
+      try {
+        await saveUserRecipe(out, files);
+        if (files.length && $('#r-fp', o) && $('#r-fp', o).checked && FB[out.folder]) { FB[out.folder].photo = id; persist(); renderFilters(); }
+        o.remove(); location.hash = '#/r/' + id;
+      }
       catch (e) { btn.disabled = false; btn.textContent = 'Speichern'; msg.textContent = '⚠ ' + e.message; }
     };
     $('#i-back', o).onclick = () => start();
+    const syncPics = () => {
+      const c = Number((o.querySelector('input[name=r-cov]:checked') || { value: 0 }).value);
+      o.querySelectorAll('[data-keep]').forEach(k => { if (Number(k.dataset.keep) === c) { k.checked = true; k.disabled = true; } else k.disabled = false; });
+    };
+    o.querySelectorAll('input[name=r-cov]').forEach(x => x.addEventListener('change', syncPics));
+    if ($('#r-only', o)) $('#r-only', o).onclick = () => { o.querySelectorAll('[data-keep]').forEach(k => { k.checked = k.disabled; }); };
+    if ($('#r-none', o)) $('#r-none', o).onclick = () => { o.querySelectorAll('[data-keep]').forEach(k => { k.disabled = false; k.checked = false; }); o.querySelectorAll('input[name=r-cov]').forEach(x => { x.disabled = true; }); };
+    if (images.length) syncPics();
   };
   const fromPhotos = async files => {
     try {
