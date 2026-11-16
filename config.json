@@ -69,6 +69,14 @@
    "show": true
   },
   {
+   "id": "Geflügel",
+   "name": "Geflügel",
+   "icon": "🍗",
+   "color": "#b5651d",
+   "parent": null,
+   "show": true
+  },
+  {
    "id": "Fisch",
    "name": "Fisch",
    "icon": "🐟",
@@ -89,14 +97,6 @@
    "name": "Gebäck",
    "icon": "🥐",
    "color": "#5f6b73",
-   "parent": null,
-   "show": true
-  },
-  {
-   "id": "Geflügel",
-   "name": "Geflügel",
-   "icon": "🍗",
-   "color": "#b5651d",
    "parent": null,
    "show": true
   },
