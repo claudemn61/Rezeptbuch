@@ -261,17 +261,17 @@
    "show": true
   },
   {
-   "id": "cmwjf3g5ufcl",
-   "name": "Dessert",
-   "icon": "🧁",
+   "id": "cmwjf03u2ve2",
+   "name": "Hauptgang",
+   "icon": "🍗",
    "color": "#7a5c9e",
    "parent": null,
    "show": true
   },
   {
-   "id": "cmwjf03u2ve2",
-   "name": "Hauptgang",
-   "icon": "🍗",
+   "id": "cmwjf3g5ufcl",
+   "name": "Dessert",
+   "icon": "🧁",
    "color": "#7a5c9e",
    "parent": null,
    "show": true
