@@ -240,3 +240,4 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .searchrow .tbtn{flex:none;width:42px;height:42px;padding:0;border-radius:50%;font-size:18px;line-height:1;display:grid;place-items:center;box-shadow:var(--shadow)}
 .searchrow .tbtn[hidden]{display:none}
 #q{padding-left:38px;font-size:16px}
+.crumbs .upbtn{padding:4px 12px;margin-right:8px}

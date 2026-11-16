@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.7.1';
+const APP_VERSION = '1.7.2';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -852,7 +852,7 @@ function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
   const inFolder = !state.q && FB[state.filter];
-  const head = inFolder ? `<nav class="crumbs"><a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '';
+  const head = inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '';
   countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
@@ -1025,6 +1025,11 @@ view.addEventListener('click', e => {
   }
   if (e.target.closest('#selmove')) { if (sel && sel.size) openMoveSheet(); return; }
   if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
+  if (e.target.closest('[data-up]')) {
+    const par = (FB[state.filter] || {}).parent;
+    if (par && FB[par]) state.filter = par; else { state.filter = 'alle'; state.browse = false; }
+    sel = null; renderFilters(); refresh(); window.scrollTo(0, 0); return;
+  }
   const crumb = e.target.closest('[data-crumb]');
   if (crumb) { e.preventDefault(); state.edit = false; if (crumb.dataset.crumb) state.filter = crumb.dataset.crumb; else { state.filter = 'alle'; state.browse = false; } renderFilters(); refresh(); window.scrollTo(0, 0); return; }
   const tile = e.target.closest('.tile');
