@@ -117,10 +117,10 @@
    "show": true
   },
   {
-   "id": "Kuchen",
-   "name": "Kuchen",
-   "icon": "🍰",
-   "color": "#a0527c",
+   "id": "Kekse",
+   "name": "Kekse",
+   "icon": "🍪",
+   "color": "#7a5c9e",
    "parent": null,
    "show": true
   },
@@ -141,18 +141,18 @@
    "show": true
   },
   {
-   "id": "Kekse",
-   "name": "Kekse",
-   "icon": "🍪",
-   "color": "#7a5c9e",
-   "parent": null,
-   "show": true
-  },
-  {
    "id": "Overnight Oats",
    "name": "Overnight Oats",
    "icon": "🥣",
    "color": "#7a4b3a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Kuchen",
+   "name": "Kuchen",
+   "icon": "🍰",
+   "color": "#a0527c",
    "parent": null,
    "show": true
   },
