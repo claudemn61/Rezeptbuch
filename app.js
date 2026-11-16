@@ -22,6 +22,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
 };
 
+const PLACEHOLDER = 'img/platzhalter.jpg';
 function imgUrl(ref, w) {
   if (!ref) return '';
   if (ref.startsWith('G:')) return 'https://lh3.googleusercontent.com/' + ref.slice(2).split('?')[0] + '=w' + w;
@@ -137,7 +138,7 @@ const pushRecent = id => store.set('rb_recent', [id, ...store.get('rb_recent', [
 
 function miniCard(r) {
   return `<a class="card mini" href="#/r/${r.id}">
-    <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 360))}" alt="">` : ''}</div>
+    <div class="ph"><img loading="lazy" decoding="async" src="${esc(r.cover ? imgUrl(r.cover, 360) : PLACEHOLDER)}" alt=""></div>
     <div class="body"><h3>${esc(r.n)}</h3></div></a>`;
 }
 
@@ -496,7 +497,7 @@ function renderList() {
   view.innerHTML = head + hint + '<div class="grid">' + res.map(({ r, hit }) => {
     const sn = snippet(r, hit, t);
     return `<a class="card" href="#/r/${r.id}">
-      <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 480))}" alt="">` : ''}</div>
+      <div class="ph"><img loading="lazy" decoding="async" src="${esc(r.cover ? imgUrl(r.cover, 480) : PLACEHOLDER)}" alt=""></div>
       <div class="body"><h3>${highlight(r.n, t)}</h3>
       ${sn ? `<div class="sn">${sn}</div>` : ''}
       <div class="tags">${foldersOf(r).map(x => `<span class="tag">${esc(folderName(x))}</span>`).join('')}${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
@@ -578,7 +579,7 @@ function renderDetail(r) {
   if (r.src) { try { host = new URL(r.src).hostname.replace(/^(www|m)\./, ''); } catch {} }
   view.innerHTML = `
     <button class="back" type="button" id="back">‹ Zurück</button>
-    ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
+    ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : `<div class="hero"><img src="${PLACEHOLDER}" alt="" data-noviewer="1"></div>`}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
     <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
