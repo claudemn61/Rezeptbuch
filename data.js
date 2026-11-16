@@ -5851,11 +5851,31 @@ window.REZEPTE = [
 {
   n: "Asiatischer Gurken-Rindfleisch-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "Sauce:",
+    "4 EL Sojasauce",
+    "3 EL Sonnenblumenöl",
+    "3 EL Weissweinessig",
+    "2 Knoblauchzehen, gepresst",
+    "1 Peperoncino, entkernt, fein geschnitten",
+    "1 TL Zucker",
+    "Salz, Pfeffer",
+    "Salat:",
+    "600 g Rindsplätzli à la minute",
+    "1 EL Sonnenblumenöl (1)",
+    "Salz, Pfeffer",
+    "1 Lauchstange, halbiert, fein geschnitten",
+    "1 EL Sonnenblumenöl (2)",
+    "1 Salatgurke, halbiert, in Scheiben",
+    "1 Bund gemischte Kräuter, z. B. Minze, Basilikum, Peterli und/oder Koriander, Blätter abgezupft",
+    "50 g geröstete und gesalzene Erdnüsse, grob gehackt"
   ],
   steps: [
-    
+    "Für 4 Personen. Zubereiten ca. 30 Minuten, ziehen lassen ca. 30 Minuten.",
+    "Sauce: Sojasauce, Sonnenblumenöl und Weissweinessig verrühren. Knoblauch, Peperoncino und Zucker beigeben, würzen.",
+    "Salat: Fleisch portionenweise im heissen Sonnenblumenöl (1) beidseitig je ca. 1 1/2 Minuten anbraten, aus der Pfanne nehmen, in Streifen schneiden, würzen.",
+    "Lauch im heissen Sonnenblumenöl (2) rundum ca. 3 Minuten anbraten, mit Fleisch und restlichen Zutaten bis und mit Kräutern in einer Schüssel mischen. Sauce dazugeben, mischen, ca. 30 Minuten ziehen lassen. Salat mit Erdnüssen garnieren."
   ],
+  port: 4,
   cover: "G:SsuNGVw-_ghyQ_Ohhf6K5erQ87Zwc5OD0JsFum6rjkChg_pjibpyXeMMIS3z3qB20OvIfH2ekZARuU4mSBamqBdvLRdE6goWZzw", pages: ["G:Zr3qw7tMetOZ1_LlQXADxbjfzPzyf2BiHRapElYWCz1V_V7JF6vZgdq1pKPhtDsSpx-wteSuOCWlXveEFKk-4peGOe54XovH1w"]
 },
 {
@@ -5910,30 +5930,77 @@ window.REZEPTE = [
 {
   n: "Blumenkohlsalat mit Feta", folder: "Salate", src: "",
   ing: [
-    
+    "900 g Blumenkohl",
+    "2 Dosen Kichererbsen (je ca. 400 g)",
+    "2 EL Öl",
+    "3/4 TL Salz",
+    "1 dl Wasser",
+    "1 EL Senf",
+    "1 Bio-Zitrone",
+    "3 EL Öl",
+    "1 EL flüssiger Honig",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "1 Bund glattblättrige Petersilie",
+    "200 g Feta"
   ],
   steps: [
-    
+    "35 Min. – vegetarisch, schlank, glutenfrei.",
+    "Blumenkohl in Röschen schneiden, Kichererbsen abspülen, abtropfen.",
+    "Öl in einer weiten beschichteten Bratpfanne heiss werden lassen. Blumenkohl ca. 5 Min. rührbraten, salzen. Hitze reduzieren, Wasser dazugiessen, zugedeckt ca. 10 Min. knapp weich köcheln. Deckel entfernen, Kichererbsen daruntermischen, ca. 5 Min. fertig köcheln.",
+    "Senf in eine Schüssel geben, von der Zitrone die Schale dazureiben, ganzen Saft dazupressen. Öl und Honig darunterrühren, würzen. Petersilie fein schneiden, mit dem Blumenkohl und den Kichererbsen unter die Sauce mischen. Feta grob zerbröckeln, darüberstreuen.",
+    "Portion (1/4): 536 kcal, F 32 g, Kh 37 g, E 22 g"
   ],
+  port: 4,
   cover: "G:ueA_CypEqIHzvPxvk0rOOKlefH-yxHUQr8Zdr9q4sVrKgdn3LKo8yPqXDtPVww6UWr8xMtOEBMIoZ6o10xwXCGeFG9_HJfW0jU4", pages: ["G:_U9CYyYv2SkaAB78_0R0lfZ77sA0ne9dlvKw8tMMbXbXxzwfJTVslRHae6nkj44lQu2H_13Idq7fM3KocR8-7DFhSddXr4DoHJ8"]
 },
 {
   n: "Blumenkohlsalat mit Granatapfel", folder: "Salate", src: "",
   ing: [
-    
+    "4 EL Honigsenf",
+    "1 EL Harissa",
+    "3 EL Olivenöl",
+    "1 TL Kurkuma",
+    "1 1/4 TL Salz",
+    "800 g Blumenkohl, in Röschen, Strunk geschält, in ca. 1 cm dicken Scheiben",
+    "1 Dose Kichererbsen (ca. 400 g), abgespült, abgetropft",
+    "200 g Goldhirse",
+    "Salzwasser, siedend",
+    "100 g Granatapfelkerne",
+    "3 EL Wasser"
   ],
   steps: [
-    
+    "Das braucht's für 4 Personen.",
+    "Blumenkohl: Senf und alle Zutaten bis und mit Salz in eine Schüssel geben, verrühren. 2 EL davon beiseitestellen. Blumenkohl und Kichererbsen beigeben, mischen, auf einem mit Backpapier belegten Blech verteilen.",
+    "Backen: Ca. 20 Min. in der oberen Hälfte des auf 200 °C vorgeheizten Ofens.",
+    "Hirse: Hirse im siedenden Salzwasser ca. 8 Min. knapp weich kochen. Hirse abtropfen, zurück in die Pfanne geben. Blumenkohl aus dem Ofen nehmen, mit den Granatapfelkernen zur Hirse geben, mischen, anrichten. Wasser mit der beiseitegestellten Senfsauce verrühren, darüberträufeln.",
+    "Tipp: 2 EL Oregano, fein geschnitten, mit den Granatapfelkernen und dem Blumenkohl unter die Hirse mischen."
   ],
+  port: 4,
   cover: "G:MCh735sFepqPWXItYxAK0HHzIYpQYOnIh-SOLrVV1Wc_sJKiK_5hXc9x9djDGEEQFovOfv607Z2sPJ3XrTOEQEv9dWCaj2eRTA", pages: ["G:7fodldyL6W2HgDEDUuSSefgNlYAiN9Pw6vomHM96k-VDbS8zyJRYG0Ikmu8dWShXQYoAJY_xnhv1ujHnxnU4V_UhXhXQsrbbYwg","G:eLPnc8PUaQcFjrljcSHaOR5FEHqvwLqQVxRRxol7LRLr25miYfPW-z01Z-99oIx8kgWg1clSNPwuR23kYrJX9RG124GuEjOtS6M"]
 },
 {
   n: "Broccoli-Avocado-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "Salat:",
+    "2 kleine Broccoli",
+    "3 genussreife Avocados",
+    "1 Handvoll Petersilie/Koriander",
+    "wenig Sesamkörner",
+    "wenig Fleur de Sel",
+    "Dressing:",
+    "etwas Saft von 3 Limetten",
+    "2 EL Tahini",
+    "2 EL Kikkoman Sojasauce less salt",
+    "3 EL hochwertiges Olivenöl",
+    "2 TL Honig oder Ahornsirup",
+    "1 Messerspitze Salz"
   ],
   steps: [
-    
+    "Den Broccoli in kleine Röschen schneiden. Die Röschen ca. 6–7 Minuten im Dampfgarer garen, bis er ein schönes, dunkles Grün erhält und noch bissfest ist. Die Röschen abkühlen lassen.",
+    "Avocados halbieren, den Stein entfernen und würfeln.",
+    "Petersilie oder Koriander hacken oder zerrupfen und mit Avocado und Broccoli auf Teller anrichten.",
+    "Alle Zutaten des Dressings gut vermischen und über Avocado und Broccoli träufeln. Mit Sesamkörnern und Fleur de Sel bestreuen."
   ],
   cover: "G:KnfPM7EupcKJwJtYS1qOAr8SryO3HyaGIp-FkMShKdTTMjOswfCG3u4pwmDMk8Zc1xeUu_p5K7mnDcxwNMOT0ujMDWVZtVmXYHc", pages: ["G:ST6AsmaV4JUdlFderixLEZ6e_tdE1wDAzXZi3UnE_8D4pkdrUGveT_R8lo9Llu2aJ4yEYhXLCCMFyF495e9lqF32cMsXzyXala4","G:U_hVqcaeNgZ34mEbQKo8QfcQsOjoenMxgQffB7tfoVS_0BBfKbMqWH0xp9-Y1zEsJCfz26Ry-kbtmfxkFSzGfPCgzBa_Vvz8Moc"]
 },
@@ -5962,20 +6029,51 @@ window.REZEPTE = [
 {
   n: "Bulgursalat", folder: "Salate", src: "",
   ing: [
-    
+    "1 EL Öl",
+    "150 g Bulgur",
+    "4 1/2 dl Wasser",
+    "1/2 TL Salz",
+    "1 Gurke",
+    "500 g Cherry-Tomaten",
+    "1 Bund Radiesli",
+    "200 g Feta",
+    "1 Bund Pfefferminze oder Petersilie",
+    "1 Bio-Zitrone",
+    "3 EL Öl",
+    "1/4 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Öl in einer Pfanne warm werden lassen. Bulgur unter Rühren ca. 2 Min. dünsten. Wasser dazugiessen, zugedeckt ca. 15 Min. köcheln, abtropfen, salzen.",
+    "Gurke halbieren, in Scheiben schneiden. Tomaten halbieren, Radiesli in Scheibchen schneiden, Feta zerbröckeln. Pfefferminze grob schneiden.",
+    "Von der Zitrone Schale abreiben, Saft auspressen, mit dem Öl verrühren, würzen. Bulgur, Gurke, Tomaten, Radiesli, Feta und Pfefferminze beigeben, mischen."
   ],
   cover: "G:WAWGKhTaXhJjg67vcu8suxvbewW7WuH0kZEM9dvtjKVZf1yrL96BwBXJ9m4ukBfFE7Yy9dZZ28ZEErY_mrwvP4w", pages: ["G:7N2P2AgP_ElQy6oLCFc7srT43QESqIv23yi0Wf0Iss_9hHm8DPUIWdH8MJiWD3iVbG21CkKlMA07sJcAGXczjQ"]
 },
 {
   n: "Couscous-Salat mit Tofu", folder: "Salate", tags: ["Vegetarisch"], src: "",
   ing: [
-    
+    "150 g Couscous",
+    "1/2 TL Salz",
+    "1 Bio-Zitrone",
+    "2 1/2 dl Wasser, siedend",
+    "3 EL Aceto balsamico bianco",
+    "5 EL Olivenöl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "1 Gurke",
+    "1 Bund Pfefferminze",
+    "1 Bund Koriander",
+    "1 Bund Radiesli mit wenig Grün",
+    "400 g geräucherter Tofu (z. B. smokey and almond, Karma)",
+    "2 EL Öl",
+    "Salz, Pfeffer, nach Bedarf"
   ],
   steps: [
-    
+    "20 Min. – vegan, schlank, laktosefrei.",
+    "Couscous und Salz in einer Schüssel mischen. Von der Zitrone die Schale dazureiben, ganzen Saft dazupressen. Siedendes Wasser über das Couscous giessen, zugedeckt ca. 5 Min. quellen lassen. Couscous mit einer Gabel lockern.",
+    "Aceto mit dem Öl in einer Schüssel verrühren, würzen. Gurke längs halbieren, in Scheiben, Pfefferminzblätter und Koriander fein schneiden. Radiesli vierteln, alles mit dem Couscous unter die Sauce mischen.",
+    "Tofu grob zerzupfen. Öl in einer beschichteten Bratpfanne heiss werden lassen. Tofu ca. 5 Min. braten, auf dem Salat verteilen, würzen."
   ],
   cover: "G:66kExj5iyEbyrGsttkLcJns3GZBwL1KdNwQElDBXjviD82QxBwZm8kA2-SyJ-UH9_5wxOtheauT2FwIwZi7UH4ewldeHOHMxLHzF", pages: ["G:AaVZCcuf7RkVokmhdSmUGj1RBl4QugzdHtAUHIyi4cWMKaryrwt3Swwl9sJh99E6XRR6xfEGfZg5_G0A-HfEgt_c8tSSzSJA1Us"]
 },
@@ -6039,11 +6137,23 @@ window.REZEPTE = [
 {
   n: "Federkohl-Blutorangensalat mit Kernen", folder: "Salate", src: "",
   ing: [
-    
+    "2 TL grobkörniger Senf",
+    "4 EL Aceto balsamico bianco dolce",
+    "4 EL Rapsöl",
+    "1/2 dl Gemüsebouillon, lauwarm",
+    "200 g Federkohl, gewaschen, gerüstet",
+    "200 g Rotkabis, in feinen Streifen",
+    "Salz, nach Bedarf",
+    "2 Blutorangen, geschält, in Scheiben",
+    "60 g Kernenmix, geröstet",
+    "3 Zweiglein Koriander, Blättchen abgezupft"
   ],
   steps: [
-    
+    "Für 4 Personen. 297 kcal pro Person. Aktive Zeit: 20 Min. Gesamtzeit: 20 Min. Vegan.",
+    "Federkohl: Senf und alle Zutaten bis und mit Bouillon in eine Schüssel geben, verrühren. Federkohl beigeben, von Hand ca. 2 Min. gut durchkneten. Rotkabis daruntermischen, ca. 5 Min. ziehen lassen, salzen, auf einer Platte anrichten.",
+    "Salat: Blutorangen, Kerne und Koriander darauf verteilen."
   ],
+  port: 4,
   cover: "G:MiOeXxrpA65pQUPzXcS-2OdpxfL2PS9yqlPTVckoWkUqdtZNmjPIu4VFd7y0dENLr4Dbgqq9BOShhkFoInX751Qxk8HbhfRwSy8", pages: ["G:k3sPGg7eoL5yP4wV9Usj49WCALj12XnMKDN9_-CVCN9hEjiUa89ilFMh5zHsLGe1GLVajGmLMz0CjHUpuzQ_V35qtI2wpvooDtM"]
 },
 {
@@ -6080,11 +6190,27 @@ window.REZEPTE = [
 {
   n: "Frühlingssalat mit Erdbeeren", folder: "Salate", src: "",
   ing: [
-    
+    "3 EL Aceto balsamico bianco",
+    "1 1/2 EL Olivenöl",
+    "1 EL Wasser",
+    "2 TL weisses Mandelmus",
+    "1/4 TL Salz",
+    "wenig tasmanischer Pfeffer",
+    "250 g Snack-Gurken, in feinen Scheibchen",
+    "150 g Erdbeeren, längs in Scheiben",
+    "1 Bund Radiesli mit dem Grün, Radiesli in feinen Scheiben, wenig Grün grob zerzupft",
+    "30 g Microgreens (z. B. mild)",
+    "20 g Gartenkresse",
+    "1/4 Bund Dill, zerzupft",
+    "1/4 Bund Pfefferminze, zerzupft",
+    "4 EL Mandelblättchen, geröstet"
   ],
   steps: [
-    
+    "Für 4 Personen. 144 kcal pro Person. Aktive Zeit: 20 Min. Gesamtzeit: 20 Min. Vegetarisch, vegan, glutenfrei.",
+    "Dressing: Aceto, Öl, Wasser und Mandelmus in einer Schüssel verrühren, würzen.",
+    "Salat: Gurkenscheiben und alle Zutaten bis und mit Mandelblättchen mit der Sauce mischen, sofort servieren."
   ],
+  port: 4,
   cover: "G:TdngNkLjswLyGDctAsD-_daqc2MO5-xLUFZ--eGV0y4JJA2-35wo8ixR28QcGqfx5PUkHNgwfolBVd6oPXaSlvUvUi8j4buoZwy0", pages: ["G:VkR4QiUrt6KBZfFCCudSEB9MO6s514PgolTxiVDj9J73VGdNIzfNcRBrWjomxkrmxGQrD0iefO6HZ49y7_thmfi9Y7wWSnqTqbg"]
 },
 {
@@ -6118,91 +6244,239 @@ window.REZEPTE = [
 {
   n: "Granatapfel-Rotkraut-Salat mit Quinoa", folder: "Salate", src: "",
   ing: [
-    
+    "120 g rote Quinoa",
+    "2,5 dl Bouillon",
+    "400 g Rotkohl",
+    "1/2 TL Salz",
+    "1 Granatapfel",
+    "1 Schalotte",
+    "2 EL Olivenöl",
+    "2 EL Apfelessig",
+    "Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Kleine Mahlzeit für 4 Personen. Zubereitung ca. 30 Minuten.",
+    "Quinoa mit warmem Wasser abspülen. Bouillon aufkochen. Quinoa dazugeben und ca. 10 Minuten köcheln lassen, bis fast keine Flüssigkeit mehr vorhanden ist. Pfanne vom Herd ziehen, Quinoa 5 Minuten quellen lassen.",
+    "Rotkohl vierteln, Strunk entfernen. Rotkohl fein schneiden. Mit Salz in einer Schüssel verkneten, bis er weich wird.",
+    "Granatapfel rundum ein-, aber nicht durchschneiden. In eine Schüssel mit Wasser geben, darin aufbrechen. Kerne unter Wasser auslösen. So lassen sie sich einfach von den Häutchen trennen. Häutchen von der Wasseroberfläche abschöpfen. Wasser abgiessen. Schalotte hacken. Granatapfelkerne, Quinoa, Öl, Essig und Rotkohl mischen. Mit Pfeffer abschmecken. Salat anrichten und servieren.",
+    "Pro Person ca. 6 g Eiweiss, 7 g Fett, 33 g Kohlenhydrate, 1000 kJ/250 kcal"
   ],
+  port: 4,
   cover: "G:0qhEGi5Ize4d_QS71kXTPaFVdPCHFg7OIV9k88foQaT4hLbStHmKmldu2JQNH1vg6jlY-vlgpsdwmwvhkg7FnQ", pages: ["G:LK4YMnS6aorpW2Qdlrsyn-EmPgBN2HUh871rnQIVLs-hpO6RMKZNANFFqrduUKCqt0jmRJMjuhVSp6-ZzgphAA","G:grW9Kxi79oia8YTFdVqMYJDshaRF4B5ulgGKDnsD7FKGBEhtRHwSV5OTQF71KBsViWfEHW7-wwI3BvVhiqRBMg"]
 },
 {
   n: "Grillierter Zucchetti-Tabasco-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "Dressing:",
+    "4 EL Rotweinessig",
+    "2 EL Olivenöl",
+    "2 TL roter Tabasco",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "Salat:",
+    "1 kg Zucchetti, längs in ca. 5 mm dicken Scheiben gehobelt",
+    "2 EL Olivenöl",
+    "1 1/4 TL Salz",
+    "wenig Pfeffer",
+    "60 g Pinienkerne, geröstet",
+    "4 Zweiglein Thymian, Blättchen abgezupft",
+    "1 roter Peperoncino, entkernt, in feinen Ringen"
   ],
   steps: [
-    
+    "Für 4 Personen. Aktive Zeit 25 Min., Gesamtzeit 29 Min., 229 kcal pro Person. Vegan, glutenfrei.",
+    "Dressing: Essig, Öl und Tabasco in eine Schüssel geben, verrühren, würzen.",
+    "Grillieren (Holzkohle-, Gas-, Elektrogrill): Zucchettischeiben mit Öl bestreichen, würzen, offen über mittelstarker Glut/auf mittlerer Stufe (ca. 200 °C) beidseitig je ca. 2 Min. grillieren.",
+    "Anrichten: Zucchetti zum Dressing geben, mischen. Pinienkerne, Thymian und Peperoncino darüberstreuen.",
+    "Dazu passt: Grilliertes Fleisch.",
+    "Tipp: Den Salat mit Zucchettiblüten garnieren."
   ],
+  port: 4,
   cover: "G:100RF79B-J4ERsGtIbKEigytS3VTW4KZqGPi5zHvs0yDwXprWkjPY4cXSZnTJCRsghZXeFIj6ocuXvbbesVJxIz11J1BTgQK7Q", pages: ["G:g26NN6vUGcZll-xiS3qLYmtoh6V-RTYm4VXewrg3Oj_YKco6o8wSVjdUAfm3xJ4zhZCuTueSBzyCEaOJk33Qz_DQvaF-4IK4tpA"]
 },
 {
   n: "Grüner Papaya-Salat", folder: "Salate", tags: ["Asiatisch"], src: "",
   ing: [
-    
+    "2 Stängel Zitronengras",
+    "2 rote Chilis",
+    "3 Knoblauchzehen",
+    "20 g Ingwer",
+    "1 Limette",
+    "1 EL Fischsauce",
+    "2 EL Sojasauce",
+    "1 EL geröstetes Sesamöl",
+    "2 EL Rohzucker",
+    "1 grüne Papaya (ca. 500 g)",
+    "1 rote Zwiebel",
+    "1 Rüebli",
+    "1 Bund Koriander",
+    "4 EL gesalzene Erdnüsse"
   ],
   steps: [
-    
+    "Inneres der Zitronengrasstängel fein schneiden. Chilis halbieren, entkernen. Knoblauch und Ingwer schälen, in Stücke schneiden, im Mörser zerstossen.",
+    "Limette heiss abspülen, trocken tupfen. Limettenschale abreiben, Saft auspressen. Beides mit Fischsauce, Sojasauce, Öl und Zucker unter die Paste mischen.",
+    "Papaya schälen, längs hobeln, in feine Streifen schneiden. Zwiebel und Rüebli in feine Streifen schneiden, unter die Sauce mischen.",
+    "Koriander grob schneiden, Erdnüsse hacken, über den Salat streuen."
   ],
+  port: 4,
   cover: "G:iDcANAsXtrHICUT4onjfR_Mq3VROWeOuPwEoUIMhVhJvmzW0dnA3v3A557ov3phKZqj3bm0-HnjXDxqL3XrH", pages: ["G:4TDY75H90JtjniuBh1y1E8JpmQA2_bCWHt6lsUjF-KQl3Zvf0i6gdSf6q5zWGx-SChCcxaw6sfCI51PL9m5aMgs","G:G6IUxhlBpJ7m-GD9mVE6Je7h-GFJNytjiBWg3-TNRFdcz2XzJSPwSDOYClVTPcMFDIxLkcIb5EQOwPz4kqwzUA"]
 },
 {
   n: "Grüner Quinoa-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "200 g Quinoa (z. B. Tricolore)",
+    "Salzwasser, siedend",
+    "500 g tiefgekühlter Broccoli",
+    "6 EL Essig",
+    "4 EL Öl",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "3 Bundzwiebeln mit dem Grün",
+    "1 Bund Petersilie",
+    "6 hart gekochte Eier",
+    "150 g Blauschimmelkäse",
+    "40 g getrocknete Cranberrys"
   ],
   steps: [
-    
+    "Quinoa im siedenden Salzwasser ca. 20 Min. al dente kochen, dabei ca. 6 Min. vor Kochende Broccoli mitkochen, beides abtropfen.",
+    "Essig und Öl verrühren, würzen. Bundzwiebeln mit dem Grün in feine Ringe, Petersilie grob schneiden, mit Quinoa und Broccoli zur Sauce geben, mischen.",
+    "Eier schälen, vierteln, Käse in Stücke schneiden, auf dem Salat anrichten, Cranberrys darüberstreuen.",
+    "Variante: Statt Blauschimmelkäse 200 g Hüttenkäse verwenden.",
+    "Portion (1/4): 620 kcal, F 35 g, Kh 43 g, E 28 g",
+    "Hinweis: Das Foto ist links abgeschnitten, der Titel fehlt."
   ],
+  port: 4,
   cover: "G:8Qns-AFG_6pNj8kI2HYeoOrRditFXg3_iN7gEyXW4g8Cyoy7tErjPukphfuOfDS8kvbjpQvE3oBKNmWLGc5z_A", pages: ["G:g8qsuocntpJpWa5-IbLYMdsV9lW3ohbCSZHTBwIOlsjQr6HywfF3fda5csc98ZKGfuPC0mPRfeDmmAkzqAM-b3w"]
 },
 {
   n: "Kräutersalat mit Tofu", folder: "Salate", tags: ["Vegetarisch"], src: "",
   ing: [
-    
+    "Tofuwürfel:",
+    "200 g Tofu, geräuchert",
+    "1 EL Sojasauce, hell",
+    "1 Schalotte",
+    "1 EL Olivenöl",
+    "Kräutersalat:",
+    "300 g Cherry-Tomaten",
+    "100 g Brunnenkresse",
+    "50 g Rucola",
+    "50 g Spinatblätter, jung",
+    "Dressing:",
+    "2 EL Apfelessig",
+    "1 EL Granatapfel-Balsamico",
+    "2 EL Rapsöl",
+    "2 EL Olivenöl",
+    "1 EL Leinöl",
+    "1 Bund Schnittlauch",
+    "Salz, Pfeffer aus der Mühle, etwas Salatgewürz"
   ],
   steps: [
-    
+    "Tofu in ca. 1 cm grosse Würfel schneiden. Die Schalotte schälen und fein hacken. Olivenöl in einer Pfanne erhitzen. Tofuwürfel und Schalotte anbraten, mit Sojasauce ablöschen und braten, bis die Flüssigkeit verdampft ist. Beiseitestellen.",
+    "Für das Dressing alle Zutaten mischen, Schnittlauch waschen, in feine Röllchen schneiden und dazugeben. Sauce würzen.",
+    "Für den Kräutersalat Rucola und Spinat waschen und trockenschütteln. Zusammen mit der Brunnenkresse in eine Schüssel geben. Cherry-Tomaten waschen, vierteln und dazugeben.",
+    "Kräutersalat mischen und auf Teller anrichten. Tofuwürfel verteilen und mit Dressing beträufeln."
   ],
+  port: 4,
   cover: "G:h7QbKgBnX13h3r_Zn3R9FNjK22ITerILrwvyeX7pnl2hSjoNg2yo_Z477Amhpxuiyl1jp_HEwYXuqR8_Y1NAgw", pages: ["G:NlkAlC5geTlVp-FyT0JNrdRP0Deu8vDiUvPTlGoASIFc6I9eBu-rndMptSa0ow8GxQ-5PB-CiTcdh6JJyGQJbPo","G:X95xoPJ14MNRI8XGdHIzg28asPk-7Ni2Vtajs7Na34pEZMTt2BrmBS5wa3F8tW7aehOBRlOxt-oPdDIXpS_BTg"]
 },
 {
   n: "Lauwarmer Kartoffelsalat mit Feta", folder: "Salate", src: "",
   ing: [
-    
+    "250 g Kartoffeln, festkochend, geschält, gewürfelt",
+    "2 dl Olivenöl",
+    "1/2 dl Aceto Balsamico",
+    "1 Salatgurke",
+    "3 Tomaten",
+    "1/2 TL Oregano, getrocknet",
+    "50 g Oliven, schwarz, entsteint",
+    "100 g Feta, klein gewürfelt",
+    "1 Zwiebel, in Ringe geschnitten",
+    "Salz, Pfeffer"
   ],
   steps: [
-    
+    "Zubereitung: 25 Min.",
+    "Kartoffeln in 1/2 dl Olivenöl rundum gut anbraten, bis sie gar sind. Mit Salz und Pfeffer würzen. In ein Sieb geben und Öl in einer Salatschüssel auffangen. Das restliche Öl zugeben und mit Aceto Balsamico verrühren.",
+    "Gurke und Tomaten in Würfel schneiden. Mit den lauwarmen Kartoffeln und der Sauce vermischen. Mit Oregano, Salz und Pfeffer würzen.",
+    "Mit Oliven, Feta und Zwiebelringen garnieren und servieren."
   ],
+  port: 4,
   cover: "G:FcrNxotUr-R-rJZxxBZ1_DL6fqL29L6wMEYapTd01ztagEZJpH7ZcRu-kG9MSsNQ3VZmgo-iw1Jz3-dPkxSP", pages: ["G:h8kJAHeiQ8CFWUgifNG8-zsZS8A2HKYCyoughTyDM1aC2LIJ5WwJDrlQ3afCp4LAxVLxLVaD7J5lKQiwHJfGzg","G:UVEF53_kwD-c6anFes3s69BCQnpyEGxdgR8Df5-1CuqqO07lp8UKzjnZrSU-QuVl595Ha8w6sleWc8-DOEwy"]
 },
 {
   n: "Mango-Avocado-Salat mit Crevetten", folder: "Salate", tags: ["Vorspeisen"], src: "",
   ing: [
-    
+    "1 Mango (ca. 400 g)",
+    "1 roter Chili",
+    "1 Limette",
+    "2 EL Wasser",
+    "2 EL Aceto balsamico bianco",
+    "2 EL Olivenöl",
+    "1/2 EL flüssiger Honig",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "2 Avocados",
+    "30 g Rucola",
+    "1 EL Olivenöl",
+    "400 g rohe, bis auf das Schwanzende geschälte Crevettenschwänze (Bio...)",
+    "1/2 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Für 8 Gläser von je ca. 2 dl.",
+    "Mango schälen, die Hälfte in Würfeli schneiden, beiseitestellen. Restliche Mango in Stücke schneiden, in einen Messbecher geben. Chili entkernen, beigeben. Limette heiss abspülen, trocken tupfen, Schale dazureiben, Saft dazupressen, mit Wasser, Aceto, Öl und Honig pürieren, würzen.",
+    "Avocados schälen, in Würfeli schneiden, mit den beiseitegestellten Mangowürfeli und dem Rucola in die Gläser verteilen, Sauce darüberträufeln.",
+    "Öl in einer beschichteten Bratpfanne heiss werden lassen. Crevetten beidseitig je ca. 1 Min. braten, würzen. Crevetten auf dem Salat anrichten.",
+    "Lässt sich vorbereiten: Sauce ca. 1/2 Tag im Voraus zubereiten, zugedeckt im Kühlschrank aufbewahren.",
+    "Hinweis: Die Fotos sind am Rand abgeschnitten; die Crevetten-Angabe (Bio …) ist unvollständig."
   ],
+  port: 8,
   cover: "G:Owu9Hen3ZxXbXh1dhrvteE7G7okcL8XrOYTh4j9_c7sWgckDTM0J5XormxY2fKcTaBj3x6drxjiO6QggiGb5G0YxJk3CBt6BcWvL", pages: ["G:_B1vCMxyCCurN-26QqmyT45whqJ0363b2c3pi0JNWzsFQKFiy4zJhH8JHFdsxDkLBByDtrfpPfJig6tJhnCqvELYFi9wEXoBd1NM","G:Rln5iPGOtmu60jsjRqcTkZoy4ztI0qped0ChRJuY4sIsc_hj98TDqlh64bLMTsyEHt3PiM0_OFHdmUgUf-H1_NFZC7ACUHnvSWcg"]
 },
 {
   n: "Mediterraner Brotsalat", folder: "Salate", src: "",
   ing: [
-    
+    "200 g Brot vom Vortag, in Würfel geschnitten",
+    "4 EL Olivenöl (1)",
+    "6 EL Essig, z. B. Aceto balsamico",
+    "6 EL Olivenöl (2)",
+    "Salz, Pfeffer",
+    "4 Tomaten, in Schnitze geschnitten",
+    "1/2 Gurke, in Würfel geschnitten",
+    "1/2 Zwiebel, in Ringe geschnitten",
+    "100 g schwarze Oliven",
+    "155 g Thon rosé nature aus der Dose, abgetropft, mit der Gabel zerzupft",
+    "2 EL Schnittlauch, in Röllchen geschnitten"
   ],
   steps: [
-    
+    "Für 4 Personen. Zubereiten ca. 20 Minuten, ziehen lassen ca. 30 Minuten.",
+    "Brot in einer Bratpfanne im heissen Olivenöl (1) knusprig braten. Auskühlen lassen.",
+    "Essig, Olivenöl (2), Salz und Pfeffer zu einer Sauce verrühren.",
+    "Tomaten und alle Zutaten bis und mit Thon in eine Schüssel geben, Salatsauce und Brot untermischen, 30 Minuten ziehen lassen. Mit Schnittlauch garnieren und servieren.",
+    "Tipp: Der Salat eignet sich gut für die Resteverwertung. Auch gekochte Eier, Salami oder Gemüse passen hervorragend hinein."
   ],
+  port: 4,
   cover: "G:8YJLN5c_iNSOPIOpuB3aMyrYYQ3qHrVQOPxL0AVOP7BrQ6r7JIZDeFjjf8NFaN3LJNvgBp0HwIhcsUnoF7z_426ybXU9FCkl5gk", pages: ["G:g6tlyGtTwLQOs8towdJW9Hb4Y3t0wTf-vv29fDuzaZ5AtawSDz6ov_igPd7_ZWlLxewNPtINXJIa4rxjvceHaKo6arVVfT03xrY","G:jl-Z1bhsG82O2B7wViLVwxbGjE5wlhMOQUM5CWls4Y2fvKEaVmv5fDZlShp7COl1xsV9_TPJSwzz9s8rWcLK21lrPp39O0kRF6Y"]
 },
 {
   n: "Melonensalat", folder: "Salate", src: "",
   ing: [
-    
+    "1 Galia-Melone",
+    "4 Snackgurken",
+    "1/4 Bund Pfefferminze",
+    "50 g Rucola",
+    "1 Frühlingszwiebel",
+    "Olivenöl für die Sauce und Croûtons",
+    "3 EL Essig, z. B. Aceto balsamico",
+    "Salz",
+    "Pfeffer aus der Mühle",
+    "2 Scheiben Weissbrot",
+    "50 g geriebener Käse, z. B. Emmentaler"
   ],
   steps: [
-    
+    "Melonensalat mit Käsecroûtons. Kleine Mahlzeit für 4 Personen.",
+    "Melone schälen, halbieren und entkernen. In sehr dünne Scheiben schneiden und in einer Schüssel anrichten. Gurken in dünne Scheiben schneiden. Minzeblättchen von den Stielen zupfen, mit Gurkenscheiben und Rucola auf der Melone anrichten. Frühlingszwiebel hacken, darüberstreuen. 6 EL Öl, Balsamico, Salz und Pfeffer verrühren.",
+    "Etwas Olivenöl in einer beschichteten Bratpfanne mit Deckel erhitzen. Brotscheiben darin goldbraun antoasten. Hitze reduzieren. Brot wenden, mit Käse bestreuen und zugedeckt nochmals antoasten, bis der Käse geschmolzen ist. Mit Pfeffer würzen. Brot herausnehmen, in Würfel schneiden. Croûtons auf dem Salat anrichten, alles mit Dressing beträufeln und sofort servieren."
   ],
+  port: 4,
   cover: "G:nrD9tg42T5p3HR1YcfWvlrAJNiCWJDAAqRdDxxCdQX-AEEK14LCR6D27MU1coOXG65T_YZ2uvsfLWL2ZEUKFBw", pages: ["G:N3LuVk1WVCjX_PxVPdX-7rJAWlJ2KSw7tVH0koovj5OxBPLxu9FsTqfCJyOfANshOnE8t6IKK8HmOE5NZy_4pw","G:a2hjjbY7aU0Wje2kBAr8gDWKpHCMbK8V-B-Xmp_lh-fZeyyFbeK4VOuoIN4tk6RQI5e7SdZT4giZqKIlGw1U"]
 },
 {
@@ -6218,41 +6492,99 @@ window.REZEPTE = [
 {
   n: "Nüsslisalat mit Speck, Pilzen & Ei", folder: "Salate", src: "",
   ing: [
-    
+    "400 g Nüsslisalat",
+    "120 g Speckwürfel",
+    "120 g Champignons",
+    "4 Eier, gekocht",
+    "12 g Salat-Mix Classic",
+    "5 g Agliata",
+    "6 EL Olivenöl Extra Vergine",
+    "3 EL Balsamico Bianco"
   ],
   steps: [
-    
+    "Balsamico Bianco, Olivenöl, Salat-Mix Classic und Agliata mischen.",
+    "Den Salat und die Pilze gut waschen. Den Salat abtropfen lassen und Pilze in Stücke schneiden.",
+    "Speckwürfel und Pilze in Bratpfanne geben und anbraten.",
+    "Die Eier schälen und in beliebige Grösse schneiden.",
+    "Den Salat auf die Teller geben. Die Sauce darüber verteilen und mit Speck, Pilzen und Eiern garnieren."
   ],
   cover: "G:POT8Djb2r-iULFsT9EJK2heJf0ui3NONq9k1rE1dAKPTbszFKWFO7csuyUTEL6jIya3OY1X2yaSIYCyeb122YoJofgm5WeqsAg", pages: ["G:Mnh_Nl8QGjWbzTyjOZYT0jv69776nZ8c8h7Ks43Yu2hqHH_oEiNrZ1Nxu6MIxumuomRA42KpHulWJm5CZWnOdrfRCIIJ7YZCAA","G:D9m4gtHMCHPt3eko1xL9uFfg1hsg0HIUA9JsEgU3VEtTMv-fewwxfl2uU750EB8Vn4yuSVur_hOGT5yujM1PefiUgXUuNn0h0VM"]
 },
 {
   n: "Papaya-Gurken-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "2 grüne Papayas à ca. 500 g, aus dem Asia-Shop",
+    "30 g Ingwer, gerüstet gewogen",
+    "2 Gurken",
+    "2 Bund Frühlingszwiebeln",
+    "2 Bund Koriander",
+    "4 Peperoncini",
+    "4 Limetten",
+    "1 dl Rapsöl",
+    "2 EL Sesamsamen",
+    "4 EL Honig",
+    "5 EL Sojasauce",
+    "Salz, Pfeffer",
+    "200 g Cashewkerne"
   ],
   steps: [
-    
+    "Beilage für ca. 12 Personen. Zubereitung ca. 40 Minuten.",
+    "Papayas schälen, längs halbieren und entkernen. Papayas in zündholzgrosse Streifen schneiden oder an der Röstiraffel in eine Schüssel reiben. Ingwer fein dazureiben. Gurken längs halbieren und entkernen. Mit den Frühlingszwiebeln in dünne Scheiben schneiden. Koriander hacken. Peperoncini längs halbieren, entkernen und fein schneiden.",
+    "Limetten auspressen. Limettensaft, Öl, Sesam, Honig und Sojasauce mischen. Mit Salz und Pfeffer abschmecken. Cashewkerne in einer Bratpfanne ohne Fett rösten, bis sie etwas braun sind. Salat mit Dressing mischen. Mit Cashewkernen bestreuen und servieren.",
+    "Pro Person ca. 6 g Eiweiss, 11 g Fett, 15 g Kohlenhydrate, 800 kJ/190 kcal"
   ],
+  port: 12,
   cover: "G:RtL0i9iRnltR4xwiuK8FdW8Ll3eJE4rE13mByWx9mJOr_pU-i2PlynGQfUsWsCEe2sulx4T6prZkvbtNVTye-IrvTXt-6K_1Rw", pages: ["G:6zknKgyaEjaacFjAp3M3afdsIdi7K29BTYrpdMNuVh7JAibP-7yynrXRsjLoTpJUiFOaz-h7W8ToL5j__ZpK"]
 },
 {
   n: "Peperoni-Brot-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "300 g Snackpeperoni",
+    "1 Zwiebel",
+    "2 Knoblauchzehen",
+    "200 g Brot",
+    "150 g Bratspeck",
+    "6 EL Olivenöl",
+    "100 g Pimientos de Padrón",
+    "2 EL Apfelessig",
+    "Fleur de sel",
+    "50 g Parmesan am Stück"
   ],
   steps: [
-    
+    "Gebratener Peperoni-Brot-Salat. Kleine Mahlzeit für 4 Personen.",
+    "Grill auf 200 °C vorheizen. Peperoni rüsten und in Stücke, Zwiebel in Schnitze schneiden. Knoblauch zerdrücken. Brot in Würfel à ca. 1 cm, Speck in Streifen schneiden. Eine ofenfeste Bratpfanne auf den Grill stellen. Öl darin erhitzen. Zutaten bis und mit Speck beigeben. Ca. 10 Minuten unter gelegentlichem Wenden bei mittlerer Hitze braten. Pimientos kurz vor Schluss dazugeben und mitbraten. Peperoni-Brot-Salat mit Essig und Fleur de sel abschmecken. Parmesan grob darüberhobeln und servieren.",
+    "Zubereitung ca. 30 Minuten (Einsteiger).",
+    "Pro Person ca. 17 g Eiweiss, 28 g Fett, 29 g Kohlenhydrate, 1850 kJ/450 kcal"
   ],
+  port: 4,
   cover: "G:jHOeMUg7r4T4yk9yPzPYZON39VJsf-73VG3oXnYOJKHrGPZ5EZtKJqHDpwDwduN5xgo4vftfluwuobjUzKaC", pages: ["G:Uxa2aF1976v1HvQh0bCO5QWkzdDdAOsro8Qd6FEJ-aV4ZYlWlm-EZFNQNYxA7GM9eN1UWJIYBiMxpt-kVuhL","G:NFXCZei5j2hnTsnOC4I7qdskdIXGAa6Wb87pbw4spLpBqDkk6qWa5fk4P8tULNZIAWoL5MB36Ak-HbYcBJCiFQo"]
 },
 {
   n: "Quinoa-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "250 g Cocktailtomaten",
+    "2 EL Olivenöl",
+    "1 rote Zwiebel",
+    "1 Knoblauchzehe",
+    "200 g roter Quinoa",
+    "2 TL Knorr 100% natürliche Zutaten Gemüsebouillon Pulver",
+    "600 ml Wasser",
+    "250 g gekochte Bohnen",
+    "50 g Radiesli",
+    "10 Basilikumblätter",
+    "1 Avocado (reif)",
+    "1 Bio-Zitrone",
+    "1/2 TL Jodsalz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Für 4 Portionen.",
+    "Tomaten waschen und halbieren. Ein Backblech mit 1 EL Olivenöl beträufeln und die Tomaten mit der Schnittfläche nach oben auf dem Backblech verteilen. Tomaten im vorgeheizten Backofen bei 150 °C Ober-/Unterhitze ca. 30 Minuten trocknen.",
+    "Zwiebel und Knoblauch schälen und fein hacken. Im restlichen Olivenöl in einem Topf glasig dünsten. Quinoa und 600 ml Wasser zufügen, aufkochen und Bouillon unterrühren. Bei mittlerer Hitze 9–10 Minuten kochen, bis der Quinoa weich ist. In ein Sieb abgiessen und abkühlen lassen.",
+    "Radiesli waschen und halbieren. Basilikum waschen und trocken schütteln. Avocado halbieren, Kern entfernen, Fruchtfleisch mit einem Löffel herausheben und in Spalten schneiden. Zitrone heiss abwaschen, trocken reiben und die Schale abreiben. Zitrone auspressen.",
+    "Quinoa, Tomaten, Bohnen, Radiesli und Avocado in eine Schüssel geben. Basilikum zupfen und darauf verteilen. Mit Zitronensaft, Zitronenschale, Salz und Pfeffer würzen."
   ],
+  port: 4,
   cover: "G:abOtdrDFYGr4U9teqM5NitBp0-0dyPjOzmlPd06nGx8kAyT66y-RVnyHQDKjigihAzSd9RY6mabENt_qCTE_4pTdJsoh-_CS5Y0", pages: ["G:WP8MhvHH28l-l5l-eK2Jdu9gxy2i3Ur8SEDlthf16BiRz2FmyWD9b1V9hXG-d4YayLI6kTN0wXRvZdpWVkp17UC6ywTxc47Qdghx","G:4bVJ45nnfUEMm8PDOGAyA5COOaKcX4lrLuo4iBH_Ety9k2UM6iKMWJU04flEtMTGbCw4BMtXChi7vbxCwEZbQo73Nbt7_txEPQ"]
 },
 {
@@ -6303,41 +6635,92 @@ window.REZEPTE = [
 {
   n: "Rosenkohl-Couscous-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "200 g Pearl Couscous",
+    "Salzwasser, siedend",
+    "500 g Rosenkohl, Blätter abgelöst",
+    "160 g Bratspeck in Tranchen, in Streifen",
+    "2 Knoblauchzehen, in Scheibchen",
+    "2 EL Senf",
+    "4 EL Aceto balsamico bianco",
+    "2 EL Olivenöl",
+    "Salz, Pfeffer, nach Bedarf",
+    "50 g Parmesan, mit dem Sparschäler Späne abgeschält",
+    "1/2 Granatapfel, Kerne ausgelöst"
   ],
   steps: [
-    
+    "Rosenkohl-Pearl-Couscous-Salat. Aktive Zeit 30 Min., Gesamtzeit 30 Min., 503 kcal pro Person. Für 4 Personen.",
+    "Couscous: Couscous im siedenden Salzwasser ca. 8 Min. kochen. Rosenkohl während den letzten 2 Min. mitkochen, abtropfen, in eine Schüssel geben.",
+    "Salat: Speck ohne Zugabe von Fett in einer Bratpfanne langsam knusprig braten. Knoblauch beigeben, ca. 1 Min. mitbraten. Herausnehmen, auf einem Haushaltpapier abtropfen. Senf, Aceto und Öl verrühren, würzen. Dressing und Speck zum Couscous geben, mischen. Salat anrichten, Parmesanspäne und Granatapfelkerne darauf verteilen."
   ],
+  port: 4,
   cover: "G:bSF8kqDaq2odk8KfQUgu9Fc3yj340zoL51NzjjvbvL9VzrWHed5KgbV2iMK_WFCWKgR1gO40RImtzMklxbYMAlbz5hqnNNibWQ", pages: ["G:-M2Dy8hd_2LK9Oa_e1RxB7eqtWHs3ZR_VMzYLaqJFaHAMmTsFFVxs-gk3B9e04zXTFOk3OxUeWI2WDd2KDafVxASGEOcACv97pQ","G:yxgp82sjr4drH_TWokI5Fw4sEzLBxFlDyBP4VevCpGTJfDhQtbawarSlWgO6R2o6QEAOQvUicdxdNWOksMMp70-qJ4EU5sNW1ZRD"]
 },
 {
   n: "Salat aus rohen Spargeln mit Fenchel", folder: "Salate", src: "",
   ing: [
-    
+    "400 g grüne Spargeln",
+    "300 g weisse Spargeln",
+    "2 Fenchel",
+    "50 g Pinienkerne",
+    "1 Knoblauchzehe",
+    "1 Zitrone",
+    "3 Zweige Pfefferminze",
+    "1 dl Olivenöl",
+    "Salz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Grüne Spargeln in der unteren Hälfte schälen. Enden anschneiden. Weisse Spargeln vom Köpfchen weg schälen und Enden anschneiden. Von beiden Spargelsorten die Spitzen ca. 3 cm lang abschneiden und längs halbieren. Spargelstangen schräg in ca. 5 mm breite Scheibchen schneiden. Fenchel fein hobeln.",
+    "Pinienkerne in einer beschichteten Pfanne ohne Fett rösten. Knoblauch zu den noch heissen Kernen pressen. Alles mischen und abkühlen lassen.",
+    "Zitronenschale fein abreiben, Zitrone auspressen. Minze in feine Streifen schneiden. Spargel und Fenchel mit Zitronenschale und -saft, Öl, Pinienkernen und Minze mischen. Salat mit Salz und Pfeffer abschmecken. Ca. 10 Minuten ziehen lassen. Dazu passt Kernenbrot.",
+    "Tipp: Spargeln, Fenchel und Minze harmonieren nicht nur farblich, auch geschmacklich passen die drei sehr gut zusammen."
   ],
+  port: 4,
   cover: "G:KLHtaHPXKsD2jFKqPp8rl9_Sj9-4e_SR6wgAYEjIWW7341FjUegWvBIfXbhJfIlUyRqSVrOybc4vzK0tKlBa0X8", pages: ["G:3aVOGTqX2-TTTAUM_S8R-i8nINqIVN9X_Ff7n7LkqFsfZSWHNY8wLstkhaRWxC5kFL3-x3qmnWBkKGL9GopXNg","G:kN4VWu-JxjSk_oVLGbmZuweA1xU63CHsDEEIUHy6x7memSo2qUmLyKyaU3cWQeavDSvRce2k1FLzgiqwlh5wzw"]
 },
 {
   n: "Salat mit Steinpilzen und Hirschsalsiz mit Feigendressing", folder: "Salate", src: "",
   ing: [
-    
+    "2 Hirschsalsize à 100 g",
+    "200 g Steinpilze",
+    "2 EL HOLL-Rapsöl",
+    "4 frische Feigen",
+    "200 g Blattsalat",
+    "Dressing:",
+    "1 Schalotte",
+    "2 EL Feigenkonfitüre",
+    "4 EL Aceto balsamico bianco",
+    "6 EL Traubenkernöl",
+    "Salz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Für das Dressing Schalotte hacken. Mit Feigenkonfitüre, Essig und Öl verrühren. Mit Salz und Pfeffer abschmecken und beiseitestellen. Salsize längs vierteln und in Würfelchen schneiden. Pilze rüsten und in mundgerechte Würfel schneiden. In einer Pfanne Öl erhitzen. Pilze dazugeben und ca. 2 Minuten anbraten. Mit Salz und Pfeffer abschmecken. Salsizwürfel dazugeben und mischen. Feigen in Scheiben schneiden. Steinpilze und Salsiz mit Salat und Feigen anrichten. Feigendressing über den Salat träufeln.",
+    "Zubereitungszeit ca. 20 Min."
   ],
   cover: "G:lSaUCswUnRQYWC2dz_xeg90lMFTD5BCn-xMVpAwRdLdQce-KuACrxMvhrk7uVsqNGaT2E3aULi8KlXrg7vy4EQ", pages: ["G:5Cw40h8Sc0PVJjsyfsTJ0c16J7YyVjnkwYFmd7r7ZOwcb3OkVWSlYxrDBei98jz2xIdG4wWeAe9VP03eHfIIiA","G:fJialCRhUVLRR8gXQK-BzEhk6MrjhHZvrYFUz8vB6-B7MegC-qrSeheDzQvBRwkY4G5mUtHRP1noS4mvmb0U2Q"]
 },
 {
   n: "Schwarzer Reissalat mit Pfirsich", folder: "Salate", src: "",
   ing: [
-    
+    "250 g Venere-Reis",
+    "Salzwasser, siedend",
+    "1 Bund Koriander, grob geschnitten",
+    "1 Bund glattblättrige Petersilie, grob geschnitten",
+    "1 Knoblauchzehe, fein gehackt",
+    "1 dl Olivenöl",
+    "1 Bio-Zitrone, wenig abgeriebene Schale und 1 EL Saft",
+    "1/2 roter Peperoncino, entkernt, fein gehackt",
+    "Salz, Pfeffer, nach Bedarf",
+    "4 Pfirsiche, in Vierteln",
+    "3 EL Olivenöl",
+    "4 Burrata piccola (ca. 200 g)",
+    "2 EL Pinienkerne"
   ],
   steps: [
-    
+    "Hinweis: Auf dem Foto ist nur die Zutatenliste sichtbar (Titelzeile oben abgeschnitten, vermutlich für 4 Personen); die Zubereitung fehlt."
   ],
+  port: 4,
   cover: "G:UmhxLNk0xORGniXUBeVcHqOkqSg3DbngChkZf4EQqlhXIJnB0FmOo1IbgNuhmipNHRBSA-IMuYHG4Qy-dojIT8J9GgC0YOSw_HSu", pages: ["G:wbZJ9bpzrQAN7NOzX_uLZPDnxHJhubj8QIkcFFnXiunUYyhDvHT_2YdADSRpZTdVgQietvbqrCiYtLPl0lseK7xd1EXPHxxBPB0"]
 },
 {
@@ -6358,41 +6741,113 @@ window.REZEPTE = [
 {
   n: "Spargel-Salat mit Crevetten", folder: "Salate", src: "",
   ing: [
-    
+    "1 kg grüne Spargeln",
+    "3 Bundzwiebeln mit dem Grün",
+    "Salzwasser, siedend",
+    "1 EL Olivenöl",
+    "12 geschälte rohe Crevettenschwänze",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "1 Bund glattblättrige Petersilie",
+    "1 Limette",
+    "2 EL Olivenöl",
+    "1 EL flüssiger Honig",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "100 g ausgelöste Edamame",
+    "1 Nori-Blatt"
   ],
   steps: [
-    
+    "Unteres Drittel der Spargeln schälen. Bundzwiebeln mit dem Grün in Ringe schneiden.",
+    "Spargeln im siedenden Salzwasser ca. 3 Min. blanchieren. Herausnehmen, kurz in eiskaltes Wasser geben, abtropfen, auf Tellern verteilen.",
+    "Öl in einer beschichteten Bratpfanne heiss werden lassen. Crevetten beidseitig je ca. 1 Min. braten, Bundzwiebeln beigeben, kurz mitbraten, würzen. Pfanne von der Platte nehmen.",
+    "Petersilie grob schneiden. Limette heiss abspülen, trocken tupfen, Schale abreiben, mit der Petersilie unter die Crevetten mischen.",
+    "Limette auspressen, mit Öl und Honig verrühren, würzen.",
+    "Crevetten und die Edamame auf den Spargeln verteilen. Sauce darüberträufeln, Nori-Blatt zerbröckeln, darauf verteilen.",
+    "Hinweis: Die Personenzahl steht nicht auf dem Foto."
   ],
   cover: "G:MnBdyNxwaJr4A39mYsUbQjzPfh0fa9Nt2ks0sY7Wfyy9P5hnHjoB9zSNP-U6JhzaaZ-H4-SDAqfZhX-lINXhrA", pages: ["G:CEs1YYBBau4FN7IpBbhxvfl2cffS66_YwXqdruOcUZMdxe0h_pwLS4t0xYidjkUoYlwb8k44wQ982Ix8-jwye14","G:0YQDO1RmjhsO7nGmUomTacmX-QyyZExgD-t0q6yQ-ggDi_x1fIfBjn499dSAMfS6kWDsYb0lZhQmYu1z9AaS"]
 },
 {
   n: "Steinfrucht-Quinoa-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "300 g Quinoa (z. B. Tricolore)",
+    "1 EL milder Senf",
+    "1 EL Ahornsirup",
+    "2 Bio-Limetten, wenig abgeriebene Schale und ganzer Saft",
+    "4 EL Olivenöl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "50 g Rucola",
+    "4 Stängel Stangensellerie, in Scheibchen",
+    "4 Aprikosen, entsteint, in Schnitzen",
+    "1 Nektarine, entsteint, in Schnitzen",
+    "200 g Kirschen, halbiert, entsteint"
   ],
   steps: [
-    
+    "Vegan, glutenfrei.",
+    "Quinoa: Quinoa in siedendem Salzwasser ca. 20 Min. weich köcheln, abtropfen.",
+    "Sauce: Senf, Ahornsirup, Limettenschale und -saft mit dem Öl verrühren, würzen. Die Hälfte der Sauce zum Quinoa geben, mischen. Restliche Sauce beiseitestellen.",
+    "Salat: Quinoa mit dem Rucola, Stangensellerie, Aprikosen, Nektarine und Kirschen anrichten. Beiseitegestellte Sauce darüberträufeln.",
+    "Hinweis: Die Personenzahl steht nicht auf dem Foto."
   ],
   cover: "G:-OLKiT3PMChHRpgGKj3HYXScrEUIhWo8_hY-HNinGl-T1Zg3dFSHGdOFB5OsZKnQe7Ivm0NCjhpdInyx6Oh9vBdRASVtRcLqWTqb", pages: ["G:hgKKIzyD0XwdE3OyyXWOuiBiRrjzGYRLm5mY1gS-PoVj6OIqhOqKiu0Mm7Kg0Ly3iNEQ1_lWp2I7fhp2uFSAcnffigsTeNShig","G:vW5QPhdGh8NDnwyjgjhtjydCtueCsLRUTLlj829s__PrpqYreFMld1xy9s4BU2E0Ego3UJw3au3Zm4Dviz5u83kNI4gSz7C50AE"]
 },
 {
   n: "Süss-saurer Mango-Avocadosalat", folder: "Salate", src: "",
   ing: [
-    
+    "1 Limette",
+    "1 TL flüssiger Honig",
+    "2 TL Sambal Oelek",
+    "2 EL Avocadoöl oder Rapsöl",
+    "Salz",
+    "Pfeffer",
+    "1 festfleischige Mango",
+    "2 Avocados",
+    "2 kleine rote Zwiebeln",
+    "30 g gesalzene Pistazien",
+    "40 g halbgetrocknete Cherrytomaten in Öl",
+    "1 Bund Koriander"
   ],
   steps: [
-    
+    "Vorspeise für 4 Personen. Zubereitung ca. 25 Minuten.",
+    "Limettenschale fein abreiben, Frucht auspressen. Limettenschale und -saft mit Honig, Sambal Oelek und Öl mischen. Dressing mit Salz und Pfeffer würzen.",
+    "Mango schälen. Fruchtfleisch vom Stein und in Scheiben schneiden. Avocados halbieren. Kern entfernen. Fruchtfleisch aus der Schale lösen, in Schnitze schneiden. Zwiebeln in feine Ringe schneiden. Pistazien hacken. Tomaten aus dem Öl heben. Alle vorbereiteten Zutaten anrichten. Dressing darüberträufeln. Koriander grob über den Salat streuen."
   ],
+  port: 4,
   cover: "G:0N0WFXQoEyQRgGTKuSN3ZGmOK4SjvYQjBpEOqIvMWP6GXLa3zGei2Yyq8UapLyYQqzc4oCPxCX0Au84Rr47pT-OHTwmJSICjpXvS", pages: ["G:tSyfhPHRTnr-wzOpVN2FAZhRZujGZ5XNVyStBh4KDKwWx-9qgOLVRDiUOjNywXKMxeQw5qY04d6sOgsty95CNGBqQNZ6ElsvTA","G:CRM-Zccvx3YcsivBPqppPQIJoDbq1iuYVXchvlyypybxmqBSEzgxkGn7O7qOuwbmcyQUhpa9W4qPrt2XpeBfdjsGNZlVtIw9SjO2"]
 },
 {
   n: "Tomaten-Avocado-Mozzarella-Salat", folder: "Salate", src: "",
   ing: [
-    
+    "1 Avocado, nicht zu reif",
+    "4 Eier",
+    "250 g Mozzarella",
+    "200 g Bohnen, fein",
+    "200 g Kefen, frisch",
+    "50 g Rucola",
+    "40 g Tomaten, getrocknet (in Öl eingelegt)",
+    "50 g schwarze Oliven, entsteint",
+    "1 Kopfsalat, klein",
+    "1 Zitrone",
+    "Vinaigrette:",
+    "1 Prise Zucker",
+    "1 Bund Schnittlauch",
+    "3 EL Aceto balsamico bianco",
+    "1 EL Granatapfel-Balsamico",
+    "2 EL Zitronen-Olivenöl",
+    "4 EL Olivenöl",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Das Foto trägt den Titel «Avocado-Mozzarella-Salat».",
+    "Bohnen und Kefen rüsten, zu lange schräg halbieren. In 2 gelochte Garschalen geben und im Dampf (100 °C, Bohnen 10–12 Minuten, Kefen 2–4 Minuten) oder im Salzwasser garen. Sofort mit kaltem Wasser abschrecken.",
+    "Die Eier in gelochter Garschale (100 °C, 7 Minuten) oder im Wasser hart kochen. Unter kaltem Wasser abschrecken.",
+    "Oliven halbieren oder vierteln und Tomaten in feine Streifen schneiden. Bohnen, Kefen, Oliven und Tomaten in eine Schüssel geben, mit Salz und Pfeffer würzen. Avocado schälen, halbieren, entsteinen und in Würfel schneiden, mit Zitronensaft beträufeln und hinzufügen.",
+    "Den Kopfsalat und Rucola rüsten, waschen, trockenschütteln und in die Salatschüssel geben. Mozzarella und Eier in Stücke schneiden und dazugeben. Schnittlauch waschen, trockenschütteln und fein hacken.",
+    "Für die Vinaigrette alle Zutaten mischen, mit Salz und Pfeffer würzen. Den Salat mit Vinaigrette beträufeln und mit Schnittlauch bestreuen."
   ],
+  port: 4,
   cover: "G:ddAauApYo2HP1IOaNZj32t7VIKeeoMae-dMzN2vpUiQ0LXp6f6lveCEfXlloe4_9NnOt5U-OVjBAs_368gqX", pages: ["G:cIzBeSnoyEMFWB6r1j4TzIhLWp9VxrMSuo0KhkzisSh7XdkmxWnqYADycLPRMo_NBHqumMtLqcUIkadr6xGo","G:UA9DLdtvtIA51k9LaRpEse58PZpS0P9HL10KxRCmbu3VTo1ameHIjYYL-B8XUiyAk7m-xjZ_--pGbtYiTho99g"]
 },
 {
