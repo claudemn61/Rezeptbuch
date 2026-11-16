@@ -25,7 +25,7 @@
    "name": "Brote",
    "icon": "🍞",
    "color": "#d98e04",
-   "parent": null,
+   "parent": "cmwjf4tqdh9t",
    "show": true
   },
   {
@@ -193,7 +193,7 @@
    "name": "Sauerteig",
    "icon": "🥖",
    "color": "#6b8f71",
-   "parent": null,
+   "parent": "cmwjf4tqdh9t",
    "show": true
   },
   {
