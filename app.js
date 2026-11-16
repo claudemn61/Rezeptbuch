@@ -157,7 +157,7 @@ const defFolder = id => ({ id, name: id, icon: ICONS[id] || '🍽️', color: de
 
 function normalize(c) {
   c = c || {};
-  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [] };
+  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', photos: c.photos === true, fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [] };
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
@@ -252,7 +252,14 @@ async function loadRemote(quiet) {
     if (!quiet) setSync(getToken() ? '✓ Aktuell' : 'Nur lesen (kein Token eingetragen)', getToken() ? 'ok' : '');
   } catch { if (!quiet) setSync('Offline: zuletzt geladene Daten', 'err'); }
 }
+function folderPhoto(id) {
+  const sub = subtree(id);
+  const c = R.filter(r => r.cover && foldersOf(r).some(x => sub.has(x)));
+  const best = c.find(r => r.ing && r.ing.length && r.steps && r.steps.length) || c[0];
+  return best ? imgUrl(best.cover, 240) : '';
+}
 function applySize() {
+  $$('#photoseg [data-photos]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.photos === '1') === !!cfg.photos));
   document.documentElement.dataset.size = cfg.size;
   $$('#sizeseg [data-size]').forEach(b => b.setAttribute('aria-pressed', b.dataset.size === cfg.size));
 }
@@ -262,7 +269,7 @@ let sel = null; // Auswahl-Modus: Set von Ordner-IDs
 function tileHtml(f) {
   const sub = kids(f.id).length;
   return `<button class="tile${f.show ? '' : ' off'}${sel && sel.has(f.id) ? ' sel' : ''}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
-    <span class="ic">${esc(f.icon)}</span><b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
+    ${(ph => ph ? `<span class="ic photo" style="background-image:url('${esc(ph)}')"></span>` : `<span class="ic">${esc(f.icon)}</span>`)(cfg.photos ? folderPhoto(f.id) : '')}<b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
 }
 function tilesBlock(parent) {
   const list = kids(parent).filter(f => state.edit || f.show);
@@ -686,6 +693,8 @@ document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.cl
 settingsEl.addEventListener('click', async e => {
   const sz = e.target.closest('#sizeseg [data-size]');
   if (sz) { cfg.size = sz.dataset.size; applySize(); persist(); return; }
+  const ph = e.target.closest('#photoseg [data-photos]');
+  if (ph) { cfg.photos = ph.dataset.photos === '1'; applySize(); persist(); refresh(); return; }
   if (e.target.closest('#tokpaste')) {
     try { $('#tok').value = (await navigator.clipboard.readText()).trim(); setSync($('#tok').value ? 'Token eingefügt, jetzt «OK» tippen' : 'Zwischenablage ist leer', ''); }
     catch { setSync('Zugriff auf die Zwischenablage nicht erlaubt: ins Feld tippen und lange drücken → Einfügen', 'err'); }
