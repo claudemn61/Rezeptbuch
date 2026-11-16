@@ -1850,21 +1850,52 @@ window.REZEPTE = [
 {
   n: "Artischocken-Kartoffel-Gemüse", folder: "Beilagen", tags: ["Kartoffel"], src: "",
   ing: [
-    
+    "500 g fest kochende Kartoffeln, in Schnitzchen",
+    "1 Dose Artischockenherzen (ca. 240 g), abgetropft, halbiert",
+    "2 Knoblauchzehen, in Scheibchen",
+    "2 EL Olivenöl",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "250 g Datteltomaten, halbiert",
+    "2 Bundzwiebeln mit dem Grün, in feinen Ringen",
+    "1 Bund glattblättrige Petersilie, fein geschnitten",
+    "1 Bio-Zitrone, abgeriebene Schale und Saft",
+    "2 EL Olivenöl"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 25 Min. Grillieren: ca. 20 Min. Für 2 Grillschalen (z. B. Grillschalen «antihaft») oder eine Aluschale.",
+    "Kartoffeln und alle Zutaten bis und mit Pfeffer mischen, in die Grillschalen verteilen.",
+    "Holzkohle-/Gas-/Elektrogrill: Gemüse über mittelstarker Glut oder auf mittlerer Stufe (ca. 200 Grad) ca. 20 Min. grillieren.",
+    "Tomaten und alle restlichen Zutaten mit dem heissen Gemüse mischen.",
+    "Pro Portion: 272 kcal, F 18 g, Kh 21 g, E 4 g. Vegi."
   ],
   cover: "G:M-QUyD2xFqt5Ut26pK4AQxDuXHhXxoVKNy13Lb2bRqSk5b5obyhQF16B54g1VwyMZVonzLn-HZa-4cC7kHPrng", pages: ["G:n6PczGAlEX3KRQdJJCswNYaoirPOMGOaKziXf-DuP6zpqS5F2Wo7Yncpvkoo4PKnjf2gO617Y_WtMWjl4u_GMA"]
 },
 {
   n: "Avocado-Fries mit Quark-Aioli", folder: "Beilagen", tags: ["Snacks","Gemüse"], src: "",
   ing: [
-    
+    "Avocado-Fries:",
+    "4 Avocados, geschält, in ca. 2 cm dicken Spalten",
+    "Salz, Pfeffer",
+    "4 EL Mehl",
+    "2 Eier, verquirlt",
+    "100 g Paniermehl",
+    "1,5 dl Sonnenblumenöl",
+    "Aïoli:",
+    "150 g Magerquark",
+    "80 g Mayonnaise",
+    "1 Zitrone, heiss abgespült, wenig abgeriebene Schale und 1/2 EL Saft",
+    "1-2 Knoblauchzehen, gepresst",
+    "Salz, Pfeffer",
+    "1 Zitrone, Saft zum Darüberträufeln"
   ],
   steps: [
-    
+    "Zubereiten ca. 30 Minuten.",
+    "Ofen auf 80 °C (Ober-/Unterhitze) vorheizen. Avocados würzen, erst in Mehl, dann im Ei und schliesslich in Paniermehl wenden. Bratpfanne mit so viel Öl erhitzen, dass der Pfannenboden ganz mit Öl bedeckt ist. Avocados portionenweise beifügen, beidseitig je 2-3 Minuten braten, im Ofen warm stellen.",
+    "Quark, Mayonnaise, Zitronenschale und -saft sowie Knoblauch glatt rühren, würzen. Avocado-Fries mit Aïoli und Zitronensaft servieren.",
+    "Tipps: Mit einem Tomaten-Zwiebel-Salat servieren. Aïoli ist eine mediterrane Knoblauchsauce und passt auch als Dip zu Grillgemüse oder -fleisch sowie zu Gschwellti."
   ],
+  port: 4,
   cover: "G:7vbDOSwq8x3s228sgCT3wy2F7c3oufmwT2KwO1ibRR2SurUplBijk3gcQF8kFMHYEkhTmbQYA5XyP3wP0D2KF-UYnaBIuxFJu1q_", pages: ["G:VZfJOikOejkQE-H22RbeYRDLQXnL2wNI3k4_5ntcfayRjRNt83U8owvbfHEhm1YnLewmov6JqcqwSyBcoEpGLGJ5b4BCiDiivA","G:xri_FeXdkO-FiWlCPUXWhH_fHtOuOtZK84u0dUusYrlBIZFb2uWt8a-sL-i6JPKRJ38cdi6Ee3hUDO8C0Pwe20GbpRx2hVkqLnk"]
 },
 {
@@ -1898,21 +1929,45 @@ window.REZEPTE = [
 {
   n: "Rösti-Lauch-Gratin", folder: "Beilagen", tags: ["Gratin"], src: "",
   ing: [
-    
+    "1 kg Gschwellti (fest kochende Sorte), vom Vortag",
+    "400 g Lauch",
+    "2 rote Peperoncini",
+    "150 g Schinkenwürfeli",
+    "2 dl Saucen-Halbrahm",
+    "2 dl Milch",
+    "250 g Käsekuchenmischung",
+    "1/4 TL Muskat",
+    "1 1/2 TL Salz"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 15 Min. Backen: ca. 30 Min.",
+    "1. Schritt: Gschwellti halbieren, durch den Rösti-Blitz drücken oder schälen, grob reiben, in eine gefettete ofenfeste Form von ca. 2 Litern geben.",
+    "2. Schritt: Lauch in feine Streifen schneiden, Peperoncini entkernen, in Ringe schneiden, mit den Schinkenwürfeli unter die Kartoffeln mischen.",
+    "3. Schritt: Saucen-Halbrahm, Milch, Käse, Muskat und Salz verrühren, darübergiessen.",
+    "Backen: ca. 30 Min. in der Mitte des auf 220 Grad vorgeheizten Ofens."
   ],
   cover: "G:H_CFVNXEgTvPYKfbWg9chj1srPEk3J50XNdQCGAgvTlYXbP1MRg4BFnhW46sulqfv5Ea_QNKyhvfM5JBEbmI", pages: ["G:nSv43hi68MZtkX9ezTyZVFErWUhPpAeMw0WnS66Dr-seitOPJyNFGZHbj9i4rZPeWN0KJP2fU14d12DcdRuz","G:8UMxtwKV_oHjwBsj61gqWXJyp_jVXnjgMsc2LVikgCX1-bVJ_e-ylRrODEOcUKVCRJu_UJ2WkozVC5MiL0SR"]
 },
 {
   n: "Sesam-Kartoffeln", folder: "Beilagen", tags: ["Kartoffel"], src: "",
   ing: [
-    
+    "600 g festkochende Kartoffeln",
+    "Salz",
+    "3 EL Sesamsamen",
+    "15 g Ingwer",
+    "3 EL HOLL-Rapsöl",
+    "2 Knoblauchzehen",
+    "4 kleine Chilischoten",
+    "1/2 Limette",
+    "1/2 Bund Koriander oder Pfefferminze"
   ],
   steps: [
-    
+    "Beilage oder Apéro. Zubereitungszeit ca. 30 Minuten + ca. 10 Minuten braten.",
+    "Kartoffeln in Salzwasser ca. 20 Minuten knapp weichkochen. Abgiessen, noch heiss schälen, in Würfel schneiden. Sesam in einer Pfanne ohne Fett rösten, beiseitestellen. Ingwer fein reiben. Wenig Öl erhitzen. Knoblauch in Scheiben schneiden, mit Chilis beigeben, kurz anbraten. Die letzten 2 Minuten Ingwer beigeben. Aus der Pfanne heben. Restliches Öl erhitzen. Kartoffeln beigeben und unter gelegentlichem Rühren ca. 10 Minuten anbraten. Inzwischen Limette auspressen. Limettensaft und beiseitegestellten Sesam zu den Kartoffeln geben. Mit Salz abschmecken. Koriander dazuzupfen und mit Knoblauch und Chilis servieren.",
+    "Tipp: Sesam-Kartoffeln heiss zu Fisch oder abgekühlt als Apéro servieren. Ritu Dalmia würzt die Kartoffeln zusätzlich mit Pulver aus getrockneter Mango.",
+    "Pro Person ca. 5 g Eiweiss, 11 g Fett, 25 g Kohlenhydrate, 950 kJ / 230 kcal."
   ],
+  port: 4,
   cover: "G:8KjC4wJNJ1UO4L10-oti9YWS0exR2S-DlkKaCt0HzkaJa2TMqjtdPUVmdyQsa5F4O7iotjFRsDQ44rf7ArHfhQ", pages: ["G:02aWxRbd22O6627YA7aEmO-FI5E1cQ_sCtavN_dV0qJIPdjdLma3W_xMk3F_qYgKXq_nF9FCX9cbWDzkHqxzOg"]
 },
 {
@@ -1928,10 +1983,23 @@ window.REZEPTE = [
 {
   n: "Spinatrisotto mit Morcheln", folder: "Beilagen", src: "",
   ing: [
-    
+    "1 EL Olivenöl",
+    "2 Zwiebeln, in feinen Streifen",
+    "1 Knoblauchzehe, gepresst",
+    "20 g getrocknete Morcheln, eingeweicht, halbiert, gut gewaschen, abgetropft",
+    "150 g Risottoreis",
+    "1 dl Weisswein",
+    "5 1/2 dl Gemüsebouillon, heiss",
+    "300 g Jungspinat",
+    "3 EL geriebener Gruyère",
+    "Salz, Pfeffer, nach Bedarf"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 30 Min.",
+    "Öl in einer Pfanne warm werden lassen. Zwiebeln, Knoblauch und Morcheln andämpfen. Reis beigeben, unter Rühren dünsten, bis der Reis glasig ist.",
+    "Wein dazugiessen, vollständig einkochen. Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist, ca. 15 Min. köcheln.",
+    "Spinat nach und nach beigeben, zusammenfallen lassen, ca. 5 Min. weiterköcheln, bis der Reis cremig und al dente ist. Käse daruntermischen, würzen.",
+    "Pro Portion: 466 kcal, F 13 g, Kh 69 g, E 18 g."
   ],
   cover: "G:t5vKanCW8YR9104OaMq1yvLJj0tsC_qBhDkb5WhTFUi-Op7XtYYg5wmM8pHXXD_dOwKgEwhMLq6hskiGtbnB", pages: ["G:hizKOadISSVAV_yRvwE8RD794aIRjq7cDpbDb_sysUKJBwoku2bw3UdSMLe9S4BfGZ3QwDKxrM9kYrszlRE_6a8"]
 },
