@@ -59,11 +59,15 @@
         <p class="note tiny" id="ver"></p>
       </div>
     </div>
+    <div class="searchrow" id="searchrow">
+      <button type="button" class="chip tbtn" id="hedit" aria-pressed="false" aria-label="Ordner bearbeiten" title="Ordner bearbeiten">✏️</button>
+      <button type="button" class="chip tbtn" id="import" aria-label="Rezept importieren" title="Rezept importieren">➕</button>
     <div class="searchbox">
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.3 4.3-1.4 1.4-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/></svg>
       <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
              placeholder="Suchen: Name, Zutat, Zubereitung …" aria-label="Rezepte durchsuchen">
       <button id="clear" class="clear" type="button" aria-label="Suche löschen" hidden>×</button>
+    </div>
     </div>
     <div class="filters" id="filters" role="group" aria-label="Filter"></div>
   </div>

@@ -643,8 +643,7 @@ function tilesBlock(parent) {
 function barHtml() {
   return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
     ${state.edit && !sel ? '<button class="chip" type="button" id="hsel">☑ Mehrere wählen</button>' : ''}
-    ${state.edit ? '' : '<button class="chip" type="button" id="import" aria-label="Rezept importieren" title="Rezept importieren">➕</button>'}
-    <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}" aria-label="Ordner bearbeiten" title="Ordner bearbeiten">${state.edit ? 'Fertig' : '✏️'}</button></div>
+    </div>
     ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
@@ -663,6 +662,11 @@ function renderHome() {
     </section>`;
   if (state.edit) setSync(sync.msg, sync.kind);
 }
+
+$('#top').addEventListener('click', e => {
+  if (e.target.closest('#import')) { openImport(); return; }
+  if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); }
+});
 
 /* Bearbeiten: Sortieren per Ziehen */
 let drag = null;
@@ -811,7 +815,13 @@ function openTileEditor(id, parentForNew) {
   if (isNew) $('#e-label', o).focus();
 }
 
+function syncTopBtns() {
+  const e = $('#hedit'), i = $('#import'); if (!e || !i) return;
+  e.setAttribute('aria-pressed', state.edit); e.textContent = state.edit ? '✓' : '✏️'; e.title = e.ariaLabel = state.edit ? 'Fertig' : 'Ordner bearbeiten';
+  i.hidden = !!state.edit;
+}
 function refresh() {
+  syncTopBtns();
   const home = isHome() && !location.hash.startsWith('#/r/');
   filtersEl.style.display = home ? 'none' : '';
   home ? renderHome() : renderList();
@@ -953,7 +963,7 @@ function route() {
   const r = m && byId[decodeURIComponent(m[1])];
   document.body.classList.toggle('detail', !!r);
   if (r) state.edit = false;
-  $('.searchbox').style.display = filtersEl.style.display = r ? 'none' : '';
+  $('#searchrow').style.display = filtersEl.style.display = r ? 'none' : '';
   if (r) { document.title = r.n + ' · Rezeptbuch'; pushRecent(r.id); renderDetail(r); }
   else {
     document.title = 'Rezeptbuch';

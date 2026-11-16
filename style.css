@@ -234,3 +234,9 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .note.err{color:#b3261e}.note.warn{background:color-mix(in srgb,#d98e04 18%,var(--card));padding:6px 8px;border-radius:8px;color:var(--ink)}
 .pics{display:flex;gap:8px;overflow:auto;margin:6px 0}.pic{flex:none;width:108px;font-size:12px}.pic img{width:108px;height:80px;object-fit:cover;border-radius:8px}.pic .chk{margin:3px 0 0;font-size:12px;gap:5px}
 .hbar #import{margin-left:auto}
+
+.searchrow{display:flex;align-items:center;gap:6px}
+.searchrow .searchbox{flex:1;min-width:0}
+.searchrow .tbtn{flex:none;width:42px;height:42px;padding:0;border-radius:50%;font-size:18px;line-height:1;display:grid;place-items:center;box-shadow:var(--shadow)}
+.searchrow .tbtn[hidden]{display:none}
+#q{padding-left:38px;font-size:16px}
