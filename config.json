@@ -291,6 +291,14 @@
    "color": "#4f7cac",
    "parent": null,
    "show": true
+  },
+  {
+   "id": "cmwjf6buvj4j",
+   "name": "Snacks, Gebäck",
+   "icon": "⭐",
+   "color": "#7a5c9e",
+   "parent": null,
+   "show": true
   }
  ]
 }
