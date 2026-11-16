@@ -6826,11 +6826,25 @@ window.REZEPTE = [
 {
   n: "Bärlauchcremesuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "200 g junge Bärlauchblätter",
+    "1 Knoblauchzehe",
+    "1/4 Sellerieknolle",
+    "1 Rüebli",
+    "1 Kartoffel",
+    "1 EL Olivenöl",
+    "1/2 dl Weisswein",
+    "1 l Gemüsebouillon",
+    "1 dl Rahm",
+    "1 Prise Cayennepfeffer",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Die zarten Bärlauchblätter waschen und die Stiele entfernen. Einige Bärlauchblätter für die Garnitur beiseitelegen.",
+    "Knoblauch schälen und grob schneiden. Sellerie, Rüebli und Kartoffel schälen und klein schneiden.",
+    "Das Olivenöl in einer hohen Pfanne erhitzen. Bärlauchblätter, Knoblauch und Gemüsewürfel dünsten. Mit Weisswein ablöschen und mit der Gemüsebouillon auffüllen. Während 20–30 Minuten bei kleiner Hitze kochen.",
+    "Den Rahm steifschlagen. Die Suppe fein pürieren und nochmals aufkochen. Rahm darunterziehen und Suppe würzen. In Suppentassen anrichten. Bärlauchblätter in feine Streifen schneiden und darüberstreuen."
   ],
+  port: 4,
   cover: "G:u5EzMijjo-Jf1YuI5xBUL4oDOUu-9Si3GL6q1FRbniUoo0Fr1irvDbb_AB0bgV_glNCSMEmPGxEmsW_FoeHelQY", pages: ["G:ooO51mQZo4QCMZubCUZWYvK7nLAYeoYqtj936-iaTyeGi1OaoQJa6l7ojXBgBSRWzvOWMlHdyx5lWTGSGdh-xg","G:cTASUM7pJU2y7qB0yqcuhMZyE6CNomHvkr8iMmDcYotfzDlNe7YjaExwVJvzizWR9M8A9agNFu6wFjkIeRCtpyE"]
 },
 {
@@ -6896,11 +6910,31 @@ window.REZEPTE = [
 {
   n: "Champagner-Schaum", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Knoblauchzehe, gehackt",
+    "1 Zwiebel, gehackt",
+    "2 EL Pflanzenöl, z. B. Raps- oder Sonnenblumenöl",
+    "250 g Knollensellerie, gewürfelt",
+    "2 dl Champagner",
+    "2,5 dl Apfelsaft",
+    "5 dl Gemüsebouillon",
+    "180 g Crème fraîche",
+    "20 g Butter",
+    "1 Apfel, fein gewürfelt",
+    "2 EL Ahornsirup",
+    "Salz, Pfeffer, Muskatnuss, Cayennepfeffer",
+    "Sesamsterne (10 Stück):",
+    "1 Blätterteig, rechteckig, ausgerollt",
+    "1 Eigelb",
+    "1 EL Sesam"
   ],
   steps: [
-    
+    "Champagner-Schaum mit Sesamsternen.",
+    "Knoblauch und Zwiebeln im Pflanzenöl andünsten, Sellerie dazugeben, kurz mitdünsten, würzen, mit 2/3 des Champagners, Apfelsaft und der Hälfte der Bouillon ablöschen, aufkochen und zugedeckt bei mittlerer Hitze ca. 25 Min. köcheln, bis der Sellerie weich ist.",
+    "Crème fraîche dazugeben, Suppe pürieren. Von der übrigen Bouillon so viel dazugeben, dass eine cremige Suppe entsteht. Mit Salz, Pfeffer, Muskat und Cayennepfeffer abschmecken. Suppe durch ein Sieb streichen, mit dem Mixstab nochmals aufschäumen.",
+    "Butter in einer Pfanne zerlassen. Apfelstücke mit dem Ahornsirup kurz darin anbraten. Restlichen Champagner zur Suppe geben, in Kelchen anrichten, mit Apfelwürfeln garnieren und servieren. Zubereitung: 1 Std.",
+    "Sesamsterne: Blätterteig mit Eigelb bestreichen. Mit Sesam bestreuen und mit dem Wallholz andrücken. Sterne ausstechen und auf ein mit Backpapier belegtes Blech geben. Bei 200 °C für 10–12 Min. backen, bis die Sterne goldbraun sind. Suppe mit den Sternen dekorieren. Zubereitung: 10 Min. + 12 Min. backen."
   ],
+  port: 4,
   cover: "G:5qkPIiemb05Ifn1ijdh56ERP_gs1kuKGgc0CBhoP7iL3K66VM-zLNQNnVdHY0AcpeDkULBSLtjH0ituqS-UHeg", pages: ["G:Zw8bfHucm9FiZ8_bT-mqkw2cKkKegLUWOcQFXkqG1XaVsIU09DmzlbPHyS9Czk9Y7AmDz-ZpoZXGLAkjKNiG","G:S1dFLrv1JxAXA9_Ly0F5RjHg4se37Wpz0Dcw6RKwqxY00gWMPaly8PtRwq2SRg3-ATqd2SXrqCeASbQhmwpMwQ"]
 },
 {
@@ -6932,101 +6966,259 @@ window.REZEPTE = [
 {
   n: "Kartoffelcrèmesuppe mit Rauchlachs", folder: "Suppen", src: "",
   ing: [
-    
+    "500 g mehligkochende Kartoffeln",
+    "1 Zwiebel",
+    "1 EL Butter",
+    "1/2 Lauch, grob geschnitten",
+    "8 dl Gemüsebouillon",
+    "3,5 dl Rahm",
+    "1/2 EL Apfelessig",
+    "Salz",
+    "Pfeffer",
+    "100 g Rauchlachs, in Streifen geschnitten",
+    "Schnittlauch zum Servieren"
   ],
   steps: [
-    
+    "Kartoffeln schälen und in grobe Würfel schneiden. Zwiebel hacken und in Butter andünsten, Lauch und Kartoffeln zugeben und anbraten. Gemüsebouillon dazugiessen und weich kochen. Mit dem Stabmixer pürieren, Rahm einrühren, mit Apfelessig, Salz und Pfeffer abschmecken. Suppe in Tellern anrichten und mit Rauchlachs garnieren.",
+    "Zubereitung: 30 Min.",
+    "Tipp: mit Schnittlauch servieren."
   ],
+  port: 4,
   cover: "G:yZwCi0BqZK5dWUEiXgG-0Cz_ufYCmLr3llXdMzz-gc_cZbTMeyYbJkNpmWsRSykNTonC7-nr2tPYf-2Cr3Z8doc", pages: ["G:G663D5fkWOlvwMpyNe1xI5UH1iJTwrKeEtvSD_7ARdG1bzyAjGlzZcop2gAJWNE3tbvlsRbpVRpfT6oMwqfYxA"]
 },
 {
   n: "Kürbis-Apfelsuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "800 g Kürbis (z. B. Muscade)",
+    "1 Zwiebel",
+    "1 rotschaliger Apfel",
+    "1 EL Öl",
+    "2 dl saurer Most",
+    "8 dl Wasser",
+    "1 1/2 TL Salz",
+    "wenig Pfeffer",
+    "Apfel-Kürbiskern-Crumble:",
+    "1 rotschaliger Apfel",
+    "1 EL Öl",
+    "40 g Kürbiskerne"
   ],
   steps: [
-    
+    "Kürbis und Zwiebel schälen, beides in Stücke schneiden. Apfel vierteln, entkernen, in Scheiben schneiden.",
+    "Öl in einer Pfanne warm werden lassen. Kürbis, Zwiebel und Apfel ca. 5 Min. andämpfen. Most und Wasser dazugiessen, aufkochen, würzen. Hitze reduzieren, zugedeckt ca. 20 Min. weich köcheln. Suppe pürieren.",
+    "Apfel entkernen, in Würfeli schneiden. Öl in einer Bratpfanne heiss werden lassen. Apfel und Kürbiskerne ca. 5 Min. rösten. Suppe anrichten, mit dem Apfel-Kürbiskern-Crumble garnieren.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:nIZtrunXIvoxDcE_bjuHYM_t-5hP6It5oovNhMunRheSUd5zK_rEc3fqwomEojUzMmIioYerWRWpMS47HhC5Rk_eks76eFqzG9A", pages: ["G:xTAzYR2Olf4piuMnG-iqZdmL7KbUnkIFH8xpsWRpUPFUIlQ_R3p0WmkbNL7gGl8A49W6JorpkLOemnS1myXYiL-tpsuVtMDaqQ"]
 },
 {
   n: "Kürbis-Gerstensuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Zwiebel, fein gehackt",
+    "400 g Kürbis, z. B. Butternut, in Würfeli",
+    "1 EL Butter",
+    "200 g Rollgerste",
+    "2 Liter Gemüsebouillon",
+    "1,5 dl Vollrahm",
+    "60 g Mostbröckli, fein geschnitten",
+    "1 Bund Peterli, fein geschnitten",
+    "Salz, Pfeffer"
   ],
   steps: [
-    
+    "Zubereiten ca. 20 Minuten, Kochen ca. 50 Minuten.",
+    "Zwiebel und Kürbis in der warmen Butter andämpfen. Gerste beifügen, kurz andünsten. Bouillon dazugiessen, aufkochen. Zugedeckt 40–50 Minuten köcheln.",
+    "Rahm dazugiessen, aufkochen. Mostbröckli und Peterli daruntermischen, würzen.",
+    "Tipp: Suppe bis und mit Schritt 1 zubereiten, auskühlen und bis zum Verzehr kühl stellen. Kann bis zu 2 Tage im Voraus zubereitet werden, danach Suppe wieder aufwärmen und fertig stellen."
   ],
+  port: 4,
   cover: "G:631gOGKJJuh9IsHxBs3xt4c6TgVIWs2H4X1VmE0nThyVx-IS0kMowukIm1IzAVn523vEm0Hu9A_Ezqs-zv3qwI5__elAzBGxEg", pages: ["G:yv_3Gd8cVuXpFMWGpo2ZX3dnUYraP06OSsgC-0JfS8J1irOoqV3Mqt-uXwcAYoTYj1nU1mtUL_d3UVZVX-SIZPMv-el5iEtdwic"]
 },
 {
   n: "Kürbis-Tomaten-Suppe", folder: "Suppen", src: "",
   ing: [
-    
+    "Suppe:",
+    "600 g Kürbis (Lungo di Napoli)",
+    "3 Schalotten",
+    "2 Tomaten, gross",
+    "3 EL Olivenöl",
+    "1 EL Zucker, braun",
+    "8 dl Gemüsefond",
+    "6 Zweige Zitronen-Basilikum",
+    "1 Prise Chiliflocken",
+    "2 EL Aceto Balsamico, weiss",
+    "Salz, Pfeffer aus der Mühle",
+    "Crème fraîche:",
+    "3 EL Crème fraîche",
+    "1 TL Orangenraps",
+    "1 Prise Salz",
+    "4 EL Wasser",
+    "2 Zweige Zitronen-Basilikum"
   ],
   steps: [
-    
+    "Kürbis halbieren, entkernen und in ca. 1×1 cm grosse Würfel schneiden. Schalotten schälen und in Streifen schneiden. Tomaten waschen, Stielansatz entfernen und vierteln.",
+    "Das Olivenöl in einer Pfanne erhitzen und Schalotten glasig dünsten. Den Zucker beigeben und leicht karamellisieren, Kürbiswürfel und Tomatenviertel zugeben und kurz andünsten. Den Gemüsefond dazugiessen und zugedeckt bei mittlerer Hitze 20 Minuten köcheln lassen.",
+    "Crème fraîche in eine Schüssel geben, mit abgeriebener Orangenschale, Salz und Wasser glattrühren. Blätter vom Zitronen-Basilikum abzupfen, fein hacken und in die Crème mischen.",
+    "Vom restlichen Zitronenbasilikum die Blätter abzupfen und beiseitestellen. Kürbis-Tomaten-Suppe fein pürieren und mit Salz, Pfeffer, Chiliflocken und Balsamico abschmecken. Die Suppe in tiefe Teller anrichten, Crème fraîche darauf verteilen und mit Basilikumblättern garnieren."
   ],
+  port: 4,
   cover: "G:3qrr_8XPj2NcLXmCLlXHROo4gnTJb1qJIOLqZ3szwdAKbJpt0ShiWoo5F7Rxk_QLDOdno5QPtr9pK4w_qOVjBFg", pages: ["G:826GEXOWMtwEbpg6sJA70dgqcMJCrmBilM1mhWcKVwjduOj9jWz6KDbAfuukdDZgVzkzWaBL-_UvY1-n36aZ","G:WeglgOcjBHqeYO_GSvTfzWM-EfcW7sGTzMmao1LtyuV9qM0x5flCXOwcgiFCMk6RpmFk5KPd1vGC9fmOZV4yhMA"]
 },
 {
   n: "Kürbissuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Dose Kichererbsen, à 230 g",
+    "2 Zwiebeln",
+    "400 g Kürbis, gerüstet gewogen, z. B. Butternuss oder Muskat",
+    "3 EL Olivenöl",
+    "2 cm frischer Ingwer",
+    "1 l Gemüsebouillon",
+    "Salz",
+    "1 EL Currypulver",
+    "300 g Broccoli",
+    "2 EL creamy Erdnussbutter",
+    "120 g Taglierini",
+    "1 Chilischote",
+    "1 Limette"
   ],
   steps: [
-    
+    "Den Backofen auf 200 °C vorheizen. Kichererbsen abgiessen, mit Wasser abspülen und abtropfen lassen. Mit Haushaltspapier trocken tupfen. Die Hälfte der Zwiebeln fein hacken, den Rest in Spalten schneiden. Die Hälfte des Kürbisses in dünne Scheiben, Rest in kleine Würfel schneiden.",
+    "1/3 des Öls in einer Pfanne erhitzen, Zwiebel- und Kürbiswürfel darin anbraten, Ingwer fein dazureiben. Mit Bouillon ablöschen und ca. 15 Minuten köcheln lassen. Kichererbsen mit wenig Öl, Salz und Curry würzen, auf ein mit Backpapier belegtes Blech verteilen. In der Ofenmitte 5 Minuten rösten. Broccoli in Röschen teilen. Röschen, Zwiebelspalten und Kürbisscheiben mit restlichem Öl, Salz und Curry würzen. Zu den Kichererbsen auf das Blech geben und zusammen weitere 10 Minuten rösten.",
+    "Erdnussbutter in die Suppe rühren. Mit dem Stabmixer pürieren. Nudeln in der Suppe bissfest kochen. Suppe, Nudeln und geröstetes Gemüse anrichten. Chilischote in Ringe, Limette in Schnitze schneiden. Mit der Suppe servieren. Nach Belieben mit wenig Curry bestreuen.",
+    "Zubereitung ca. 30 Minuten, Einsteiger, Preis günstig. Pro Stück ca. 12 g Eiweiss, 12 g Fett, 43 g Kohlenhydrate, 1450 kJ/350 kcal (Rand teils abgeschnitten)."
   ],
+  port: 4,
   cover: "G:NprgtV0YGCvM8jjsAjd8oUbChplHNcq-6ZWIqtFE1dm8AdIiSQgjZ7gne8S4mtZc6h-WK2djY02mur55-Zpv_w", pages: ["G:ysdreiztUYVe2C_RFIYRQkEXMUB4qziP0DJKUW2o8Q--E8FBk5QCFVAT4DmrB7jTOJVmjQL2V8eIOIvlj09V","G:xZmYaOt9LhoTgDEjOPshErxIF1uZBh_UYI8wPOS6xVosFo288eLh7ZNVBUtzCrll4ztbB6UK7i1npAdh2dL5"]
 },
 {
   n: "Kürbissuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "Crunch:",
+    "2 EL flüssiger Honig",
+    "1 EL Sesamöl",
+    "2 TL Curry",
+    "1 TL Tomatenpüree",
+    "80 g ungesalzene Erdnüsse",
+    "1 TL Fleur de Sel",
+    "Suppe:",
+    "1 EL Sesamöl",
+    "1 Zwiebel, grob gehackt",
+    "1 Knoblauchzehe, grob gehackt",
+    "1 EL Tomatenpüree",
+    "500 g Kürbis (z. B. Hokkaido), in ca. 2 cm grossen Würfeln",
+    "1/2 EL Curry",
+    "6 dl Gemüsebouillon",
+    "1 dl Kokosmilch",
+    "Salz, Pfeffer, nach Bedarf"
   ],
   steps: [
-    
+    "Kürbissuppe mit Erdnuss-Crunch. 30 Min. aktive Zeit, 40 Min. Gesamtzeit, 302 kcal pro Person. Vegetarisch, glutenfrei.",
+    "Crunch: Honig, Öl, Curry und Tomatenpüree verrühren, Nüsse daruntermischen, auf einem mit Backpapier belegten Blech verteilen, salzen.",
+    "Backen: Ca. 10 Min. in der Mitte des auf 180 °C vorgeheizten Ofens. Herausnehmen, auskühlen.",
+    "Suppe: Öl in einer Pfanne erwärmen. Zwiebel, Knoblauch und Tomatenpüree kurz andämpfen, Kürbis und Curry beigeben, ca. 5 Min. mitdämpfen. Bouillon ... (Ende des Schrittes auf dem Foto abgeschnitten, sinngemäss: Bouillon und Kokosmilch zugeben, köcheln, pürieren, würzen und mit dem Crunch servieren)."
   ],
+  port: 4,
   cover: "G:uw0RGm6ov41PyqDj3XiwYNmGJrtjngcf90zq7loV3jIW_pB-QVrBOAbQBi7o35XDPZl7Cmd5c8tZWoDbJOoOBF8nxNfh5TxRZw", pages: ["G:e3GBGHWkFNaqtE1Vy860bEb_kWfP1aGun8IJ1KKFSLrZzlE_967C5ToT8OE-tsSIfk56KVbIiQvuskoYI-7cASr_pkt43sFxH6g"]
 },
 {
   n: "Kürbissuppe mit Curry", folder: "Suppen", src: "",
   ing: [
-    
+    "600 g Butternut-Kürbis",
+    "1 Zwiebel",
+    "1 EL Olivenöl",
+    "1/4 EL milder Curry",
+    "8 dl Gemüsebouillon",
+    "2 dl Rahm",
+    "Salz, Pfeffer, nach Bedarf",
+    "100 g Bündnerfleisch in Tranchen",
+    "200 g Hüttenkäse nature"
   ],
   steps: [
-    
+    "35 Min. schlank, low carb. Ergibt 1,4 Liter. Pro Portion (1/4): 380 kcal, F 24 g, Kh 22 g, E 20 g.",
+    "Kürbis und Zwiebel schälen. Zwiebel grob hacken, Kürbis in ca. 1 cm grosse Stücke schneiden. Öl in einer Pfanne warm werden lassen. Zwiebel und Kürbis ca. 2 Min. andämpfen. Curry kurz mitdämpfen.",
+    "Bouillon und Rahm dazugiessen, aufkochen. Hitze reduzieren, zugedeckt ca. 20 Min. weich köcheln. Suppe im Mixglas pürieren, würzen.",
+    "Bündnerfleisch in feine Streifen schneiden. Suppe anrichten, Hüttenkäse und Bündnerfleisch darauf verteilen."
   ],
+  port: 4,
   cover: "G:WFSMbpd3NedSrGtpSFUNrcUDQeRDf0-54k_8iHFJmJFJ8duFdkb7q4GIozjxhxlRHtON3dkdKoW-0dHREesCVy-V9ihqp3OPyWkh", pages: ["G:xXjPr5o4FoETRytDQc6A_xKsZoNVz1VjxSTvyubU3_0OSpHlFVmHP9cGfYG1VBI4MYD9MgS8cjcopZWPsjMWAHxNz75qFHVE5iI"]
 },
 {
   n: "Kürbissuppe mit Ruccola", folder: "Suppen", src: "",
   ing: [
-    
+    "Suppe:",
+    "500 g Kürbiswürfel",
+    "2 Zwiebeln",
+    "1 Knoblauchzehe",
+    "2 Rüebli",
+    "3 EL Olivenöl",
+    "1,2 l Gemüsebouillon",
+    "2 dl Halbrahm",
+    "Salz, Curry, Pfeffer aus der Mühle",
+    "Garnitur:",
+    "1–2 EL Kürbiskerne",
+    "1 EL Butter",
+    "80 g Rucola",
+    "2 EL Kürbiskernöl"
   ],
   steps: [
-    
+    "Für 4–6 Personen.",
+    "Zwiebeln und Knoblauch schälen und fein hacken. Rüebli schälen und in Würfel schneiden.",
+    "Das Olivenöl in einer Pfanne erhitzen, Zwiebeln und Knoblauch dazugeben und glasig dünsten. Kürbis- und Rüebliwürfel beifügen und 5 Minuten dünsten. Die Bouillon dazugiessen und aufkochen lassen. Bei kleiner Hitze ca. 35 Minuten kochen.",
+    "Die Suppe pürieren, den Rahm dazugiessen und nochmals aufkochen lassen. Mit Salz, Curry und Pfeffer würzen.",
+    "Die Kürbiskerne ohne Fettzugabe rösten. Den Rucola waschen, zerkleinern und in Butter dünsten.",
+    "Die Suppe in heisse Teller anrichten. Rucola und Kürbiskerne daraufverteilen, mit Kürbiskernöl parfümieren."
   ],
+  port: 4,
   cover: "G:ZGeMd4IPO52ZJM-2LNRujxUbpKFyIhKq1AaPNBv-gObMBccsoGR4X361_nrEqmChIyBTIZQz6MG17u8l89TB", pages: ["G:KRe8N2oLOpl5jZkONuiBLPgddGen0rl64Gb-IV3rBrBSDb2ObfxQ0889fcKjaDSWxWAmmyU8RImuBKtRFcxn","G:4I99OulEPoFmYJK7wEr3AC5Z4x_PlCKNVDGxGELjU1wZeH3JO-CdTOQhI-V6zvq2EA4qHW-1rImYGexyEyf-"]
 },
 {
   n: "Lauchsuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "Suppe:",
+    "1 1/2 EL Butter",
+    "600 g Lauch, in Stücken",
+    "450 g mehlig kochende Kartoffeln, in Stücken",
+    "1 1/2 Liter Gemüsebouillon",
+    "3 3/4 dl Rahm",
+    "3 Msp. Muskat",
+    "Salz, nach Bedarf",
+    "Lauch-Topping:",
+    "3 EL Öl",
+    "150 g Lauch, in feinen Streifen",
+    "1 1/2 Msp. Muskat",
+    "1 1/2 Msp. Zimt",
+    "1 1/2 Prise Salz"
   ],
   steps: [
-    
+    "Für 6 Personen.",
+    "Hinweis: Die Zubereitung ist auf den Fotos nicht vorhanden (zweites Foto leer), nur die Zutaten."
   ],
+  port: 6,
   cover: "G:GHJ973R0Ls_FU6PG7dEjsP8SOjG8zf66nCFXlM08SAdieBEdQQHha0pNIAOeP-70ThlEvu7GZRzo1tmkAYeio48", pages: ["G:d1XLSAn2Pwuyxbvyv66AbopbVrXD7t6_BtBionJmKrb0tIGmeJ8rkHe6hc0-ZOJt9wi5YXrzmdydXC3gZ02b8A","LocalImg_B5E78403-3489-46B1-93EE-8606CCCED292_3.jpg"]
 },
 {
   n: "Lauchsuppe mit Steinpilzen", folder: "Suppen", src: "",
   ing: [
-    
+    "20 g getrocknete Steinpilze",
+    "Suppe:",
+    "600 g Lauch",
+    "1 grosse Zwiebel, gehackt",
+    "200 g mehligkochende Kartoffeln, in Stücken",
+    "2 EL vegane Margarine",
+    "5 dl Gemüsebouillon",
+    "5 dl Hafer-Drink",
+    "1–2 EL Zitronensaft",
+    "Salz, Pfeffer, Muskatnuss",
+    "2 EL Sonnenblumen- oder Rapsöl",
+    "Salz, Pfeffer"
   ],
   steps: [
-    
+    "Vegan. Für 4 Personen. Zubereiten 25 Minuten, Köcheln ca. 25 Minuten.",
+    "Steinpilze in 2 dl warmem Wasser 15 Minuten einweichen. Durch ein mit einem Haushaltpapier ausgelegtes Sieb abgiessen, Flüssigkeit auffangen.",
+    "Den grünen Teil vom Lauch abschneiden, in feine Ringe schneiden, beiseitelegen. Restlichen Lauch in Stücke schneiden. Mit Zwiebel und Kartoffeln in Margarine andämpfen. Mit dem Pilzwasser, Bouillon und Hafer-Drink ablöschen, aufkochen. Zugedeckt 20–25 Minuten köcheln, pürieren. Zitronensaft beifügen, würzen.",
+    "Steinpilze im Öl 5 Minuten andämpfen. Beiseitegestellten Lauch 1–2 Minuten mitdämpfen.",
+    "Suppe in Schalen anrichten, Pilz-Lauch-Mischung darauf verteilen."
   ],
+  port: 4,
   cover: "G:0AEZmsanh5OBho03QM4NKwt9R-TdWmyYQJApntGbD5gvY3p7Ws1VZymcPfMf__OnUyszFbCX99JzsvTkV9Bbb5AjL8dKUyyKPQ", pages: ["G:9B10FoF06zfS4mAg2sE-j9m7HVdjOFncjjDyE2yEVoCrn9FfM0TQOYzBgnVbfAU5ABp3dhB_6oIma1bk65dj9dIyuQKBj3UaPQ","G:uhJyPZfLM112QgXhvVpFRfYgP2dCxlGzYioiw_2lgBkLbGUw3hjMq4GaOzECuWp2dx6Ty_73aDVrrNJhhMIK-3iLDY7HiTeKVOk"]
 },
 {
@@ -7048,61 +7240,156 @@ window.REZEPTE = [
 {
   n: "Safran-Kartoffelsuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "400 g Kartoffeln",
+    "2 Zwiebeln",
+    "2 EL Olivenöl",
+    "1 l Gemüsebouillon",
+    "2 Prisen Safranfäden",
+    "1,5 dl Halbrahm",
+    "Salz, Pfeffer",
+    "1 l Wasser",
+    "4 EL Essig",
+    "4 Eier"
   ],
   steps: [
-    
+    "Hauptgericht für 4 Personen.",
+    "Kartoffeln in Scheiben schneiden. Zwiebeln hacken und im Öl andünsten. Kartoffeln beigeben und kurz mitdünsten. Mit Bouillon ablöschen. Safranfäden dazugeben. Zugedeckt ca. 25 Minuten weich kochen. Rahm dazugiessen. Alles mit dem Stabmixer zu einer sämigen Suppe pürieren. Mit Salz und Pfeffer abschmecken.",
+    "Für die pochierten Eier Wasser und Essig aufkochen. Hitze reduzieren, das Wasser darf nicht mehr kochen. Jedes Ei einzeln in ein Schüsselchen aufschlagen. Eier nacheinander vorsichtig ins Essigwasser gleiten lassen. Eiweiss mit Löffel um das Eigelb hüllen. Eier 3–4 Minuten pochieren. Mit einer Lochkelle aus dem Wasser heben und gut abtropfen lassen. Suppe mit Ei anrichten. Nach Belieben mit Safranfäden garnieren.",
+    "Zubereitung ca. 20 Minuten (Geübte) + ca. 25 Minuten weich kochen."
   ],
+  port: 4,
   cover: "G:zm9QJ4cm874gopdonqbZqfHf4ffSMFGwfujSCmk-jMkGv6x12yJqVhjf8hiKvaiYHcXEv1yMfkn0Ou6-E78c", pages: ["G:J2O5DRYJ4DfIijvFh9Kb2ng6iQwEX9xReaH304ZhuRAMKgvMAN6Qw0pqwq60z82S_he6XJBDkArGXGop8kEB"]
 },
 {
   n: "Selleriecremesuppe mit Senf", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "250 g Sellerie, gerüstet gewogen",
+    "2 EL Olivenöl",
+    "40 g Senf",
+    "5 dl Gemüsebouillon",
+    "2,5 dl Halbrahm",
+    "Fleur de sel",
+    "Pfeffer",
+    "1/4 Bund glattblättrige Petersilie",
+    "20 g Mandeln",
+    "4 TL Perlen aus Aceto balsamico oder Aceto balsamico"
   ],
   steps: [
-    
+    "Vorspeise für 4 Personen.",
+    "Zwiebel hacken. Sellerie in kleine Stücke schneiden.",
+    "Mit der Zwiebel im Öl dünsten. Senf zugeben, mit Bouillon ablöschen. Zugedeckt ca. 30 Minuten köcheln lassen, bis der Sellerie weich ist.",
+    "Rahm beigeben, aufkochen, mit dem Stabmixer pürieren. Mit Salz und Pfeffer abschmecken. Petersilienblätter grob hacken.",
+    "Mandeln halbieren und kurz anrösten.",
+    "Suppe anrichten, mit Petersilie, Mandeln und Balsamico-Perlen bestreuen."
   ],
+  port: 4,
   cover: "G:sR9PPEmZOMn1SXL7SHqzKrTe-3tlfA6Ovyhada5Fch22aC3VuO-AA3zNHRppmsfGpZlVANKLebzIjjhTbeWdOPjTCq3TYX6oDKS1", pages: ["G:qrNYn_mB7e0u1JL6xZWiD5Mzpdt0zuCE8dotGC-5CJb-tlhShQ_7ivAQQ4m1-_EuY8lAjPX5RXnfa-pzvSGlm27CHbw9Rg0X2w"]
 },
 {
   n: "Selleriesuppe mit Williams", folder: "Suppen", src: "",
   ing: [
-    
+    "350 g Sellerie",
+    "1 Zwiebel",
+    "1 Knoblauchzehe",
+    "Öl zum Braten",
+    "1,2 l Gemüsebouillon",
+    "1/2 Zitrone",
+    "1,5 dl Williams",
+    "1 Birne",
+    "Salz",
+    "Pfeffer",
+    "4 EL Crème fraîche",
+    "1 Zweig Dill"
   ],
   steps: [
-    
+    "Vorspeise für 4 Personen.",
+    "Sellerie in kleine Stücke schneiden. Zwiebel und Knoblauch hacken. Sellerie, Zwiebel und Knoblauch im Öl dünsten. Bouillon dazugiessen. Zugedeckt ca. 30 Minuten köcheln lassen, bis der Sellerie weich ist. Zitronenschale fein abreiben. Zitrone auspressen. Zitronenschale, -saft und Williams zur Suppe geben. Suppe mit dem Stabmixer pürieren. Birne in kleine Stücke schneiden. Zur Suppe geben und diese nochmals kurz aufkochen. Mit Salz und Pfeffer abschmecken. Suppe mit Crème fraîche verfeinern. Dill darüberzupfen."
   ],
+  port: 4,
   cover: "G:2XxY8L0qlePC_Db6B0Zno3wenWKh061WLKR79e9pwd4hacXNhX9WDEHmLz4oVufphGjK48F24tOaR9vaWn7yXw", pages: ["G:GwijZW0E7NUEpoRTl9WEZUYp-2Pu6igFKKkl9kytxMY84es09_IuSprY_iFyNWZ3HdJaormzAXqCq7clvMtZuA"]
 },
 {
   n: "Spargel-Kokos-Suppe", folder: "Suppen", src: "",
   ing: [
-    
+    "Suppe:",
+    "1 kg weisse Spargeln",
+    "4 Schalotten",
+    "1 roter Chili",
+    "2 EL Butter",
+    "1 EL Rohzucker",
+    "8 dl Wasser",
+    "2 1/2 dl Kokosmilch",
+    "1 1/2 TL Salz",
+    "Korianderöl:",
+    "1 Bund Koriander",
+    "4 EL Olivenöl",
+    "1 Prise Salz",
+    "Mini-Spargeln:",
+    "1 EL Olivenöl",
+    "250 g Mini-Spargeln",
+    "2 Prisen Salz",
+    "wenig Pfeffer",
+    "Garnitur:",
+    "einige Korianderblättchen"
   ],
   steps: [
-    
+    "40 Min., vegi, schlank. Pro Portion (1/4): 405 kcal, F 33 g, Kh 18 g, E 8 g.",
+    "Spargeln und Schalotten schälen, in Stücke schneiden. Chili halbieren, entkernen.",
+    "Butter in einer Pfanne warm werden lassen. Spargeln, Schalotten und Chili ca. 3 Min. andämpfen. Zucker beigeben, ca. 2 Min. mitdämpfen. Wasser und Kokosmilch dazugiessen, salzen, aufkochen, Hitze reduzieren, zugedeckt ca. 15 Min. weich köcheln, pürieren.",
+    "Korianderstiele entfernen, Korianderblättchen mit dem Öl pürieren, salzen.",
+    "Öl in einer Bratpfanne heiss werden lassen. Spargeln ca. 3 Min. rührbraten, würzen.",
+    "Suppe mit dem Korianderöl, den Spargeln und den Korianderblättchen anrichten."
   ],
+  port: 4,
   cover: "G:YI7ZiwM-Nx1jQwvcjDbgDBJC1x7UEFrWXHpvx3FUsYOG9qdHyBBSn0Wj3M5wKUNUxZP3oVViT4mY_UshOTyD2Q", pages: ["G:o-mGly3n0qsAUO9KSGr9iaoAzgzn6SP4KnP4fRJptQ1WtkTC3--RJrncPVWosauBtKOd3fQTkLuWtEObgda7UQ"]
 },
 {
   n: "Spargel-Kokos-Suppe mit Scampi", folder: "Suppen", src: "",
   ing: [
-    
+    "500 g grüne Spargeln",
+    "1 Zwiebel",
+    "3 Knoblauchzehen",
+    "1 Peperoncino",
+    "1 mehligkochende Kartoffel",
+    "3 EL Sonnenblumenöl",
+    "12 küchenfertige, grosse rohe Scampischwänze mit Schale à ca. 40 g",
+    "6 dl Bouillon, z. B. Geflügel",
+    "2,5 dl Kokosmilch",
+    "1 Limette",
+    "Salz",
+    "gemahlener Pfeffer"
   ],
   steps: [
-    
+    "Kleine Mahlzeit für 4 Personen.",
+    "Spargeln im unteren Drittel schälen. Enden frisch anschneiden. Spitzen abschneiden und beiseitestellen. Restliche Spargeln in Scheiben schneiden. Zwiebel und Knoblauch hacken. Peperoncino längs halbieren und entkernen. Kartoffel in Würfelchen schneiden.",
+    "Öl in einer hohen Pfanne erhitzen. Scampi darin rundum ca. 5 Minuten braten. Herausheben, schälen und in grobe Stücke schneiden; beiseitestellen. Im selben Öl Spargelscheiben, Zwiebel, Knoblauch, Peperoncino und Kartoffeln ca. 5 Minuten andünsten. Bouillon und Kokosmilch dazugiessen. Suppe ca. 20 Minuten zugedeckt köcheln lassen. Limette halbieren. Die Hälfte der Limette auspressen, Rest in Schnitze schneiden. Suppe pürieren. Mit Salz, Pfeffer und etwas Limettensaft abschmecken. Spargelspitzen dazugeben, ca. 5 Minuten bissfest garen. Scampi in der Suppe heiss werden lassen. Limettenschnitze dazuservieren."
   ],
+  port: 4,
   cover: "G:BKwUvmGFah1LY-tDt_D2bYEDGT_UpqUh6cM9EezSuRomVnjcGkRmSOwrkAGCFUfEN_yT0HXM1vMuOyQjTlQ5OWnqTmNE9EyzyA", pages: ["G:3NnQpAXX7MG8ce9hXy6EimzVI5HX_Kw01QWrhTboPzgApCDUuVjX9a9i2OG1pqPjScMqcvSEJYJwb1t7W0NWHMyHQqNUsFOL_fY","G:zl_-Db3JCGks5G1bQobuoE3GWUgI3XCYIn9F_jKPaj3vjdZOrmvI80xmDqKlYomfzMkDuwKrSRuL_h1HeyF7osPzY1UUw0cySTs"]
 },
 {
   n: "Spargel-Kokos-Suppe mit Scampi", folder: "Suppen", src: "",
   ing: [
-    
+    "500 g grüne Spargeln",
+    "1 Zwiebel",
+    "3 Knoblauchzehen",
+    "1 Peperoncino",
+    "1 mehligkochende Kartoffel",
+    "3 EL Sonnenblumenöl",
+    "12 küchenfertige, grosse, rohe Scampischwänze mit Schale à ca. 40 g",
+    "6 dl Bouillon, z. B. Geflügel",
+    "2,5 dl Kokosmilch",
+    "1 Limette",
+    "Salz",
+    "gemahlener Pfeffer"
   ],
   steps: [
-    
+    "Hauptgericht für 4 Personen.",
+    "Spargeln im unteren Drittel schälen. Enden frisch anschneiden. Spitzen wegschneiden und beiseitestellen. Restliche Spargeln in Scheiben schneiden. Zwiebel und Knoblauch hacken. Peperoncino längs halbieren und entkernen. Kartoffel in Würfelchen schneiden.",
+    "Öl in einer hohen Pfanne erhitzen. Scampi darin rundum ca. 5 Minuten braten. Scampi herausheben, schälen und in grobe Stücke schneiden. Beiseitestellen. Im selben Öl Spargelscheiben, Zwiebeln, Knoblauch, Peperoncino und Kartoffeln ca. 5 Minuten andünsten. Bouillon und Kokosmilch dazugiessen. Suppe ca. 20 Minuten zugedeckt köcheln lassen. Limette halbieren. Die Hälfte der Limette auspressen, Rest in Schnitze schneiden. Suppe pürieren. Mit Salz, Pfeffer und etwas Limettensaft abschmecken. Spargelspitzen dazugeben und ca. 5 Minuten bissfest garen. Scampi in der Suppe heiss werden lassen. Limettenschnitze dazuservieren."
   ],
+  port: 4,
   cover: "G:cjuyigvlNMEZzUy9bhBEvGmBTzMtFYuIPw4tIHnDWulk5uJ19EPIRYz-FJurYuSnDVRP5vR8Dr3mT3S6qANa", pages: ["G:LgUiHvWwiJvY42QnYgh7Mipppkh9EwdF4zvIKS1EwaRDe8qyf6JMJxawWR4-KXS7mBM9OZK3SMgWD4cxzEDU","G:HpYYrfpxwEClVVTfi88AJloYuEFyRvv1L8uQuG9dGy__fpj4t7KnJksUdjAOnXmRJYyAMJktw7_NJVhgwk6LVzU"]
 },
 {
@@ -7127,11 +7414,28 @@ window.REZEPTE = [
 {
   n: "Süsskartoffelsuppe mit Ingwer", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "1 Knoblauchzehe",
+    "600 g Süsskartoffeln",
+    "2 cm Ingwer",
+    "1 EL Olivenöl",
+    "1 1/4 TL Salz",
+    "wenig Pfeffer",
+    "9 dl Wasser",
+    "2 Zweiglein Rosmarin",
+    "200 g Crème fraîche",
+    "2 Zweiglein Rosmarin zum Garnieren"
   ],
   steps: [
-    
+    "Als Vorspeise für 4–6 Personen. Ergibt ca. 1,2 Liter.",
+    "Zwiebel und Knoblauch schälen, grob hacken. Süsskartoffeln und Ingwer schälen. Süsskartoffeln in ca. 1 1/2 cm grosse Stücke, Ingwer in Scheibchen schneiden. Öl in einer Pfanne warm werden lassen. Zwiebel, Knoblauch und Ingwer ca. 2 Min. andämpfen. Süsskartoffeln ca. 4 Min. mitdämpfen, würzen.",
+    "Wasser dazugiessen, Rosmarin beigeben, aufkochen. Hitze reduzieren, zugedeckt ca. 15 Min. weich köcheln. Rosmarin entfernen, Suppe im Mixglas pürieren.",
+    "Suppe anrichten. Crème fraîche auf der Suppe verteilen, Rosmarinnadeln abzupfen, darüberstreuen.",
+    "Dazu passt: geröstetes Brot.",
+    "Lässt sich vorbereiten: Suppe ca. 1 Tag im Voraus zubereiten, auskühlen, zugedeckt im Kühlschrank aufbewahren. Suppe kurz vor dem Servieren heiss werden lassen, anrichten. Crème fraîche und Rosmarin darauf verteilen.",
+    "Portion (1/4): 333 kcal, F 21 g, Kh 32 g, E 4 g"
   ],
+  port: 4,
   cover: "G:ZAIh0aesDBISVsgR5BoFoNMIV7iJzePSR9L17UeRr-3GEXoRPbWq0rRCAXeEgTMbS0mdx9pGQRhfVHXxtusz7ZBzpo1hYD3KdhjK", pages: ["G:P5WaWP9VADiLvWgGLdJS182nag3mYusj4ooK2IWq6bliA5Mt255x6URzgJFD9hqLFUH4yuI7Rfbgrt3H0R4KHmIYGiM3zaMvZQ"]
 },
 {
@@ -7164,21 +7468,50 @@ window.REZEPTE = [
 {
   n: "Weinsuppe mit Mandel-Trüffel-Crunch", folder: "Suppen", src: "",
   ing: [
-    
+    "4 Schalotten",
+    "250 g mehlig kochende Kartoffeln",
+    "1 EL Olivenöl",
+    "3 dl Weisswein (z. B. AOC Cuvée Blanc Prestige Staatsschreiber Staatskellerei Zürich)",
+    "8 dl Wasser",
+    "1 1/4 TL Salz",
+    "wenig Pfeffer",
+    "2 dl Vollrahm",
+    "60 g Mandeln (z. B. Fine Food Marcona Almonds mit Trüffelaroma)"
   ],
   steps: [
-    
+    "30 Min. – vegetarisch, glutenfrei. Ergibt ca. 1,2 Liter. Für 4 Personen als Hauptspeise oder für 6 Personen als Vorspeise.",
+    "Schalotten schälen, grob hacken. Kartoffeln schälen, in ca. 1 1/2 cm grosse Stücke schneiden.",
+    "Öl in einer Pfanne warm werden lassen. Schalotten ca. 2 Min. andämpfen. Kartoffeln ca. 2 Min. mitdämpfen. Wein dazugiessen, aufkochen, auf die Hälfte einkochen. Wasser dazugiessen, aufkochen, würzen. Hitze reduzieren, zugedeckt ca. 20 Min. weich köcheln. Ca. 1 dl Rahm dazugiessen, alles im Mixglas pürieren.",
+    "Restlichen Rahm flaumig schlagen. Mandeln grob hacken. Suppe anrichten. Rahm und Mandeln darauf verteilen.",
+    "Tipp: Wenig Trüffel- oder Nussöl über die Suppe träufeln.",
+    "Portion (1/4): 394 kcal, F 27 g, Kh 19 g, E 6 g"
   ],
+  port: 4,
   cover: "G:luousmx7j-EB1BgBUbYUAplIYsJ-B8Foa_PIc-BLf_j7YTyALfiFm3xLHj9xD6-tO4uXzOXKGiwFvaJ2G6FsVxR6nbRI6WXSfA", pages: ["G:ecrxXDWg6HxuQyiLzgL64gqWYb3vuEXGFFSO8LB2Ru0NpjvGrIOLFI22tLjD3xXRdXoVShdgDf0PAkaDIUB2ZqQS-INKKmiREOo"]
 },
 {
   n: "Weissweinsuppe", folder: "Suppen", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "1/2 Sellerie",
+    "1/2 weisser Lauch",
+    "1/2 Rüebli",
+    "2 EL Butter",
+    "6 dl Weisswein (z. B. Chasselas)",
+    "3 dl Hühnerbouillon",
+    "Salz",
+    "Pfeffer",
+    "4 Bio-Forellenfilets",
+    "1,5 dl Weisswein",
+    "1,5 dl Vollrahm, geschlagen"
   ],
   steps: [
-    
+    "Hinweis: Das Foto zeigt das Rezept «Chasselas-Schaumsuppe mit Forellenstreifen». Für 4 Personen. Zubereitung: 45 Min.",
+    "Zwiebel, Sellerie, Lauch und Rüebli rüsten. Die Hälfte vom Gemüse in grobe Würfel, den Rest in feine Julienne schneiden.",
+    "Butter erhitzen, Gemüsewürfel farblos andünsten und mit 6 dl Weisswein ablöschen, 3 dl Hühnerbouillon dazugiessen und 20 Min. auf kleiner Stufe köcheln, bis das Gemüse weich ist. Mit dem Stabmixer fein pürieren. Durch ein Sieb passieren und zurück auf den Herd geben. Mit Salz und Pfeffer würzen.",
+    "Den Forellenfilets die Haut abziehen und in Streifen schneiden. Gemüsejulienne und Forellenstreifen in die Suppe geben und 10 Min. in der heissen Suppe ziehen lassen. 1,5 dl Wein und 1,5 dl geschlagenen Vollrahm in die Suppe geben. Abschmecken und servieren."
   ],
+  port: 4,
   cover: "G:pE0CyqIFkJTLLitXkmsOJDDOR-RFIapqjoDd53dNvmMHf7WWXxe7F1AdzgpNLK36kT7K4Yh58ulJ-_JzR-QV", pages: ["G:Yq1ksS2RSfTzBJ7dv0lN-VVYg7k_vhxZvUsb_VpO3rLYJup6t31YoBqGvM4Rfws5BFbV9WV14fXJ3P6Z9c9kew"]
 },
 // ---- Tapas ----
@@ -8977,11 +9310,27 @@ window.REZEPTE = [
 {
   n: "Süsskartoffel-Eintopf", folder: "Vegetarisch", tags: ["Kartoffel"], src: "",
   ing: [
-    
+    "1000 ml Gemüsebouillon",
+    "40 g Ingwer",
+    "2 Schalotten",
+    "600 g Süsskartoffeln",
+    "2 Rüebli",
+    "2 Zucchetti",
+    "10 g Bengali Curry",
+    "500 ml Kokosmilch",
+    "60 g Cashewkerne",
+    "300 g Bulgur",
+    "20 g Peterli",
+    "2 Tomaten",
+    "4 EL Öl",
+    "Salz und Pfeffer"
   ],
   steps: [
-    
+    "Kochutensilien: kleiner Topf, grosse Pfanne, mittlerer Topf.",
+    "Mengenangaben für 4 Personen (für 2 Personen jeweils halbieren).",
+    "Hinweis: Die Zubereitung ist im Foto nicht enthalten, nur die Zutatenliste."
   ],
+  port: 4,
   cover: "G:FgNSxpPklwlCnpj1ntmFHcVwxwvN6CYRy_-SxEI_laAUSvVDs_9x-2PvkYz0psJZTWWDsXan9DjR5H9-7RKPMg", pages: ["G:X9jV6zl8s-j15gNoQPHxDcFtcagEhU955c0e7CDc7n294qJkaxOFX2IsgpwDUPKliDe01VBx6yenL9NF-LwZ0A"]
 },
 {
