@@ -203,3 +203,11 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 
 .secret{-webkit-text-security:disc;text-security:disc;user-select:text;-webkit-user-select:text}
 .tokrow .chip{padding:6px 10px}
+
+/* Mehrfachauswahl Ordner */
+.tile.sel{outline:3px solid var(--c,#46604b);outline-offset:-3px}
+.tile .pen.chk{opacity:.35}.tile.sel .pen.chk{opacity:1;background:var(--c,#46604b);color:#fff}
+.selbar{position:sticky;bottom:0;z-index:30;display:flex;gap:8px;align-items:center;padding:10px 12px;margin-top:10px;background:var(--bg,#fff);border-top:1px solid rgba(128,128,128,.35)}
+.selbar span{flex:1;font-weight:600}.selbar .chip[disabled]{opacity:.45}
+.mvlist{display:flex;flex-direction:column;gap:4px;max-height:50vh;overflow:auto;margin:8px 0}
+.mv{text-align:left;padding:10px 12px;border:1px solid rgba(128,128,128,.35);border-radius:10px;background:transparent;color:inherit;font:inherit}

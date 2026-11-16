@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.1.1';
+const APP_VERSION = '1.2.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -257,10 +257,11 @@ function applySize() {
 }
 
 /* ---------- Startbildschirm & Ordnerseiten ---------- */
+let sel = null; // Auswahl-Modus: Set von Ordner-IDs
 function tileHtml(f) {
   const sub = kids(f.id).length;
-  return `<button class="tile${f.show ? '' : ' off'}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
-    <span class="ic">${esc(f.icon)}</span><b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
+  return `<button class="tile${f.show ? '' : ' off'}${sel && sel.has(f.id) ? ' sel' : ''}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
+    <span class="ic">${esc(f.icon)}</span><b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
 }
 function tilesBlock(parent) {
   const list = kids(parent).filter(f => state.edit || f.show);
@@ -270,8 +271,10 @@ function tilesBlock(parent) {
   return `<div class="tiles" id="tiles" data-parent="${esc(parent || '')}">${allTile}${list.map(tileHtml).join('')}${state.edit ? `<button class="tile add fixed" type="button" id="hadd"><span class="ic">＋</span><b>Neuer Ordner</b></button>` : ''}</div>`;
 }
 function barHtml() {
-  return `<div class="hbar">${state.edit ? '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>' : '<span></span>'}
+  return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
+    ${state.edit && !sel ? '<button class="chip" type="button" id="hsel">☑ Mehrere wählen</button>' : ''}
     <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}">${state.edit ? 'Fertig' : '✎ Ordner bearbeiten'}</button></div>
+    ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
 function renderHome() {
@@ -293,7 +296,7 @@ function renderHome() {
 /* Bearbeiten: Sortieren per Ziehen */
 let drag = null;
 view.addEventListener('pointerdown', e => {
-  const tile = state.edit && e.target.closest('#tiles .tile');
+  const tile = state.edit && !sel && e.target.closest('#tiles .tile');
   if (!tile || tile.classList.contains('fixed') || (e.pointerType === 'mouse' && e.button !== 0)) return;
   drag = { tile, x: e.clientX, y: e.clientY, on: false, id: e.pointerId, ghost: null, dx: 0, dy: 0 };
 });
@@ -336,6 +339,27 @@ function endDrag(e) {
 }
 window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
+
+/* Mehrere Ordner unter einen Überordner verschieben */
+function openMoveSheet() {
+  const ids = [...sel].filter(id => FB[id]);
+  const bad = new Set(); ids.forEach(id => subtree(id).forEach(x => bad.add(x)));
+  const rows = [`<button type="button" class="mv" data-to="">🏠 Hauptebene</button>`,
+    ...flat().filter(({ f }) => !bad.has(f.id)).map(({ f, depth }) =>
+      `<button type="button" class="mv" data-to="${esc(f.id)}" style="padding-left:${12 + depth * 18}px">${esc(f.icon)} ${esc(f.name)}</button>`)].join('');
+  const o = document.createElement('div');
+  o.className = 'sheet-bg';
+  o.innerHTML = `<div class="sheet" role="dialog" aria-label="Verschieben"><h3>${ids.length} Ordner verschieben nach</h3><div class="mvlist">${rows}</div>
+    <div class="acts"><button type="button" class="chip" id="mv-cancel">Abbrechen</button></div></div>`;
+  document.body.appendChild(o);
+  o.addEventListener('click', e => {
+    if (e.target === o || e.target.id === 'mv-cancel') { o.remove(); return; }
+    const b = e.target.closest('.mv'); if (!b) return;
+    const to = b.dataset.to || null;
+    ids.forEach(id => { FB[id].parent = to; });
+    sel = null; o.remove(); persist(); renderFilters(); refresh();
+  });
+}
 
 /* Ordner bearbeiten / neu anlegen */
 function openTileEditor(id, parentForNew) {
@@ -576,11 +600,23 @@ view.addEventListener('change', e => {
   setFolders(r, [...foldersOf(r), e.target.value]);
 });
 view.addEventListener('click', e => {
-  if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); return; }
+  if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
+  if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
+  if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
+  if (e.target.closest('#selmove')) { if (sel && sel.size) openMoveSheet(); return; }
   if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
   const crumb = e.target.closest('[data-crumb]');
   if (crumb) { e.preventDefault(); state.edit = false; if (crumb.dataset.crumb) state.filter = crumb.dataset.crumb; else { state.filter = 'alle'; state.browse = false; } renderFilters(); refresh(); window.scrollTo(0, 0); return; }
   const tile = e.target.closest('.tile');
+  if (tile && state.edit && sel) {
+    if (tile.classList.contains('fixed') || !tile.dataset.folder) return;
+    const id = tile.dataset.folder;
+    sel.has(id) ? sel.delete(id) : sel.add(id);
+    tile.classList.toggle('sel', sel.has(id));
+    const c = $('#selcount'); if (c) c.textContent = sel.size + ' gewählt';
+    const mv = $('#selmove'); if (mv) mv.disabled = !sel.size;
+    return;
+  }
   if (tile && state.edit) return;
   if (tile && tile.classList.contains('add')) return;
   if (tile) { state.filter = tile.dataset.folder; state.browse = true; renderFilters(); refresh(); window.scrollTo(0, 0); return; }
