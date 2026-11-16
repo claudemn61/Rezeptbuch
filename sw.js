@@ -1,4 +1,4 @@
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL = `rezeptbuch-shell-${VERSION}`;
 const IMGS = 'rezeptbuch-images';
 const FILES = ['./', 'index.html', 'style.css', 'app.js', 'data.js', 'manifest.webmanifest',
@@ -27,7 +27,7 @@ self.addEventListener('fetch', e => {
 
   // App-Dateien: zuerst Netz (damit Updates ankommen), sonst Cache
   if (url.origin === location.origin) {
-    e.respondWith(fetch(req).then(res => {
+    e.respondWith(fetch(req, { cache: 'no-store' }).then(res => {
       const copy = res.clone();
       caches.open(SHELL).then(c => c.put(req, copy));
       return res;
