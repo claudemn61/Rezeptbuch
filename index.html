@@ -48,6 +48,12 @@
         <div id="syncstat" class="syncstat"></div>
         <div class="tokrow"><input id="tok" type="text" class="secret" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="GitHub-Token einfügen"><button type="button" id="tokpaste" class="chip">Einfügen</button><button type="button" id="toksave" class="chip">OK</button></div>
         <p class="note tiny" id="tokstate"></p>
+        <h4>Import</h4>
+        <p class="note tiny">Foto-Import: eigener Claude-API-Schlüssel (console.anthropic.com). Link-Import: Adresse des Cloudflare-Dienstes (Anleitung im Repo unter worker/).</p>
+        <div class="tokrow"><input id="akey" type="text" class="secret" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Claude-API-Schlüssel"><button type="button" class="chip" data-paste="akey">Einfügen</button><button type="button" class="chip" data-save="akey">OK</button></div>
+        <p class="note tiny" id="akeystate"></p>
+        <div class="tokrow"><input id="wurl" type="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://….workers.dev"><button type="button" class="chip" data-paste="wurl">Einfügen</button><button type="button" class="chip" data-save="wurl">OK</button></div>
+        <p class="note tiny" id="wurlstate"></p>
         <h4>App</h4>
         <button type="button" id="update" class="chip">Neu laden &amp; Zwischenspeicher leeren</button>
         <p class="note tiny" id="ver"></p>

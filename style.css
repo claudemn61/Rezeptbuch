@@ -222,3 +222,13 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .tile.hasphoto b{padding:6px 6px 0;flex:none}
 .tile.hasphoto small{padding:2px 6px 7px;flex:none}
 .tile.hasphoto .pen{background:var(--card);border-radius:50%;padding:2px 5px;box-shadow:var(--shadow)}
+
+/* Import */
+.sheet.imp{max-height:88vh;overflow:auto}
+.sheet.imp label{display:block;margin:10px 0 0;font-size:13px;color:var(--muted)}
+.sheet.imp input[type=text],.sheet.imp input[type=url],.sheet.imp select,.sheet.imp textarea{display:block;width:100%;box-sizing:border-box;margin-top:4px;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.sheet.imp textarea{resize:vertical;line-height:1.35}
+.sheet.imp .chip.big{width:100%;margin-top:8px}
+.sheet.imp label.chk{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.thumbs{display:flex;gap:6px;overflow:auto;margin:6px 0}.thumbs img{height:64px;border-radius:8px}
+.note.err{color:#b3261e}.note.warn{background:color-mix(in srgb,#d98e04 18%,var(--card));padding:6px 8px;border-radius:8px;color:var(--ink)}

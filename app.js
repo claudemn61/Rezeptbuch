@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.5.3';
+const APP_VERSION = '1.6.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -32,16 +32,25 @@ function imgUrl(ref, w) {
 const isHeading = t => t.length <= 24 && !/[.!?]/.test(t);
 
 /* ---------- Daten ---------- */
-const R = window.REZEPTE.map(r => {
-  const hasText = r.ing.length > 0 || r.steps.length > 0;
-  const o = { ...r, id: slug(r.n), hasText };
-  o.fTitle = norm(r.n);
-  o.fIng = norm(r.ing.join(' | '));
-  o.fSteps = norm(r.steps.join(' | '));
-  o.fMisc = norm(r.folder + ' ' + (r.tags || []).join(' ') + ' ' + (r.src || ''));
+const mkRecipe = r => {
+  const o = { ing: [], steps: [], pages: [], ...r, id: r.id || slug(r.n) };
+  o.hasText = o.ing.length > 0 || o.steps.length > 0;
+  o.fTitle = norm(o.n);
+  o.fIng = norm(o.ing.join(' | '));
+  o.fSteps = norm(o.steps.join(' | '));
+  o.fMisc = norm(o.folder + ' ' + (o.tags || []).join(' ') + ' ' + (o.src || ''));
   return o;
-}).sort((a, b) => a.n.localeCompare(b.n, 'de'));
+};
+const byAlpha = (a, b) => a.n.localeCompare(b.n, 'de');
+const R = window.REZEPTE.map(mkRecipe).sort(byAlpha);
 const byId = Object.fromEntries(R.map(r => [r.id, r]));
+// Eigene (importierte) Rezepte aus meine-rezepte.json kommen zu den fest eingebauten dazu
+function setUserRecipes(list) {
+  for (let i = R.length - 1; i >= 0; i--) if (R[i].u) { delete byId[R[i].id]; R.splice(i, 1); }
+  (list || []).forEach(x => { if (!x || !x.n || byId[x.id || slug(x.n)]) return; const o = mkRecipe(x); o.u = true; R.push(o); byId[o.id] = o; });
+  R.sort(byAlpha);
+}
+setUserRecipes(store.get('rb_userrec', []));
 const folders = [...new Set(R.map(r => r.folder))].sort((a, b) => a.localeCompare(b, 'de'));
 
 /* ---------- Zustand ---------- */
@@ -253,6 +262,231 @@ async function loadRemote(quiet) {
     if (!quiet) setSync(getToken() ? '✓ Aktuell' : 'Nur lesen (kein Token eingetragen)', getToken() ? 'ok' : '');
   } catch { if (!quiet) setSync('Offline: zuletzt geladene Daten', 'err'); }
 }
+/* ---------- Eigene Rezepte: Import aus Foto oder Link ---------- */
+const UREC_PATH = 'meine-rezepte.json';
+const UAPI = `https://api.github.com/repos/${REPO}/contents/${UREC_PATH}`;
+const usync = { sha: null };
+const lsGet = k => (localStorage.getItem(k) || '').trim();
+async function uGet() {
+  let r = await fetch(`${UAPI}?ref=main&_=${Date.now()}`, { headers: hdr(getToken()), cache: 'no-store' });
+  if (r.status === 401) r = await fetch(`${UAPI}?ref=main&_=${Date.now()}`, { headers: hdr(''), cache: 'no-store' });
+  if (r.status === 404) { usync.sha = null; return []; }
+  if (!r.ok) throw new Error('GET ' + r.status);
+  const j = await r.json(); usync.sha = j.sha;
+  const d = JSON.parse(b64dec(j.content));
+  return Array.isArray(d.recipes) ? d.recipes : [];
+}
+async function loadUserRecipes() {
+  try {
+    const l = await uGet();
+    if (JSON.stringify(l) === JSON.stringify(store.get('rb_userrec', []))) return;
+    store.set('rb_userrec', l); setUserRecipes(l); renderFilters();
+    if (!state.edit && !document.querySelector('.sheet-bg') && !location.hash.startsWith('#/r/')) refresh();
+  } catch {}
+}
+const putFile = (path, b64, msg, sha) => fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+  method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify({ message: msg, content: b64, branch: 'main', ...(sha ? { sha } : {}) }) });
+async function saveUserRecipe(rec, files) {
+  if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
+  for (const f of files) {
+    const r = await putFile(f.path, f.b64, 'App: Rezeptfoto');
+    if (!r.ok) throw new Error('Foto speichern fehlgeschlagen (' + r.status + ')');
+  }
+  for (let i = 0; i < 4; i++) {
+    const list = (await uGet()).filter(x => x.id !== rec.id);
+    const next = [...list, rec];
+    const r = await putFile(UREC_PATH, b64enc(JSON.stringify({ v: 1, recipes: next }, null, 1) + '\n'), 'App: Rezept «' + rec.n + '» importiert', usync.sha);
+    if (r.ok) { store.set('rb_userrec', next); setUserRecipes(next); renderFilters(); return; }
+    if (r.status === 409 || r.status === 422) continue;
+    if (r.status === 401 || r.status === 403 || r.status === 404) throw new Error('Token ungültig oder ohne Schreibrecht für das Repo');
+    throw new Error('Speichern fehlgeschlagen (' + r.status + ')');
+  }
+  throw new Error('Konflikt beim Speichern, bitte nochmals versuchen');
+}
+
+/* Bilder verkleinern */
+function readImage(file) {
+  return new Promise((res, rej) => {
+    const u = URL.createObjectURL(file), im = new Image();
+    im.onload = () => { URL.revokeObjectURL(u); res(im); };
+    im.onerror = () => { URL.revokeObjectURL(u); rej(new Error('Bild «' + (file.name || '') + '» lässt sich nicht öffnen')); };
+    im.src = u;
+  });
+}
+async function shrink(file, max, q) {
+  const im = await readImage(file);
+  const k = Math.min(1, max / Math.max(im.naturalWidth, im.naturalHeight));
+  const c = document.createElement('canvas');
+  c.width = Math.round(im.naturalWidth * k); c.height = Math.round(im.naturalHeight * k);
+  const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, 0, 0, c.width, c.height);
+  return c.toDataURL('image/jpeg', q);
+}
+
+/* Texterkennung und Ordnung per Claude-API */
+const RECIPE_TOOL = {
+  name: 'rezept', description: 'Das erkannte Rezept in strukturierter Form',
+  input_schema: { type: 'object', properties: {
+    n: { type: 'string', description: 'Rezepttitel' },
+    ing: { type: 'array', items: { type: 'string' }, description: 'Zutaten, eine pro Eintrag' },
+    steps: { type: 'array', items: { type: 'string' }, description: 'Zubereitung, ein Absatz pro Eintrag' },
+    tags: { type: 'array', items: { type: 'string' } },
+    folder: { type: 'string', description: 'Passender Ordnername aus der Liste oder leer' },
+    notes: { type: 'string', description: 'Unsicheres oder Unleserliches, sonst leer' }
+  }, required: ['n', 'ing', 'steps'] }
+};
+const recipePrompt = () => `Erfasse das Rezept und gib es über das Werkzeug «rezept» zurück.
+Regeln:
+- Schweizer Rechtschreibung (ss statt ß), Wortlaut möglichst original; nichts erfinden, nichts ergänzen.
+- Zutaten: ein Eintrag pro Zutat, Menge zuerst, z. B. «500 g Zopfmehl», «3/4 EL Salz». Zwischenüberschriften der Zutatenliste (z. B. «Teig») als eigener kurzer Eintrag ohne Punkt.
+- Zubereitung: ein Eintrag pro Absatz bzw. Schritt. Zwischenüberschriften (z. B. «Backen») als eigener kurzer Eintrag ohne Satzzeichen.
+- Mehrere Bilder sind Seiten desselben Rezepts in der richtigen Reihenfolge.
+- Unleserliches mit [?] markieren und in notes kurz nennen.
+- tags: höchstens 3 passende Schlagwörter (z. B. vegetarisch, Apéro).
+- folder: bester Ordner aus dieser Liste, sonst leer: ${cfg.folders.map(f => f.name).join(', ')}.`;
+async function askClaude(content) {
+  const key = lsGet('rb_akey');
+  if (!key) throw new Error('Kein Claude-API-Schlüssel hinterlegt (Einstellungen → Import)');
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 4096, tools: [RECIPE_TOOL], tool_choice: { type: 'tool', name: 'rezept' }, messages: [{ role: 'user', content }] })
+  });
+  if (!r.ok) {
+    let m = ''; try { m = (await r.json()).error.message; } catch {}
+    throw new Error(r.status === 401 ? 'Claude-API-Schlüssel ungültig' : 'Claude-API: ' + r.status + (m ? ' – ' + m : ''));
+  }
+  const j = await r.json(); const t = (j.content || []).find(c => c.type === 'tool_use');
+  if (!t) throw new Error('Claude hat kein Rezept geliefert');
+  return t.input;
+}
+
+/* Link: Seite über den Cloudflare-Dienst holen, Rezeptdaten (schema.org) lesen */
+async function fetchPage(url) {
+  const w = lsGet('rb_worker');
+  if (!w) throw new Error('Kein Link-Dienst hinterlegt (Einstellungen → Import)');
+  const r = await fetch(w + (w.includes('?') ? '&' : '?') + 'url=' + encodeURIComponent(url));
+  if (!r.ok) throw new Error('Seite nicht abrufbar (' + r.status + ')');
+  return r.text();
+}
+const plain = s => { const t = document.createElement('textarea'); t.innerHTML = String(s || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ''); return t.value.replace(/\s+/g, ' ').trim(); };
+function findRecipeLd(node) {
+  if (!node || typeof node !== 'object') return null;
+  if (Array.isArray(node)) { for (const x of node) { const r = findRecipeLd(x); if (r) return r; } return null; }
+  const t = [].concat(node['@type'] || []);
+  if (t.includes('Recipe')) return node;
+  return findRecipeLd(node['@graph']) || null;
+}
+function stepsFromLd(v, out) {
+  if (!v) return;
+  if (typeof v === 'string') { v.split(/\r?\n+/).map(plain).filter(Boolean).forEach(x => out.push(x)); return; }
+  if (Array.isArray(v)) { v.forEach(x => stepsFromLd(x, out)); return; }
+  if ([].concat(v['@type'] || []).includes('HowToSection')) { if (v.name) out.push(plain(v.name)); stepsFromLd(v.itemListElement, out); return; }
+  const x = plain(v.text || v.name); if (x) out.push(x);
+}
+function recipeFromHtml(html) {
+  const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi; let m;
+  while ((m = re.exec(html))) {
+    let d; try { d = JSON.parse(m[1].trim()); } catch { continue; }
+    const r = findRecipeLd(d); if (!r) continue;
+    const steps = []; stepsFromLd(r.recipeInstructions, steps);
+    const ing = [].concat(r.recipeIngredient || r.ingredients || []).map(plain).filter(Boolean);
+    if (!ing.length && !steps.length) continue;
+    return { n: plain(r.name), ing, steps, tags: [], folder: '', notes: '' };
+  }
+  return null;
+}
+function pageText(html) {
+  return plain(html.replace(/<(script|style|noscript|svg|header|footer|nav)[\s\S]*?<\/\1>/gi, ' ')).slice(0, 40000);
+}
+
+/* Dialog */
+function openImport() {
+  const o = document.createElement('div'); o.className = 'sheet-bg';
+  document.body.appendChild(o);
+  const sheet = inner => { o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept importieren">${inner}</div>`; };
+  const folderOpts = sel => flat().map(({ f, depth }) => `<option value="${esc(f.id)}"${f.id === sel ? ' selected' : ''}>${' '.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('');
+  let busyOn = false;
+  const start = (msg = '') => {
+    sheet(`<h3>Rezept importieren</h3>
+      <button class="chip big" type="button" id="i-photo">📷 Foto oder Scan wählen</button>
+      <input id="i-file" type="file" accept="image/*" multiple hidden>
+      <p class="note tiny">Mehrere Bilder = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge.</p>
+      <label>Oder Link zu einem Rezept<input id="i-url" type="url" inputmode="url" autocapitalize="off" placeholder="https://…"></label>
+      <button class="chip on" type="button" id="i-go">🔗 Link importieren</button>
+      <p class="note tiny err" id="i-msg">${esc(msg)}</p>
+      <div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
+  };
+  const busy = t => { busyOn = true; sheet(`<h3>Rezept importieren</h3><p class="note">⏳ ${esc(t)}</p>`); };
+  const review = (rec, images, srcUrl) => {
+    busyOn = false;
+    const fid = (cfg.folders.find(f => f.name.toLowerCase() === String(rec.folder || '').toLowerCase()) || {}).id || (cfg.folders[0] || {}).id;
+    sheet(`<h3>Prüfen und speichern</h3>
+      ${rec.notes ? `<p class="note tiny warn">Hinweis: ${esc(rec.notes)}</p>` : ''}
+      ${images.length ? `<div class="thumbs">${images.map(u => `<img src="${u}" alt="">`).join('')}</div>
+        <label class="chk"><input id="r-keep" type="checkbox" checked> Originalfoto${images.length > 1 ? 's' : ''} beim Rezept behalten</label>` : ''}
+      <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
+      <label>Ordner<select id="r-f">${folderOpts(fid)}</select></label>
+      <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value="${esc((rec.tags || []).join(', '))}"></label>
+      <label>Zutaten <small>(eine pro Zeile)</small><textarea id="r-i" rows="8">${esc((rec.ing || []).join('\n'))}</textarea></label>
+      <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="r-s" rows="10">${esc((rec.steps || []).join('\n'))}</textarea></label>
+      <p class="note tiny err" id="i-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="i-back">Zurück</button><button type="button" class="chip on" id="r-save">Speichern</button></div>`);
+    $('#r-save', o).onclick = async () => {
+      const lines = id => $(id, o).value.split('\n').map(x => x.trim()).filter(Boolean);
+      const n = $('#r-n', o).value.trim();
+      const msg = $('#i-msg', o);
+      if (!n) { msg.textContent = 'Bitte einen Namen eingeben.'; return; }
+      const btn = $('#r-save', o); btn.disabled = true; btn.textContent = 'Speichere …'; msg.textContent = '';
+      let id = slug(n) || 'rezept'; if (byId[id]) id += '-' + Date.now().toString(36).slice(-4);
+      const keep = $('#r-keep', o) ? $('#r-keep', o).checked : false;
+      const files = keep ? images.map((u, i) => ({ path: `img/u/${id}-${i + 1}.jpg`, b64: u.split(',')[1] })) : [];
+      const out = {
+        id, n, folder: $('#r-f', o).value, src: srcUrl || '',
+        tags: $('#r-t', o).value.split(',').map(x => x.trim()).filter(Boolean),
+        ing: lines('#r-i'), steps: lines('#r-s'),
+        cover: files[0] ? files[0].path : '', pages: files.slice(1).map(f => f.path), added: new Date().toISOString().slice(0, 10)
+      };
+      try { await saveUserRecipe(out, files); o.remove(); location.hash = '#/r/' + id; }
+      catch (e) { btn.disabled = false; btn.textContent = 'Speichern'; msg.textContent = '⚠ ' + e.message; }
+    };
+    $('#i-back', o).onclick = () => start();
+  };
+  const fromPhotos = async files => {
+    try {
+      busy('Bilder werden vorbereitet …');
+      const images = []; for (const f of files) images.push(await shrink(f, 1600, 0.82));
+      busy('Claude liest das Rezept …');
+      const content = [...images.map(u => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } })), { type: 'text', text: recipePrompt() }];
+      review(await askClaude(content), images, '');
+    } catch (e) { start('⚠ ' + e.message); }
+  };
+  const fromLink = async url => {
+    try {
+      busy('Seite wird geladen …');
+      const html = await fetchPage(url);
+      let rec = recipeFromHtml(html);
+      if (!rec) {
+        busy('Claude liest die Seite …');
+        rec = await askClaude([{ type: 'text', text: recipePrompt() + '\n\nSeitentext:\n' + pageText(html) }]);
+        if (!(rec.ing || []).length && !(rec.steps || []).length) throw new Error('Auf der Seite wurde kein Rezept gefunden');
+      }
+      review(rec, [], url);
+    } catch (e) { start('⚠ ' + e.message); }
+  };
+  o.addEventListener('click', e => {
+    if (e.target === o) { if (!busyOn) o.remove(); return; }
+    if (e.target.closest('#i-cancel')) { o.remove(); return; }
+    if (e.target.closest('#i-photo')) { $('#i-file', o).click(); return; }
+    if (e.target.closest('#i-go')) {
+      const u = $('#i-url', o).value.trim();
+      if (!/^https?:\/\//i.test(u)) { $('#i-msg', o).textContent = 'Bitte einen Link mit https:// eingeben.'; return; }
+      fromLink(u);
+    }
+  });
+  o.addEventListener('change', e => { if (e.target.id === 'i-file' && e.target.files.length) fromPhotos([...e.target.files]); });
+  start();
+}
+
 function folderPhoto(id) {
   const pr = byId[(FB[id] || {}).photo];
   if (pr && pr.cover) return imgUrl(pr.cover, 240);
@@ -298,7 +532,8 @@ function renderHome() {
     <section class="home${state.edit ? ' editing' : ''}">
       ${barHtml()}
       ${tilesBlock(null)}
-      ${state.edit ? '' : `<button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
+      ${state.edit ? '' : `<button class="chip big" type="button" id="import">＋ Rezept importieren</button>
+      <button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
       ${rec.length ? `<h3 class="sec">Zuletzt angesehen</h3><div class="strip">${rec.map(miniCard).join('')}</div>` : ''}
       ${fav.length ? `<h3 class="sec">Favoriten</h3><div class="strip">${fav.map(miniCard).join('')}</div>` : ''}`}
     </section>`;
@@ -636,6 +871,7 @@ view.addEventListener('change', e => {
   setFolders(r, [...foldersOf(r), e.target.value]);
 });
 view.addEventListener('click', e => {
+  if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
   if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
   if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
@@ -727,6 +963,18 @@ settingsEl.addEventListener('click', async e => {
     catch { setSync('Zugriff auf die Zwischenablage nicht erlaubt: ins Feld tippen und lange drücken → Einfügen', 'err'); }
     return;
   }
+  const pb = e.target.closest('[data-paste]');
+  if (pb) {
+    const inp = $('#' + pb.dataset.paste);
+    try { inp.value = (await navigator.clipboard.readText()).trim(); } catch { setSync('Zwischenablage nicht erlaubt: ins Feld tippen, lange drücken → Einfügen', 'err'); }
+    return;
+  }
+  const sv = e.target.closest('[data-save]');
+  if (sv) {
+    const id = sv.dataset.save, key = id === 'akey' ? 'rb_akey' : 'rb_worker', v = $('#' + id).value.trim();
+    if (v) localStorage.setItem(key, v); else localStorage.removeItem(key);
+    $('#' + id).value = ''; updImp(); return;
+  }
   if (e.target.closest('#toksave')) {
     const v = $('#tok').value.trim();
     if (v) localStorage.setItem('rb_token', v); else localStorage.removeItem('rb_token');
@@ -746,13 +994,18 @@ settingsEl.addEventListener('click', async e => {
   }
 });
 applyTheme();
+function updImp() {
+  const a = $('#akeystate'), w = $('#wurlstate');
+  if (a) a.textContent = lsGet('rb_akey') ? 'Claude-Schlüssel ist auf diesem Gerät hinterlegt.' : 'Kein Claude-Schlüssel hinterlegt.';
+  if (w) w.textContent = lsGet('rb_worker') ? 'Link-Dienst: ' + lsGet('rb_worker').replace(/^https?:\/\//, '') : 'Kein Link-Dienst hinterlegt.';
+}
 function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; }
-updTok(); applySize(); $('#tok').addEventListener('keydown', e => { if (e.key === 'Enter') $('#toksave').click(); }); $('#vertag').textContent = 'v' + APP_VERSION; $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
+updTok(); updImp(); applySize(); $('#tok').addEventListener('keydown', e => { if (e.key === 'Enter') $('#toksave').click(); }); $('#vertag').textContent = 'v' + APP_VERSION; $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
 
 /* ---------- Start ---------- */
 renderFilters();
 route();
-loadRemote();
+loadRemote(); loadUserRecipes();
 if (getToken() && sync.dirty) flush();
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !sync.dirty) loadRemote(true); });
 let reloaded = false;
