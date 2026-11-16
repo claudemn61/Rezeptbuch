@@ -161,7 +161,7 @@ function normalize(c) {
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
-    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false });
+    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false, ...(byId[f.photo] ? { photo: f.photo } : {}) });
   });
   folders.forEach(b => { if (!seen.has(b)) out.folders.push(defFolder(b)); });
   const ids = new Set(out.folders.map(f => f.id));
@@ -253,6 +253,8 @@ async function loadRemote(quiet) {
   } catch { if (!quiet) setSync('Offline: zuletzt geladene Daten', 'err'); }
 }
 function folderPhoto(id) {
+  const pr = byId[(FB[id] || {}).photo];
+  if (pr && pr.cover) return imgUrl(pr.cover, 240);
   const sub = subtree(id);
   const c = R.filter(r => r.cover && foldersOf(r).some(x => sub.has(x)));
   const best = c.find(r => r.ing && r.ing.length && r.steps && r.steps.length) || c[0];
@@ -348,6 +350,28 @@ function endDrag(e) {
 }
 window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
+
+/* Rezeptfoto als Foto eines Ordners / Überordners festlegen */
+function openPhotoSheet(r) {
+  const ids = []; foldersOf(r).forEach(x => pathOf(x).forEach(f => { if (!ids.includes(f.id)) ids.push(f.id); }));
+  const o = document.createElement('div');
+  o.className = 'sheet-bg';
+  const draw = () => {
+    o.innerHTML = `<div class="sheet" role="dialog" aria-label="Ordnerfoto"><h3>Foto von «${esc(r.n)}» verwenden für</h3><div class="mvlist">${ids.map(id => {
+      const f = FB[id], on = f.photo === r.id;
+      return `<button type="button" class="mv" data-fp="${esc(id)}">${on ? '✓ ' : ''}${esc(f.icon)} ${esc(pathOf(id).map(x => x.name).join(' › '))}</button>`; }).join('')}</div>
+      <p class="note tiny">Antippen setzt oder entfernt das Foto. Ohne Auswahl nimmt die App automatisch ein passendes Rezeptfoto. Sichtbar bei Einstellungen → Ordner-Kacheln → Fotos.</p>
+      <div class="acts"><button type="button" class="chip on" id="fp-ok">Fertig</button></div></div>`;
+  };
+  draw(); document.body.appendChild(o);
+  o.addEventListener('click', e => {
+    if (e.target === o || e.target.id === 'fp-ok') { o.remove(); return; }
+    const b = e.target.closest('[data-fp]'); if (!b) return;
+    const f = FB[b.dataset.fp];
+    if (f.photo === r.id) delete f.photo; else f.photo = r.id;
+    persist(); renderFilters(); draw();
+  });
+}
 
 /* Mehrere Ordner unter einen Überordner verschieben */
 function openMoveSheet() {
@@ -557,7 +581,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -656,6 +680,7 @@ view.addEventListener('click', e => {
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
   }
+  if (e.target.closest('#fphoto')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openPhotoSheet(r); return; }
   const rmf = e.target.closest('[data-rmf]');
   if (rmf) {
     const r = byId[decodeURIComponent(location.hash.slice(4))];
