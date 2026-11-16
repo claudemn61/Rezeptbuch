@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -66,7 +66,7 @@ function search(q) {
       case 'text': return r.hasText;
       case 'foto': return !r.hasText;
       case 'alle': return true;
-      default: return fset ? fset.has(folderOf(r)) : true;
+      default: return fset ? foldersOf(r).some(x => fset.has(x)) : true;
     }
   });
   if (!t.length) return list.map(r => ({ r, score: 0, hit: null }));
@@ -166,7 +166,7 @@ function normalize(c) {
   const ids = new Set(out.folders.map(f => f.id));
   out.folders.forEach(f => { if (f.parent && (!ids.has(f.parent) || f.parent === f.id)) f.parent = null; });
   out.folders.forEach(f => { let p = f, n = 0; while (p && p.parent && n++ < 60) p = out.folders.find(x => x.id === p.parent); if (n >= 60) f.parent = null; });
-  Object.entries(c.assign || {}).forEach(([rid, fid]) => { if (byId[rid] && ids.has(fid)) out.assign[rid] = fid; });
+  Object.entries(c.assign || {}).forEach(([rid, fid]) => { const l = [].concat(fid).filter(x => ids.has(x)); if (byId[rid] && l.length) out.assign[rid] = [...new Set(l)]; });
   return out;
 }
 let cfg = normalize(store.get('rb_pending', null) || store.get('rb_cfgcache', null));
@@ -181,9 +181,9 @@ function subtree(id) {
   while (ch) { ch = false; cfg.folders.forEach(f => { if (f.parent && s.has(f.parent) && !s.has(f.id)) { s.add(f.id); ch = true; } }); }
   return s;
 }
-const folderOf = r => { const a = cfg.assign[r.id]; return a && FB[a] ? a : (FB[r.folder] ? r.folder : (cfg.folders[0] || {}).id); };
+const foldersOf = r => { const a = (cfg.assign[r.id] || []).filter(x => FB[x]); return a.length ? a : [FB[r.folder] ? r.folder : (cfg.folders[0] || {}).id]; };
 const folderName = id => (FB[id] || {}).name || id;
-const countIn = id => { const s = subtree(id); return R.filter(r => s.has(folderOf(r))).length; };
+const countIn = id => { const s = subtree(id); return R.filter(r => foldersOf(r).some(x => s.has(x))).length; };
 function pathOf(id) { const p = []; let f = FB[id], n = 0; while (f && n++ < 60) { p.unshift(f); f = f.parent && FB[f.parent]; } return p; }
 const rootOf = id => (pathOf(id)[0] || {}).id;
 function flat(parent = null, depth = 0, skip = null) {
@@ -381,7 +381,7 @@ function openTileEditor(id, parentForNew) {
     if (e.target.id === 'e-del') {
       if (!confirm('Ordner «' + m.name + '» löschen? Unterordner rücken eine Ebene hoch, Rezepte kehren in ihren ursprünglichen Ordner zurück.')) return;
       cfg.folders.forEach(f => { if (f.parent === m.id) f.parent = m.parent || null; });
-      Object.keys(cfg.assign).forEach(k => { if (cfg.assign[k] === m.id) delete cfg.assign[k]; });
+      Object.keys(cfg.assign).forEach(k => { cfg.assign[k] = cfg.assign[k].filter(x => x !== m.id); if (!cfg.assign[k].length) delete cfg.assign[k]; });
       cfg.folders = cfg.folders.filter(f => f.id !== m.id);
       if (state.filter === m.id) state.filter = m.parent || 'alle';
       persist(); renderFilters(); done(); return;
@@ -440,7 +440,7 @@ function renderList() {
       <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 480))}" alt="">` : ''}</div>
       <div class="body"><h3>${highlight(r.n, t)}</h3>
       ${sn ? `<div class="sn">${sn}</div>` : ''}
-      <div class="tags"><span class="tag">${esc(folderName(folderOf(r)))}</span>${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
+      <div class="tags">${foldersOf(r).map(x => `<span class="tag">${esc(folderName(x))}</span>`).join('')}${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
   }).join('') + '</div>';
 }
 
@@ -522,7 +522,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><label class="fsel">Ordner <select id="fsel">${flat().map(({ f, depth }) => `<option value="${esc(f.id)}" ${f.id === folderOf(r) ? 'selected' : ''}>${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -565,11 +565,15 @@ view.addEventListener('input', e => {
   const r = byId[decodeURIComponent(location.hash.slice(4))];
   setPort(r, t.id === 'pn' ? { n: v } : { b: v });
 });
+function setFolders(r, list) {
+  list = [...new Set(list)];
+  if (list.length === 1 && list[0] === r.folder) delete cfg.assign[r.id]; else cfg.assign[r.id] = list;
+  persist(); renderFilters(); renderDetail(r);
+}
 view.addEventListener('change', e => {
-  if (e.target.id !== 'fsel') return;
+  if (e.target.id !== 'fadd' || !e.target.value) return;
   const r = byId[decodeURIComponent(location.hash.slice(4))]; if (!r) return;
-  if (e.target.value === r.folder) delete cfg.assign[r.id]; else cfg.assign[r.id] = e.target.value;
-  persist(); renderFilters();
+  setFolders(r, [...foldersOf(r), e.target.value]);
 });
 view.addEventListener('click', e => {
   if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); return; }
@@ -590,6 +594,13 @@ view.addEventListener('click', e => {
     persist();
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
+  }
+  const rmf = e.target.closest('[data-rmf]');
+  if (rmf) {
+    const r = byId[decodeURIComponent(location.hash.slice(4))];
+    const cur = foldersOf(r);
+    if (cur.length > 1) setFolders(r, cur.filter(x => x !== rmf.dataset.rmf));
+    return;
   }
   const pbtn = e.target.closest('.pbtn');
   if (pbtn) {

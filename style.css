@@ -197,3 +197,6 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .fsel{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
 .fsel select{font:inherit;font-size:14px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 8px;max-width:60vw}
 .settings{max-height:calc(100vh - 90px);overflow:auto}
+
+.fchip{display:inline-flex;align-items:center;gap:4px}
+.fchip button{border:0;background:none;color:var(--muted);font-size:15px;line-height:1;padding:0 0 0 2px;cursor:pointer}
