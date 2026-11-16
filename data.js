@@ -4783,40 +4783,109 @@ window.REZEPTE = [
 {
   n: "Blumenkohl-Bowl", folder: "Gemüse", src: "",
   ing: [
-    
+    "Cauliflower:",
+    "2 EL Sesamöl",
+    "600 g tiefgekühlter Cauliflower like Rice (Karma), angetaut",
+    "1 TL schwarzer Sesam",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Sauce:",
+    "3 EL Weissweinessig",
+    "4 EL Olivenöl",
+    "1 EL flüssiger Honig",
+    "20 g Ingwer",
+    "1 Bund Koriander",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "Gemüse und Tofu:",
+    "200 g Rüebli",
+    "1 Bund Radiesli",
+    "200 g geräucherter Tofu",
+    "1 EL Sesamöl",
+    "2 Prisen Salz",
+    "1 EL Sesamöl"
   ],
   steps: [
-    
+    "Öl in einer beschichteten Bratpfanne heiss werden lassen. Hitze reduzieren, Cauliflower ca. 10 Min. rührbraten, Sesam daruntermischen, würzen.",
+    "Essig, Öl und Honig in einer Schüssel verrühren. Ingwer schälen, dazureiben, Koriander fein schneiden, daruntermischen, Sauce würzen. Cauliflower unter die Sauce mischen.",
+    "Rüebli schälen, in Streifchen schneiden. Radiesli in Scheiben und Tofu in Würfel schneiden. Öl in derselben Pfanne heiss werden lassen. Tofu ca. 2 Min. braten, salzen, herausnehmen. Rüebli ca. 1 Min. rührbraten, mit dem Cauliflower, den Radiesli und dem Tofu in Bowls anrichten. Öl darüberträufeln.",
+    "Hinweis: Titel, Personenzahl und Zubereitungszeit sind auf dem Foto nicht sichtbar."
   ],
   cover: "G:a5Qj3_4QzblsTcExMbjyJ-X2VZR1NJPfccsUiEbUSIGoBDoK7dgsJ0qqgAs5OP5cJtdfxBpgst2neI_wIoiAX_vYGebAm8AKEg", pages: ["G:JZkt4VF4jYI_eZO9PHexczDmpNaTY1lQ5QDNP68kanNnrmOrDHeiWGsq2kOOiGS8bAKHtS85hTS01HkwfCl7mw4HRmqlf9QuyPh0","G:vywqUIHwptmGkMHSK6JMMJo1It62J34FBkf4SdQLNB7sQQS4Z_Dbc4mPHSH9cv1cPcPpnJODoSwOur0-aZyJ_jtYiIVQBjgJTU4"]
 },
 {
   n: "Ofengemüse mit Feta", folder: "Gemüse", src: "",
   ing: [
-    
+    "4 rote Peperoni",
+    "600 g Blumenkohl",
+    "400 g Raclette-Kartoffeln",
+    "1 EL Olivenöl",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "4 Rispentomaten",
+    "200 g Feta",
+    "Sauce:",
+    "3 EL Aceto balsamico",
+    "4 EL Olivenöl",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "3 Bundzwiebeln mit dem Grün"
   ],
   steps: [
-    
+    "20 Min. + 30 Min. backen. Vegetarisch, schlank, glutenfrei.",
+    "Ofen auf 240 Grad vorheizen. Peperoni entkernen, in Streifen schneiden, in eine Schüssel geben. Blumenkohl in Röschen schneiden, Strunk schälen, in dünne Scheiben schneiden. Kartoffeln mit der Schale vierteln, alles beigeben. Öl daruntermischen, würzen, auf einem mit Backpapier belegten Blech verteilen. Tomaten halbieren, darauflegen.",
+    "Backen: ca. 20 Min. in der Mitte des Ofens. Herausnehmen, Feta zerbröckeln, darüberstreuen, ca. 10 Min. fertig backen.",
+    "Aceto und Öl in einer Schüssel verrühren, Sauce würzen. Bundzwiebeln in feine Ringe schneiden, beigeben, mischen, auf dem Ofengemüse verteilen, anrichten.",
+    "Pro Portion (1/4): 473 kcal, F 28 g, Kh 40 g, E 16 g."
   ],
+  port: 4,
   cover: "G:jI6WfJvSt428YfZMWKaSigH6gQ-nzRhmQfVxyhpqgiNWDJ3MKT2q5tCzOnsIM7kmpAC4jx8H9G_xpM12_9tND7TnmOGrKbi5unM", pages: ["G:KWvc79nMkGNDfnv0hI-3hkY4Je0PpKUL5WjSiI5n5wlTir_-B1z_3vImH6exXf3d4J1RYjfBduaybBHkDCHEPZP0FAviG0gPsT4"]
 },
 {
   n: "Ofengemüse mit Süsskartoffeln und Dip", folder: "Gemüse", src: "",
   ing: [
-    
+    "600 g Süsskartoffeln, in Schnitzen",
+    "400 g rohe Randen, geschält, in Schnitzen",
+    "400 g Fenchel, in Schnitzen",
+    "200 g Champignons, halbiert",
+    "4 EL Olivenöl",
+    "2 TL Salz",
+    "wenig Pfeffer",
+    "4 Zweiglein Thymian",
+    "Dip:",
+    "500 g Magerquark",
+    "4 EL Schnittlauch, fein geschnitten",
+    "4 Prisen Fleur de Sel",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Süsskartoffeln und alle Zutaten bis und mit Thymian in einer Schüssel mischen, auf einem mit Backpapier belegten Blech verteilen. Backen: ca. 30 Min. in der Mitte des auf 200 Grad vorgeheizten Ofens.",
+    "Quark und alle restlichen Zutaten verrühren, zum Gemüse servieren."
   ],
+  port: 4,
   cover: "G:Bf4ZGeZxrlYOtBRTsUf05OjquMyru0HdDSOW87wX4CWReisPLwjlHDjFbV7vScjG8Iq2vc88AfLbqwgm9pzcJd9pg45AsVx_IA", pages: ["G:crXoqHloiKNPbSx9BcxsXOtNnBocTPyFhMQVD1C3FGpCerYEfuOmmdwHSNkoKT2DCnwnGNWCp5RFIdt7nyXNuOn6kC_Zb4X4odoM","G:ouArVd2-Vb_Z2aRmY7xV9Q9Cw4XvSVBMOgLL_a-5_qasZJefxTwGi0-GqIDwp7S5OnqH5C5mMp2o_JdQrjlWT-L3DWSHAm0mrw"]
 },
 {
   n: "Ratatouille", folder: "Gemüse", src: "",
   ing: [
-    
+    "8 grosse Tomaten",
+    "4 Zucchetti",
+    "2 Auberginen",
+    "2 Zwiebeln",
+    "2 Knoblauchzehen",
+    "2 Zweige Thymian",
+    "2 Zweige Rosmarin",
+    "Olivenöl",
+    "Grobes Meersalz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Die Tomaten, Zucchetti und Auberginen in ca. 3 cm dicke Scheiben schneiden. Die Tomatenscheiben mit Salz und Pfeffer würzen.",
+    "Die Zwiebeln halbieren und in feine Ringe schneiden, die Knoblauchzehen fein hacken. Thymian und Rosmarin waschen, die Blättchen bzw. Nadeln abzupfen und ebenfalls fein hacken.",
+    "Die Zwiebelringe und den Knoblauch in einer Pfanne mit etwas Olivenöl andünsten. Thymian und Rosmarin dazugeben und alles nochmals für ca. 3 Minuten mitdünsten. Die Pfanne vom Herd nehmen und die Zwiebel-Knoblauch-Mischung in einer grossen Schüssel vorsichtig mit den Zucchetti und Auberginen vermengen. Am Schluss auch noch die Tomaten hinzufügen und nochmals vorsichtig vermischen.",
+    "Anschliessend das Gemüse abwechselnd in eine Auflaufform schichten und im vorgeheizten Ofen bei 200 °C für ca. 45 Minuten garen, bis das Gemüse gar und leicht geröstet ist.",
+    "Vor dem Servieren das Ratatouille mit etwas Olivenöl beträufeln, mit grobem Meersalz bestreuen und mit Rosmarin garnieren.",
+    "Dazu passt: Grilliertes Fleisch, Baguette."
   ],
   cover: "G:iD2THdMcNlhjL12_EJBO6b4SYSb1_epE7c6IkSspJ5KpbShzk21_njLYGSr-BqFkb6opH6n9kLUa2S-YwQf9wS0", pages: ["G:O_zYkwu1U3gxOYAO9GZjmQk2ugBmTWw6BLCCo33QgzCe586zP18FKpceXrMotDdpiWfi9KEeESFnSYRLq5Xq","G:Tn2CH0EBDgBgHd-xr3jFbUQHiqR5_iHBXqnkEpTVIC7GZo4E8BiySQ3rgZsrdJnQING1aN3MXaMi2Zfofm0wEbA"]
 },
@@ -4846,31 +4915,75 @@ window.REZEPTE = [
 {
   n: "Spargelsalat", folder: "Gemüse", src: "",
   ing: [
-    
+    "500 g grüne Spargeln",
+    "500 g weisse Spargeln",
+    "3 EL Aceto balsamico bianco",
+    "4 EL Olivenöl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "1 Bund Radiesli",
+    "1/2 Bund Kerbel",
+    "Öl zum Braten",
+    "1/2 TL Salz",
+    "8 Pastetli",
+    "wenig Portulak"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 20 Min.",
+    "1. Schritt: Unteren hölzernen Teil der grünen Spargeln wegschneiden, weisse Spargeln schälen, alle Spargeln schräg in ca. 1 1/2 cm dicke Scheiben schneiden.",
+    "2. Schritt: Aceto und Öl verrühren, würzen. Radiesli vierteln, Kerbel fein schneiden, in die Sauce geben. Spargeln im heissen Öl ca. 5 Min. rührbraten, salzen, mit den Radiesli mischen.",
+    "3. Schritt: Aus den Pastetli den Deckel herauslösen, Pastetli nach Angabe auf der Verpackung zubereiten, mit den Spargeln und dem Portulak anrichten.",
+    "Pro Portion: 587 kcal, F 42 g, Kh 38 g, E 11 g.",
+    "Hinweis: Personenzahl nicht angegeben."
   ],
   cover: "G:eN8AkqmYYmJWbdFvGv912BliqwoJ2PURfiTHSyZIfAJjrl-xqF_7St6_O5BYBvcPWn0KBugZQCkWG4RVHOO9qw", pages: ["G:SiDHrLfWKUhdTSPmg7Ct7xSMTxG95pVDKbhTSZEZjhmIBHUBqzU08zANThB3BA58Gk8bd8ofQTWfWl5npXuDXQ"]
 },
 {
   n: "Spinat-Lachs-Lasagne", folder: "Gemüse", tags: ["Teigwaren","Vegetarisch"], src: "",
   ing: [
-    
+    "500 g Blattspinat",
+    "2 Schalotten",
+    "2 EL Butter",
+    "12 Lasagneblätter",
+    "250 g Räucherlachs, in Tranchen",
+    "Guss:",
+    "2 dl Rahm",
+    "2 dl Milch",
+    "3 Eier",
+    "etwas Muskatnuss",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Blattspinat in gelochter Garschale im Dampf (100 °C, 1 Minute) oder im heissen Wasser blanchieren. Spinat etwas auskühlen lassen und klein schneiden.",
+    "Die Schalotten schälen und fein hacken. Butter erhitzen und Schalotten dünsten. Den Spinat dazugeben und mitdünsten. Mit Salz und Pfeffer würzen. Spinat vom Kochfeld nehmen und kurz abkühlen lassen.",
+    "Lasagneblätter in genügend kochendem Salzwasser al dente garen. Abwechslungsweise Spinat, Lasagneblätter und Räucherlachs in die Porzellanform schichten. Für den Guss Rahm, Milch und Eier verquirlen. Mit Muskatnuss, Salz und Pfeffer würzen, über die Lasagne giessen. Im Backofen in 25-30 Minuten (Heissluft, 175 °C) goldgelb backen."
   ],
+  port: 4,
   cover: "G:z5hxxKQWBoHTkkiv49Yc7uE_XRRDelLxVDaXo0t2cwTnE_LOVKvCPlbWFkXuiook2E5VtJIkzbYpZBeg7zm1", pages: ["G:LAvQX2J8IRG9am_rH_Cry9rhf69eeU79tyWCPfCfrPjEjkLz0TM83_S-DWoU0WN-KbbT7PUKnQx-3BLjyQNNjv8","G:pNXadwlVwl3KNIMdCWv-BCCwyAGOPNwmy6bYGPaeERpiYg4H7G4AQ4a9lwZSoNahcJdHWeFAzp_ibT3010Hxsg"]
 },
 {
   n: "Zucchini-Couscous mit Lammfilet", folder: "Gemüse", src: "",
   ing: [
-    
+    "800 g Zucchini",
+    "3 EL Öl",
+    "100 g Couscous",
+    "1 Bund glattblättrige Petersilie",
+    "2 EL Essig",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Öl zum Braten",
+    "4 Lammnierstücke (je ca. 200 g)",
+    "3/4 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Zucchini grob reiben. Öl in einer beschichteten Bratpfanne heiss werden lassen. Hitze reduzieren, Couscous ca. 2 Min. rührbraten. Zucchini ca. 5 Min. mitbraten. Pfanne von der Platte nehmen.",
+    "Petersilie grob schneiden, mit dem Essig unter das Zucchini-Couscous mischen, würzen.",
+    "Öl in einer Bratpfanne heiss werden lassen. Fleisch beidseitig je ca. 4 Min. braten, herausnehmen, würzen.",
+    "Dazu passt: griechisches Joghurt nature.",
+    "Pro Portion (1/4): 471 kcal, F 20 g, Kh 22 g, E 51 g."
   ],
+  port: 4,
   cover: "G:6kKElK7HRwoxE4o-pRFfgszqkGC6Xb6xaqBiQgfo3XCQbcXf3f6TDjXQEcoz0SkLPrjjy2Vt1UjN90FkpIGSng", pages: ["G:327jNNnWDut0uPO1dRa4TZQZyprHO0YkR0mg7IJ5RmO0fxpGrGUpwgcSPlnz62Ci-2oNc0HqgcokrYM9cSEM"]
 },
 // ---- Getränke ----
