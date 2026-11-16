@@ -9,7 +9,7 @@
    "name": "Asiatisch",
    "icon": "🥢",
    "color": "#b5651d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -17,7 +17,7 @@
    "name": "Beilagen",
    "icon": "🥔",
    "color": "#c0504d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -57,7 +57,7 @@
    "name": "Eierspeisen",
    "icon": "🍳",
    "color": "#4f7cac",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -65,7 +65,7 @@
    "name": "Eintöpfe",
    "icon": "🍲",
    "color": "#7a5c9e",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -73,7 +73,7 @@
    "name": "Fisch",
    "icon": "🐟",
    "color": "#a0527c",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -81,7 +81,7 @@
    "name": "Fleisch",
    "icon": "🥩",
    "color": "#7a4b3a",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -97,7 +97,7 @@
    "name": "Geflügel",
    "icon": "🍗",
    "color": "#b5651d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -105,7 +105,7 @@
    "name": "Gemüse",
    "icon": "🥕",
    "color": "#c0504d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -129,7 +129,7 @@
    "name": "Gratin",
    "icon": "🧀",
    "color": "#3f8f8a",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -137,7 +137,7 @@
    "name": "Kartoffel",
    "icon": "🥔",
    "color": "#4f7cac",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -161,7 +161,7 @@
    "name": "Pizza",
    "icon": "🍕",
    "color": "#5f6b73",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -169,7 +169,7 @@
    "name": "Reisgerichte",
    "icon": "🍚",
    "color": "#b5651d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -177,7 +177,7 @@
    "name": "Salate",
    "icon": "🥗",
    "color": "#c0504d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -209,7 +209,7 @@
    "name": "Suppen",
    "icon": "🍜",
    "color": "#4f7cac",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -225,7 +225,7 @@
    "name": "Teigwaren",
    "icon": "🍝",
    "color": "#a0527c",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -233,7 +233,7 @@
    "name": "Vegetarisch",
    "icon": "🥦",
    "color": "#7a4b3a",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -249,7 +249,7 @@
    "name": "Wähen",
    "icon": "🥧",
    "color": "#b5651d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
@@ -257,7 +257,7 @@
    "name": "Wild",
    "icon": "🦌",
    "color": "#c0504d",
-   "parent": null,
+   "parent": "cmwjf03u2ve2",
    "show": true
   },
   {
