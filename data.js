@@ -8928,11 +8928,23 @@ window.REZEPTE = [
 {
   n: "Aprikosen-Knusperwähe", folder: "Wähen", src: "",
   ing: [
-    
+    "1 rechteckig ausgewallter Blätterteig (ca. 24 × 45 cm)",
+    "80 g Mandelmasse, in Stücken",
+    "650 g Aprikosen, halbiert",
+    "25 g Butter, in Stücken",
+    "2 EL grobkörniger Rohzucker",
+    "50 g Mandelstifte",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Für 6 Stücke.",
+    "Teig: Teig entrollen, mit dem Backpapier in das Blech legen, Mandelmasse darauf verteilen.",
+    "Belag: Aprikosen auf dem Teig verteilen. Butter, Zucker und Mandeln darauf verteilen.",
+    "Backen: ca. 30 Min. auf der untersten Rille des auf 220 Grad vorgeheizten Ofens. Wähe herausnehmen.",
+    "Dekorieren: Wähe mit Puderzucker bestäuben.",
+    "Tipp: Schmeckt frisch am besten. Statt ... (Rest des Tipps ist auf dem Foto abgeschnitten)."
   ],
+  port: 6,
   cover: "G:Fk8cbjOlm_8s1lJIaX34_IIwiuvHKNBd4ZQIGN0DmQON0NKQPv2f-rec8KNAckUhtTn_LKfltgngYbi88kGF", pages: ["G:62bGaPDhY9WcnK7qf9YqmQJjiisqn9fnaBPpHrbpDSk59kwVXN1_n5muAb2tGwiBaur-ihHO_FfX0AYNgGmp4qQ"]
 },
 {
@@ -8961,21 +8973,48 @@ window.REZEPTE = [
 {
   n: "Broccoli-Spinat-Wähe", folder: "Wähen", src: "",
   ing: [
-    
+    "1 ausgewallter Kuchenteig (ca. 32 cm Ø)",
+    "3 EL gemahlene Haselnüsse",
+    "2 Eier",
+    "200 g Hüttenkäse",
+    "2 dl Rahm",
+    "600 g tiefgekühlter Blattspinat, aufgetaut",
+    "80 g Speckwürfeli",
+    "1 Bio-Zitrone",
+    "wenig Muskatnuss",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "200 g Broccoli"
   ],
   steps: [
-    
+    "Ofen auf 220 Grad vorheizen. Teig entrollen, mit dem Backpapier in ein Blech von ca. 30 cm Ø legen. Boden mit einer Gabel dicht einstechen, Nüsse auf dem Boden verteilen.",
+    "Eier mit dem Hüttenkäse und dem Rahm in einer Schüssel verklopfen. Spinat abtropfen, mit dem Speck beigeben, von der Zitrone Schale dazureiben, würzen. Guss auf dem Teig verteilen. Broccoli in Röschen schneiden, leicht in den Spinat drücken.",
+    "Backen: ca. 35 Min. auf der untersten Rille des Ofens.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:Y7tG3Bt4BOpLu-GuKG2DpHl8joDtN8b2jEMXKjlXpdvsnFp2fPv33z8nSdH7heyWk9m-MiEi3holrnrpDl0wrQ", pages: ["G:u5jZQGUX5TO6so1xje6FS5h2SAnkQUthDdn-aDWwrgxBDfujTX3kJf-u2-JKDzNQ9_uHTRW7CzFfloM5ArFfGw"]
 },
 {
   n: "Erdbeer-Rhabarber-Wähe", folder: "Wähen", src: "",
   ing: [
-    
+    "1 rund ausgewallter Kuchenteig à 270 g",
+    "3 EL gemahlene Nüsse, z. B. Mandeln oder Kokosnuss",
+    "300 g Erdbeeren",
+    "250 g Rhabarber, gerüstet gewogen",
+    "2 dl Milch",
+    "2 EL Vanillepuddingpulver zum Kochen, ca. 30 g",
+    "40 g Zucker",
+    "1 Ei"
   ],
   steps: [
-    
+    "Süsse Mahlzeit für 4 Personen, für 1 Kuchenblech à 28 cm Ø.",
+    "Backofen auf 200 °C vorheizen. Form mit Teig samt Backpapier auslegen, mit Nüssen bestreuen, kühl stellen. 2/3 der Erdbeeren in Schnitzchen schneiden, Rest beiseitestellen. Rhabarber in Stücke schneiden. Milch mit Puddingpulver, Zucker und Ei verrühren. Geschnittene Früchte auf den Teigboden verteilen, Guss darübergiessen.",
+    "Wähe im Ofen auf der untersten Rille ca. 10 Minuten mit Unterhitze backen. Weitere ca. 25 Minuten mit Ober- und Unterhitze fertigbacken. Herausnehmen. Beiseitegestellte Beeren halbieren, Wähe damit garnieren. Lauwarm oder kalt servieren. Dazu passt flaumiger Vanillerahm.",
+    "Zubereitungszeit: ca. 15 Minuten + ca. 35 Minuten backen.",
+    "Pro Person ca. 10 g Eiweiss, 25 g Fett, ... Kohlenhydrate, 2050 kJ/500 kcal (Foto unten abgeschnitten)."
   ],
+  port: 4,
   cover: "G:ZFsHZ6VOt6prbgstRYrTN8KTNoLLcjsRiJHCIpkVv8kHglOfml2b622GYqEuc4F7pp2N1RmTTXPRZoatS2iDT9hSf6IUnFicV60", pages: ["G:IQrLdqB-NM9vH19FwlpexDohvjxCrHWKEgKIWwKEFxSs1vRKKZSxcd7IsNHWZ96b-2JIoj9ZZMvDIQrIk5ONLsr33qZ3jd4XJYED"]
 },
 {
@@ -8991,31 +9030,79 @@ window.REZEPTE = [
 {
   n: "Lachs-Käse-Wähe", folder: "Wähen", src: "",
   ing: [
-    
+    "1 ausgewallter Kuchenteig (ca. 32 cm Ø)",
+    "2 Bundzwiebeln mit dem Grün",
+    "250 g Käsekuchenmischung (so gelesen, evtl. geriebener Käse)",
+    "250 g Halbfettquark",
+    "1 Ei",
+    "1 Bio-Zitrone",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "300 g Lachsfilet ohne Haut",
+    "1/2 Bund Kerbel oder Schnittlauch"
   ],
   steps: [
-    
+    "Ofen auf 220 Grad vorheizen. Teig entrollen, mit dem Backpapier ins Blech legen, Boden mit einer Gabel dicht einstechen.",
+    "Bundzwiebeln in feine Ringe schneiden, mit Käse, Quark und Ei mischen. Von der Zitrone Schale dazureiben, würzen.",
+    "Lachs in Würfel schneiden, 3/4 unter die Käsemasse mischen, Masse auf dem Teigboden verteilen. Restlichen Lachs darauf verteilen.",
+    "Backen: ca. 35 Min. auf der untersten Rille des Ofens. Herausnehmen, etwas abkühlen. Kerbel fein schneiden, darüberstreuen.",
+    "Hinweis: Beim Backen tritt etwas Flüssigkeit aus; das ist normal. Beim Abkühlen wird diese wieder fest, und so bleibt die Wähe schön saftig.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen); die zweite Zutat (250 g) ist auf dem Foto als «Käsekuchenmischung» lesbar, gemeint ist vermutlich eine Käsemischung."
   ],
+  port: 4,
   cover: "G:WIXN-u0txvUEGklmcLzrDFGT92iRC810NTs1hbK_Dob4JqmflB6t_l22R6Q8gkFeBnZQ2YMa1EZgMo0fqQhCZw", pages: ["G:u8FpDS5m4TO3lV4z96jUUKubbF44PX7i0tppIg_GivOzkqKbP25J-iVGWzpdIyQ5Mo9ECoo9Ld2e6z-eoifbhA"]
 },
 {
   n: "Lauch-Käse-Wähe", folder: "Wähen", src: "",
   ing: [
-    
+    "Lauch:",
+    "500 g Lauch",
+    "1 EL Öl",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "Teig:",
+    "1 ausgewallter Dinkel-Kuchenteig (ca. 32 cm Ø)",
+    "3 EL gemahlene Haselnüsse",
+    "Guss:",
+    "2 Eier",
+    "250 g Halbfettquark",
+    "60 g geriebener Gruyère",
+    "1/4 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Ofen auf 220 Grad vorheizen. Lauch längs halbieren, waschen, in ca. 1 cm breite Streifen schneiden. Öl in einer beschichteten Bratpfanne warm werden lassen. Lauch ca. 3 Min. andämpfen, würzen, etwas abkühlen.",
+    "Teig entrollen, mit dem Backpapier in ein Blech (ca. 30 cm Ø) legen. Boden mit einer Gabel dicht einstechen. Haselnüsse auf den Teigboden streuen, Lauch darauf verteilen.",
+    "Eier, Quark und Käse gut verrühren, würzen. Guss darübergiessen.",
+    "Backen: ca. 30 Min. auf der untersten Rille des Ofens.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:4VBHHyZm0ldIfs5iw7pSyRagtKWiWwGXv8Oq2PE4LreAnc6gPMpAiXEqw95oG7tQxpGeXBQBprMxRKpe-pkQ5k9bMvSq_FomNq_0", pages: ["G:xPjq18s1CRvdLvNR4J0FFCk96SiHsQH9voypRQXn_VkywswOVL23wqoVA-bA6BBuqwahNeeXJFXGCKiqqJgthLe1h-NcgdUM6FVv"]
 },
 {
   n: "Lauch-Raclette-Wähe", folder: "Wähen", src: "",
   ing: [
-    
+    "350 g Lauch",
+    "300 g Raclettekäse in Scheiben (z. B. Höhlengereift, Fine Food)",
+    "1 EL Olivenöl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "1 ausgewallter Dinkel-Kuchenteig (ca. 32 cm Ø)",
+    "2 dl Milch",
+    "2 Eier",
+    "1/4 TL Muskat",
+    "1/4 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Ofen auf 220 Grad vorheizen. Lauch in feine Ringe schneiden, waschen, trocken tupfen. Käse in Würfeli schneiden.",
+    "Öl in einer beschichteten Bratpfanne warm werden lassen. Lauch ca. 2 Min. andämpfen, würzen, etwas abkühlen. Teig entrollen, mit dem Backpapier ins Blech legen. Boden mit einer Gabel dicht einstechen.",
+    "Milch, Eier, Muskat, Salz und Pfeffer verrühren. Lauch und Käse auf dem Teig verteilen, Guss darübergiessen.",
+    "Backen: ca. 35 Min. auf der untersten Rille des Ofens.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:YJUBHv2tsiSIlfLdbegZdxJCkW6Wnv-mo2FZO5AmRVE1Eu75yMNzBReySGnt51hFLPFPapgittKGCJamc6ljwglGnH67yQzB3OA", pages: ["G:JWuMzggdt8R7lXVuFJ2LVpafwNebIM89UHlfr1JHR2b5jx2igOtxicJNe7iiqjnn0Z0Mjs_ZyZsyge47VB8DPPWO_a9RYefBblE","G:jek26ouvwDFEoQO3Kg5ijPEBEf47IlY3xqYSvMnYdeWQA6Pn8RTOII7PT-_3uXvjHQAdm0zxm9g3EBIgKQn3nSlREl4X_j-cYw"]
 },
 {
@@ -9057,31 +9144,81 @@ window.REZEPTE = [
 {
   n: "Pilz-Käsewähe", folder: "Wähen", src: "",
   ing: [
-    
+    "2 Schalotten",
+    "250 g Champignons",
+    "250 g Eierschwämme",
+    "1/2 Bund Thymian",
+    "1 EL Öl",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "1 ausgewallter Dinkel-Kuchenteig (ca. 32 cm Ø)",
+    "2 1/2 dl Rahm",
+    "250 g Reibkäse",
+    "3 Eier",
+    "1/2 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "20 Min. + 30 Min. backen. Vegetarisch. Für ein Backblech von ca. 30 cm Ø.",
+    "Ofen auf 220 Grad vorheizen. Schalotten schälen, fein hacken. Champignons und Eierschwämme halbieren. Thymianblättchen abzupfen. Öl in einer beschichteten Bratpfanne heiss werden lassen. Schalotten und Pilze ca. 5 Min. braten, Thymian daruntermischen, würzen, etwas abkühlen.",
+    "Teig entrollen, mit dem Backpapier in das Blech legen. Boden mit einer Gabel dicht einstechen.",
+    "Rahm, Käse und Eier verrühren, würzen, auf dem Boden verteilen. Pilze darauf verteilen.",
+    "Backen: ca. 30 Min. auf der untersten Rille des Ofens.",
+    "Pro Portion (1/4): 839 kcal, F 64 g, Kh 29 g, E 35 g."
   ],
+  port: 4,
   cover: "G:42up2p3eQ5eFuEE8M9JKoCjf7_MgCaWHzYIokG0WpWgK24TPMQIopI_5chaA-lwk8nuHAGBtTw2k-KfuRDZqLD9qSX-dzw7N4qFi", pages: ["G:ayzO9WvvHg4uY6Q_3mqMMTaVOrKro5DPSWz3cGbFlbRlKtqbBhJvANv-jWyD75978LDvrPExMS3T8dk5gzbAJbTMMhogRXQdqkHF"]
 },
 {
   n: "Spargelquiche", folder: "Wähen", src: "",
   ing: [
-    
+    "Butter oder Öl für die Form",
+    "1 rund ausgewallter Kuchenteig à 270 g",
+    "500 g weisse und grüne Spargeln",
+    "1/4 Bund Pfefferminze",
+    "3 dl Halbrahm",
+    "3 Eier",
+    "40 g geriebener Sbrinz",
+    "Muskatnuss",
+    "Pfeffer, Salz",
+    "100 g Rohschinken"
   ],
   steps: [
-    
+    "Spargelquiche mit Rohschinken. Hauptgericht für 4 Personen, für 1 Kuchenform à ca. 24 cm Ø.",
+    "Form mit Butter auspinseln. Teig in die Form legen, überstehenden Rand einklappen, gut andrücken. Kühl stellen. Reichlich Salzwasser aufkochen. Spargeln schälen, Enden frisch anschneiden. Spargeln ca. 2 Minuten blanchieren. Herausheben, abtropfen lassen und gut trocken tupfen. Minzeblättchen von den Stielen zupfen, fein hacken. Mit Rahm, Eiern und Sbrinz zu einem Guss verquirlen. Kräftig mit Salz, geriebener Muskatnuss und Pfeffer würzen.",
+    "Backofen auf 200 °C vorheizen. Spargeln auf dem Kuchenteig verteilen. Guss darüber verteilen. Quiche auf der untersten Rille ca. 30 Minuten backen, die ersten 10 Minuten mit Unterhitze. Herausnehmen, etwas abkühlen lassen. Rohschinken darauf anrichten. Dazu passt Salat."
   ],
+  port: 4,
   cover: "G:2TYpIKgHK4iMA-gSAslb-uq9A0eL0fitm1TZ77Uu5M7N-BUCx6KHeWQpZuvQAGEF6eZsqG20DJSN6d0GjdpoYcVXtpapCpHRjF1C", pages: ["G:vZBqC30vVA-VQpfypp3wnRrYTr0pGboXa7beLhYUeQXrPkTo7InAozxGxL-9Z4ZFgPbnZLlnWXa8Iu_Dj7il4qNyLqva9hJ306o","G:L2AzBtzU8Vadduz3PfGLJ4PvbbiJdtiGATOx9ssuO2sy4UGo3U3BftS7ctX0l6N9F9t2_T_Xne3D0LhtlxQzJ5IwUzpIYZ9Mf0M"]
 },
 {
   n: "Spargelwähe", folder: "Wähen", src: "",
   ing: [
-    
+    "1 ausgewallter Kuchenteig (ca. 32 cm Ø)",
+    "2 l Wasser",
+    "1.5 TL Salz",
+    "1 TL Zucker",
+    "20 g Butter",
+    "1 kg weisse Spargeln, geschält",
+    "4 EL geriebener Sbrinz oder Gruyère",
+    "2 Bundzwiebeln mit dem Grün, Zwiebeln fein gehackt, Grün in Ringen",
+    "2 kleine Tommes (je ca. 100 g), in Stücken",
+    "3 dl Halbrahm",
+    "3 Eier",
+    "0.25 TL Salz",
+    "Pfeffer aus der Mühle",
+    "1 Msp. Muskat",
+    "0.5 Bund Petersilie, fein gehackt",
+    "0.5 EL Thymianblättchen",
+    "2 EL Pinienkerne"
   ],
   steps: [
-    
+    "Das vorbereitete Blech mit dem Kuchenteig auslegen, Rand mit einer Küchenschere im Abstand von ca. 2 cm ca. 1 cm tief einschneiden. Jeweils eine Ecke umfalten, sodass kleine Dreiecke entstehen. Boden mit einer Gabel dicht einstechen, ca. 15 Min. kühl stellen.",
+    "Wasser und alle Zutaten bis und mit Butter in einer weiten Pfanne aufkochen, Hitze reduzieren. Spargeln je nach Dicke ca. 15 Min. knapp weich kochen (dünnere Spargeln ca. 5 Min. später beigeben), abtropfen, auskühlen, quer halbieren.",
+    "Sbrinz und Bundzwiebeln auf dem Teigboden verteilen, Spargeln strahlenförmig darauf legen, Tommes darauf verteilen.",
+    "Rahm und alle Zutaten bis und mit Thymian gut verrühren, über die Spargeln giessen, Pinienkerne darüber streuen. Backen: 10 Min. in der unteren Hälfte des auf 250 Grad vorgeheizten Ofens. Hitze auf 200 Grad reduzieren, ca. 20 Min. fertig backen. Herausnehmen, auf einem Gitter abkühlen, in Stücke schneiden."
   ],
+  port: 4,
   cover: "G:rCRtf_N17MlVqHx6Ud5hiBleUxZ4gy7FuoQdbltr1W-Lw2BJ1VZi0yfiI4Ljzlw8Tzhva8PAWwGJbmX2JDp4slz8CHDBuTlo9zE", pages: ["G:adUK2l1FzQipn48LI9InTqrvLx6u1cHQ0wDltVSyDYqQoIIUS3QcHL1KWQzL91BBN_Mu-JyHkaDXyn9cU4LiFNyVErDaTCuc3_cf","G:2V-x4DzfYQDwaospixx6birIYnp8R0hkzztxOCobQWwlobyT6-vnYRrFo70bZWe997g27gtSTZgy6eSgDUhy0tkyVKjul7vdg3g"]
 },
 {
