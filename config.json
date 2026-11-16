@@ -188,7 +188,8 @@
    "icon": "🍲",
    "color": "#7a5c9e",
    "parent": null,
-   "show": true
+   "show": true,
+   "photo": "tofu-fingers-mit-radieschensalat"
   },
   {
    "id": "Sauerteig",
@@ -221,7 +222,8 @@
    "icon": "🫒",
    "color": "#7a5c9e",
    "parent": "cmwjel1i8u3t",
-   "show": true
+   "show": true,
+   "photo": "tofu-fingers-mit-radieschensalat"
   },
   {
    "id": "Teigwaren",
