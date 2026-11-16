@@ -109,10 +109,10 @@
    "show": true
   },
   {
-   "id": "cmwjf03u2ve2",
-   "name": "Hauptgang",
-   "icon": "🍗",
-   "color": "#7a5c9e",
+   "id": "cmwjf6buvj4j",
+   "name": "Snacks, Gebäck",
+   "icon": "🥨",
+   "color": "#d98e04",
    "parent": null,
    "show": true
   },
@@ -181,10 +181,10 @@
    "show": true
   },
   {
-   "id": "cmwjf6buvj4j",
-   "name": "Snacks, Gebäck",
-   "icon": "🥨",
-   "color": "#d98e04",
+   "id": "cmwjel1i8u3t",
+   "name": "Vorspeisen, Apéro",
+   "icon": "🍲",
+   "color": "#7a5c9e",
    "parent": null,
    "show": true
   },
@@ -261,9 +261,9 @@
    "show": true
   },
   {
-   "id": "cmwjel1i8u3t",
-   "name": "Vorspeisen, Apéro",
-   "icon": "🍲",
+   "id": "cmwjf03u2ve2",
+   "name": "Hauptgang",
+   "icon": "🍗",
    "color": "#7a5c9e",
    "parent": null,
    "show": true
