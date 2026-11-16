@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.6.2';
+const APP_VERSION = '1.7.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -42,16 +42,21 @@ const mkRecipe = r => {
   return o;
 };
 const byAlpha = (a, b) => a.n.localeCompare(b.n, 'de');
-const R = window.REZEPTE.map(mkRecipe).sort(byAlpha);
-const byId = Object.fromEntries(R.map(r => [r.id, r]));
-// Eigene (importierte) Rezepte aus meine-rezepte.json kommen zu den fest eingebauten dazu
-function setUserRecipes(list) {
-  for (let i = R.length - 1; i >= 0; i--) if (R[i].u) { delete byId[R[i].id]; R.splice(i, 1); }
-  (list || []).forEach(x => { if (!x || !x.n || byId[x.id || slug(x.n)]) return; const o = mkRecipe(x); o.u = true; R.push(o); byId[o.id] = o; });
+const BASE = window.REZEPTE.map(r => ({ ...r, id: slug(r.n) }));
+const asDoc = d => Array.isArray(d) ? { recipes: d, overrides: {}, deleted: [] } : { recipes: (d && d.recipes) || [], overrides: (d && d.overrides) || {}, deleted: (d && d.deleted) || [] };
+let DOC = asDoc(null);
+const R = [], byId = {};
+// Eingebaute Rezepte (data.js) + eigene (meine-rezepte.json: recipes), mit Änderungen (overrides) und Löschungen (deleted)
+function setUserRecipes(d) {
+  DOC = asDoc(d);
+  R.length = 0; Object.keys(byId).forEach(k => delete byId[k]);
+  const del = new Set(DOC.deleted);
+  BASE.forEach(b => { if (del.has(b.id)) return; const ov = DOC.overrides[b.id]; const o = mkRecipe(ov ? { ...b, ...ov, id: b.id } : b); if (ov) o.edited = true; R.push(o); byId[o.id] = o; });
+  DOC.recipes.forEach(x => { if (!x || !x.n) return; const id = x.id || slug(x.n); if (byId[id]) return; const o = mkRecipe({ ...x, id }); o.u = true; R.push(o); byId[id] = o; });
   R.sort(byAlpha);
 }
-setUserRecipes(store.get('rb_userrec', []));
-const folders = [...new Set(R.map(r => r.folder))].sort((a, b) => a.localeCompare(b, 'de'));
+setUserRecipes(store.get('rb_userrec', null));
+const folders = [...new Set(BASE.map(r => r.folder))].sort((a, b) => a.localeCompare(b, 'de'));
 
 /* ---------- Zustand ---------- */
 const state = {
@@ -270,38 +275,41 @@ const lsGet = k => (localStorage.getItem(k) || '').trim();
 async function uGet() {
   let r = await fetch(`${UAPI}?ref=main&_=${Date.now()}`, { headers: hdr(getToken()), cache: 'no-store' });
   if (r.status === 401) r = await fetch(`${UAPI}?ref=main&_=${Date.now()}`, { headers: hdr(''), cache: 'no-store' });
-  if (r.status === 404) { usync.sha = null; return []; }
+  if (r.status === 404) { usync.sha = null; return asDoc(null); }
   if (!r.ok) throw new Error('GET ' + r.status);
   const j = await r.json(); usync.sha = j.sha;
-  const d = JSON.parse(b64dec(j.content));
-  return Array.isArray(d.recipes) ? d.recipes : [];
+  return asDoc(JSON.parse(b64dec(j.content)));
 }
 async function loadUserRecipes() {
   try {
-    const l = await uGet();
-    if (JSON.stringify(l) === JSON.stringify(store.get('rb_userrec', []))) return;
-    store.set('rb_userrec', l); setUserRecipes(l); renderFilters();
+    const d = await uGet();
+    if (JSON.stringify(d) === JSON.stringify(asDoc(store.get('rb_userrec', null)))) return;
+    store.set('rb_userrec', d); setUserRecipes(d); renderFilters();
     if (!state.edit && !document.querySelector('.sheet-bg') && !location.hash.startsWith('#/r/')) refresh();
   } catch {}
 }
 const putFile = (path, b64, msg, sha) => fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
   method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify({ message: msg, content: b64, branch: 'main', ...(sha ? { sha } : {}) }) });
-async function saveUserRecipe(rec, files) {
+// Datei meine-rezepte.json lesen, ändern, schreiben (bei Konflikt neu laden und wiederholen)
+async function modifyDoc(fn, msg) {
   if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
-  for (const f of files) {
-    const r = await putFile(f.path, f.b64, 'App: Rezeptfoto');
-    if (!r.ok) throw new Error('Foto speichern fehlgeschlagen (' + r.status + ')');
-  }
   for (let i = 0; i < 4; i++) {
-    const list = (await uGet()).filter(x => x.id !== rec.id);
-    const next = [...list, rec];
-    const r = await putFile(UREC_PATH, b64enc(JSON.stringify({ v: 1, recipes: next }, null, 1) + '\n'), 'App: Rezept «' + rec.n + '» importiert', usync.sha);
+    const next = fn(await uGet());
+    const r = await putFile(UREC_PATH, b64enc(JSON.stringify({ v: 2, ...next }, null, 1) + '\n'), msg, usync.sha);
     if (r.ok) { store.set('rb_userrec', next); setUserRecipes(next); renderFilters(); return; }
     if (r.status === 409 || r.status === 422) continue;
     if (r.status === 401 || r.status === 403 || r.status === 404) throw new Error('Token ungültig oder ohne Schreibrecht für das Repo');
     throw new Error('Speichern fehlgeschlagen (' + r.status + ')');
   }
   throw new Error('Konflikt beim Speichern, bitte nochmals versuchen');
+}
+async function saveUserRecipe(rec, files) {
+  if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
+  for (const f of files) {
+    const r = await putFile(f.path, f.b64, 'App: Rezeptfoto');
+    if (!r.ok) throw new Error('Foto speichern fehlgeschlagen (' + r.status + ')');
+  }
+  await modifyDoc(d => ({ ...d, recipes: [...d.recipes.filter(x => x.id !== rec.id), rec] }), 'App: Rezept «' + rec.n + '» importiert');
 }
 
 /* Bilder verkleinern */
@@ -504,19 +512,7 @@ function openImport() {
   start();
 }
 
-/* Eigene Rezepte: Bilder nachladen / entfernen, Rezept löschen */
-async function modifyUserList(fn, msg) {
-  if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
-  for (let i = 0; i < 4; i++) {
-    const next = fn(await uGet());
-    const r = await putFile(UREC_PATH, b64enc(JSON.stringify({ v: 1, recipes: next }, null, 1) + '\n'), msg, usync.sha);
-    if (r.ok) { store.set('rb_userrec', next); setUserRecipes(next); renderFilters(); return; }
-    if (r.status === 409 || r.status === 422) continue;
-    if (r.status === 401 || r.status === 403 || r.status === 404) throw new Error('Token ungültig oder ohne Schreibrecht für das Repo');
-    throw new Error('Speichern fehlgeschlagen (' + r.status + ')');
-  }
-  throw new Error('Konflikt beim Speichern, bitte nochmals versuchen');
-}
+/* Alle Rezepte: bearbeiten, Bilder nachladen/entfernen, löschen */
 async function delFile(path) {
   if (!/^img\/u\//.test(path)) return;
   const u = `https://api.github.com/repos/${REPO}/contents/${path}`;
@@ -527,26 +523,41 @@ async function delFile(path) {
   const r = await fetch(u, { method: 'DELETE', headers: hdr(getToken(), true), body: JSON.stringify({ message: 'App: Rezeptfoto gelöscht', sha, branch: 'main' }) });
   if (!r.ok) throw new Error('Foto löschen fehlgeschlagen (' + r.status + ')');
 }
-function openPicSheet(r) {
+function openEditSheet(r) {
   const o = document.createElement('div'); o.className = 'sheet-bg'; document.body.appendChild(o);
   const orig = [r.cover, ...(r.pages || [])].filter(Boolean);
-  let items = orig.map(p => ({ path: p, src: p })), cov = 0, busyOn = false;
+  let items = orig.map(p => ({ path: p, src: imgUrl(p, 300) })), cov = 0, busyOn = false;
+  const hasOv = !!DOC.overrides[r.id];
   const draw = (msg = '') => {
-    o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Bilder"><h3>Bilder von «${esc(r.n)}»</h3>
+    o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
+      <label>Name<input id="e-n" type="text" value="${esc(r.n)}"></label>
+      <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="e-t" type="text" value="${esc((r.tags || []).join(', '))}"></label>
+      <label>Zutaten <small>(eine pro Zeile)</small><textarea id="e-i" rows="8">${esc(r.ing.join('\n'))}</textarea></label>
+      <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="e-s" rows="10">${esc(r.steps.join('\n'))}</textarea></label>
+      <label>Bilder</label>
       <div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
         <label class="chk"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip" data-del="${i}">Entfernen</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
       <button class="chip big" type="button" id="p-add">＋ Bilder hinzufügen</button>
       <input id="p-file" type="file" accept="image/*" multiple hidden>
       <p class="note tiny err" id="p-msg">${esc(msg)}</p>
-      <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button><button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
+      <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
   };
+  // Eingaben beim Neuzeichnen (Bild hinzufügen/entfernen) behalten
+  const keepText = () => { const g = id => { const e = $(id, o); return e ? e.value : null; }; r = { ...r, n: g('#e-n') ?? r.n, tags: (g('#e-t') ?? (r.tags || []).join(',')).split(',').map(x => x.trim()).filter(Boolean), ing: (g('#e-i') ?? r.ing.join('\n')).split('\n').map(x => x.trim()).filter(Boolean), steps: (g('#e-s') ?? r.steps.join('\n')).split('\n').map(x => x.trim()).filter(Boolean) }; };
   const lock = on => { busyOn = on; o.querySelectorAll('button').forEach(b => { b.disabled = on; }); };
+  const cleanup = () => {
+    let ch = false;
+    cfg.folders.forEach(f => { if (f.photo === r.id) { delete f.photo; ch = true; } });
+    if (cfg.assign[r.id]) { delete cfg.assign[r.id]; ch = true; }
+    if (state.fav.has(r.id)) { state.fav.delete(r.id); ch = true; }
+    if (ch) persist();
+  };
   draw();
   o.addEventListener('change', async e => {
     if (e.target.name === 'p-cov') { cov = Number(e.target.value); return; }
     if (e.target.id === 'p-file' && e.target.files.length) {
-      try { for (const f of [...e.target.files]) { const d = await shrink(f, 1600, 0.82); items.push({ dataUrl: d, src: d }); } draw(); }
+      try { keepText(); for (const f of [...e.target.files]) { const d = await shrink(f, 1600, 0.82); items.push({ dataUrl: d, src: d }); } draw(); }
       catch (err) { draw('⚠ ' + err.message); }
     }
   });
@@ -555,8 +566,10 @@ function openPicSheet(r) {
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
     const del = e.target.closest('[data-del]');
-    if (del) { const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
+    if (del) { keepText(); const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
     if (e.target.id === 'p-save') {
+      keepText();
+      if (!r.n.trim()) { $('#p-msg', o).textContent = 'Bitte einen Namen eingeben.'; return; }
       lock(true); $('#p-msg', o).textContent = 'Speichere …';
       try {
         const ordered = items.length ? [items[cov], ...items.filter((x, i) => i !== cov)] : [];
@@ -564,22 +577,35 @@ function openPicSheet(r) {
         const files = [];
         ordered.forEach((it, n) => { if (it.dataUrl) { it.path = `img/u/${r.id}-${stamp}-${n + 1}.jpg`; files.push({ path: it.path, b64: it.dataUrl.split(',')[1] }); } });
         for (const f of files) { const x = await putFile(f.path, f.b64, 'App: Rezeptfoto'); if (!x.ok) throw new Error('Foto speichern fehlgeschlagen (' + x.status + ')'); }
-        await modifyUserList(l => l.map(x => x.id === r.id ? { ...x, cover: ordered[0] ? ordered[0].path : '', pages: ordered.slice(1).map(p => p.path) } : x), 'App: Bilder von «' + r.n + '» geändert');
+        const nv = { n: r.n.trim(), tags: r.tags, ing: r.ing, steps: r.steps, cover: ordered[0] ? ordered[0].path : '', pages: ordered.slice(1).map(p => p.path) };
+        await modifyDoc(d => r.u
+          ? { ...d, recipes: d.recipes.map(x => x.id === r.id ? { ...x, ...nv } : x) }
+          : { ...d, overrides: { ...d.overrides, [r.id]: nv } }, 'App: Rezept «' + nv.n + '» geändert');
         const keep = new Set(ordered.map(p => p.path));
         for (const p of orig) if (!keep.has(p)) { try { await delFile(p); } catch {} }
-        o.remove(); route();
+        o.remove(); renderFilters(); route();
+      } catch (err) { lock(false); $('#p-msg', o).textContent = '⚠ ' + err.message; }
+      return;
+    }
+    if (e.target.id === 'p-reset') {
+      if (!confirm('Alle Änderungen an «' + r.n + '» verwerfen und das ursprüngliche Rezept wiederherstellen?')) return;
+      lock(true); $('#p-msg', o).textContent = 'Stelle wieder her …';
+      try {
+        await modifyDoc(d => { const ov = { ...d.overrides }; delete ov[r.id]; return { ...d, overrides: ov }; }, 'App: Rezept «' + r.n + '» zurückgesetzt');
+        for (const p of orig) { try { await delFile(p); } catch {} }
+        o.remove(); renderFilters(); route();
       } catch (err) { lock(false); $('#p-msg', o).textContent = '⚠ ' + err.message; }
       return;
     }
     if (e.target.id === 'p-delrec') {
-      if (!confirm('Rezept «' + r.n + '» endgültig löschen? Die Fotos werden ebenfalls gelöscht.')) return;
+      if (!confirm('Rezept «' + r.n + '» endgültig löschen?' + (r.u ? ' Die Fotos werden ebenfalls gelöscht.' : ''))) return;
       lock(true); $('#p-msg', o).textContent = 'Lösche …';
       try {
-        await modifyUserList(l => l.filter(x => x.id !== r.id), 'App: Rezept «' + r.n + '» gelöscht');
+        await modifyDoc(d => r.u
+          ? { ...d, recipes: d.recipes.filter(x => x.id !== r.id) }
+          : { ...d, deleted: [...new Set([...d.deleted, r.id])], overrides: Object.fromEntries(Object.entries(d.overrides).filter(([k]) => k !== r.id)) }, 'App: Rezept «' + r.n + '» gelöscht');
         for (const p of orig) { try { await delFile(p); } catch {} }
-        let ch = false; cfg.folders.forEach(f => { if (f.photo === r.id) { delete f.photo; ch = true; } });
-        if (ch) persist();
-        o.remove(); location.hash = '';
+        cleanup(); o.remove(); renderFilters(); location.hash = '';
       } catch (err) { lock(false); $('#p-msg', o).textContent = '⚠ ' + err.message; }
     }
   });
@@ -915,7 +941,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}${r.u ? '<button type="button" class="chip" id="rmgr">✎ Bilder / Löschen</button>' : ''}${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}<button type="button" class="chip" id="rmgr">✎ Bearbeiten</button>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -1015,7 +1041,7 @@ view.addEventListener('click', e => {
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
   }
-  if (e.target.closest('#rmgr')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r && r.u) openPicSheet(r); return; }
+  if (e.target.closest('#rmgr')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openEditSheet(r); return; }
   if (e.target.closest('#fphoto')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openPhotoSheet(r); return; }
   const rmf = e.target.closest('[data-rmf]');
   if (rmf) {
