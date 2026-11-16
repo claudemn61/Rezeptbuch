@@ -239,7 +239,8 @@ function scaleLine(l, f) {
 }
 function portState(id) {
   const p = store.get('rb_port_' + id, null) || {};
-  const b = Math.max(1, Math.min(99, +p.b || 4));
+  const def = (byId[id] && byId[id].port) || 4;
+  const b = Math.max(1, Math.min(99, +p.b || def));
   return { b, n: Math.max(1, Math.min(99, +p.n || b)) };
 }
 function ingListHtml(r) {
@@ -259,7 +260,8 @@ function portBarHtml(r) {
 function setPort(r, patch) {
   const p = { ...portState(r.id), ...patch };
   p.b = Math.max(1, Math.min(99, Math.round(p.b) || 4)); p.n = Math.max(1, Math.min(99, Math.round(p.n) || p.b));
-  if (p.b === 4 && p.n === 4) localStorage.removeItem('rb_port_' + r.id); else store.set('rb_port_' + r.id, p);
+  const def = r.port || 4;
+  if (p.b === def && p.n === def) localStorage.removeItem('rb_port_' + r.id); else store.set('rb_port_' + r.id, p);
   const ul = $('.ing'); if (ul) ul.innerHTML = ingListHtml(r);
   const note = $('#pnote'); if (note) note.hidden = p.n === p.b;
   const pn = $('#pn'), pb = $('#pbase');

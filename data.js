@@ -3,17 +3,66 @@
 // cover = Titelbild, pages = weitere Fotos (bei reinen Foto-Rezepten die abfotografierten Rezeptseiten).
 window.REZEPTE = [
 {
-  n: "Butterzopf", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Butterzopf", folder: "Brote", src: "", ing: [
+    "500 g Zopfmehl",
+    "3/4 EL Salz",
+    "1 TL Zucker",
+    "1/2 Würfel Hefe (ca. 20 g)",
+    "80 g Butter",
+    "1 Ei",
+    "3 dl Milch",
+    "1 Ei (zum Bestreichen)"
+  ],
+  steps: [
+    "Teig",
+    "Mehl, Salz und Zucker in einer Schüssel mischen. Hefe zerbröckeln, beigeben. Butter in Stücke schneiden, mit dem Ei und Milch daruntermischen, zu einem weichen glatten Teig kneten. Zugedeckt bei Raumtemperatur ca. 1 1/2 Stunden aufs Doppelte aufgehen lassen.",
+    "Zopf flechten",
+    "Zopfteig halbieren, beide Hälften zu je einer ca. 70 cm langen Rolle, die an den Enden etwas dünner werden, formen. Beide übers Kreuz auf die Arbeitsfläche legen. Teigende der unten liegenden Rolle von oben rechts nach unten links legen. Das gegenüberliegende Teigende von unten links nach oben rechts legen. Diese beiden Vorgänge solange wiederholen, bis die Stränge gezöpfelt sind. Enden leicht zusammendrücken, unter den Zopf legen.",
+    "Bestreichen",
+    "Zopf auf ein mit Backpapier belegtes Blech legen. Ei verklopfen, Zopf mit wenig Ei bestreichen, nochmals ca. 30 Min. aufgehen lassen, nochmals mit Ei bestreichen.",
+    "Backen",
+    "Ca. 35 Min. in der unteren Hälfte des auf 200 Grad vorgeheizten Ofens. Herausnehmen, auf einem Gitter auskühlen."
+  ],
   cover: "G:an0VbaDFBEuRK4g5PBvTlpXIS-mcNNeKtzkTyEFHUZxq4g0tmnVOUxt6HCx34woQJtS-Q238V3fuk5EuucTDaw",
   pages: ["G:NgYPqsgQOxFVBGYXuUw5B140ebWFZgFZ4Unx68gfw5QMbkOeySqVIIuIezGFkZwuBpqxGYcFfeBb3JmUYb7I", "G:8R_Y3W_ynLKpa9MlpmJgTSs0MlYzUBNBPRnXIcfoCTq8dx1SwRbquhP8Ol48_jHUJAbl3c6XSbA96PcJxtDjvjI"]
 },
 {
-  n: "Butterzopf Grundrezept", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Butterzopf Grundrezept", folder: "Brote", src: "", ing: [
+    "1 kg Weissmehl oder Zopfmehl",
+    "20 g Salz (1 EL)",
+    "30 g Hefe, zerbröckelt",
+    "3 dl Milch",
+    "3 dl Wasser",
+    "120 g Butter",
+    "1 Ei"
+  ],
+  steps: [
+    "Mehl und Hefe in eine grosse Schüssel geben, Wasser, Milch und das Ei beigeben und zu einem Teig aufgreifen.",
+    "Das Salz anschliessend die Butter beigeben, den Teig ca. 10 Minuten geschmeidig kneten.",
+    "Zugedeckt bei Raumtemperatur 90 Min. gären lassen.",
+    "Den Teig zusammenschlagen, nochmals 30 Min. gären lassen.",
+    "Teig halbieren, 2 Stränge formen und einen Zopf flechten.",
+    "Auf ein mit Backpapier belegtes Blech legen, 15 Minuten aufgehen lassen.",
+    "Mit Eigelb bepinseln. Im unteren Teil des auf 200 Grad Ober-/Unterhitze vorgeheizten Ofens 40 bis 50 Minuten backen.",
+    "Tipp: Die Butter in einem Pfännchen schmelzen und die kalte Milch dazugiessen - dann hat beides genau die richtige Temperatur, um mit der Hefe vermischt zu werden."
+  ],
   cover: "G:gYjAyVq8gNcWEwEid4z72cnW94kOxxI4nowqmd0_eE6oigGP8llzkQEPDEJWsBAjJGBFckTIHynZW6TpiDG8HUc",
   pages: ["G:zm5xwG0hBWPeBfMxyLpxhG1H0hbzYGQkMAorER07uJlZz4cS2zgruJBoG63Lij9MdjMj5Fow5F4kCG3sH_z3Dw", "G:bOmHBb7caQW1OKT6avy5GZyXeXSFFIQ0-58ImTu-885WRvdHmAIX0og2pYkx_zAQv2UoiEkcPmKCDAX7aG48uA"]
 },
 {
-  n: "Fladenbrot mit Tsampa", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Fladenbrot mit Tsampa", folder: "Brote", src: "", ing: [
+    "250 g Mehl",
+    "250 g Tsampa (in Reformhäusern erhältlich oder online unter tibet-house.ch)",
+    "1 TL Backpulver",
+    "1 TL Salz",
+    "4 EL Rapsöl",
+    "5 dl Milch"
+  ],
+  steps: [
+    "Ergibt ca. 8 Stück. Zubereitung ca. 35 Minuten.",
+    "Alle Zutaten ca. 5 Minuten zu einem festen Teig kneten. Teig ca. 20 Minuten ruhen lassen. In 8 Portionen teilen und auf etwas Tsampa mit dem Wallholz zu 3-4 mm dicken Fladenbroten auswallen. In einer beschichteten Bratpfanne ohne Fettzugabe bei mittlerer Hitze beidseitig ca. 3 Minuten backen.",
+    "Tipp: Mit Konfitüre oder als Beilage zu salzigen Gerichten servieren."
+  ],
   cover: "G:Zw2nNNhjyRdLszdys_Uz8VZYzIYi_ynSk4xO9InmizcqXSjjdv9ZfzCW-44O8E5LwMXmw0H-ZwaRVPYovGua",
   pages: ["G:kp86QIJSTBO84oabHzYZPx39Ab5lVFx9xzfVxDn6fg3KHuXW0O1zwiSfWX0H0CyDqO3o-vgPEmUj7XKFSN_KJQ"]
 },
@@ -35,22 +84,100 @@ window.REZEPTE = [
   pages: ["G:JRS7eLzYOV4m7kEc1Pc09HLbQxdnDYr5aqyoqWEhOZMhOouwENsEI2LB6aoicj_obJP1lZpcnmOB14DalficCXzrAZpVm4LaAA?uuid=e32a4460-ab9d-4e91-bf11-11cedf7619fe"]
 },
 {
-  n: "Früchtebrot", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Früchtebrot", folder: "Brote", src: "", ing: [
+    "200 g getrocknete Aprikosen",
+    "300 g getrocknete Feigen",
+    "70 g getrocknete Apfelringe",
+    "60 g Baumnüsse",
+    "2 Eier",
+    "60 g Pistazien",
+    "6 g Birnenbrotgewürz",
+    "40 g Mehl",
+    "1 TL Backpulver",
+    "1 Prise Salz"
+  ],
+  steps: [
+    "Früchtebrot mit Nüssen. Für 1 Cakeform à ca. 20 x 11 cm. Zubereitungszeit: ca. 20 Minuten + ca. 30 Minuten backen.",
+    "Backofen auf 180 °C vorheizen. Form mit Backpapier auslegen. Getrocknete Früchte in Würfel schneiden. Baumnüsse in einer beschichteten Bratpfanne ohne Fett hellbraun rösten. Grob hacken. Eier trennen. Eiweiss steif schlagen. Alle Zutaten bis auf das Eiweiss sorgfältig mischen. Zum Schluss Eiweiss unterziehen. Die Früchtebrotmasse in die vorbereitete Form füllen. In der Ofenmitte ca. 30 Minuten backen. Aus der Form nehmen und auf einem Gitter auskühlen lassen.",
+    "Tipp: Mit Käse oder Terrine zur Vorspeise oder als Dessert servieren."
+  ],
   cover: "G:fAWko9xE6F_qBmvw0jjH893TcqV490xZyNa8XyAzOCZ3qkBZihXV2iaWqB-HIon7RgYZK0_6BPsHui9CN5a5f70",
   pages: ["G:x0I1f9hQRK0AF5MnXZuL8pcJe0GObMjnttbz5wMlkJhfoKrsy9GJg9ea6J56eepNA9TzKLXFkEtHPsjNXKGS"]
 },
 {
-  n: "Kartoffel-Sauerteigbrot", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Kartoffel-Sauerteigbrot", folder: "Brote", src: "", ing: [
+    "400 g mehligkochende Kartoffeln",
+    "200 g Milch",
+    "30 g Butter",
+    "5 g Salz",
+    "30 g Anstellgut (sehr aktiv)",
+    "30 g Weizenmehl Type 1050",
+    "30 g Wasser (35 °C)",
+    "400 g Weizenmehl Type 1050 (11 °C)",
+    "80 g vom Sauerteig",
+    "580 g feines Kartoffelpüree",
+    "Salz für den Hauptteig (Menge fehlt auf dem Foto)"
+  ],
+  steps: [
+    "Kartoffelpüree",
+    "Für das Püree die Kartoffeln in Salzwasser garen. Leicht abkühlen lassen und pellen. Dann stampfen oder durch die Kartoffelpresse drücken, mit Milch, Butter und Salz verrühren und vollständig abkühlen lassen.",
+    "Sauerteig",
+    "Für den Sauerteig alle Zutaten mischen und bei 28-29 °C 4 Stunden oder bis kurz vor dem Peak (die Vollreife) reifen lassen.",
+    "Fermentolyseteig",
+    "Alle Zutaten für den Fermentolyseteig grob mischen, dann 60 Minuten ruhen lassen (Teigtemperatur 21 °C).",
+    "Hauptteig",
+    "Für den Hauptteig das Salz zum Fermentolyseteig geben und 8-10 Minuten kneten (Teigtemperatur 23 °C). 6 Stunden bei Raumtemperatur (22 °C) reifen lassen, bis das Volumen sich verdoppelt hat. Nach 30, 60 und 90 Minuten jeweils D&F (siehe Seiten 15-16).",
+    "Einen Laib formen, mit Schluss nach oben im Gärkörbchen 2 Stunden ruhen lassen, anschliessend 30 Minuten im Tiefkühler aussteifen und verhauten lassen.",
+    "Den Ofen auf 250 °C (Ober-/Unterhitze) vorheizen.",
+    "Im Ofen mit Topf (oder Dampf und Hitzeschild) 15 Minuten backen. Den Deckel abnehmen bzw. den Dampf entweichen lassen. Die Ofentemperatur auf 220 °C reduzieren und das Brot 20-30 Minuten bis zur gewünschten Bräune fertig backen."
+  ],
   cover: "G:MmGs1nJ2acGnwmyNV9W21hNRIHKTZK1H0TGgFxBMoWxFUpQampEMMs-8YGlNs4sHeUjZZahbLoznwx02QJ_e9xNKiZYgGsloWKY",
   pages: ["G:OH_VCYHBabA7e6rYuHYivibR3y-t0n2aApIcghUYXdgjhrBR8bjz0TCUBtg5giZKVIuIgLU8nCoBvM6HasMiBQ2iCak5Bmu0tzs", "G:YPGFNcbNMVWgym6sHLXG2-NYtdPwBIY6sOvOZHjCIQe4QnTIJksFCQdLcIvehuP_1ZLpH97JXB9SwhLyic4ZfS5eKCo_FQfvez0"]
 },
 {
-  n: "Kürbiskernenbrot", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Kürbiskernenbrot", folder: "Brote", src: "", ing: [
+    "500 g Ruchmehl",
+    "250 g Vollkornmehl",
+    "2 1/2 TL Salz (ca. 25 g)",
+    "5 dl Milch",
+    "20 g Hefe",
+    "1 EL flüssiger Honig",
+    "150 g Kürbiskerne",
+    "Mehl zum Formen"
+  ],
+  steps: [
+    "Zutaten für 2 Brote à ca. 600 g. Zubereitungszeit: ca. 20 Minuten + ca. 160 Minuten aufgehen lassen + ca. 55 Minuten backen.",
+    "Mehlsorten und Salz in einer grossen Schüssel gut mischen. In die Mitte eine Mulde eindrücken. Milch handwarm erwärmen. Hefe darin auflösen. Mit Honig in die Mulde giessen. Alles mischen und Milch ca. 5 Minuten zu einem eher festen, elastischen Teig kneten. Kürbiskerne grob hacken und in den Teig kneten. Teig mit einem feuchten Tuch bedeckt an einem warmen Ort ca. 2 Stunden auf das Doppelte aufgehen lassen.",
+    "Teig auf wenig Mehl durchkneten, halbieren, zu Kugeln formen. Auf ein mit Backpapier belegtes Blech legen. Brote über Kreuz ca. 1 cm tief einschneiden. Ca. 40 Minuten aufgehen lassen.",
+    "Backofen auf 200 °C vorheizen. Brote in der Ofenmitte ca. 10 Minuten backen. Temperatur auf 180 °C reduzieren. Brote ca. 45 Minuten fertig backen. Backprobe: Beim Klopfen auf die Unterseite der Brote soll es hohl tönen. Brote herausnehmen und auf einem Gitter auskühlen lassen.",
+    "Tipp: Damit das Brot eine schöne Kruste bildet und gleichmässig aufgeht, ca. 1 dl Wasser in einem Blech mit in den Ofen geben. So erhöht man die Luftfeuchtigkeit beim Backen."
+  ],
   cover: "G:nct3ry2o1jBgo6ANAePQQUdAYbud97HRXtHNR_7UiICaLYbRsIV1ZG6ieLLCDxvSCWATvYPN75t7JWb0_mWw",
   pages: ["G:rtEnKQMS9Tp6w0jd4OwUqADCCCRno2zPDH22cOkXp_0QLylB5a79pEZDWXSyrHN2cM4IPP3-F-RlSyhey2FTTlM", "G:kr_V4ZY00Hi1Gomg_f3gPytb3kGfPWRFy0wrE6F2k3wVNGx7C-LM5by67Wtdox8PVwjuGKqbaMEs1g5toIzFpzI"]
 },
 {
-  n: "Laugen-Knoblauchbrot", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Laugen-Knoblauchbrot", folder: "Brote", src: "", ing: [
+    "500 g Halbweissmehl",
+    "1 1/2 TL Salz",
+    "1/2 Würfel Hefe (ca. 20 g), zerbröckelt",
+    "3 1/2 dl Wasser",
+    "1 EL Olivenöl",
+    "50 g Rucola, grob geschnitten",
+    "2 EL Rosmarin, grob geschnitten",
+    "2 EL Oregano, grob geschnitten",
+    "2 Knoblauchzehen, gepresst",
+    "4 EL Olivenöl",
+    "1 EL Wasser",
+    "5 g Natronpulver",
+    "1/4 TL Fleur de Sel"
+  ],
+  steps: [
+    "Vor- und zubereiten: ca. 30 Min. Aufgehen lassen: ca. 2 Std. Backen: ca. 25 Min.",
+    "Mehl, Salz und Hefe in einer Schüssel mischen. Wasser und Öl beigeben, zu einem weichen, glatten Teig kneten. Zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "Rucola und alle Zutaten bis und mit Öl mischen.",
+    "Teig auf wenig Mehl rechteckig (ca. 25 x 30 cm) auswallen. Rucolamasse darauf verteilen. Quer in ca. 2 cm breite Streifen schneiden, leicht verdrehen, nebeneinander auf ein mit Backpapier belegtes Blech legen, nochmals zugedeckt ca. 30 Min. aufgehen lassen. Wasser mit Natron verrühren, Stangen damit bestreichen. Fleur de Sel darüberstreuen.",
+    "Backen: ca. 25 Min. in der unteren Hälfte des auf 200 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen, lauwarm servieren."
+  ],
   cover: "G:SAlSYSAdnIpuSQSHJ3LYCQ0KsiSjGinds9WZzh0k3xhcM8XaBHPS8tl6oolP3-W4Lx0T7t6FkyHCQa5TcQmzIbA",
   pages: ["G:5cyT363EZC5umxKvkTRWW_ILjPkPEJt-YwpZ-WbB4ldyZJT6_zrcK02KPBvbG9Wk3euZAjmw_hFVBCY-Tbd9_Q"]
 },
@@ -80,7 +207,25 @@ window.REZEPTE = [
   cover: "G:7SbaavUlVRj9Cb7h5GF7yDqAPNuoCFQ-4VVZ0JUUIgrSTx4D3E0KcnuFHvbTxMRCgEIj3glu_Zo1U752UWDr5GjON08Yh04_Dg?uuid=af3228f1-ad1d-4447-9930-17541302d952", pages: []
 },
 {
-  n: "Mohn-Knoblauch-Hefeschnecken", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Mohn-Knoblauch-Hefeschnecken", folder: "Brote", src: "", ing: [
+    "500 g helles Dinkelmehl",
+    "3 EL Blaumohnsamen",
+    "1 1/2 TL Salz",
+    "1/2 Würfel Hefe (ca. 20 g), zerbröckelt",
+    "3 dl Wasser",
+    "2 EL Olivenöl",
+    "60 g Butter, weich",
+    "50 g geriebener Gruyère",
+    "3 Knoblauchzehen, gepresst",
+    "1 Bund Schnittlauch, fein geschnitten",
+    "20 g Butter, flüssig, abgekühlt"
+  ],
+  steps: [
+    "Für 12 Stück.",
+    "Teig: Mehl, Mohn, Salz und Hefe in einer Schüssel mischen. Wasser und Öl beigeben, zu einem weichen, glatten Teig kneten. Zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "Schnecken: Teig auf wenig Mehl zu einem Rechteck von ca. 40 x 50 cm auswallen. Butter mit dem Käse, Knoblauch und Schnittlauch mischen, auf dem Teig verteilen, dabei ringsum einen Rand von ca. 1 cm frei lassen. Teig von der Längsseite her aufrollen, mit einem Brotmesser ohne Druck in ca. 4 cm breite Stücke schneiden. Schnecken nebeneinander in die vorbereitete Form stellen, zugedeckt ca. 30 Min. aufgehen lassen. Schnecken mit der flüssigen Butter bestreichen.",
+    "Backen: ca. 35 Min. in der unteren Hälfte des auf 200 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus der Form nehmen."
+  ],
   cover: "G:XhTzSk5K3KWWF2JxTnQlAjX-12r1Yq3Nyk4Ee9-QDaoUiQSzeeRXyNECmW5tJpgxUSsog4DCYmD520BbpdXv",
   pages: ["G:W5PD_jo8AgvfmPjxcop7N2FZoRzEwhjh_EwS4uyQV_ovZE1W9HzEtaLr56EjVwnvQu8PHeISGR5GNzPmGZE6", "G:kd1JsGpYOr04MNqzni0AlDIvIHMjmfVM16y7K5408YDRkvzxL9mLDW5Bx7hmR_VDlNX2_P9CaxdCq1DQRrkwmzM"]
 },
@@ -94,27 +239,111 @@ window.REZEPTE = [
   cover: "https://www.bettybossi.ch/rdbimg/bb_bbza080115_0005c/bb_bbza080115_0005c_r01_v005_x0010.jpg", pages: []
 },
 {
-  n: "Quinoabrötchen", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Quinoabrötchen", folder: "Brote", src: "", ing: [
+    "200 g weisse Quinoa",
+    "6 dl Wasser",
+    "1/2 Hefewürfel, 20 g",
+    "200 g Roggenmehl",
+    "300 g Urdinkelvollkornmehl",
+    "2 TL Salz à 3 g",
+    "1 TL Zucker",
+    "1 TL Kreuzkümmel, ca. 2 g",
+    "2 TL mildes Currypulver",
+    "Mehl zum Formen"
+  ],
+  steps: [
+    "Für ca. 16 Brötchen. Zubereitungszeit ca. 30 Minuten + ca. 1 1/2 Stunden aufgehen lassen + 20-30 Minuten backen.",
+    "Quinoa unter gelegentlichem Rühren in einer Bratpfanne leicht rösten. Wasser aufkochen, Quinoa beigeben und ca. 10 Minuten weich kochen. Abkühlen lassen. Hefe in kleinen Stücken dazugeben und auflösen. Mehle, Salz und Zucker dazugeben. Kreuzkümmel im Mörser fein mahlen und mit dem Curry zur Masse mischen. Alles zu einem geschmeidigen Teig kneten. Sofern nötig, wenig Wasser dazugeben. An einem warmen Ort mit einem feuchten Tuch zugedeckt ca. 1 Stunde aufgehen lassen.",
+    "Teig nochmals kurz kneten und auf wenig Mehl zu Brötchen à ca. 80 g formen. Auf ein mit Backpapier belegtes Blech legen und an einem warmen Ort ca. 30 Minuten aufgehen lassen. Backofen auf 180 °C vorheizen. Brötchen in der Ofenmitte 20-30 Minuten backen."
+  ],
   cover: "G:vfxBNFd9-5xEv2CAQ90u1IoYb6OmTfbC9CSVsX2bFAipKsggmbSPtBaVBLI3w7Giew9o1kFGPijk-PNoY5XU",
   pages: ["G:yeAABNrodrXr1hOXu1QQWxcHGJ4ChPQ6uJ7PrBvaan_Ugc7_Joc8SMslo2slx75POGC-k0rV74zfQggJNsY9FXg"]
 },
 {
-  n: "Roggen-Ring", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Roggen-Ring", folder: "Brote", src: "", ing: [
+    "5 g Trockenhefe",
+    "1 EL Honig",
+    "3,2 dl Wasser",
+    "100 g Bauernmehl",
+    "400 g Roggenmehl",
+    "1 1/2 TL Meersalz",
+    "1/2 TL Natron",
+    "30 g Tomatenpüree",
+    "Bauernmehl zum Fertigstellen und zum Auswalen",
+    "8 weiche Dörrtomaten, nicht in Öl"
+  ],
+  steps: [
+    "Roggen-Ring: nature und mit Dörrtomaten. Ergibt 12-14 Stück. Zubereitung ca. 40 Minuten + ca. 4 Stunden ruhen lassen + 10-12 Minuten backen + auskühlen lassen.",
+    "Hefe mit Honig und wenig Wasser verrühren. Einige Minuten stehen lassen, bis sich die Hefe aufgelöst hat.",
+    "Beide Mehlsorten mit Salz und Natron mischen. Hefemischung und restliches Wasser dazugeben. Alles zu einem glatten Teig verkneten. Teig halbieren. Eine Hälfte mit dem Tomatenpüree verkneten, dabei noch ca. 1 EL Bauernmehl dazukneten. Teige zugedeckt bei Zimmertemperatur ca. 4 Stunden ruhen lassen.",
+    "Teige auf reichlich Mehl portionenweise ca. 3 mm dünn auswallen. Für die Tomatenvariante Dörrtomaten vierteln. Ausgewallten Teig zur Hälfte mit Tomaten belegen, Teig darüberschlagen und auf reichlich Mehl ca. 3 mm dünn auswallen.",
+    "Backofen auf 220 °C vorheizen. Mit einem Kuchenblech Teigrondellen à ca. 15 cm Ø ausstechen. Aus der Mitte ein Loch à 3-4 cm ausstechen. Ringe auf ein mit Backpapier belegtes Blech legen. Mit einer Gabel einstechen. Teigreste zu einem weiteren Ring verarbeiten. Brot 10-12 Minuten backen. Auf einem Kuchengitter auskühlen lassen. Am besten in Guetslidosen aufbewahren."
+  ],
   cover: "G:0Gdrw9W1rywydG43eEeQ6IzzeCRRKgDCVFGITZRG3WhPyZd-ElIMxsuI9BvzDikTSZ9kg91Bl4rDSFC8CIML",
   pages: ["G:QXexz90RNj_HRE0xpwJ1lQiY5hZ3JjIwpBpgaUerNiXIKcBPm3E2qtTyAZj6Ahb8hzsM-YuNB5Ck0bIkwMLb-Q", "G:5ApdTEGlOTN-QN2MvbcimPg7yFNp6Uprd4JwPbt8g-4qNRdTXT6PzsNx6xWh8tgmGyXcoip8jhgE_qf-oV8W0g"]
 },
 {
-  n: "Roggen-Sauerteigbrot", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Roggen-Sauerteigbrot", folder: "Brote", src: "", ing: [
+    "20 g Anstellgut (Roggensauer)",
+    "240 g Wasser",
+    "240 g Roggenmehl Type 1150",
+    "Sauerteig",
+    "225 g Wasser",
+    "15 g Salz",
+    "500 g Roggenmehl Type 1150",
+    "1/2 Teelöffel Kümmel, nach Belieben"
+  ],
+  steps: [
+    "Für den Sauerteig das Anstellgut in Wasser auflösen, dann das Mehl kräftig unterrühren. Abgedeckt bei Raumtemperatur 14-16 Stunden reifen lassen.",
+    "Für den Hauptteig den Sauerteig mit dem Wasser aufschwemmen. Salz, Mehl und Kümmel, falls verwendet, zugeben und alles 3-5 Minuten kneten.",
+    "Den Teig 30 Minuten ruhen lassen.",
+    "Den Teig auf eine bemehlte Arbeitsplatte legen, halbieren und jeweils rund formen. Die Teiglinge in gut bemehlte Gärkörbe legen und 2 Stunden ruhen lassen. Die Teiglinge sollten gut 50 % an Volumen gewonnen und eine rissige Oberfläche erhalten haben.",
+    "Den Ofen auf 250 °C (Ober-/Unterhitze) vorheizen.",
+    "Die Teiglinge schonend auf ein Backblech heben und mit Dampf 10 Minuten anbacken. Die Ofentemperatur auf 180 °C reduzieren, den Dampf entweichen lassen und die Brote weitere 40-50 Minuten fertig backen."
+  ],
   cover: "G:9FT4W1_vRonJY9gY-_y28aIaeAMMMu974gGj-Q2yyEXvAWBT4c_aBSu8zPbdxWF4XdQickO8cMdnmy45C8dggCU5qZDNixu4nwqT",
   pages: ["G:OyXFieLaCeyOljOvGHhO3OH909Lk2QnVXl-HINRGEsBk3chiNoiVq7QG2Nt0CmWIm6GLNgiosc_W6QMezg-2xW-E1QjJltYx9iw", "G:lJOT29O_niG6quc1o0BiKsylpnrX4RSGxLj9Q_by-IvEoGFmyMuTVmp_COOZ0Lw2wk1LTYrvGbPHKATaRSkeHd0q61TMRxgsGgU"]
 },
 {
-  n: "Rosmarinzugen", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Rosmarinzugen", folder: "Brote", src: "", ing: [
+    "1/2 Hefewürfel, ca. 20 g",
+    "3 dl Wasser, lauwarm",
+    "500 g Weissmehl",
+    "1 TL Salz",
+    "Mehl zum Auswallen",
+    "1/2 Bund Rosmarin",
+    "4 EL Olivenöl",
+    "Fleur de sel zum Bestreuen"
+  ],
+  steps: [
+    "Lingue di suocera (Rosmarinzungen). Apéro für 8 Personen. Zubereitungszeit ca. 30 Minuten + ca. 1 Stunde aufgehen lassen + ca. 12 Minuten backen.",
+    "Hefe im Wasser auflösen. In einer Schüssel Mehl und Salz mischen. In der Mitte eine Mulde bilden. Hefewasser dazugiessen und alles zu einem geschmeidigen Teig kneten. Teig zugedeckt ca. 1 Stunde aufgehen lassen. Backofen auf 230 °C vorheizen. Teig achteln und auf etwas Mehl zu ca. 1 mm dicken Zungen auswallen. Auf ein mit Backpapier belegtes Blech legen. Rosmarinnadeln abstreifen. Zungen mit Öl bepinseln. Rosmarin und etwas Fleur de sel darüberstreuen. In der Ofenmitte ca. 12 Minuten backen. Aus dem Ofen nehmen, mit Olivenöl servieren."
+  ],
+  port: 8,
   cover: "G:E_myvwVya1wOqiPi5v7gohHHQmVpBRl_M8HgFTA5PtscpRgZJFQnKJof_w5nEpLDpruDN5P9SGcfwa605jCg",
   pages: ["G:yWS0rCFFiGlZKNyvmoArGpsr9CoS14nKHIh65q0B64Sf7zWzsttqzANvv3Meqar7iXnxW3LaJYdRGO-CN91SB64"]
 },
 {
-  n: "Sauerteig-Ciabatta", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Sauerteig-Ciabatta", folder: "Brote", src: "", ing: [
+    "20 g Weizen-Anstellgut",
+    "20 g Manitoba Mehl",
+    "20 g Wasser",
+    "200 g Manitoba Mehl",
+    "200 g Weizenmehl Tipo 00",
+    "75 g Hartweizenmehl",
+    "370 g Wasser",
+    "9 g Salz"
+  ],
+  steps: [
+    "Zutaten für 2 Ciabatta.",
+    "Das Anstellgut sollte sehr aktiv sein, die letzte Auffrischung darf höchstens 12 Stunden zurückliegen. Gegebenenfalls noch 2-5 Mal auffrischen.",
+    "Für den Sauerteig alle Zutaten vermischen und 4 Stunden bei 28 °C reifen lassen.",
+    "Für den Hauptteig alle Zutaten grob vermischen und 30 Minuten stehen lassen, anschliessend den Sauerteig zugeben und 20 Minuten kneten.",
+    "Salz zugeben und weitere 2-4 Minuten verkneten, dann 6 Stunden bei 28 °C reifen lassen.",
+    "Den Teig in den Kühlschrank stellen und 12-14 Stunden reifen lassen. Auf die bemehlte Arbeitsfläche stürzen, teilen und ohne ihn zu formen (nur etwas zurechtschieben) auf eine Teigschaufel geben.",
+    "Den Ofen auf 280 °C (Ober-/Unterhitze) vorheizen.",
+    "Im Ofen mit viel Dampf 30 Minuten backen. Dabei die Ofentemperatur nach und nach auf 230 °C reduzieren."
+  ],
   cover: "G:T8QjDZkcSpK8S1RSGNduB8cf5Er6rDnnagjJpKqRbNLAdzeQsotNcdwoMylF1RPpDNgpeiZYmL1tga1OsuJjhjusOk7PFLQoJQ",
   pages: ["G:EdAVS5PNwh4zRySh7EC_ICk8BHpbMwc5l2U4ch533D9Qj89TrnHAbrrCGj4edRjSW5gp6_WBC1NvfrcwU0IVfxVCJ1bTt9PLiQg9", "G:ZmYfc0Bmp4TMSs5mMqdtFxYKHic2OYQ_ELfgX_01EiJbnmmgeVgmv3Xal92tR3z0ohoMjzbXO0hotFb_tBfhaoaSEw5ncgEOyw"]
 },
@@ -140,7 +369,23 @@ window.REZEPTE = [
   cover: "G:oc1i5afNGHx9sRurPkN2zaMgaeiitA8VQE1QV1yp_5cwpyu2ColTNW8ech0UBYzD2G2q6ZAVPkCELs1p6CYPoPJ3L8qCTuLEsA", pages: []
 },
 {
-  n: "Zopf", folder: "Brote", src: "", ing: [], steps: [],
+  n: "Zopf", folder: "Brote", src: "", ing: [
+    "500 g Zopfmehl oder Weissmehl",
+    "3/4 EL Salz",
+    "1 TL Zucker",
+    "1/2 Würfel Hefe (ca. 20 g)",
+    "60 g Butter",
+    "3 dl Milch",
+    "1 Eigelb",
+    "1 EL Milch oder Rahm"
+  ],
+  steps: [
+    "Für 8 Personen.",
+    "Mehl, Salz und Zucker in einer Schüssel mischen. Hefe zerbröckeln, daruntermischen. Butter in Würfel schneiden, mit der Milch beigeben, mischen, zu einem weichen glatten Teig kneten. Teig zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "Ofen auf 200 Grad vorheizen. Teig in zwei Portionen teilen, zu je ca. 70 cm langen Strängen formen, die an den Enden dünner werden. Stränge zu einem Zopf flechten, auf ein mit Backpapier belegtes Blech legen. Eigelb und Milch verrühren, Zopf damit bestreichen und nochmals ca. 30 Min. aufgehen lassen. Zopf nochmals mit Ei bestreichen.",
+    "Backen: ca. 35 Min. in der unteren Hälfte des Ofens."
+  ],
+  port: 8,
   cover: "G:TPAF7xCKCs_uM-OMeBXNuJXrGkK6blsIKFgiI_h6ZdjH6t0aPRrj-rJMSp4Ad9-fiu7Gp5YSi0iIuPUQln6sVA",
   pages: ["G:nI3e4mimAGgJhj3qqDqh1H0F6iqF_vIYEhnKImopy3NKcZ0600VP5SZ8MmmofDuPLC88vTxO78LBwpn8aCA6nQ", "G:ApzOFbndIu60BdExJggSaMGBEeiMiJGk_FbLS5-pR3X90ggf-RhrNo-wBcxLGX-UA3oF4MkomX5nGNx-nVgEmQ"]
 },
@@ -821,6 +1066,7 @@ window.REZEPTE = [
     "Streusel darüberstreuen. Kuchen in der Ofenmitte 50-55 Minuten backen.",
     "Tipp: Sirup des Rhabarbers z. B. für eine Rhabarber-Limo oder zum Süssen von Quark verwenden."
   ],
+  port: 8,
   cover: "G:rzE1rP2OhkDZ2vCYpxk6cAIocVII2gO-9yL98ySn-Waljk2ZWlG4aGXotc8EalNKk9KwtHoA3BSgLTsJwqXizw", pages: ["G:v1k5m3DqOMOCc_3Miw_gsWNxwMLXLEr2-2eiJpKoT7t1JdG9OR6EPLsgP78_S9yfupzLvewJvRonpsg_6oJy","G:PsSPQivQJZpmDv9cIi3B1F62CdDr5OT-ihIToVp-MD190WB8twnRjAd1tE4de5vNjgqHmag_BK_IU19bTxgW"]
 },
 {
