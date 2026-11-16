@@ -267,6 +267,14 @@
    "color": "#d98e04",
    "parent": null,
    "show": true
+  },
+  {
+   "id": "cmwjepd5qf7m",
+   "name": "Neuer Ordner",
+   "icon": "📁",
+   "color": "#6b8f71",
+   "parent": "cmwjel1i8u3t",
+   "show": true
   }
  ]
 }
