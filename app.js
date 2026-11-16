@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.7.0';
+const APP_VERSION = '1.7.1';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -663,7 +663,7 @@ function renderHome() {
   if (state.edit) setSync(sync.msg, sync.kind);
 }
 
-$('#top').addEventListener('click', e => {
+($('#top') || document).addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); }
 });
@@ -963,7 +963,7 @@ function route() {
   const r = m && byId[decodeURIComponent(m[1])];
   document.body.classList.toggle('detail', !!r);
   if (r) state.edit = false;
-  $('#searchrow').style.display = filtersEl.style.display = r ? 'none' : '';
+  const sr = $('#searchrow'); if (sr) sr.style.display = r ? 'none' : ''; filtersEl.style.display = r ? 'none' : '';
   if (r) { document.title = r.n + ' · Rezeptbuch'; pushRecent(r.id); renderDetail(r); }
   else {
     document.title = 'Rezeptbuch';
