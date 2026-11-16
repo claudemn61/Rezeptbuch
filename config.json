@@ -2,6 +2,267 @@
  "v": 1,
  "size": "m",
  "fav": [],
- "folders": [],
- "assign": {}
+ "assign": {
+  "salsa-petre": [
+   "Saucen"
+  ]
+ },
+ "folders": [
+  {
+   "id": "Asiatisch",
+   "name": "Asiatisch",
+   "icon": "🥢",
+   "color": "#b5651d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Beilagen",
+   "name": "Beilagen",
+   "icon": "🥔",
+   "color": "#c0504d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Brote",
+   "name": "Brote",
+   "icon": "🍞",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Dessert",
+   "name": "Dessert",
+   "icon": "🍮",
+   "color": "#6b8f71",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Dips",
+   "name": "Dips",
+   "icon": "🥣",
+   "color": "#3f8f8a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Eierspeisen",
+   "name": "Eierspeisen",
+   "icon": "🍳",
+   "color": "#4f7cac",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Eintöpfe",
+   "name": "Eintöpfe",
+   "icon": "🍲",
+   "color": "#7a5c9e",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Fisch",
+   "name": "Fisch",
+   "icon": "🐟",
+   "color": "#a0527c",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Fleisch",
+   "name": "Fleisch",
+   "icon": "🥩",
+   "color": "#7a4b3a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Gebäck",
+   "name": "Gebäck",
+   "icon": "🥐",
+   "color": "#5f6b73",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Geflügel",
+   "name": "Geflügel",
+   "icon": "🍗",
+   "color": "#b5651d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Gemüse",
+   "name": "Gemüse",
+   "icon": "🥕",
+   "color": "#c0504d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Getränke",
+   "name": "Getränke",
+   "icon": "🍹",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Gewürze",
+   "name": "Gewürze",
+   "icon": "🌶️",
+   "color": "#6b8f71",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Gratin",
+   "name": "Gratin",
+   "icon": "🧀",
+   "color": "#3f8f8a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Kartoffel",
+   "name": "Kartoffel",
+   "icon": "🥔",
+   "color": "#4f7cac",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Kekse",
+   "name": "Kekse",
+   "icon": "🍪",
+   "color": "#7a5c9e",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Kuchen",
+   "name": "Kuchen",
+   "icon": "🍰",
+   "color": "#a0527c",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Overnight Oats",
+   "name": "Overnight Oats",
+   "icon": "🥣",
+   "color": "#7a4b3a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Pizza",
+   "name": "Pizza",
+   "icon": "🍕",
+   "color": "#5f6b73",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Reisgerichte",
+   "name": "Reisgerichte",
+   "icon": "🍚",
+   "color": "#b5651d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Salate",
+   "name": "Salate",
+   "icon": "🥗",
+   "color": "#c0504d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Saucen",
+   "name": "Saucen",
+   "icon": "🫙",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Sauerteig",
+   "name": "Sauerteig",
+   "icon": "🥖",
+   "color": "#6b8f71",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Snacks",
+   "name": "Snacks",
+   "icon": "🥨",
+   "color": "#3f8f8a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Suppen",
+   "name": "Suppen",
+   "icon": "🍜",
+   "color": "#4f7cac",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Tapas",
+   "name": "Tapas",
+   "icon": "🫒",
+   "color": "#7a5c9e",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Teigwaren",
+   "name": "Teigwaren",
+   "icon": "🍝",
+   "color": "#a0527c",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Vegetarisch",
+   "name": "Vegetarisch",
+   "icon": "🥦",
+   "color": "#7a4b3a",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Vorspeisen",
+   "name": "Vorspeisen",
+   "icon": "🥟",
+   "color": "#5f6b73",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Wähen",
+   "name": "Wähen",
+   "icon": "🥧",
+   "color": "#b5651d",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Wild",
+   "name": "Wild",
+   "icon": "🦌",
+   "color": "#c0504d",
+   "parent": null,
+   "show": true
+  }
+ ]
 }
