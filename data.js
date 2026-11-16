@@ -5560,11 +5560,18 @@ window.REZEPTE = [
 {
   n: "Overnight Oats", folder: "Overnight Oats", src: "",
   ing: [
-    
+    "50 g Overnight Oats (Hafergetreidebrei mit Erdbeeren)",
+    "100 ml Wasser, Milch oder Pflanzendrink",
+    "Toppings nach Belieben",
+    "Zutaten Fertigmischung: 66% Vollkorn-Haferflocken, getrocknete Dattelstücke, Leinsamen, Kürbiskerne, 3% gefriergetrocknete Erdbeerstücke, 3% gefriergetrocknetes Erdbeerpulpenpulver"
   ],
   steps: [
-    
+    "50 g Overnight Oats und 100 ml Wasser, Milch oder Pflanzendrink mischen.",
+    "Über Nacht im Kühlschrank quellen lassen und alsbald verbrauchen. (Wenn es mal schneller gehen muss, schmecken sie auch schon nach einer halben Stunde – dann mit etwas mehr Biss.)",
+    "Pur oder mit Toppings geniessen.",
+    "Hinweis: Kann weitere glutenhaltige Getreide (Weizen, Gerste, Roggen), Schalenfrüchte, Erdnüsse, Sesamsamen, Senf, Lupine, Milch- und Sojaerzeugnisse enthalten. Vegan, ohne Zusatzstoffe."
   ],
+  port: 1,
   cover: "G:QzqtVDfqj6mncZVucTafZ6GZAkH33aiN9GcKRZP1mqWyu03oKne4-THiP-XXPRTKaiMolyazwjTJ4LCyTFHNqlCEmRS7A5HrlSk", pages: ["G:iioqYDzgQxZe6QdFP4nP4j62OWbTBzN2oITJs3uwFsBndgZt2tz31uV3KOOGZQIQuW597Ubh-7_GzSnPbg4BglaWTUCDt1q5JpQ","G:EQFtMCKXp8PV9Bzvg3yeTttiC5IcElr1WbCQ7Fn-vnUCmMlFo2ErZpnCCtAwcMlbaXroqnrQQMj9UCKmbP7sojnYxrwDcILLvw"]
 },
 // ---- Pizza ----
@@ -8424,11 +8431,23 @@ window.REZEPTE = [
 {
   n: "Avocado-Rohschinken-Schiffchen", folder: "Vorspeisen", src: "",
   ing: [
-    
+    "2 Avocados, entsteint, in Spalten",
+    "1 Zitrone, Saft",
+    "Je 1 TL Salz und Pfeffer",
+    "1 Peperoncino, fein gehackt",
+    "100 g Rohschinkentranchen",
+    "10 g Rucola (ca. 1 Handvoll)",
+    "2 EL Olivenöl",
+    "Salz, Pfeffer",
+    "Zahnstocher nach Bedarf"
   ],
   steps: [
-    
+    "Für 16 Stück zum Apéro. Zubereiten ca. 15 Minuten.",
+    "Zitronensaft, Salz, Pfeffer und Peperoncino in einem Teller mischen, Avocadospalten darin wenden.",
+    "Avocado mit wenig Rucola belegen und mit je einer Rohschinkentranche umwickeln, evtl. mit Zahnstochern fixieren. Mit Öl beträufeln, würzen und sofort servieren.",
+    "Tipp: Avocados lassen sich am besten verarbeiten, wenn sie schnittfest, also nicht zu weich sind."
   ],
+  port: 16,
   cover: "G:P0eZOSlyub1wNlTl37QGths6MKA5m_fNUiAWLGZXoKHZauCSzwkv-GpFg-z5IG6dR3_c0iW7h3moyWaleSEyGm-VxP78yp4z8HA", pages: ["G:zDfQaTd9gWlXCik3m3nGXl8C3pQM5-A__2QdHbtHhkU6pzteFK1c4f5zL7GpHID2Czv78912a6S7lAYjNPVlVbZg_kq4SqJvTHI"]
 },
 {
@@ -8460,11 +8479,31 @@ window.REZEPTE = [
 {
   n: "Rauchlachstartar mit Clementinen-Senfsauce", folder: "Vorspeisen", src: "",
   ing: [
-    
+    "Sauce:",
+    "1 Clementine, heiss abgespült, davon wenig abgeriebene Schale und 3 EL ausgepressten Saft",
+    "1 TL getrockneter Dill",
+    "1 EL milder Senf",
+    "1 EL flüssiger Honig",
+    "Pfeffer",
+    "Tatar:",
+    "200 g Rauchlachs, in 1,5 cm grossen Würfeln",
+    "1 Mango, geschält, in 1,5 cm grossen Würfeln",
+    "1 Zitrone, davon 3 EL Saft",
+    "1 Clementine, filetiert",
+    "3 EL Schnittlauch, grob geschnitten, davon 1 EL beiseitegestellt",
+    "40 g gesalzene Pistazien, herausgelöst, grob gehackt, davon 1 EL beiseitegestellt",
+    "1/2 Clementine, filetiert"
   ],
   steps: [
-    
+    "Für 4 Personen als Vorspeise. Zubereiten ca. 30 Minuten. Anrichtering von 8 cm Ø.",
+    "Alle Zutaten für die Sauce mischen, würzen.",
+    "Lachs und alle restlichen Zutaten bis und mit Pistazien beigeben, mischen.",
+    "Anrichtering auf einen Teller platzieren, mit 1/4 der Masse füllen, leicht andrücken und hochziehen. Für alle weiteren Teller gleich verfahren.",
+    "Mit restlichen Clementinenfilets, beiseitegestelltem Schnittlauch und beiseitegestellten Pistazien garnieren.",
+    "Tipp: Wer keine Anrichteringe zur Verfügung hat, füllt das Tatar in Gläser und stürzt es auf die Teller.",
+    "Hinweis: Auf dem Foto ist der Rand rechts abgeschnitten, Wortenden in Schritt 3 und im Tipp sinngemäss ergänzt."
   ],
+  port: 4,
   cover: "G:jo2isq9L7jq6og-wabWnIprv8IXNEjakp7WXJVY6MuO8aXWChGUfsc45tioQbkiYaqO3rJ7qQJOHbzCJzVFk-GMXXYDW44zKSQ", pages: ["G:aTTPojUDPkmfyCElLXeo9O9RSnCCv-IIjccezkmVYzYwNwT2G3YjBbvSMMEtW98DwicsuKeNpbbqGKIXNx2n8etulAAEwFdoXMje"]
 },
 // ---- Wähen ----
@@ -8733,21 +8772,53 @@ window.REZEPTE = [
 {
   n: "Rehrückenfilet mit Feigen-Specksauce", folder: "Wild", src: "",
   ing: [
-    
+    "Kartoffel-Randen-Rösti:",
+    "500 g mehligkochende Kartoffeln, grob gerieben",
+    "250 g rohe Randen, grob gerieben",
+    "1 TL Salz",
+    "Bratbutter",
+    "Rehrückenfilet:",
+    "2 Rehrückenfilets (je ca. 400 g)",
+    "6 Wacholderbeeren, im Mörser zerstossen",
+    "1 EL Rosmarin, fein geschnitten",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Feigen-Specksauce:",
+    "120 g Bauernspeck am Stück, Schwarte entfernt, in feinen Stängeli",
+    "2 dl Wildfond",
+    "2 EL Feigensenf",
+    "50 g Butter, in Stücken, kalt",
+    "Salz, Pfeffer, nach Bedarf",
+    "4 Feigen, in Schnitzchen"
   ],
   steps: [
-    
+    "Aktive Zeit 1 Std., Gesamtzeit 1 Std., 652 kcal pro Person.",
+    "Kartoffel-Randen-Rösti: Kartoffeln und Randen mit dem Salz mischen. Bratbutter in einer beschichteten Bratpfanne erhitzen. Gemüse beigeben, unter gelegentlichem Wenden ca. 10 Min. anbraten. Gemüse zu einem Kuchen formen. Rösti zugedeckt bei mittlerer Hitze ca. 15 Min. weiterbraten. Einen grossen flachen Teller auf die Pfanne legen, Rösti auf den Teller stürzen. Wenig Bratbutter in die Pfanne geben, Rösti mit der ungebratenen Seite nach unten in die Pfanne zurückgleiten lassen, offen ca. 15 Min. fertig braten.",
+    "Rehrückenfilet: Fleisch ca. 30 Min. vor dem Anbraten aus dem Kühlschrank nehmen. Ofen auf 60 °C erwärmen. Wacholderbeeren, Rosmarin, Salz und Pfeffer mischen, Fleisch damit einreiben. Bratbutter in einer beschichteten Bratpfanne erhitzen. Fleisch rundum ca. 5 Min. anbraten, im vorgeheizten Ofen bis zum Servieren ruhen lassen.",
+    "Feigen-Specksauce: Speck in dieselbe Pfanne geben, bei mittlerer Hitze knusprig braten. Fond dazugiessen, Bratsatz lösen, unter Rühren etwas einkochen, Senf darunterrühren. Kalte Butter portionenweise unter Rühren mit dem Schwingbesen in die Sauce geben. Dabei die Pfanne hin und wieder kurz auf die Platte stellen, um die Sauce nur leicht zu erwärmen, sie darf nicht kochen. Rühren, bis die Sauce cremig ist, würzen. Feigen beigeben. Sauce zum Rehfleisch und zur Rösti servieren."
   ],
+  port: 4,
   cover: "G:gqlMhdmdmyFIHl6CCOUYsJg3ipidDCBQNU55EfQgG8jT_aHpuD8VDLkiP6LpcvagRSbCdd648k3ECnoK616Hr0yGzXdA7mSIUA", pages: ["G:SXRsaW2hv_JzuQzLHkL25XWrnqGsSLnETGzsjzY69rtc20bLN8vpOMjL7HaOBnbaVbGCY5TI-EVja8QsgAQNC0zOr-UTrfeEERtV","G:AzqsFGKVEsSEdqc7GfbJXlEG_Kf3F-gmCa-z2_k8D5fChKghk5gE0Dnblmj_UwAl96cdiWbdLILhLDyIjsXJDxC_CI-or671qw"]
 },
 {
   n: "Wildschwein-Entrecôte mit Pilzbutter", folder: "Wild", src: "",
   ing: [
-    
+    "350 g Waldpilze, z. B. Steinpilze und Eierschwämmli",
+    "1 Schalotte",
+    "1 Knoblauchzehe",
+    "4 Wildschwein-Entrecôtes à 140 g",
+    "Salz",
+    "edelsüsser Paprika",
+    "4 EL Olivenöl",
+    "1 TL rosa Pfeffer",
+    "50 g Butter",
+    "1/2 Bund Oregano"
   ],
   steps: [
-    
+    "Pilze putzen und in mundgerechte Stücke schneiden. Schalotte und Knoblauch hacken. Fleisch mit Salz und Paprika würzen. Öl in einer Bratpfanne erhitzen. Fleisch auf jeder Seite ca. 3 Minuten braten. Fleisch in Alufolie einwickeln und ca. 10 Minuten beiseitestellen.",
+    "Inzwischen Schalotte und Knoblauch in derselben Pfanne 1 Minute braten. Pilze dazugeben und ca. 2 Minuten weiter braten. Mit Salz und rosa Pfeffer abschmecken. Butter dazugeben und aufschäumen lassen. Fleisch auspacken. Eventuell entstandenen Fleischsaft zur Sauce geben. Fleisch mit Pilzen und Butter anrichten. Oreganoblättchen darüber zupfen und servieren. Dazu passt Rösti."
   ],
+  port: 4,
   cover: "G:imN5dM-nIKO4xmAyLwqRQqe99LYuKv3MGkxChPSujMeIMRWJUZ_hA4NJY2vcx9PvyFPPVGTGqzk3iS_TacTTTGc", pages: ["G:eLdx_k1Sn2jrFijMfZ35xoMq3Do0oXNynAmBmRaPJiAX7DXZWHb_QGf23WijimNtkeucJ2dWLlA5XnfYEiwxSQ"]
 }
 ];
