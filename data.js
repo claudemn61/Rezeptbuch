@@ -3834,81 +3834,223 @@ window.REZEPTE = [
 {
   n: "Capuns", folder: "Fleisch", src: "",
   ing: [
-    
+    "70 g Landjäger",
+    "80 g Salsiz",
+    "70 g Rohschinken",
+    "1/2 Bund Petersilie",
+    "1 Bund Schnittlauch",
+    "2/3 Bund Pfefferminze, z.B. Krauseminze",
+    "2 Eier",
+    "1,5 dl Milch-Wasser (halb-halb)",
+    "Salz, Pfeffer",
+    "200 g Weissmehl",
+    "24 Mangoldblätter",
+    "4 dl Milch",
+    "4 dl Bouillon",
+    "100 g geriebener Bergkäse"
   ],
   steps: [
-    
+    "Capuns onda Albin. Hauptgericht für 4 Personen, ergibt 24 Stück.",
+    "Fleisch in kleine Würfelchen schneiden. Kräuter hacken. Eier, Milch-Wasser, Salz und Pfeffer in eine Schüssel geben und verrühren. Kräuter und Fleisch darunterrühren. Mehl beigeben und zu einem zähen Teig mischen. Ca. 20 Minuten ruhen lassen.",
+    "Inzwischen in einer grossen Pfanne reichlich Wasser bis zum Siedepunkt erhitzen. Mangoldblätter kurz hineintauchen. In Eiswasser abschrecken und gut trocken tupfen. Auf die Arbeitsfläche legen. Stiele wegschneiden. Pro Blatt ca. 1 1/2 leicht gehäufte TL Teig in die Mitte der Blätter geben. Längsseiten der Blätter auf die Füllung legen, satt einrollen. Von grossen Blättern den Rest des Blattes wegschneiden.",
+    "Milch und Bouillon in einer weiten Pfanne aufkochen. Capuns hineingeben und zugedeckt 10-12 Minuten knapp am Siedepunkt ziehen lassen. Capuns herausheben und anrichten. Mit etwas Garflüssigkeit beträufeln und etwas Käse bestreuen. Restlichen Käse dazuservieren.",
+    "Tipps: In der «Backstube» werden die Capuns mit Rohschinkenstreifen serviert. Einen Teil der Garflüssigkeit mit dem Stabmixer aufschäumen und mit den Capuns anrichten. Abschnitte (Stiele, Blätter) fein schneiden und für eine Suppe oder als Gemüsebeilage verwenden.",
+    "Zubereitung ca. 1 Stunde + 10-12 Minuten garen.",
+    "Pro Person ca. 36 g Eiweiss, 35 g Fett (weitere Nährwerte am Fotorand abgeschnitten)."
   ],
+  port: 4,
   cover: "G:feVnSFclyns9McwK8VIeIlVPsbVxx8CroQ4ICipnzLH_NrnlpsVLbdJ1ZAO4KDM7F03ux4reJsz6hDbxf1K3rg", pages: ["G:D_XUvAcDCjfdAsy5TZ2tV6g3aE2pds3R4yBqvZrimALWfsnWhuxbXdcoLCm15SZk9T5kpvcCK6M95D_jbfXK0A","G:LXFS1L0Bbnz1Hms6hpqYL9cCx8KgqLq0P18Njaps4_4vEc8OM23IU4Rg7IErWRkxEh-abuh3NQ7w7jnJlTzjkw"]
 },
 {
   n: "Hackbällchen mit Sesam", folder: "Fleisch", src: "",
   ing: [
-    
+    "1 Bund glattblättrige Petersilie",
+    "2 Knoblauchzehen",
+    "600 g gemischtes Hackfleisch, z.B. Rind und Schwein",
+    "1 TL Salz",
+    "Öl zum Braten",
+    "4 EL Teriyaki-Sauce",
+    "1 EL Honig",
+    "2 EL Sesam",
+    "1 Chilischote",
+    "2 Frühlingszwiebeln"
   ],
   steps: [
-    
+    "Hackbällchen mit Sesam und Teriyaki. Kleine Mahlzeit für 4 Personen.",
+    "Grill auf 200 °C vorheizen. Petersilie und Knoblauch hacken. Hackfleisch, Petersilie, Knoblauch und Salz gut verkneten. Zu baumnussgrossen Kugeln formen. Eine ofenfeste Bratpfanne auf den Grill stellen. Öl darin erhitzen. Hackbällchen ca. 5 Minuten anbraten. Teriyaki-Sauce, Honig und Sesam beigeben und mit den Bällchen mischen. Chili längs halbieren. Kerne entfernen. Chili und Frühlingszwiebeln in feine Streifen schneiden und darüberstreuen.",
+    "Tipp: Fixfertige Meatballs verwenden und schon nach 10 Minuten servieren."
   ],
+  port: 4,
   cover: "G:CJKlgKy7G83ZSU2CpsjKrPCvjWnu5zIOLRfuIhcDwVDprmCzBR7ghWVYKu9HgaSgDTxWrat1vRWHeTEyA5aMYQ", pages: ["G:4Ah2y8v_SSW1j4O3s1izUxmuppuhGX30FZBLztXWkSAAJbWacMSjP_za9yc4E6h1Mi-Vy518MT9y2WVQP0xWBZ0","G:3iM2d83w_5CqGg04XTh5jLnJTxJ1e-7vsyXdNXIv8NMiQ8PCwIQTCq4upVabyvmvos6VJ1GEK95kMeakuLH_"]
 },
 {
   n: "Herbstliches Kalbsvoressen", folder: "Fleisch", src: "",
   ing: [
-    
+    "Bratbutter zum Anbraten",
+    "800 g Kalbsvoressen",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "1 1/2 EL Weissmehl",
+    "2 Knoblauchzehen, gepresst",
+    "1 roter Peperoncino, in feinen Streifen",
+    "1 dl Weisswein",
+    "2 dl Fleischbouillon",
+    "1 Lorbeerblatt",
+    "500 g vorwiegend festkochende Kartoffeln, in ca. 2 cm grossen Würfeln",
+    "500 g Kürbis (z. B. Hokkaido), in ca. 2 cm grossen Würfeln",
+    "500 g Krautstiel, in Streifen",
+    "Salz, Pfeffer, nach Bedarf",
+    "3 EL glattblättrige Petersilie, fein geschnitten"
   ],
   steps: [
-    
+    "Pro Portion 378 kcal. Aktive Zeit 30 Min., Gesamtzeit 2 Std. 15 Min. Für einen Brattopf mit Deckel.",
+    "Fleisch: Bratbutter im Brattopf heiss werden lassen. Fleisch würzen, mit Mehl bestäuben und portionenweise je ca. 3 Min. anbraten. Herausnehmen und beiseitestellen.",
+    "Schmoren: Knoblauch und Peperoncino im selben Topf andämpfen, Wein dazugiessen, aufkochen, fast komplett einkochen lassen. Bouillon dazugiessen, Lorbeerblatt beigeben. Fleisch wieder beigeben. Zugedeckt bei kleiner Hitze ca. 1 Std. 15 Min. schmoren. Kartoffeln, Kürbis und Krautstiel beigeben, offen ca. 30 Min. fertig schmoren, würzen. Petersilie darüberstreuen."
   ],
+  port: 4,
   cover: "G:qy4xBoBSPnNihH3eH878NayEAKV3nWJETchQRNIiBCiwmmOcb_6d0AEUeD2Nn-0XujjEC3JhdJ4Su66PsXcJcQ", pages: ["G:do2k6jWdGDmKAXILQeM8VQ4mfcxATQ-NX1xrTafj9SHDNK3Yx5Rn7kMBf0HIM4YujuDUYMklx7P_1nKSLeirUQ"]
 },
 {
   n: "Kalbsgeschnetzeltes mit Lauch/Dörrtomaten", folder: "Fleisch", src: "",
   ing: [
-    
+    "500 g geschnetzeltes Kalbfleisch",
+    "Salz, schwarzer Pfeffer aus der Mühle",
+    "etwas edelsüsses Paprikapulver",
+    "2 Esslöffel Bratbutter",
+    "1 1/2 dl Portwein",
+    "1 1/2 dl Kalbsfond oder leichte Hühnerbouillon",
+    "250 g Lauch",
+    "8 in Öl eingelegte Dörrtomaten",
+    "1 Knoblauchzehe",
+    "1 Esslöffel Butter",
+    "2 dl Rahm",
+    "1 Spritzer Zitronensaft"
   ],
   steps: [
-    
+    "Kalbsgeschnetzeltes mit Lauch und Dörrtomaten (Schnell, originell). Für 4 Personen.",
+    "1. Den Backofen auf 70 Grad vorheizen und eine Platte mitwärmen.",
+    "2.-3. (auf dem Foto grösstenteils abgeschnitten): Butter schmelzen, die Hälfte des Fleisches beifügen und ohne Wenden auf der ersten Seite gut anbraten; Fleisch auf die vorgewärmte Platte in den Ofen geben.",
+    "Die zweite Portion Fleisch in der restlichen Butter auf die gleiche Weise braten. Das Geschnetzelte bei 70 Grad 20-30 Minuten nachgaren lassen.",
+    "4. Den Bratensatz mit Portwein und Kalbsfond oder Hühnerbouillon ablöschen und auf knapp 1 dl einkochen lassen.",
+    "5. Inzwischen Lauch rüsten und in dünne Ringe schneiden. Dörrtomaten auf Küchenpapier trockentupfen und in Streifen schneiden. Knoblauch schälen und fein hacken.",
+    "6. In einer zweiten Pfanne die Butter erhitzen. Knoblauch und Dörrtomaten darin andünsten. Lauch beifügen und alles 3-4 Minuten weiterdünsten. Mit Salz und Pfeffer würzen. Aus der Pfanne nehmen.",
+    "7. Den Rahm zur Saucenflüssigkeit geben und noch so lange einkochen lassen, bis die Sauce cremig bindet. Mit Salz, Pfeffer und wenig Zitronensaft abschmecken.",
+    "8. Unmittelbar vor dem Servieren Lauch und Dörrtomaten in die Sauce geben und nur noch gut heiss werden lassen. Die Sauce über das Geschnetzelte geben. Sofort servieren.",
+    "Für den Kleinhaushalt: 2 Personen: Zutaten halbieren. 1 Person: Zutaten vierteln (Rest am Fotorand abgeschnitten)."
   ],
+  port: 4,
   cover: "G:hFuacBW3JoGmYMmY083F9laSG8fSEWkFpbf9wZ6VHeAMX85lcj9sVn3KXouKmLyWPKiCQxUYA_50yfrnPG-PIdE", pages: ["G:PSpy9zcAPyDoC2GXIisMl6TQYvS1dAXIm7D-jqTcGII-WZaaC5kiCqkAayG51eju5HwDB6H_hoMgUrkllHr66Q","G:1TzDr3Xsgysqo3-OBt4WmyA8dncmIuatZvCtTQ3J9o2_ubVGS1zuJ0h8yD8_ArrEr0_vEf78M-pIrO2BZPR_-Q"]
 },
 {
   n: "Kalbsgeschnetzeltes mit Ruccola", folder: "Fleisch", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "250 g weisse Champignons",
+    "600 g Kalbsgeschnetzeltes",
+    "Salz, Pfeffer",
+    "2 EL HOLL-Rapsöl",
+    "1 dl alkoholfreier Apfelwein",
+    "2 dl gebundene Bratensauce",
+    "2 dl Vollrahm",
+    "100 g Rucola"
   ],
   steps: [
-    
+    "Zwiebel fein hacken. Pilze je nach Grösse vierteln oder sechsteln. Geschnetzeltes mit Salz und Pfeffer würzen. Etwas Öl in einer Bratpfanne erhitzen. Fleisch darin portionenweise anbraten, herausheben und warm halten.",
+    "Zwiebel und Pilze in derselben Pfanne im restlichen Öl dünsten. Herausheben, ebenfalls warm halten. Bratsatz mit Apfelwein ablöschen und mit Bratensauce ca. 5 Minuten köcheln lassen. Rahm beigeben, alles zu einer sämigen Sauce einkochen. Fleisch samt entstandenem Saft, Zwiebel und Pilzen dazumischen. Alles mit Salz und Pfeffer abschmecken. Rucola grob hacken, daruntermischen. Sofort servieren.",
+    "Dazu passt Rösti oder Brot.",
+    "Hinweis: Personenzahl und Zubereitungszeit sind auf dem Foto abgeschnitten."
   ],
   cover: "G:_w3WR06ivQ53K0c36RbftqJTp7vOENQaNPD4TOoLRaBX3qjsw6vSCmKZNPPt55uHG-lu_1MI199cx3jA2qml", pages: ["G:iXb_TT-pFPaz557fieFXwRj-vIuVslcdLux2PrxbbwKHASz5aru5QaCfb7jPMs4HgRJoquGwSaT4o9m4fsD2"]
 },
 {
   n: "Lamm im Teig", folder: "Fleisch", src: "",
   ing: [
-    
+    "Lamm:",
+    "6 Lammnierstücke (je ca. 200 g)",
+    "wenig Öl",
+    "1 TL Salz",
+    "Füllung:",
+    "1 EL Butter",
+    "6 Bundzwiebeln, Zwiebeln gehackt, Grün in feinen Ringen",
+    "100 g getrocknete Tomaten, in feinen Streifen",
+    "80 g Paniermehl",
+    "1 1/2 dl Weisswein",
+    "1/2 Bund glattblättrige Petersilie, grob geschnitten",
+    "Einpacken:",
+    "3 Stück Klarsichtfolie (je ca. 30 x 40 cm)",
+    "2 rechteckig ausgewallte Blätterteige, quer halbiert",
+    "18 Tranchen Rohschinken",
+    "1 Ei, verklopft",
+    "1 EL Mohn"
   ],
   steps: [
-    
+    "Oster-Lamm im Teig. Pro Portion 632 kcal. Aktive Zeit 40 Min., Gesamtzeit 1 Std. 10 Min.",
+    "Lamm: Fleisch ca. 30 Min. vor dem Anbraten aus dem Kühlschrank nehmen. Öl in einer Bratpfanne erhitzen, Fleisch rundum ca. 30 Sek. anbraten, würzen, auf einem Gitter auskühlen.",
+    "Füllung: Butter in derselben Pfanne erwärmen, Bundzwiebeln andämpfen, Tomaten ca. 2 Min. mitdämpfen. Paniermehl daruntermischen, Wein dazugiessen, Flüssigkeit vollständig einkochen. Masse auskühlen, Petersilie daruntermischen.",
+    "Einpacken: 1 Stück Klarsichtfolie glatt auslegen. 1/3 des Rohschinkens in der Länge eines Lammnierstückes und ca. 26 cm breit darauf auslegen. 1/3 der Füllung auf dem Rohschinken verteilen, etwas flach drücken. 2 Lammnierstücke aufeinander auf die Mitte der Füllung legen, Rohschinken mithilfe der Klarsichtfolie satt um das Lammfleisch wickeln. Vorgang zweimal wiederholen. Klarsichtfolie entfernen, Lammrollen jeweils auf die Mitte eines Teigstücks legen. Viertes Teigstück längs dritteln, je einen Teigstreifen über das Fleisch legen. Teigränder mit Ei bestreichen. Zuerst Quer-, dann Längsseiten einschlagen, gut andrücken. Teigpäckli mit der Verschlussseite nach unten auf ein mit Backpapier belegtes Blech legen, mit Ei bestreichen und mit Mohn bestreuen.",
+    "Backen: ca. 20 Min. in der Mitte des auf 200 Grad vorgeheizten Ofens. Lamm im ausgeschalteten Ofen bei leicht geöffneter Ofentür ca. 10 Min. ruhen lassen.",
+    "Dazu passen: Romanesco oder Mini-Kefen.",
+    "Quelle: Coopzeitung Nr. 16 vom 15. April 2019."
   ],
+  port: 8,
   cover: "G:XBbl5iBefyPQJsWyHFokJdDRZqW-1e54Ae-JO70ZUKF52Sc5zfoPpKgNGpT3PCkR17uScndeA62zvn4HR5dJ3g", pages: ["G:FSHVMwh90a58CqDnF3s4BfpJqBsFcsRjUXwDsdtrBZSJx5mt2Lsaet9JrcpIbOkpTQ31xCCtdtOefXjit9zh"]
 },
 {
   n: "Lamm-Médaillons mit gebratenen Steinpilzen", folder: "Fleisch", src: "",
   ing: [
-    
+    "8 Lammrücken-Medaillons à 60 g",
+    "Fleischgewürz, Salz, Pfeffer aus der Mühle",
+    "8 Tranchen Bratspeck",
+    "1 EL Olivenöl (1)",
+    "1 EL Bratbutter",
+    "Rotwein-Sauce:",
+    "2 dl Kalbsfond",
+    "1 dl Rotwein",
+    "30 g Butter",
+    "Steinpilze:",
+    "100 g frische Steinpilze (oder tiefgekühlt)",
+    "1 EL Olivenöl (2)",
+    "Salz"
   ],
   steps: [
-    
+    "Eine Porzellanform im Backofen (Heissluft, 120 °C) erhitzen.",
+    "Die Lamm-Médaillons würzen und jedes Médaillon mit einer Speckscheibe umwickeln, mit einem Holzspiessli fixieren. In einer Bratpfanne Olivenöl (1) und Bratbutter erhitzen. Die Médaillons auf beiden Seiten kurz anbraten und in die vorgewärmte Porzellanform geben. Zurück in den Backofen stellen und Temperatur auf 80 °C reduzieren. Die Médaillons während 20-30 Minuten durchziehen lassen.",
+    "Für die Sauce den Bratensatz mit Rotwein und Kalbsfond auflösen. Die Flüssigkeit auf 1,5 dl einkochen lassen. Die Butter in Stücken darunterrühren, kurz aufkochen und Sauce abschmecken.",
+    "Die Steinpilze rüsten und in feine Scheiben schneiden. Olivenöl (2) in Pfanne erhitzen und Steinpilze beidseitig braten, mit Salz würzen.",
+    "Médaillons aus dem Backofen nehmen und Holzspiessli entfernen. Auf vorgewärmte Teller etwas Sauce geben, Médaillons daraufsetzen und die Pilze dazuverteilen. Mit Sauce umgiessen und z. B. mit Nudeln servieren."
   ],
+  port: 4,
   cover: "G:dyocJ4NYzCdf3f5XmIHwyWWSbRQzwwx4LUu3smtC_HMItW3R2BYAkKUktavsEbpwZIWOy_GUH0mY9VItTMag2g", pages: ["G:ZRetLRkI2HTnlapCy-OcOjJY0JLF1UnEbSjotsYpImx00k-C70ee0_gjOhcsLPRaslmycBCtgou1UbHzkxglfw","G:A5Tw2HAt5oj98I7ErnTGdv1RZX3HiDxaNqBijeYlFttOY37RyKykLyqBYNEMUuO8zbJa1Hs9EsCKcmPvdq9BrQ"]
 },
 {
   n: "Lammfilet im Strudelteig", folder: "Fleisch", src: "",
   ing: [
-    
+    "6 Lammfilets, je ca. 70 g",
+    "Salz, Pfeffer",
+    "2 EL Olivenöl (1)",
+    "2 Strudelteigblätter",
+    "Petersilienfarce:",
+    "2 Scheiben Toastbrot",
+    "2 Bund glatte Petersilie",
+    "100 g Kalbsbrät",
+    "4 EL Rahm",
+    "1 Eigelb",
+    "2 EL Olivenöl (2)",
+    "Sauce:",
+    "1 dl Rahm",
+    "1 dl Lammfond",
+    "1 dl Kalbsfond",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Lammfilet im Strudelteig mit Petersilie.",
+    "Lammfilets einmal quer halbieren und würzen. Olivenöl (1) erhitzen und Filets rundum anbraten. Zur Seite stellen.",
+    "Strudelteigblätter auf feuchtes Küchentuch legen und mit zweitem Tuch bedecken.",
+    "Für die Farce Toastbrot entrinden, fein hacken und beiseitestellen. Petersilie von den Stängeln zupfen und Blätter in kochendem Salzwasser blanchieren. Sofort in Eiswasser abkühlen. Gut abtropfen lassen, ausdrücken und grob hacken. Petersilie in Schüssel geben. Brät, Rahm, Eigelb und Toastbrot daruntermischen. Farce mit Salz und Pfeffer würzen.",
+    "Strudelblätter trockentupfen und auf passende Grösse (für 3 Lammfilets) zuschneiden. Teig mit Farce bestreichen und je 3 Filets nebeneinander auf Strudelblatt legen. Restliche Farce daraufstreichen und zu einem Päckchen wickeln. Olivenöl (2) erhitzen und Päckchen rundum anbraten. Auf Blech geben und im vorgeheizten Backofen (Heissluft, 90 °C) während 30 Min. ziehen lassen.",
+    "Für die Sauce Rahm, Lamm- und Kalbsfond erhitzen. Auf die Hälfte einkochen und würzen. Strudelpäckli aufschneiden, auf vorgewärmte Teller anrichten und mit Sauce umgiessen."
   ],
+  port: 4,
   cover: "G:w-uZ2y0ZDHcWqdfHK9LKqrUBhVJ4G6DN7y0tpSVLBL59HjBLLNrrE6u7xH8koSlIHFy7fdIVei6mIF5K32_Okw", pages: ["G:mGje-U5nqSpx8-Ww9pSbsAAU3OMFN4SdC58eY4qP0dFZu_LGGqseEvnUhqpx9qWbTArpFcGUOwZh6uau176vxQ","G:jpliBwF9gq6cdXOqHysopZu1RDm40E8sl4guv7iH_bOywT3SjHUiY9hGmOgIGehzMCmTk4SjkkJU8LaJpzZ7UJc"]
 },
 {
@@ -3947,11 +4089,26 @@ window.REZEPTE = [
 {
   n: "Piadine mit Rindfleisch", folder: "Fleisch", src: "",
   ing: [
-    
+    "500 g Fenchel",
+    "2 Maiskolben",
+    "1 Zwiebel",
+    "400 g Rindsplätzli (z. B. Huft)",
+    "2 EL Olivenöl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "4 Piadine (ca. 320 g)",
+    "150 g griechisches Joghurt nature",
+    "1 EL Zitronensaft",
+    "1/4 TL Fleur de Sel"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 25 Min.",
+    "1. Schritt: Fenchel fein hobeln, Maiskörner vom Kolben, Zwiebel in feine Streifen schneiden.",
+    "2. Schritt: Plätzli längs in je 4 Streifen schneiden. Fleisch im heissen Öl portionenweise beidseitig je ca. 1 Min. braten, herausnehmen, würzen. In derselben Pfanne die Maiskörner und die Zwiebel bei mittlerer Hitze ca. 5 Min. dämpfen.",
+    "3. Schritt: Piadine mit Joghurt bestreichen. Fleisch, Maiskörner und Zwiebeln darauf verteilen. Fenchel mit Zitronensaft und Fleur de Sel mischen, darauf verteilen. Piadine zur Hälfte falten oder aufrollen.",
+    "Pro Portion: 539 kcal, F 21 g, Kh 55 g, E 33 g (Fit)."
   ],
+  port: 4,
   cover: "G:jkEaThCfInnkWER47LfBnGhdvHD8GXdOj-g6QQ6YkbQzH0veLVUbXnH3Hf1BfRjucdg4etEWdCA-fxtMDaqN", pages: ["G:_D1VAyigCA8j4-OBWXHgHkqQXIFcw8PkL04WrhUDPNkKbPDTMO0ctq1WZUNITJkjVs024q5EJftpZqqzLEoM"]
 },
 {
@@ -4056,11 +4213,25 @@ window.REZEPTE = [
 {
   n: "Steinpilz-Corden-bleu", folder: "Fleisch", src: "",
   ing: [
-    
+    "400 g Steinpilze",
+    "4 Kalbsschnitzel vom Stotzen à ca. 160 g, für Cordon bleu geschnitten",
+    "120 g Greyerzer",
+    "80 g Rotschmierkäse z. B. Munster",
+    "Salz",
+    "Pfeffer",
+    "3 Eier",
+    "100 g Mehl",
+    "200 g Panko oder Paniermehl",
+    "3 Knoblauchzehen",
+    "4 EL Bratbutter",
+    "4 Zweige Rosmarin"
   ],
   steps: [
-    
+    "Steinpilze putzen, rüsten und in Scheiben schneiden. Schnitzel einzeln zwischen Metzgerpapier oder in einem Tiefkühlbeutel flach klopfen. Schnitzel auf der Arbeitsfläche auslegen. Beide Käsesorten in dünne Scheiben schneiden. Käse und einige Pilzscheiben auf je eine Hälfte jedes Schnitzels verteilen. Restliche Pilzscheiben beiseitelegen. Schnitzel zusammenklappen. Ränder gut aneinanderdrücken. Mit Salz und Pfeffer würzen.",
+    "Eier in einem Teller verquirlen. Mehl und Panko oder Paniermehl separat in Tellern bereitstellen. Schnitzel zuerst im Mehl wenden. Überflüssiges Mehl abklopfen. Schnitzel durchs Ei ziehen und im Panko oder Paniermehl wenden. Panade gut andrücken. Knoblauch in Scheiben schneiden.",
+    "Bratbutter in einer weiten Bratpfanne erhitzen. Cordons bleus langsam 8-10 Minuten braten, gelegentlich wenden. Sobald die Panade goldbraun ist und ein bisschen Füllung herausquillt, Cordons bleus aus der Pfanne heben. Auf Haushaltspapier abtropfen lassen. Restliche Pilze, Knoblauch und Rosmarin in die Pfanne geben, ca. 3 Minuten braten und mit Cordons bleus servieren. Dazu passen Nudeln."
   ],
+  port: 4,
   cover: "G:2aMrGSOpccmuDhPw8thGwfCS53-icbWelxRQ8A9ChTKg8GaB7Tue73vx3Y0X69RBTtw34oqhd2DYrFvquCt_Aw", pages: ["G:ryfe089LO2bGiknyYsoR9_Tu1sT8ewujGMO6xDLERQrY1h99vDYPU7brBei2r3GQRjcrqUfxPFByTnfyjA0ibNc","G:6NqjuDqYeOuILXaESZSErOhToNs0cjeQkSFOiRNu73f-7k20Kg9Wz1y9RnsZUk1QPBL_oUqxSRWqPgguagOyeWE"]
 },
 {
