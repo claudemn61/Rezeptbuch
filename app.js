@@ -208,10 +208,68 @@ function renderList() {
   }).join('') + '</div>';
 }
 
+
+/* ---------- Portionen ---------- */
+const FR = { '½': .5, '¼': .25, '¾': .75, '⅓': 1/3, '⅔': 2/3 };
+const NUM = String.raw`(?:\d+(?:[.,]\d+)?(?:\s+\d\/\d)?|\d\/\d|[½¼¾⅓⅔])`;
+const QTY = new RegExp(`^(${NUM})(?:(\\s*[-–]\\s*)(${NUM}))?(?=$|[\\s.,;]|[a-zA-ZäöüÄÖÜ])`);
+function parseNum(t) {
+  t = t.trim();
+  if (FR[t] != null) return FR[t];
+  let m = t.match(/^(\d+)\s+(\d)\/(\d)$/); if (m) return +m[1] + m[2] / m[3];
+  m = t.match(/^(\d)\/(\d)$/); if (m) return m[1] / m[2];
+  return parseFloat(t.replace(',', '.'));
+}
+function fmtNum(v) {
+  if (v >= 10) return String(Math.round(v));
+  const q = Math.round(v * 4) / 4;
+  if (Math.abs(v - q) > .06 && v >= 1) return String(Math.round(v * 10) / 10).replace('.', ',');
+  const w = Math.floor(q), f = q - w;
+  const fs = f === .25 ? '1/4' : f === .5 ? '1/2' : f === .75 ? '3/4' : '';
+  if (q === 0) return String(Math.round(v * 100) / 100).replace('.', ',');
+  return (w ? w : '') + (w && fs ? ' ' : '') + fs;
+}
+function scaleLine(l, f) {
+  if (f === 1) return l;
+  const m = l.match(QTY); if (!m) return l;
+  const a = parseNum(m[1]); if (!isFinite(a)) return l;
+  let out = fmtNum(a * f);
+  if (m[3]) { const b = parseNum(m[3]); if (isFinite(b)) out += m[2] + fmtNum(b * f); }
+  return out + l.slice(m[0].length);
+}
+function portState(id) {
+  const p = store.get('rb_port_' + id, null) || {};
+  const b = Math.max(1, Math.min(99, +p.b || 4));
+  return { b, n: Math.max(1, Math.min(99, +p.n || b)) };
+}
+function ingListHtml(r) {
+  const done = new Set(store.get('rb_done_' + r.id, []));
+  const p = portState(r.id), f = p.n / p.b;
+  return r.ing.map((l, i) => `<li data-i="${i}" class="${done.has(i) ? 'done' : ''}"><span class="box"></span><span>${esc(scaleLine(l, f))}</span></li>`).join('');
+}
+function portBarHtml(r) {
+  const p = portState(r.id);
+  return `<div class="port" id="port"><span class="pl">Portionen</span>
+    <button type="button" class="pbtn" data-act="dec" aria-label="Weniger">−</button>
+    <input class="pn" id="pn" type="number" inputmode="numeric" min="1" max="99" value="${p.n}" aria-label="Portionen">
+    <button type="button" class="pbtn" data-act="inc" aria-label="Mehr">+</button>
+    <span class="pb">Rezept für <input class="pn small" id="pbase" type="number" inputmode="numeric" min="1" max="99" value="${p.b}" aria-label="Rezept ist gedacht für"></span></div>
+    <p class="note" id="pnote" ${p.n === p.b ? 'hidden' : ''}>Mengen in der Zubereitung werden nicht umgerechnet.</p>`;
+}
+function setPort(r, patch) {
+  const p = { ...portState(r.id), ...patch };
+  p.b = Math.max(1, Math.min(99, Math.round(p.b) || 4)); p.n = Math.max(1, Math.min(99, Math.round(p.n) || p.b));
+  if (p.b === 4 && p.n === 4) localStorage.removeItem('rb_port_' + r.id); else store.set('rb_port_' + r.id, p);
+  const ul = $('.ing'); if (ul) ul.innerHTML = ingListHtml(r);
+  const note = $('#pnote'); if (note) note.hidden = p.n === p.b;
+  const pn = $('#pn'), pb = $('#pbase');
+  if (pn && document.activeElement !== pn) pn.value = p.n;
+  if (pb && document.activeElement !== pb) pb.value = p.b;
+}
+
 function renderDetail(r) {
   const done = new Set(store.get('rb_done_' + r.id, []));
-  const ing = r.ing.length ? `<section class="panel"><h3>Zutaten</h3><ul class="ing">${
-    r.ing.map((l, i) => `<li data-i="${i}" class="${done.has(i) ? 'done' : ''}"><span class="box"></span><span>${esc(l)}</span></li>`).join('')}</ul></section>` : '';
+  const ing = r.ing.length ? `<section class="panel"><h3>Zutaten</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
   const steps = r.steps.length ? `<section class="panel"><h3>Zubereitung</h3><ol class="steps">${
     r.steps.map(s => isHeading(s) ? `<li class="h"><b>${esc(s)}</b></li>` : `<li>${esc(s)}</li>`).join('')}</ol></section>` : '';
   const pagesTitle = r.hasText ? 'Fotos' : 'Rezeptseiten (Fotos)';
@@ -262,6 +320,12 @@ document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== qEl && !location.hash.startsWith('#/r/')) { e.preventDefault(); qEl.focus(); qEl.select(); }
 });
 
+view.addEventListener('input', e => {
+  const t = e.target; if (t.id !== 'pn' && t.id !== 'pbase') return;
+  const v = parseInt(t.value, 10); if (!(v >= 1)) return;
+  const r = byId[decodeURIComponent(location.hash.slice(4))];
+  setPort(r, t.id === 'pn' ? { n: v } : { b: v });
+});
 view.addEventListener('click', e => {
   const tile = e.target.closest('.tile');
   if (tile) { state.filter = tile.dataset.folder; state.browse = true; renderFilters(); refresh(); window.scrollTo(0, 0); return; }
@@ -275,6 +339,11 @@ view.addEventListener('click', e => {
     store.set('rb_fav', [...state.fav]);
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
+  }
+  const pbtn = e.target.closest('.pbtn');
+  if (pbtn) {
+    const r = byId[decodeURIComponent(location.hash.slice(4))];
+    setPort(r, { n: portState(r.id).n + (pbtn.dataset.act === 'inc' ? 1 : -1) }); return;
   }
   const li = e.target.closest('.ing li');
   if (li) {
