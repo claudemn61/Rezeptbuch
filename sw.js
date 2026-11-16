@@ -1,8 +1,8 @@
-const VERSION = '1.5.2';
+const VERSION = '1.5.3';
 const SHELL = `rezeptbuch-shell-${VERSION}`;
 const IMGS = 'rezeptbuch-images';
 const FILES = ['./', 'index.html', 'style.css', 'app.js', 'data.js', 'manifest.webmanifest',
-  'img/platzhalter.jpg', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
+  'img/alle-rezepte.jpg', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 const MAX_IMGS = 400;
 
 self.addEventListener('install', e => {
