@@ -3,6 +3,7 @@
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 // Normalisierung ohne Längenänderung (damit Treffer im Originaltext markiert werden können)
@@ -39,16 +40,17 @@ const R = window.REZEPTE.map(r => {
   return o;
 }).sort((a, b) => a.n.localeCompare(b.n, 'de'));
 const byId = Object.fromEntries(R.map(r => [r.id, r]));
-const folders = [...new Set(R.map(r => r.folder))];
+const folders = [...new Set(R.map(r => r.folder))].sort((a, b) => a.localeCompare(b, 'de'));
 
 /* ---------- Zustand ---------- */
 const state = {
   q: '',
-  filter: store.get('rb_filter', 'alle'),   // alle | fav | text | foto | <Ordnername>
+  filter: 'alle',   // alle | fav | text | foto | <Ordnername>
+  browse: false,    // true = Liste statt Startbildschirm
+  theme: store.get('rb_theme', 'auto'),
   fav: new Set(store.get('rb_fav', [])),
   scroll: 0
 };
-if (state.filter !== 'alle' && !['fav','text','foto'].includes(state.filter) && !folders.includes(state.filter)) state.filter = 'alle';
 
 /* ---------- Suche ---------- */
 function tokens(q) { return norm(q).split(/\s+/).filter(Boolean); }
@@ -123,6 +125,54 @@ const clearEl = $('#clear');
 const filtersEl = $('#filters');
 const countEl = $('#count');
 
+
+/* ---------- Startbildschirm ---------- */
+const isHome = () => !state.q && !state.browse;
+const recent = () => store.get('rb_recent', []).map(id => byId[id]).filter(Boolean);
+const pushRecent = id => store.set('rb_recent', [id, ...store.get('rb_recent', []).filter(x => x !== id)].slice(0, 8));
+
+function miniCard(r) {
+  return `<a class="card mini" href="#/r/${r.id}">
+    <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 360))}" alt="">` : ''}</div>
+    <div class="body"><h3>${esc(r.n)}</h3></div></a>`;
+}
+
+function renderHome() {
+  countEl.textContent = R.length + ' Rezepte';
+  clearEl.hidden = true;
+  const tiles = folders.map(f => {
+    const rs = R.filter(r => r.folder === f);
+    const pick = rs.find(r => r.hasText && r.cover) || rs.find(r => r.cover);
+    return `<button class="tile" type="button" data-folder="${esc(f)}">
+      ${pick ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(pick.cover, 600))}" alt="">` : ''}
+      <span class="tl"><b>${esc(f)}</b><small>${rs.length} Rezepte</small></span></button>`;
+  }).join('');
+  const rec = recent().slice(0, 6);
+  const fav = R.filter(r => state.fav.has(r.id));
+  view.innerHTML = `
+    <section class="home">
+      <div class="tiles">${tiles}
+        <button class="tile all" type="button" data-folder="alle"><span class="tl"><b>Alle Rezepte</b><small>${R.length} Rezepte</small></span></button>
+      </div>
+      <button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
+      ${rec.length ? `<h3 class="sec">Zuletzt angesehen</h3><div class="strip">${rec.map(miniCard).join('')}</div>` : ''}
+      ${fav.length ? `<h3 class="sec">Favoriten</h3><div class="strip">${fav.map(miniCard).join('')}</div>` : ''}
+    </section>`;
+}
+
+function refresh() {
+  const home = isHome() && !location.hash.startsWith('#/r/');
+  filtersEl.style.display = home ? 'none' : '';
+  home ? renderHome() : renderList();
+}
+
+/* ---------- Darstellung ---------- */
+function applyTheme() {
+  const t = state.theme;
+  if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  $$('#settings [data-theme]').forEach(b => b.setAttribute('aria-pressed', b.dataset.theme === t));
+}
+
 function renderFilters() {
   const nFav = R.filter(r => state.fav.has(r.id)).length;
   const items = [
@@ -187,11 +237,11 @@ function route() {
   const m = location.hash.match(/^#\/r\/(.+)$/);
   const r = m && byId[decodeURIComponent(m[1])];
   document.body.classList.toggle('detail', !!r);
-  $('.searchbox').style.display = $('#filters').style.display = r ? 'none' : '';
-  if (r) { document.title = r.n + ' · Rezeptbuch'; renderDetail(r); }
+  $('.searchbox').style.display = filtersEl.style.display = r ? 'none' : '';
+  if (r) { document.title = r.n + ' · Rezeptbuch'; pushRecent(r.id); renderDetail(r); }
   else {
     document.title = 'Rezeptbuch';
-    renderList();
+    refresh();
     requestAnimationFrame(() => window.scrollTo(0, state.scroll));
   }
 }
@@ -199,20 +249,23 @@ window.addEventListener('hashchange', route);
 window.addEventListener('scroll', () => { if (!location.hash.startsWith('#/r/')) state.scroll = window.scrollY; }, { passive: true });
 
 /* ---------- Ereignisse ---------- */
-qEl.addEventListener('input', () => { state.q = qEl.value.trim(); renderList(); });
-qEl.addEventListener('keydown', e => { if (e.key === 'Enter') qEl.blur(); if (e.key === 'Escape') { qEl.value = ''; state.q = ''; renderList(); } });
-clearEl.addEventListener('click', () => { qEl.value = ''; state.q = ''; renderList(); qEl.focus(); });
-$('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.scroll = 0; renderFilters(); location.hash = ''; route(); });
+qEl.addEventListener('input', () => { state.q = qEl.value.trim(); refresh(); });
+qEl.addEventListener('keydown', e => { if (e.key === 'Enter') qEl.blur(); if (e.key === 'Escape') { qEl.value = ''; state.q = ''; refresh(); } });
+clearEl.addEventListener('click', () => { qEl.value = ''; state.q = ''; refresh(); qEl.focus(); });
+$('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.scroll = 0; renderFilters(); if (location.hash) location.hash = ''; else route(); });
 filtersEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
-  state.filter = b.dataset.f; store.set('rb_filter', state.filter);
-  renderFilters(); renderList(); window.scrollTo(0, 0);
+  state.filter = b.dataset.f; state.browse = true;
+  renderFilters(); refresh(); window.scrollTo(0, 0);
 });
 document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== qEl && !location.hash.startsWith('#/r/')) { e.preventDefault(); qEl.focus(); qEl.select(); }
 });
 
 view.addEventListener('click', e => {
+  const tile = e.target.closest('.tile');
+  if (tile) { state.filter = tile.dataset.folder; state.browse = true; renderFilters(); refresh(); window.scrollTo(0, 0); return; }
+  if (e.target.closest('#random')) { const r = R[Math.floor(Math.random() * R.length)]; location.hash = '#/r/' + r.id; return; }
   const back = e.target.closest('#back');
   if (back) { history.length > 1 ? history.back() : (location.hash = ''); return; }
   const star = e.target.closest('#star');
@@ -240,6 +293,25 @@ const lb = $('#lightbox');
 function openLightbox(src) { $('img', lb).src = src; lb.hidden = false; }
 lb.addEventListener('click', () => { lb.hidden = true; $('img', lb).removeAttribute('src'); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) lb.click(); });
+
+
+/* ---------- Einstellungen ---------- */
+const settingsEl = $('#settings');
+$('#gear').addEventListener('click', e => { e.stopPropagation(); settingsEl.hidden = !settingsEl.hidden; });
+document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.closest('#settings')) settingsEl.hidden = true; });
+settingsEl.addEventListener('click', async e => {
+  const t = e.target.closest('[data-theme]');
+  if (t) { state.theme = t.dataset.theme; store.set('rb_theme', state.theme); applyTheme(); return; }
+  if (e.target.closest('#update')) {
+    e.target.textContent = 'Aktualisiere …';
+    try {
+      (await navigator.serviceWorker.getRegistrations()).forEach(r => r.unregister());
+      (await caches.keys()).forEach(k => caches.delete(k));
+    } catch {}
+    setTimeout(() => location.reload(), 400);
+  }
+});
+applyTheme();
 
 /* ---------- Start ---------- */
 renderFilters();
