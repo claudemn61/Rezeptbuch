@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.7.2';
+const APP_VERSION = '1.7.3';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -1141,7 +1141,10 @@ settingsEl.addEventListener('click', async e => {
       (await navigator.serviceWorker.getRegistrations()).forEach(r => r.unregister());
       (await caches.keys()).forEach(k => caches.delete(k));
     } catch {}
-    setTimeout(() => location.reload(), 400);
+    // Zwischenspeicher des Browsers für die App-Dateien erzwungen erneuern
+    try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js', 'sw.js', 'manifest.webmanifest'].map(f => fetch(f + '?r=' + Date.now(), { cache: 'reload' }).catch(() => {}))); } catch {}
+    try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js'].map(f => fetch(f, { cache: 'reload' }).catch(() => {}))); } catch {}
+    setTimeout(() => { location.href = location.href.split('#')[0].split('?')[0] + '?r=' + Date.now() + location.hash; }, 300);
   }
 });
 applyTheme();
