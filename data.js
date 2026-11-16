@@ -258,8 +258,29 @@ window.REZEPTE = [
 // ---------- Ordner «Kuchen» ----------
 {
   n: "Apfel-Pie", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Mehl",
+    "80 g Zucker",
+    "1/4 TL Salz",
+    "100 g Butter, kalt",
+    "1 Bio-Zitrone",
+    "1 Ei",
+    "1 kg säuerliche Äpfel (z. B. Cox Orange)",
+    "60 g grobkörniger Rohzucker",
+    "50 g dunkle Sultaninen",
+    "1 Zimtstange",
+    "1 Sternanis",
+    "1 Eigelb",
+    "1 EL Rahm",
+    "1 EL grobkörniger Rohzucker"
+  ],
+  steps: [
+    "Mehl, Zucker und Salz in einer Schüssel mischen. Butter in Stücke schneiden, beigeben, von Hand zu einer gleichmässig krümeligen Masse verreiben. Von der Zitrone Schale dazureiben. Ei verklopfen, beigeben, rasch zu einem weichen Teig zusammenfügen, nicht kneten. Teig flach drücken, zugedeckt ca. 30 Min. kühl stellen.",
+    "Ofen auf 160 Grad vorheizen. Äpfel vierteln, Kerngehäuse entfernen, in Scheibchen schneiden, in der vorbereiteten Form verteilen. Zucker und Sultaninen daruntermischen. Zimtstange und Sternanis darauflegen.",
+    "Backen: ca. 1 Std. in der Mitte des Ofens. Herausnehmen, Gewürze entfernen, etwas abkühlen. Hitze auf 220 Grad erhöhen.",
+    "1/4 des Teiges beiseite stellen. Restlichen Teig auf wenig Mehl rund auswallen (ca. 30 cm Ø), mit einem Messer einschneiden, locker über die Form legen. Eigelb und Rahm verrühren, Teig damit bestreichen, Rohzucker darüberstreuen. Beiseite gestellten Teig auf wenig Mehl ca. 4 mm dick auswallen. Mit einem Ausstecher von 2 cm Ø Rondellen ausstechen, auf den Teigrand legen, mit restlichem Ei bestreichen.",
+    "Backen: ca. 35 Min. in der unteren Hälfte des Ofens. Herausnehmen, lauwarm servieren."
+  ],
   cover: "G:v0WbR3zJv_YN_I-1RHq3rwyitXDHraMnYjb3POdM9SeML0huT4KKdW0n09ZaEpLj26Wl2J40M0nhHC-obsdY-8Yxq4Qa6BHDmis", pages: ["G:GDpYqhyRQcvduOPOmyg26F5KMHStqCqd7kUC_KXmt397_k9B3BrVoMHpnnUYX8T24mGXyKEti2iqoDHxtyhYBRX4PtQIYMaK0w","G:Un0JGeMBMKCDjsyjcgm9tY2eJyvay9Cwyiw7mCIeLaVAPxzMdIAZ1tAHTCmQKrmgRvyYsWH8ug0i8vBU7fSTF3APfOMuBtDj0g"]
 },
 {
@@ -270,8 +291,26 @@ window.REZEPTE = [
 },
 {
   n: "Aprikosen-Streuselkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "1 Vanillestängel",
+    "700 g Mehl",
+    "1/4 TL Salz",
+    "200 g grobkörniger Rohzucker",
+    "1 Würfel Hefe (ca. 40 g)",
+    "80 g Butter",
+    "4 dl Milch",
+    "1 1/2 kg Aprikosen",
+    "80 g Kokosraspel",
+    "80 g Mehl",
+    "80 g grobkörniger Rohzucker",
+    "80 g Butter, weich"
+  ],
+  steps: [
+    "Vanillestängel längs aufschneiden, Samen auskratzen, mit dem Mehl, Salz und Zucker in einer Schüssel mischen. Hefe zerbröckeln, daruntermischen. Butter in Stücke schneiden, mit der Milch beigeben, mischen, zu einem weichen, glatten Teig kneten. Teig zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "Ofen auf 180 Grad vorheizen. Teig auf die bemehlte Arbeitsfläche geben, etwas flach drücken, in der Grösse des Backblechs auswallen. Teig in das vorbereitete Blech legen. Aprikosen halbieren, mit der Schnittfläche nach oben in den Teig drücken.",
+    "Kokosraspel, Mehl, Zucker und Butter mit einer Gabel mischen, bis die Masse krümelig ist. Streusel auf den Aprikosen verteilen.",
+    "Backen: ca. 1 Std. in der unteren Hälfte des Ofens. Herausnehmen, Blechkuchen im Blech auf einem Gitter auskühlen."
+  ],
   cover: "G:OhDrYflxF13COz8VN6Ca5fNYOvjb4PmNH161dOysnGrkrzIgHiWEXHmmlD2D7innmP2P0Xp2eh2TmmuukVQemrUhnxmcqW8CZA4", pages: ["G:1OQVrvih8AGw-xvkXy8PWkQFMKentpYgRFY0xM-c34NTNlldclBzbWWn36AYIOyubwAHQ0O14uRaAaOvdqOHh5ij6cTLCBAV-qI","G:wkpkpO86LDB1PMxqqVuEqSOx21qs9EkYe0-o-95kzYB06vZhNwduZOxYYWjije_WgsgAEjwBTbSx7B-czsZ8QFePwSkTqLBhqg"]
 },
 {
@@ -282,8 +321,25 @@ window.REZEPTE = [
 },
 {
   n: "Beerencake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Butter, weich",
+    "200 g Zucker",
+    "1/4 TL Salz",
+    "4 Eier",
+    "2 EL Zitronensaft",
+    "200 g Mehl",
+    "100 g gemahlene geschälte Mandeln",
+    "1 TL Backpulver",
+    "250 g Himbeeren",
+    "125 g Heidelbeeren oder Blaubeeren (Blueberrys)",
+    "Puderzucker zum Bestäuben",
+    "einige Heidelbeeren und Himbeeren"
+  ],
+  steps: [
+    "Rührteig: Butter in eine Schüssel geben, Zucker und Salz darunterrühren. Ein Ei nach dem andern darunterrühren, Zitronensaft darunterrühren.",
+    "Mehl, Mandeln und Backpulver mischen, darunterrühren. Beeren sorgfältig unter die Masse mischen, in die vorbereitete Form verteilen.",
+    "Backen: ca. 1 Std. in der unteren Hälfte des auf 180 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus der Form nehmen, auf einem Gitter auskühlen. Mit Puderzucker bestäuben und mit Beeren verzieren."
+  ],
   cover: "G:L3x7S4Hxt_4XDuc-RO9b3UYu8dMD9mqCfSCYlfXCoI-NQeVTTvuvofrgqt5RrUFerJijPbn5BODUI0Zj1AD9", pages: ["G:dNsTIHM8lwUmYKKjUtdQIo1NN6vBvoJl-IqvjQlQrFfVarSI8efgZpISAt7noU_iC3UDy2XqGcaOYFi0VbqBLA","G:5gA1Lky_RKqQj2WfCDh0ZQCwR4KQ46nP26I_r2HcuJVZE-8fVJPxSIx6mdMOUW6xehLP8fuJrb-BKqrq4Jy1FJU"]
 },
 {
@@ -300,32 +356,123 @@ window.REZEPTE = [
 },
 {
   n: "Blaubeer-Streuselkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "80 g gemahlene geschälte Mandeln",
+    "3 Esslöffel Rohzucker",
+    "40 g Butter, kalt, in Stücken",
+    "150 g Butter, weich",
+    "1 unbehandelte Zitrone, wenig Schale und 2 Esslöffel Saft",
+    "160 g Rohzucker",
+    "1 Päckli Vanillezucker",
+    "1 Prise Salz",
+    "4 Eier",
+    "250 g Mehl",
+    "1 Teelöffel Backpulver",
+    "350 g Blaubeeren oder Heidelbeeren"
+  ],
+  steps: [
+    "Vor- und zubereiten: ca. 25 Min. Backen: ca. 50 Min. Für eine Springform von ca. 26 cm Ø, Boden mit Backpapier ausgelegt, Rand gefettet.",
+    "Streusel: Mandeln und Zucker mischen. Butter beigeben, mit den Händen zu einer krümeligen Masse verreiben, kühl stellen.",
+    "Rührteig: Für den Rührteig alle Zutaten bis und mit Salz mit den Schwingbesen des Handrührgeräts verrühren. Ein Ei nach dem andern darunterrühren, ca. 3 Min. weiterrühren.",
+    "Mehl mit dem Backpulver mischen, daruntermischen, Teig in der vorbereiteten Form verteilen. Beeren und Streusel darauf verteilen.",
+    "Backen: ca. 50 Min. in der unteren Hälfte des auf 180 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen.",
+    "Haltbarkeit: in Folie verpackt ca. 2 Tage."
+  ],
   cover: "G:-1Gg6GjoVqQ_BXy-aN0VbKo9P2ozJ4FEQH8Av4dCbfnaE_bQoAcFB8b5jAf8OJ1nCxgom7VXed5Oxk-OHYMSpGkbP_Rhgle9Xw", pages: ["G:0QS2RqJq2G00kbFpEYS-FHv4gDjwvBdMk4wMIQ3fJSVxalj4s0VnOt3X3PKF1rhs8xAcVh3wiAxxwlbNE8QuACGwUJUVwXIyUvn1","G:UnAEqaf_yFw99wRcmc2z7EHB7NWzGZv6S5Fxvt-DF0JQxbWMXp_CWQLVxJffJ6CqkP84RdxFmz93dKlbxP06vUCiMR4pWwQa4g"]
 },
 {
   n: "Brombeer-Cheesecake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "70 g Butter",
+    "250 g Shortbread (z. B. Walker)",
+    "1 TL Zimt",
+    "800 g Doppelrahm-Frischkäse (z. B. Philadelphia)",
+    "200 g Zucker",
+    "4 Eier",
+    "1 Bio-Zitrone",
+    "100 g Brombeeren",
+    "2 EL Zucker",
+    "1 EL Wasser",
+    "300 g Crème fraîche"
+  ],
+  steps: [
+    "Ofen auf 180 Grad vorheizen. Butter in einer kleinen Pfanne schmelzen, etwas abkühlen. Guetzli im Cutter fein mahlen oder in einem Plastikbeutel mit dem Wallholz fein zerstossen, mit dem Zimt und der Butter mischen. Masse auf dem Formenboden verteilen, gut andrücken, kühl stellen.",
+    "Frischkäse, Zucker und Eier in einer Schüssel mit den Schwingbesen des Handrührgeräts verrühren. Von der Zitrone die Schale dazureiben. Masse auf dem Guetzliboden verteilen, Form auf ein Backblech stellen.",
+    "Backen: ca. 40 Min. in der unteren Hälfte des Ofens. Cheesecake mit dem Blech herausnehmen, auf dem Blech ca. 15 Min. abkühlen.",
+    "Brombeeren mit dem Zucker und dem Wasser aufkochen, ca. 5 Min. weich köcheln, durch ein Sieb streichen, etwas abkühlen. Crème fraîche auf dem lauwarmen Cheesecake verteilen, Püree löffelweise daraufgeben, mit einem Holzspiesschen marmorieren (siehe kleine Bilder).",
+    "Fertig backen: ca. 15 Min. Cheesecake mit dem Blech herausnehmen, auf dem Blech auskühlen, zugedeckt mind. 6 Std. kühl stellen. Formenring entfernen."
+  ],
   cover: "G:NchecH6We9orsQGrUMVvJZO-DJ-h9U7SsPqsY3-Tt0iHIDVW2xnyuEVZG90dZ8CSF79C0eKHVLR9g47GynBr59ifiwil3Gt3KA", pages: ["G:XRbsPdPk3gAe3y2Y-0Q1t6XHs3-cH7dGaP-najdO8TBWRjTVtJCkGpGhfL3dGz5Aj1MdGXY1UNTqXjVSXZd93DvXHptKU218Byg","G:_fXAM7bNlqAD4WscBhN0NfY4ERAF068xZmp23DP-K_-CmO15g-vd9JffCrTZoR78sVhCW_IWTJ3srVAunihu-NEASNZx-FIgqoo"]
 },
 {
   n: "Brownies", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "100 g Butter",
+    "300 g dunkle Schokolade (46 % Kakao, z. B. Crémant Cailler)",
+    "130 g Zucker",
+    "4 Eier",
+    "1 Päckli Vanillezucker",
+    "1 Prise Salz",
+    "150 g Pekan-Nüsse",
+    "100 g Mehl"
+  ],
+  steps: [
+    "Ofen auf 180 Grad vorheizen. Butter in einer Pfanne bei mittlerer Hitze schmelzen. Pfanne von der Platte nehmen. Schokolade fein hacken, beigeben, schmelzen, glatt rühren.",
+    "Zucker, Eier, Vanillezucker und Salz in einer Schüssel mit dem Schwingbesen verrühren, Schokolademasse darunterrühren.",
+    "Nüsse grob hacken, mit dem Mehl unter die Masse mischen, in die vorbereitete Form füllen.",
+    "Backen: ca. 30 Min. in der unteren Hälfte des Ofens, die Brownies müssen innen noch feucht sein. Herausnehmen, in der Form auskühlen, in Stücke schneiden."
+  ],
   cover: "G:JLgAjPWUaDi-R1fo8A5OIk6Ih_CEMRyrV9UJFqEhzN5PFO1h7VyfWEcZSFHtwPK3wxoVELKApryo1tk89NSmfIy1To_wM0QbNPDZ", pages: ["G:KtAwQL9fnFl_0rsHELdy9o4ArdBjT4f-I5sObXBdPk1Nb7Ve7NF2r1nQESghUj485PfTWgT_MPUl5ZaQ3QPiIRwT9cTPmO7p4A","G:wgr_LOmcyrR1sIBhHR76igqfgEm1y2W5g944D-1kIPEEauI6ufXD59SnxIrwUKCMp7eNZ4h-AtMViKp7klkXagorc8MVT2etU2Q"]
 },
 {
   n: "Brownies (ohne Nüsse)", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "300 g Schweizer Schokolade, z. B. Volg Kochschokolade, grob gehackt",
+    "120 g Butter",
+    "100 g Zucker",
+    "4 Eier",
+    "1 Prise Salz",
+    "120 g Weissmehl",
+    "1/2 TL Backpulver",
+    "1 EL Puderzucker"
+  ],
+  steps: [
+    "Für ca. 16 Stücke. Zubereiten ca. 20 Minuten, backen ca. 28 Minuten. 1 Brownieform von 24 x 24 cm, Backpapier für das Blech.",
+    "Schokolade und Butter im leicht siedenden Wasserbad schmelzen, abkühlen lassen.",
+    "Zucker, Eier und Salz mit dem Mixer verrühren, bis die Masse hell und schaumig ist und ungefähr das doppelte Volumen hat. Geschmolzene Schokolade und Butter unter die Eier-Masse rühren.",
+    "Mehl und Backpulver vermischen, auf die Masse geben, sorgfältig unterziehen. Teig in die vorbereitete Form füllen.",
+    "Backen: Im unteren Teil des auf 180 °C (Ober-/Unterhitze) vorgeheizten Ofens 25-28 Minuten backen. Herausnehmen, in der Form auskühlen lassen. Herausheben, mit Puderzucker bestreuen, in 5 x 5 cm grosse Quadrate schneiden.",
+    "Tipp: Schoggitorf ist in Folie gewickelt und kühl gelagert 3-4 Tage haltbar; im Tiefkühler 2-3 Monate. Basler Schoggitorf ist ähnlich einem amerikanischen Brownie, wird jedoch ohne Nüsse und ausnahmslos mit Schweizer Schokolade zubereitet."
+  ],
   cover: "G:ST8ISv2W2NwvXc1f1JBOhk1G74ypKImUNr6wpyy9mHAklTcmpKhurTl_In-Q7P7FQZH8W9725Km7oeLBk1o3YmqR6w_G0VJnTO5X", pages: ["G:MMHk93yqYhAqDKu_sDEmqFbq1tt43An_l18Kjn88vf6Sglyt-iW46u__Ku8bP5pbkf1wGiK2Ixh9z8ziq2NGR911W7VpfeGHWA"]
 },
 {
   n: "Bûche de Noël", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "2 Eiweiss",
+    "1 Prise Salz",
+    "45 g Zucker (1)",
+    "1 Eigelb",
+    "45 g Zucker (2)",
+    "70 g Mehl",
+    "20 g Maisstärke",
+    "1 dl Vollrahm",
+    "2-3 EL Kakaopulver, gesiebt",
+    "200 g dunkle Schokolade, zerbröckelt, z. B. Volg Kochschokolade",
+    "160 g Butter, Raumtemperatur",
+    "70 g Puderzucker",
+    "1 Prise Salz",
+    "4 EL Johannisbeergelee, erwärmt",
+    "wenig Kakaopulver zum Bestäuben"
+  ],
+  steps: [
+    "Für 1 Stück, ca. 12 Portionen. Zubereiten ca. 1 Stunde, backen ca. 7 Minuten. Backpapier für das Blech.",
+    "Teig: Eiweiss mit Salz steif schlagen. Zucker (1) einrieseln lassen und weiterschlagen, bis die Masse glänzt. Eigelb und Zucker (2) zu einer hellen, dicklichen und schaumigen Masse rühren. Eischnee auf die Eigelbmasse geben, sorgfältig unterziehen. Mehl und Maisstärke mischen, dazusieben, vorsichtig unterziehen (nicht rühren!). Masse auf dem vorbereiteten Blechrücken ca. 1 cm dick rechteckig ausstreichen.",
+    "Im auf 200 °C vorgeheizten Ofen (Heissluft/Umluft) 5-7 Minuten backen. Herausnehmen, sofort auf ein Küchentuch stürzen und mit dem heissen Backblech zudecken, auskühlen lassen.",
+    "Füllung: Rahm mit Kakaopulver und Schokolade bei kleiner Hitze schmelzen, abkühlen lassen. Butter mit den Schwingbesen des Mixers schlagen, bis sich Spitzchen bilden. Puderzucker und Salz beifügen, weiterschlagen, bis die Masse hell und schaumig ist. Abgekühlte Schokolade beifügen, kurz verrühren. Kühl stellen, bis die Masse leicht fest, aber noch streichbar ist.",
+    "Backpapier vom Biscuit abziehen. Biscuitränder mit einem scharfen Messer gerade schneiden. Biscuit mit Gelée bestreichen. Knapp 2/3 der Schokolade-Masse daraufstreichen, Biscuit längs aufrollen. Enden gerade schneiden. Oberfläche mit restlicher Schokolade-Masse bestreichen. Ein Zackenteighorn längs durch die Masse ziehen oder mit einer Gabel ein Baumstammmuster einarbeiten. Mit Kakao bestäuben, bis zum Servieren kühl stellen.",
+    "Tipps: «Bûche de Noël» heisst übersetzt «Weihnachtsbaumstamm». Im Kühlschrank ist er ca. 5 Tage haltbar."
+  ],
   cover: "G:w_galgCiVHnik_h6Ukle9je7C09gTVlW-9gLqfauxlLYotkiEURmx7V4hxJ0sKFRRQfigKViJWlJd40z-1HC8U4sLYbqo1m3SW4", pages: ["G:bjrFI2Oap_jchA-GeTW7bUuz0r1DEALrqn5aDnLh21Jtyzoj3Z7heXLB4-oUYroMt8JMpsfKBiXvxu7KeL7Dlasiu9TrT01JYMs","G:AF7x0zDaX1GPEbR-AGPlqzbwr68z3TCCTgFsymn5ba2teav-xl95StC4FUj0n340s3xE-CIkYcoubH-w5taCJwMvvY4j3q3A4BI"]
 },
 {
@@ -336,8 +483,29 @@ window.REZEPTE = [
 },
 {
   n: "Erdbeer-Cheesecake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Vollkorn-Guetzli (z. B. Naturaplan Vierkorn)",
+    "100 g Butter, flüssig, abgekühlt",
+    "3 EL Kakaopulver",
+    "10 Stück Erdbeeren (ca. 250 g)",
+    "330 g Doppelrahmfrischkäse (z. B. Philadelphia)",
+    "300 g Jogurt nature",
+    "100 g Zucker",
+    "1 Vanilleschote, Samen ausgelöst",
+    "200 g Erdbeeren, halbiert",
+    "6 Blätter Gelatine",
+    "3 EL Wasser",
+    "200 g Erdbeeren",
+    "1 EL Puderzucker",
+    "1 Bio-Zitrone, abgeriebene Schale und 1 EL Saft",
+    "3 Zweiglein Zitronenmelisse, Blättchen abgezupft"
+  ],
+  steps: [
+    "Für 12 Stücke. Aktive Zeit: 25 Min. Gesamtzeit: 4 Std. 40 Min. Für eine Springform (ca. 24 cm Ø), Boden mit Backpapier belegt, Rand gefettet und mit Folie ausgelegt.",
+    "Boden: Guetzli in einem Plastikbeutel mit dem Wallholz fein zerstossen, in eine Schüssel geben. Butter und Kakao beigeben, mischen. Masse auf dem vorbereiteten Formenboden verteilen, mit einem Löffel oder Glasboden gut andrücken. Erdbeeren halbieren, mit der Schnittfläche nach aussen an den Formenrand stellen, ca. 15 Min. kühl stellen.",
+    "Cheesecake: Frischkäse, Jogurt, Zucker und Vanillesamen in eine Schüssel geben. Erdbeeren in einem Messbecher pürieren, beigeben, verrühren. Gelatine im heissen Wasser auflösen, mit 3 EL Erdbeermasse verrühren, sofort gut unter die restliche Masse rühren. Masse auf dem Guetzliboden verteilen. Cheesecake zugedeckt im Kühlschrank ca. 4 Std. fest werden lassen.",
+    "Verzieren: Die Hälfte der Erdbeeren mit dem Puderzucker, Zitronenschale und -saft pürieren. Sauce auf dem Cheesecake verteilen. Restliche Erdbeeren mit der Zitronenmelisse auf dem Cheesecake verteilen."
+  ],
   cover: "G:5FRV2n-rKbM4IVveVVVF6XY5fnG8MN3GY5Q_MTtE_wuSmIF-KRDEb9czW-AfBkLU7u6qVZH3GfE90C9ecbVU5NpltfSNWOq-X2Y", pages: ["G:o-PJH1bEXoVp52avKIQGvE2Q6KFAojMzhtDdTJ9rGlczuVCaUMjtZ_Dxbk5Ta_Fa-5YYoSC8xafZaRHoGpa-7_NvMf79jOcI_08O"]
 },
 {
@@ -348,14 +516,52 @@ window.REZEPTE = [
 },
 {
   n: "Himbeer-Frischkäse-Kuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "600 g Doppelrahm-Frischkäse (z. B. Philadelphia)",
+    "300 g Rahmquark",
+    "300 g Zucker",
+    "1 Päckli Vanillezucker",
+    "2 Prisen Salz",
+    "4 Eier",
+    "2 dl Doppelrahm",
+    "40 g Mehl",
+    "150 g Himbeeren",
+    "350 g Himbeeren",
+    "1 EL Zitronensaft",
+    "1 EL Zucker"
+  ],
+  steps: [
+    "Ofen auf 180 Grad vorheizen. Frischkäse, Quark, Zucker, Vanillezucker und Salz in einer Schüssel mit den Schwingbesen des Handrührgeräts ca. 2 Min. rühren, bis sich der Zucker aufgelöst hat. Ein Ei nach dem andern darunterrühren. Doppelrahm darunterrühren, Mehl dazusieben, mit den Himbeeren unter die Masse mischen. Masse in die vorbereitete Form füllen.",
+    "Backen: ca. 55 Min. in der unteren Hälfte des Ofens. Herausnehmen, Kuchen in der Form auf einem Gitter auskühlen. Ca. 12 Std. oder über Nacht kühl stellen.",
+    "Formenrand entfernen, Himbeer-Frischkäse-Kuchen auf eine Tortenplatte schieben. Himbeeren, Zitronensaft und Zucker mischen, auf dem Kuchen verteilen, servieren."
+  ],
   cover: "G:oSN4wU7H5pEhS9dlAuwgr-Yn6WXHfSzfF_6uvrJdZxU4B2wR-6bVN5eDWI1kjugk7C3_femSyRWdKBzp1JtzWebPclRWyJ81rRU", pages: ["G:8as1euwhQ1v3z-kH8xj4UhmdjGrxOsx1m-TQ_iC2EXReuMMR0xfXqf47oaayF8FwASyEVSdmOVQewzPL39QNFG4Q-RlZziFpuQ","G:76CKH0UkLGS3AYyDqiOcbApZDg0ZvHzwV3jmur1lx04bVqKoCoAzQB2RRtyA_Ql3wd4_A8nMKgbc1wqo6Nf4Es6voNoPW8z-zA"]
 },
 {
   n: "Himbeercake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "1 Vanillestängel",
+    "150 g Butter, weich",
+    "200 g Zucker",
+    "1 Prise Salz",
+    "4 Eier",
+    "150 g Mehl",
+    "100 g gemahlene geschälte Mandeln",
+    "1 TL Backpulver",
+    "1/2 TL Natron",
+    "300 g Himbeeren",
+    "100 g Crème fraîche",
+    "150 g Puderzucker",
+    "2 Zweiglein Pfefferminze",
+    "100 g Himbeeren",
+    "1 TL Himbeerstreusel"
+  ],
+  steps: [
+    "Ofen auf 180 Grad vorheizen. Vanillestängel längs aufschneiden, Samen auskratzen, mit der Butter in eine Schüssel geben. Zucker und Salz beigeben, mit den Schwingbesen des Handrührgeräts verrühren. Ein Ei nach dem andern darunterrühren, weiterrühren, bis die Masse heller ist.",
+    "Mehl, Mandeln, Backpulver, Natron und Himbeeren mischen, unter die Masse mischen. Teig in die vorbereitete Form füllen.",
+    "Backen: ca. 1 Std. in der unteren Hälfte des Ofens. Herausnehmen, etwas abkühlen, Cake aus der Form nehmen, auf einem Gitter auskühlen.",
+    "Crème fraîche mit Puderzucker verrühren, auf dem Cake verteilen. Pfefferminzblätter abzupfen, mit den Himbeeren und Himbeerstreuseln auf dem Cake verteilen."
+  ],
   cover: "G:8vLalHzcQGVM1aJW2PBkNkX_SONMjGxB2s2CDYZHAKJywa2WUjFGTOb1mKtKQS0HX3ydMogTsGT4qxrUpUVYBuqE4-w4ksy1x6iu", pages: ["G:eWNz4kyCHmjjU6bEVNoaErAzz9Fmtrz0KJxTrZixVN9MWQcCZhFdNPclYd9BHhvf-aDPLelLHftJHKVcOOf_jDiLGe9i8BdHtEw","G:t-e39_tbsr75qzvF3z7RrfKUI2cSgSRklsSmfcV0ePlXV0Z6GT0An1mot9OkqfIDh35RJ_6nruRii0ZQSH8sR9x6_BJOJIylKo8"]
 },
 {
@@ -372,8 +578,26 @@ window.REZEPTE = [
 },
 {
   n: "Johannisbeerkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Mehl",
+    "100 g Butter",
+    "5 EL Zucker",
+    "1 Ei",
+    "1 Msp. Backpulver",
+    "300 g Johannisbeeren, rote",
+    "3 Eigelb",
+    "3 Eiweiss",
+    "100 g Zucker",
+    "125 g Mandeln, geschält, gemahlen",
+    "Puderzucker, zum Bestäuben"
+  ],
+  steps: [
+    "Aus Mehl, Zucker, Butter, Ei und Backpulver einen Mürbeteig herstellen, anschliessend kalt stellen.",
+    "Eigelb mit der Hälfte des Zuckers schaumig rühren und mit den Mandeln mischen. Eiweiss steif schlagen, restlichen Zucker unterrühren und unter die Eigelb-Mandelmasse heben. Dann die Johannisbeeren unter die Masse heben.",
+    "2/3 des Teiges ausrollen und in den Boden einer gefetteten Springform legen, mit dem restlichen Drittel einen Rand formen. Den Teigboden mehrmals einstechen, die Johannisbeerfüllung darauf verteilen und glatt streichen. Den Kuchen bei 150 °C ca. 40 Min. backen.",
+    "Nach dem Erkalten aus der Form nehmen und mit Puderzucker bestreuen.",
+    "Arbeitszeit: ca. 20 Min."
+  ],
   cover: "G:KhFgXikUzhzCnWbpNB8NQWlDbU-sd5p-imB16F37t9M1ts3lXEJ1C8DphkOMNyZDTsU26OI3Fi753YDEXotR", pages: ["G:DJNSZEta0IAKZqdLtqfdLTdRa3Aif8hJwDtxPupL7qtw1YY8LtUnc1NNcV6q6j29aC_retpseBqGZH79h3a7xw","G:1hCnz5U2JjK8OCxq2hZPq4SSiltjT9jziQBSZ6L6LJ4F78YcqIe6wXzJ-liseIr92jtVBhxVbrpotqS48p6y-w"]
 },
 {
@@ -384,14 +608,59 @@ window.REZEPTE = [
 },
 {
   n: "Kaki-Cake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "350 g festfleischige Kaki",
+    "150 g Butter, weich",
+    "125 g Rohzucker",
+    "4 Eier",
+    "100 g gemahlene geschälte Mandeln",
+    "50 g gehackte geschälte Pistazien",
+    "150 g Mehl",
+    "1 TL Lebkuchengewürz",
+    "1 TL Backpulver",
+    "1/4 festfleischige Kaki (Dekoration)",
+    "15 g Zucker (Dekoration)",
+    "2 EL Wasser (Dekoration)",
+    "9 EL Puderzucker (Glasur)",
+    "3 EL Orangensaft (Glasur)",
+    "1 EL gehackte geschälte Pistazien (Glasur)"
+  ],
+  steps: [
+    "Für 1 Cakeform à ca. 26 cm, ergibt ca. 12 Stück. Zubereitung ca. 30 Minuten + ca. 65 Minuten backen + auskühlen lassen.",
+    "Backofen auf 180 °C vorheizen. Cakeform mit Backpapier auskleiden. Kaki schälen. An der Röstiraffel reiben. Butter und Zucker schaumig rühren. Eier nach und nach dazurühren. Mandeln, Pistazien, Mehl, Gewürz und Backpulver beigeben und darunterrühren. Kaki daruntermischen. Teig in die Form füllen. In der Ofenmitte ca. 65 Minuten backen. Nadelprobe machen. Herausnehmen und auskühlen lassen.",
+    "Inzwischen für die Dekoration Kaki mit dem Sparschäler in feine Streifen schneiden. Mit Zucker und Wasser aufkochen. Einkochen lassen, bis die Flüssigkeit fast vollständig verdampft ist. Einzeln auf einen Teller legen und auskühlen lassen.",
+    "Zum Servieren Puderzucker und Orangensaft verrühren. Cake damit bestreichen. Mit Pistazien und kandierten Kaki dekorieren."
+  ],
   cover: "G:gXcfQlEy4FAzLBSc6P4HQJSlhDRUkluh-6ctGz8zwwjzmE7rJtV1qM3PY5Z8y-4AT4c291KcXEOqZDVqf83Vaw", pages: ["G:ja0ou7l4A3_u19gzOHEqgjs9HKQd-b9WCUo2UXqJ3J0mSsD_r_YKImif_y2FQ_uBG2vsYmnOxGOd-a7HfbfQrg"]
 },
 {
   n: "Käsekuchen Franziska", folder: "Kuchen", tags: ["Dessert"], src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "85 g Butter, weich, in Stücken, und etwas mehr zum Einfetten",
+    "220 g Weizenmehl",
+    "100 g Zucker",
+    "1 Ei",
+    "1/2 Pck. Backpulver",
+    "1 Prise Salz",
+    "300 g Zucker",
+    "2-4 Halme Zitronenschale, nach Geschmack",
+    "100 g Butter, weich, in Stücken",
+    "2 Pck. Vanillepuddingpulver",
+    "400 g Rahm",
+    "4 Eier",
+    "1250 g Magerquark"
+  ],
+  steps: [
+    "Mürbeteig",
+    "Backofen auf 170 °C vorheizen. Eine Springform (Ø 26 cm) einfetten.",
+    "Mehl, Zucker, Butter, Ei, Backpulver und Salz in den Mixtopf geben, 2 Min./Teigknetstufe kneten und 2/3 des Teigs auf den Boden der vorbereiteten Springform drücken. Den restlichen Teig zu einer langen Rolle formen, an den Rand der Springform drücken und so einen 5 cm hohen Rand formen. Mixtopf spülen.",
+    "Quark-Rahm-Füllung",
+    "Zucker und Zitronenschale in den Mixtopf geben, 20 Sek./Stufe 10 pulverisieren und mit dem Spatel nach unten schieben.",
+    "Butter zugeben und 2 Min./60 °C/Stufe 2 schmelzen.",
+    "Puddingpulver, Rahm und Eier zugeben und 10 Sek./Stufe 4 verrühren.",
+    "Quark zugeben, mithilfe des Spatels 1 Min./Stufe 4 verrühren und in die Springform geben.",
+    "Kuchen ca. 30 Minuten (170 °C) backen, mit Backpapier zudecken und weitere 40 Minuten (170 °C) fertig backen. Kuchen 10 Minuten im Backofen ruhen lassen, aus dem Backofen nehmen, abkühlen lassen und mindestens 8 Stunden, am besten über Nacht, im Kühlschrank ziehen lassen. Basic-Käsekuchen in 16 Stücke schneiden und servieren."
+  ],
   cover: "G:mOnZVuzM49J6AfAcEf9gGYOHz5dksBqhefUdFKPTOKTSBtkBBtlWDLvnIUy-T-Y7xnds697WGxlQvQHazMmT", pages: ["G:5mtwzMLGSFuyUWS7T0f52JCIIuiwySCFT72RxTyW-wuzlAzD38Cku77aQXnQLUEx_KD9pv7DD8YrGbnTOGrQrA","G:RYq89s8fWEKUTLMRMVfenIoUI7O29YAdEvHGG9tdauxsn1bzGayjLVYyMoFIS723lZ9jiyUd9QE7wpO6KXEYAg"]
 },
 {
@@ -402,8 +671,22 @@ window.REZEPTE = [
 },
 {
   n: "Linzertorte", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Mehl",
+    "250 g gemahlene Mandeln",
+    "120 g Zucker",
+    "1 Prise Salz",
+    "200 g Butter, kalt",
+    "1 Ei",
+    "350 g Himbeer- oder Johannisbeerkonfitüre",
+    "Butter und Mehl für die Form"
+  ],
+  steps: [
+    "Ergibt 12 Stück. Für 1 Kuchenblech à ca. 24 cm Ø. Zubereitung ca. 30 Minuten + 30 Minuten kühl stellen + ca. 50 Minuten backen + auskühlen lassen.",
+    "Mehl, Mandeln, Zucker und Salz in einer Schüssel mischen. Butter in Flocken dazuschneiden. Zwischen den kalten Händen zu einer bröseligen Masse reiben. Ei beigeben, alles rasch zu einem Teig zusammenfügen. Teig zu einer Kugel formen. In Klarsichtfolie einpacken und 30 Minuten kühl stellen.",
+    "Blech mit Butter bestreichen. Mit Mehl bestäuben. Ofen auf 180 °C vorheizen. 3/4 des Teigs gleichmässig in der Form verteilen, am Rand hochdrücken. Konfitüre auf dem Teig verteilen.",
+    "Aus restlichem Teig auf wenig Mehl feine Rollen formen. Als Gittermuster auf die Konfitüre legen. Teig am Rand mit einer Gabel andrücken. Torte in der Ofenmitte ca. 50 Minuten backen. Herausnehmen und auskühlen lassen. In Stücke schneiden und servieren."
+  ],
   cover: "G:y0TJADElLuOssEjcmtqXvyy0G4P0yxoe-FWFDW9bqm9DZlqFYPmoE0sSQRxXhJHPwyQNfV3gFar8_u4PMLTLGHJsiZOm28-6fQ", pages: ["G:nlDn_EX-SIlRZtuytKM6W1KNuG-1Oerh6dJBx2_S4IN927WvwHT-i3eoWqBwd_LOazITmqPcejsNKwnLVjCK_FBZRoMDucpA7A"]
 },
 {
@@ -414,8 +697,35 @@ window.REZEPTE = [
 },
 {
   n: "Marmorierte Quark-Himbeer-Würfel", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "Butter für den Formenrand",
+    "400 g Tiefkühl-Himbeeren",
+    "2 EL Wasser",
+    "100 g Butter, weich",
+    "100 g Zucker",
+    "1 Msp. Salz",
+    "2 Eier",
+    "175 g Weissmehl",
+    "1 TL Backpulver",
+    "500 g Halbfettquark",
+    "150 g Zucker",
+    "1 Pk. Vanillezucker",
+    "1 Vanilleschote, ausgeschabtes Mark",
+    "3 Eier",
+    "2 EL Maisstärke",
+    "2 dl Vollrahm, steif geschlagen"
+  ],
+  steps: [
+    "Für ca. 20 Stück. Zubereiten ca. 50 Minuten, backen ca. 1 1/2 Stunden, setzen lassen ca. 30 Minuten. 1 Springform von 24 cm Ø, Backpapier für den Formenboden.",
+    "150 g Himbeeren mit dem Wasser in einem Pfännchen aufkochen, 2 Minuten köcheln. Pürieren und durch ein Sieb streichen, auskühlen lassen.",
+    "Butter schlagen, bis sich Spitzchen bilden. Zucker und Salz dazugeben und 2-3 Minuten weiterschlagen. Eier nacheinander beifügen und unterrühren. Mehl und Backpulver mischen, dazusieben und unterrühren.",
+    "Teig auf den vorbereiteten Formenboden geben. Mit kalt abgespülten Händen darauf ausstreichen.",
+    "Quark, Zucker, Vanillezucker und -mark sowie Eier glatt rühren. Maisstärke dazusieben, unterrühren. Schlagrahm darunterziehen.",
+    "Übrige Himbeeren auf dem Teig verteilen. Quarkmasse daraufgiessen. Himbeerpüree tropfenweise daraufgeben und mit einem Löffelstiel marmorartig verzieren.",
+    "Im auf 180 °C vorgeheizten Ofen (Heissluft/Umluft) 15 Minuten backen. Dann Ofenhitze auf 120 °C reduzieren, 60-75 Minuten fertig backen. Bei leichtem Hin- und Herbewegen der Form sollte sich die Masse in der Mitte nur noch leicht bewegen. Kuchen im leicht geöffneten Ofen 30 Minuten setzen lassen.",
+    "Aus dem Ofen nehmen, in der Form auskühlen lassen. Aus der Form nehmen und in Würfel schneiden.",
+    "Tipps: Alternativ frische Himbeeren verwenden. Für eine sommerliche Variante mit Kirschen 400 g entsteinte Kirschen in einem Topf mit 2-3 EL Wasser 5-8 Minuten garen und danach wie im Rezept beschrieben anstelle der Himbeeren verarbeiten. Haltbarkeit: Die Würfel können zugedeckt ca. 3-4 Tage kühl aufbewahrt werden, z. B. im Keller oder im Kühlschrank."
+  ],
   cover: "G:FzrV_ymdPIE1mJ1oR8GDeWAl3xtgIiwwzN0c7CVQyMiYcJ0rJsT6lSthRWM6P3WofxkOM3XzyQqcURbOPFYsrMXSy4_Z7dsrhM8", pages: ["G:QZ_4o6j50_HqdRAVRO0E9FDHhUK7HEjab1eiEo4iB_TDOf30Ljt64pMfNw8gM7DNgs5wZM51tvaFk4vfdA_q9NOZ4zrWdxqQGw","G:vT2RESiTTCT_JiT1bd1pmbbpqmSi5zyvNQUxbqdGSVsYxnkyB4flBlZLPK96SXhrrfihYYdgGXtSs4HZ3LJ4hS57VLP9zdPuFg"]
 },
 {
@@ -432,68 +742,269 @@ window.REZEPTE = [
 },
 {
   n: "Pfirsich-Quark-Streuselkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "1 Springform, 26 cm Ø",
+    "1 Mürbeteig, süss (Fertigprodukt)",
+    "1 kg Pfirsiche",
+    "100 g Butter",
+    "750 g Magerquark",
+    "60 g Vanillepudding-Pulver (zum Kochen)",
+    "2 EL Honig",
+    "50 g Zucker",
+    "2 Eier",
+    "75 g Butter",
+    "150 g Mehl",
+    "50 g Zucker",
+    "evtl. 1 EL Mandellikör",
+    "50 g Mandeln, gehackt"
+  ],
+  steps: [
+    "Pfirsiche waschen, halbieren, entkernen, in Schnitze schneiden und beiseitestellen.",
+    "Den Boden der Springform mit Backpapier auslegen. Den Teig in die Form geben und Ränder etwa 3 cm hochziehen.",
+    "Die Butter in einer Schüssel schmelzen. Für die Crème Quark, Puddingpulver, Honig, Zucker und Eier cremig rühren. Die flüssige, etwas ausgekühlte Butter darunterziehen und Quarkcrème beiseitestellen.",
+    "Für die Streusel Butter schmelzen. Mehl, Zucker, Mandeln, zerlassene Butter und Mandellikör zu Streuseln verarbeiten.",
+    "Den Teigboden mit Quarkcrème bestreichen, Pfirsichschnitze daraufverteilen und mit Streuseln bestreuen. Den Kuchen im heissen Backofen (180 °C) während 40 Minuten backen."
+  ],
   cover: "G:Yb216KE_OKOLIFnKK2ZWziZolFneq6tyovz48H-GXLijz3ZTf-10bzyLZYLCLUYgQM8dVLPmj2pBHg8wyAqx", pages: ["G:s94pDi1VICyqDff8c492ZxOA47LASgQs10PZwVqTeZ13ehqsA7IRHsITXKNjU7SbXQQJmaOiQY1G6_UbrjNs","G:B4tIHD9h2htmtGGySHhfJH94NY6hYwr_7oClNZt7VqHh08KG7oFiydJMZzQJm-rxmKs78rK5ohzURFuWYa1a"]
 },
 {
   n: "Rhabarber-Cake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "150 g Butter, weich",
+    "200 g Zucker",
+    "1 Prise Salz",
+    "4 Eier",
+    "150 g Mandelblättchen",
+    "1 Bio-Zitrone, abgeriebene Schale und 1 Esslöffel Saft",
+    "1 Vanillestängel, längs aufgeschnitten, nur ausgekratzte Samen",
+    "250 g Mehl",
+    "1 TL Backpulver",
+    "500 g Rhabarber, geschält, in Stücken (ergibt ca. 400 g)",
+    "50 g Mandelblättchen",
+    "3 EL Zucker",
+    "20 g Butter, in Würfeli"
+  ],
+  steps: [
+    "Rührteig: Butter in eine Schüssel geben, Zucker und Salz darunterrühren. Ein Ei nach dem andern darunterrühren, weiterrühren, bis die Masse heller ist. Mandelblättchen, Zitronenschale, -saft und Vanillesamen darunterrühren.",
+    "Mehl und Backpulver mischen, Rhabarber beigeben, mischen, unter den Teig mischen. Teig in die vorbereitete Form füllen.",
+    "Mandelblättchen und Zucker mischen, auf dem Teig verteilen, Butter darauf verteilen.",
+    "Backen: ca. 65 Min. in der unteren Hälfte des auf 180 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus der Form nehmen, auf einem Gitter auskühlen."
+  ],
   cover: "G:Bbw2N0UNFjPq3Iz5SreJbeSNOZF7BPDmXIlroNy14McbUQ4dygSa2QZhXUBnCzdMSduNMztGKSjsUYenO00CY470dazuNoxf75s", pages: ["G:tyrPMCVTqit3gmT518as_f3N8-QI5Lz7jJlrTHG0eQ2keFkZO3Il4F6n-6aEanWFgb9k2wH9bizU6dKelMnyu5fCbepgXfD24iw","G:zrzUz_Zl6wHSyzhO_FiH9ll8NoIRrVYuPbcpW7xexuKc-BFu_LwPZvFsWvnAcMPWVIbNKWiLMKXasBpQ0lhaso71dvQ5f-1yXKZT"]
 },
 {
   n: "Rhabarber-Creme-Kuchen mit Mandelstreusel", folder: "Kuchen", tags: ["Dessert","Gebäck"], src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "120 g Zucker",
+    "20 g Vanillecremepulver zum Kochen",
+    "4 Eigelb",
+    "2 dl Milch",
+    "200 g Crème fraîche",
+    "300 g Rhabarber",
+    "1 Orange",
+    "100 g Erdbeeren",
+    "250 g Mehl",
+    "80 g Zucker",
+    "150 g Butter, kalt",
+    "100 g Mandeln",
+    "1 Eiweiss"
+  ],
+  steps: [
+    "Für 8 Personen. Für 1 Pieform à ca. 21 x 30 cm. Zubereitung ca. 45 Minuten + 50-55 Minuten backen.",
+    "Für die Creme 80 g Zucker, Cremepulver und Eigelb schaumig schlagen. Milch aufkochen, unter Rühren zur Eimasse giessen.",
+    "Zurück in die Pfanne geben. Masse unter ständigem Rühren bis kurz vor den Siedepunkt erhitzen. Pfanne vom Herd ziehen. Crème abkühlen lassen. Crème fraîche dazurühren. Creme kühl stellen.",
+    "Rhabarber wenn nötig schälen und in Stücke à ca. 20 cm schneiden. Orangenschale fein dazureiben. Restlichen Zucker daruntermischen. Ca. 15 Minuten marinieren.",
+    "Für den Mürbeteig und die Streusel Mehl und Zucker mischen. Butter in Flocken dazuschneiden. Alles zwischen den Fingern zu einer bröseligen Masse mischen.",
+    "Mandeln grob hacken. Mit ca. 1/4 der bröseligen Masse mischen, kühl stellen. Restliche Masse mit Eiweiss zu einem geschmeidigen Teig zusammenfügen.",
+    "Backofen auf 180 °C vorheizen. Pieform bereitstellen. Teig auf Backpapier ca. 2 mm dünn auswallen. Mit dem Papier in die Form legen. Rand andrücken.",
+    "Creme einfüllen. Erdbeeren klein schneiden. Rhabarber aus dem Saft heben. Mit den Erdbeeren auf der Creme verteilen.",
+    "Streusel darüberstreuen. Kuchen in der Ofenmitte 50-55 Minuten backen.",
+    "Tipp: Sirup des Rhabarbers z. B. für eine Rhabarber-Limo oder zum Süssen von Quark verwenden."
+  ],
   cover: "G:rzE1rP2OhkDZ2vCYpxk6cAIocVII2gO-9yL98ySn-Waljk2ZWlG4aGXotc8EalNKk9KwtHoA3BSgLTsJwqXizw", pages: ["G:v1k5m3DqOMOCc_3Miw_gsWNxwMLXLEr2-2eiJpKoT7t1JdG9OR6EPLsgP78_S9yfupzLvewJvRonpsg_6oJy","G:PsSPQivQJZpmDv9cIi3B1F62CdDr5OT-ihIToVp-MD190WB8twnRjAd1tE4de5vNjgqHmag_BK_IU19bTxgW"]
 },
 {
   n: "Rhabarber-Joghurt-Cake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "150 g Butter, in Stücken, weich",
+    "1 Becher Vanille-Joghurt (180 g), Becher ausgespült und getrocknet zum Abmessen",
+    "2 Joghurtbecher Zucker",
+    "1 Prise Salz",
+    "3 Eier",
+    "3 Joghurtbecher Mehl",
+    "1 TL Backpulver",
+    "3 Stängel roter Rhabarber (ca. 250 g), in ca. 1 cm langen Stücken"
+  ],
+  steps: [
+    "Form: Für eine Cakeform von ca. 30 cm, gefettet.",
+    "Butter, Joghurt, Zucker, Salz und Eier in einer Schüssel rühren, bis die Masse heller ist.",
+    "Mehl und Backpulver mischen, mit dem Rhabarber unter die Eimasse mischen. Teig in die vorbereitete Form füllen.",
+    "Backen: ca. 70 Min. in der Mitte des auf 180 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus der Form nehmen, auf einem Gitter auskühlen."
+  ],
   cover: "G:6PvOe4_4W5ezEEUvJ1nraPqL-X-qmg7nLsI9nn1fn35gsvdRI3nfggmA_7MNNhlfh2bHH5ASThaZAxuo6AydWQ", pages: ["G:icjk_Za-_klrYUoyvQt3AjKRn2aw-SObPc6chZF0V6btyWxqo_9JMxgCKzexbsYqM18ltaXRsw-h4IbSK9BOcgA","G:cVM_AvTwTxRkHQpD4PwyFHDa1kRYxhlQsKL5xMNW-pQ1v8RSD6N0Eh53oJKsfTi4sESj3i3cqSk-uqKycnr8ag"]
 },
 {
   n: "Rhabarberkuchen mit Baiser", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "150 g Butter (weich)",
+    "100 g Zucker",
+    "1 Prise Salz",
+    "3 Eigelb",
+    "125 g Mehl",
+    "50 g Maizena",
+    "1 TL Backpulver",
+    "500 g frische Früchte wie Rhabarber, Johannisbeeren etc.",
+    "3 Eiweisse",
+    "100 g Zucker"
+  ],
+  steps: [
+    "Butter, Zucker, Salz, Eigelb, Mehl, Maizena und Backpulver gut mischen, in Backform füllen und 500 g frische Früchte wie Rhabarber, Johannisbeeren etc. darauf verteilen.",
+    "35 Minuten bei 175 ° in der Mitte des vorgeheizten Backofens backen.",
+    "Eiweisse und Zucker steifschlagen und mischen.",
+    "Nach 35 Minuten Eiweissmischung auf dem Kuchen verteilen und noch 15 Minuten bei gleicher Temperatur weiterbacken."
+  ],
   cover: "G:6-sCkpCpt3DKc8BTusHUVRTDwZCxl5o17zFzUqUIVyT0grjbr_Y7kzMj_XnhBD5luUohXu8jBurMJ7BOUGxU-IdyKt6pmQebYoU", pages: ["G:bt05YaxWuJk9xhSfVpFTt6GSXwQPg0OI_Vc5RhW2Cjml9ZJ8k0-Hov9L0SnRmYiBFwUW-FhobPzp4EnH8rj-HmiM-VsRgj5baEQ"]
 },
 {
   n: "Rosie De Laneys Brombeerkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "2,5 Tassen Mehl",
+    "1/2 TL Salz",
+    "1 Tasse Butterschmalz",
+    "1/2 Tasse kaltes Wasser",
+    "1 EL Apfelessig",
+    "1 Ei",
+    "1 kg gefrorene Brombeeren",
+    "1 Tasse Zucker",
+    "5 EL Speisestärke",
+    "4 TL Zitronensaft",
+    "Vollmilch",
+    "Grobzucker"
+  ],
+  steps: [
+    "Oma Becks Rezepte, aus der Küche von Loni (Tochter).",
+    "Mehl und Salz miteinander verrühren. Butterschmalz in kleinen Stückchen unterheben. Kaltes Wasser, Essig und Ei miteinander verquirlen. Mit den Händen langsam das Mehl unterrühren, bis ein Teig entsteht. Nicht zu viel rühren. Zwei Fladen formen, in Frischhaltefolie einwickeln und 1 Stunde kaltstellen.",
+    "Brombeeren auftauen und in eine Schüssel geben. In einem Topf 1,25 Tassen abgeseihten Beerensaft, Zucker und Speisestärke unter Rühren aufkochen, bis es sprudelt und dickflüssig wird. Dabei sollte ein Erwachsener helfen. Zitronensaft hinzufügen und eine weitere Minute kochen. Vom Herd nehmen und abkühlen lassen. Anschliessend Brombeeren zufügen.",
+    "Einen der Teigfladen auf einer bemehlten Fläche ausrollen, dann in die Kuchenform einpassen. Brombeerfüllung zufügen. Den zweiten Fladen in Streifen für das Gitter schneiden oder den ganzen Fladen auflegen und Schlitze hinzufügen. Rand kräuseln. Oberseite mit Milch bestreichen und mit grobem Zucker bestreuen.",
+    "Bei 200 Grad 20 Min. backen, dann für 30-40 Min. auf 175 Grad reduzieren oder bis die Kruste goldbraun ist."
+  ],
   cover: "G:6rvudRZnqXaPee9V5R73cz7F9o77-pE2glP1WD_Cg02yd1XoW65P_22E1eqpZEaaFDgiiKTVEK33vOGMltFSpjjP1JDJvBVnkZ4", pages: ["G:PtvKG5Fya43KMbHQHfDTDbQwRwq-M0KvwLfg4m1w0mkukbO50EGFVx0QO82dyA6SZQ4fPnYCwF5Aa8LVzVSs4BIceVsDAHC-MHU"]
 },
 {
   n: "Rüebli-Amaretti-Kuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "Springform Ø 26 cm",
+    "400 g Rüebli",
+    "100 g Amaretti",
+    "3 Eier",
+    "250 g Zucker",
+    "150 g Butter",
+    "250 g Mehl",
+    "1 Beutel Backpulver",
+    "etwas Puderzucker"
+  ],
+  steps: [
+    "Rüebli waschen, schälen und fein raffeln. In ein Sieb geben und von Hand oder mit dem Löffelrücken ausdrücken. Zur Seite stellen. Amaretti im Mixer nicht zu fein zerkleinern und beiseitestellen.",
+    "Butter im Dampf (90 °C, 2 Minuten) verflüssigen und erkalten lassen.",
+    "Eier und Zucker mischen und mit dem Mixer schaumig schlagen. Flüssige Butter dazurühren. Mehl und Backpulver langsam beigeben und mit einem Spachtel unterheben. Amaretti und Rüebli daruntermischen.",
+    "Den Backofen (Heissluft, 180 °C) vorheizen. Die Springform ausbuttern und bemehlen. Teig einfüllen und während 30 Minuten backen (Nadelprobe machen). Springform aus dem Ofen nehmen und Kuchen erkalten lassen. Aus der Form nehmen und mit Puderzucker bestäuben."
+  ],
   cover: "G:hldYNtYfeF9EqM5n3oPipmmRm_vTXmgQrUKxCkmZxGa92G9TAQagBxrdlfkmBncThE63IuNA0OXPed_O6LKPwXU", pages: ["G:WhK5eSiiXYP8uiHS13mKonjdIyeFHoJAplzWtCR35QUKZ7GfrHJ_R-JePhE1yH_UqbTGaWvAzXnBpDZMVOmtaB0"]
 },
 {
   n: "Rüebli-Schoggi-Cake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "160 g Butter",
+    "120 g dunkle Schokolade (1), zerbröckelt",
+    "4 Eier",
+    "140 g Rohzucker",
+    "1 1/2 EL Kakaopulver",
+    "0,8 dl Kaffee, heiss",
+    "160 g gemahlene Mandeln",
+    "200 g Rüebli, fein gerieben",
+    "160 g Mehl",
+    "3/4 Pack Backpulver",
+    "1 Msp. Salz",
+    "150 g dunkle Schokolade (2), gehackt",
+    "200 g Frischkäse nature",
+    "2 EL Puderzucker",
+    "2 EL Kakaopulver",
+    "ca. 14 Marzipanrüebli"
+  ],
+  steps: [
+    "Für 1 Cake à ca. 14 Stücke. Zubereiten ca. 50 Minuten, backen ca. 70 Minuten. 1 Cakeform von 30 cm Länge, Backpapier für die Form.",
+    "Teig: Butter mit Schokolade (1) bei kleiner Hitze schmelzen, beiseitestellen. Eier und Zucker mit dem Mixer 8-10 Minuten sehr hell und schaumig schlagen. Schokolade-Butter dazurühren. Kakao im Kaffee lösen, mit den Mandeln und den Rüebli dazumischen. Mehl, Backpulver und Salz vermischen, dazusieben, kurz unterrühren. Schokolade (2) untermischen; in die vorbereitete Form füllen.",
+    "Backen: Im auf 160 °C (Heissluft/Umluft) vorgeheizten Ofen ca. 70 Minuten backen. Im leicht geöffneten Backofen 10 Minuten abkühlen lassen. Herausnehmen, in der Form weitere 10 Minuten abkühlen lassen. Aus der Form nehmen, auf einem Kuchengitter vollständig auskühlen lassen.",
+    "Wölbung der Oberfläche horizontal wegschneiden. Abschnitte fein zu «Erde» zerbröseln.",
+    "Topping: Frischkäse mit Puderzucker verrühren. Kakao dazusieben, glatt rühren. Auf dem Cake verteilen, mit den Kuchenbröseln bestreuen. Marzipanrüebli ins «Beet» stecken."
+  ],
   cover: "G:_51hKzL91XYH-Oczj12lVkl6wj-f95iGIiNo6u-L6AWsnnWQ_I-d7GjJ_IgZ4m63ptDtk6k9jg3d0nL7nu32-UuHvJ1VkdKIMQ", pages: ["G:rEscDKSS2VoXW3fx71NYq96CGHwB6PnPeWhrOmwS_v97H0mvh30kkNWdA0A9dgzCvtg80VuMiceh9zdBrrBvCGKtyvoWf3OM0qE","G:nyaJRc_x-BKeadiCqtCP2lOY7cOKYXKqIGHR3vs13tN64egGGnX0Pipdo8RD446wyiQaeF5PH19xzGviYK9VvPY9diPNCfnjgyc9"]
 },
 {
   n: "Rüeblitorte", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "5 Eigelbe",
+    "250 g Zucker",
+    "250 g Rüebli, fein gerieben",
+    "250 g gemahlene Mandeln",
+    "1 Bio-Zitrone, abgeriebene Schale und Saft",
+    "80 g Weissmehl",
+    "2 TL Backpulver",
+    "5 Eiweisse",
+    "1 Prise Salz",
+    "250 g Puderzucker",
+    "2 1/2 EL Kirsch oder Zitronensaft",
+    "12 Marzipanrüebli"
+  ],
+  steps: [
+    "Für 1 Kuchen (à 12 Stück).",
+    "Eigelbe und Zucker mit dem Schwingbesen des Handrührgerätes ca. 5 Min. rühren, bis die Masse schaumig ist. Rüebli mit Mandeln und Zitrone unter die Masse mischen. Mehl und Backpulver mischen, daruntermischen. Eiweisse mit dem Salz steif schlagen, mit dem Gummischaber sorgfältig unter die Masse ziehen. Teig in eine Springform (ca. 24 cm Ø, Boden mit Backpapier belegt) füllen. Backen: ca. 55 Min. in der unteren Hälfte des auf 180 Grad vorgeheizten Ofens. Etwas abkühlen, Formenrand entfernen. Torte auf ein Gitter stürzen, auskühlen.",
+    "Puderzucker und Kirsch gut verrühren, auf die Tortenmitte giessen, unter Bewegen über die Oberfläche und den Rand fliessen lassen. Mit Marzipanrüebli verzieren, trocknen lassen."
+  ],
   cover: "G:_UDCs7SAnRxUY1KIzbUyZ6ZAVpsDHh7sdBQYn53hkeytLq2PnAU26YQO8JuFGgpnW3tZ-mchv7SHe6okmuxpxdE", pages: ["G:nMabR_HDmGnTmq4lE4ncLPc9OB8eaXqT_hhgoAUS9niVr_g2HuMGeTr8aXq9uo2B-Q01lp7AJXPbzGzoKmSlCKo","G:vz0R58NTF5F4MgzNLQhCl9QgntCASOm1tbTrx-_a3xHn25Ugtfu6ny9EyeCY7c96tulVBDxtsenxr31mTqaPYQ"]
 },
 {
   n: "Saftiger Schokoladenkuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "400 g dunkle Schokolade (64 % Kakao)",
+    "150 g Butter",
+    "6 frische Eiweisse",
+    "1 Prise Salz",
+    "60 g Zucker",
+    "1 Päckli Vanillezucker",
+    "6 frische Eigelbe",
+    "60 g Zucker",
+    "Puderzucker zum Bestäuben"
+  ],
+  steps: [
+    "Ofen auf 180 Grad vorheizen. Schokolade fein hacken, in eine dünnwandige Schüssel geben. Butter in Stücke schneiden, beigeben, die Schüssel über das nur leicht siedende Wasserbad hängen, sie darf das Wasser nicht berühren. Schokolade und Butter schmelzen, glatt rühren.",
+    "Eiweisse mit dem Salz mit den Schwingbesen des Handrührgeräts steif schlagen. Zucker und Vanillezucker beigeben, weiterschlagen, bis der Eischnee glänzt.",
+    "Eigelbe mit dem Zucker in einer Schüssel mit den Schwingbesen des Handrührgeräts ca. 5 Min. rühren, bis die Masse schaumig ist. Schokolade daruntermischen. Eischnee sorgfältig unter die Masse ziehen. Teig in die vorbereitete Form füllen.",
+    "Backen: 25 Min. in der unteren Hälfte des Ofens. Herausnehmen, in der Form auf einem Gitter auskühlen. Formenrand entfernen, Kuchen auf eine Tortenplatte schieben, mit Puderzucker bestäuben."
+  ],
   cover: "G:FufxqB53-dK2GOk7JttgQwH242dyJBx6t7ZXIyFaotPu5pz-SCOtJYipf-JTs13ItMUss8Pdla5nTKg4RcVe7CiclDvSQx3Wt_k", pages: ["G:LWffVu6z2m03vRtCSkl4d9KGGL2jKn4N5EsPpanrBfElWX1m1gWGHAVTAWp7O6-eS_OR6cqEiPmbVmavka9xOt_VbB9Bh73zsa8","G:zqpxr4MndMzefYX4Ij5ifTHNg_REJ3AoSpGprN2_3loYK_4HhE97ey5bl9om0W1kBR1IP9dd7wEQiKrHzGpW0aBEWGPk0GvoJQ"]
 },
 {
   n: "Schokolade-Mandelcake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g gemahlene Mandeln",
+    "200 g grobkörniger Rohzucker",
+    "150 g Mehl",
+    "100 g gemahlene Haselnüsse",
+    "4 EL Kakaopulver",
+    "100 g dunkle Schokolade (48 % Kakao), fein gehackt",
+    "1 TL Backpulver",
+    "1/4 TL Salz",
+    "3 dl Wasser",
+    "6 EL Butter, flüssig, abgekühlt"
+  ],
+  steps: [
+    "Vor- und zubereiten: ca. 25 Min. Backen: ca. 55 Min. Für eine Cakeform von ca. 30 cm, mit Backpapier ausgelegt.",
+    "Mandeln und alle Zutaten bis und mit Salz in einer Schüssel mischen.",
+    "Wasser und Butter beigeben, mischen, in die vorbereitete Form füllen.",
+    "Backen: ca. 55 Min. in der Mitte des auf 180 Grad vorgeheizten Ofens. Cake herausnehmen, etwas abkühlen, aus der Form nehmen, auf einem Gitter auskühlen.",
+    "Hinweis: Der Cake fällt durch die Feuchtigkeit in der Mitte etwas zusammen. Haltbarkeit: in Folie eingepackt im Kühlschrank ca. 2 Tage."
+  ],
   cover: "G:4Yhp6wz93RjKY4aP_Zis8_HZbfFj8ALzfTYlRt33lc4GHLOamGnhOjLTj3pUDJdaKwXe_oYr0RNqgLmotw63", pages: ["G:WWQoDIlHuCor9HpuBhCM5LhbH58RKUmR5tdnAkWf51neJ_iixkB9yA_HiVi58ADlLLnEc7KAsdPz-oMPRuFv37A"]
 },
 {
@@ -504,8 +1015,33 @@ window.REZEPTE = [
 },
 {
   n: "Streuselkuchen mit Rhabarber", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "1 Vanillestängel",
+    "75 g Butter, weich",
+    "180 g Zucker",
+    "1 Prise Salz",
+    "3 Eier",
+    "100 g gemahlene Mandeln",
+    "100 g Mehl",
+    "1 TL Backpulver",
+    "500 g roter Rhabarber",
+    "1 Vanillestängel",
+    "80 g Zucker",
+    "30 g gemahlene Mandeln",
+    "30 g Mehl",
+    "30 g Zucker",
+    "30 g Butter, weich",
+    "Puderzucker zum Bestäuben"
+  ],
+  steps: [
+    "30 Min. + 65 Min. backen. Für eine Springform von ca. 24 cm Ø, Boden mit Backpapier belegt, Rand gefettet.",
+    "Ofen auf 180 Grad vorheizen. Vanillestängel längs aufschneiden, Samen auskratzen, mit der Butter in eine Schüssel geben. Zucker und Salz beigeben, mit den Schwingbesen des Handrührgeräts verrühren. Ein Ei nach dem andern darunterrühren, weiterrühren, bis die Masse heller ist.",
+    "Mandeln, Mehl und Backpulver mischen, daruntermischen. Teig in die vorbereitete Form füllen.",
+    "Rhabarber in ca. 4 cm lange Stücke schneiden, längs halbieren, in eine Schüssel geben. Vanillestängel längs aufschneiden, Samen auskratzen, mit dem Zucker daruntermischen. Rhabarber auf dem Teig verteilen.",
+    "Mandeln, Mehl, Zucker und Butter mit einer Gabel mischen, bis die Masse krümelig ist. Streusel auf dem Rhabarber verteilen.",
+    "Backen: ca. 65 Min. in der Mitte des Ofens. Herausnehmen, etwas abkühlen, Formenrand entfernen. Kuchen mit dem Backpapier auf ein Gitter schieben, auskühlen. Vor dem Servieren mit Puderzucker bestäuben.",
+    "Haltbarkeit: zugedeckt im Kühlschrank ca. 2 Tage."
+  ],
   cover: "G:xijwmgsCbDp519NwiYjndxtu0x-VJJEuLhCga0wYn8dFhniGByxSjXF7X5QduHpxYeSw1xVsdCiPw0B0LizmufI-NhHr_kcW", pages: ["G:0GaI06byKOqBqnxo2J5E2_C2yKqupu-RmP2gKBI5SOTib1BIDjysf2_G5PBfU-yBKhl_nOVttO0_smaNJyXVxtk3VVoziDpJOfRv","G:eOBr-VQ3mE2VihMEmXyYgBEkiGT4ZYLIw32qnq0Pawe3QfarwaC6gGNk-yf5HXzKjv9DyXzaH2mzqSHw7oxRGAO5OckAa2_CwN0"]
 },
 {
@@ -516,26 +1052,100 @@ window.REZEPTE = [
 },
 {
   n: "Versunkener Rhabarber-Kuchen", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "500 g Rhabarbern",
+    "100 g Butter, weich",
+    "200 g Zucker",
+    "1 Teelöffel Vanillepaste (ersatzweise 1 Päckchen Bourbon-Vanillezucker)",
+    "3 Eier",
+    "200 g Mehl",
+    "1 Teelöffel Backpulver, gehäuft",
+    "Puderzucker zum Bestäuben"
+  ],
+  steps: [
+    "Ergibt 12 Stück.",
+    "Den Boden einer Springform von 24 cm Durchmesser mit Backpapier belegen. Papier und Formenrand bebuttern und mit etwas Mehl bestäuben. Den Backofen auf 180 Grad vorheizen und 1 Backblech auf der untersten Rille einschieben.",
+    "Den Rhabarber rüsten und in Würfel schneiden.",
+    "Butter, Zucker und Vanillepaste zu einer geschmeidigen Creme rühren. Dann nacheinander die Eier unterschlagen. Mehl und Backpulver mischen und rasch unterrühren. Dann den Rhabarber beifügen.",
+    "Den Teig in die vorbereitete Form füllen. Den «versunkenen» Rhabarber im 180 Grad heissen Ofen auf dem Backblech auf der untersten Rille 50-55 Minuten backen. Das Gebäck ist innen eher feucht! Herausnehmen, kurz in der Form stehen lassen, dann den Rand lösen und den Kuchen vollständig auskühlen lassen.",
+    "Vor dem Servieren mit Puderzucker bestäuben. Gut schmeckt dazu geschlagener Vanillerahm oder Vanilleglace."
+  ],
   cover: "G:XfAyXIE7Wya_gaxP4dh4TSwcnw5tFkJ60TJKHbdx7cMXDmTIbn_ByLQTTg5M8feZ47MpQ6F1Hd34wgZpjUzKWA", pages: ["G:TYuMFxPZPB4MdQ6Elv5HWdExycqHgkK5Ar9NqKvM8I63oluK05RMGFpx5CcydmHOZrrFfCaPixrauPT3yNeYQHY","G:W0Jp_LjJuq9UEuGqDOs-CJpRinIM1azUnqYrEX2ettHB8P87hNKRrONQeVF5uhRQN1gfadBZFe8YmbeJ6hxmFJo"]
 },
 {
   n: "Zitronencake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "250 g Butter",
+    "250 g Zucker",
+    "5 Eier",
+    "2 Zitronen, Schale",
+    "250 g Mehl",
+    "2 Teelöffel Backpulver",
+    "1 Prise Salz",
+    "gut 1 dl Zitronensaft (3-4 Zitronen)",
+    "100 g Puderzucker"
+  ],
+  steps: [
+    "Getränkter Zitronencake. Butter weichrühren. Zucker und Eier abwechslungsweise beigeben, sehr gut schaumigrühren. Zitronenschale dazugeben. Mehl, Backpulver und Salz unter die Masse mischen und in gut eingefettete Cakeform (28-30 cm) füllen.",
+    "Backen: In Mittelhitze (180°) 60-65 Minuten. In der Form etwas auskühlen lassen, mit einer Stricknadel mehrmals einstechen und mit folgendem Guss tränken.",
+    "Guss: Zitronensaft und Puderzucker gut vermischen. Ein herrlich feuchter Kuchen!"
+  ],
   cover: "G:Ief7G_j3FcBvtmTWJdsgwejixXwQpCpqIke1Kba2dc-__W-00zNBmAiVu4PK9tVptYppR5ny9Tb2W1eTSFXYONKPhbI0gH_beP8", pages: ["G:nJ2ZOIWai42-NwDcskJtv-Sf3Zj9nR8B4w7g6V8xueW_u18xXZv3ZhRNpKZFAk_l4nmwsBzqQdX5E4ztrG9LBu7Et8wzsZNwoXe3"]
 },
 {
   n: "Zwetschgen-Cake", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "150 g Butter, in Stücken, weich",
+    "200 g Zucker",
+    "1 Prise Salz",
+    "4 Eier",
+    "150 g Weissmehl",
+    "100 g gemahlene Mandeln",
+    "1 TL Backpulver",
+    "500 g Zwetschgen, entsteint, in Schnitzen",
+    "2 EL Mandelblättchen",
+    "1 EL Zucker"
+  ],
+  steps: [
+    "Für 16 Stück.",
+    "Teig: Butter, Zucker und Salz in eine Schüssel geben, mit den Schwingbesen des Mixers schaumig rühren. Ein Ei nach dem anderen darunterrühren, ca. 5 Min. weiterrühren, bis die Masse heller ist. Mehl, Mandeln und Backpulver mischen, daruntermischen.",
+    "Zwetschgen: Die Hälfte der Zwetschgen unter den Teig mischen, in die vorbereitete Form füllen. Restliche Zwetschgen darauf verteilen, Mandelblättchen und Zucker darüberstreuen.",
+    "Backen: ca. 1 Std. 10 Min. in der unteren Hälfte des auf 180 °C vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus der Form nehmen, auf einem Gitter auskühlen."
+  ],
   cover: "G:RR_NgBuPeJOFgrm_n_OeEvnHXcv-KwFdtdi50ToFcaAXRDS2zs8zYIZvEbPYVhtvq1rIWnG3TYMgbJNnR3j0Qw", pages: ["G:Wn2hnzE2rBIUyKdmPcrLhZkSXoIG_B9rgUxBzgnL7ulol08ij_tS2C5vK5eFQIhnRc-aUVTCG-tksZol69lt_w","G:k2HsCT9y4Y1c3kUcXF1cWMozHuVhwnlu1zZhi-B79PixJsGhy5rMSF1-KcKaTXmBsIjjH7pM8qDhqIddx5-h7w"]
 },
 {
   n: "Zwetschgencake mit Streusel", folder: "Kuchen", src: "",
-  ing: [],
-  steps: [],
+  ing: [
+    "200 g Weissmehl",
+    "75 g Zucker",
+    "1 Prise Salz",
+    "1/2 TL Backpulver",
+    "1 Bio-Zitrone, 1/2 abgeriebene Schale",
+    "100 g Butter, flüssig, ausgekühlt",
+    "1 Ei",
+    "50 g Zucker",
+    "2 Eigelbe",
+    "1 Bio-Zitrone, 1/2 abgeriebene Schale und 1 EL Saft",
+    "50 g gemahlene Mandeln",
+    "25 g Weissmehl",
+    "2 TL Zimt",
+    "1/4 TL Nelkenpulver",
+    "2 Eiweisse",
+    "1 Prise Salz",
+    "2 EL Zucker",
+    "400 g Zwetschgen, entsteint (ergibt ca. 300 g), halbiert oder geviertelt",
+    "Puderzucker zum Bestäuben",
+    "1 dl Halbrahm",
+    "1 TL Vanillezucker"
+  ],
+  steps: [
+    "Ergibt 12 Stück. Vor- und Zubereitungszeit ca. 25 Minuten. Backen: ca. 40 Min. Für eine Cakeform von ca. 25 cm, mit Backpapier ausgelegt.",
+    "Boden/Streusel: Mehl und alle Zutaten bis und mit Zitronenschale mischen. Butter und Ei verrühren, mit den Schwingbesen des Handrührgerätes darunterrühren, bis die Masse krümelig ist. Die Hälfte davon in die vorbereitete Form verteilen.",
+    "Füllung: Zucker und Eigelbe mit den Schwingbesen des Handrührgerätes rühren, bis die Masse hell ist. Zitronenschale und -saft darunterrühren. Mandeln, Mehl, Zimt und Nelkenpulver mischen. Eiweisse mit dem Salz steif schlagen, Zucker beigeben, weiterrühren, bis die Masse glänzt. Ca. 1/3 des Eischnees unter die Eigelbmasse rühren. Restlichen Eischnee abwechslungsweise mit der Mandelmischung sorgfältig darunterziehen. Masse auf den Streusel in der Form verteilen. Zwetschgen dicht in den Teig stecken. Restlichen Streusel darauf verteilen.",
+    "Backen: ca. 40 Min. in der Mitte des auf 180 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen. Cake aus der Form nehmen, auf einem Gitter auskühlen.",
+    "Cake mit Puderzucker bestäuben. Halbrahm mit Vanillezucker flaumig schlagen, dazu servieren."
+  ],
   cover: "G:xBlSpnMUufOaiLC0Ayfh1Kiue4XHmEQ-rXhMlCbNFLmTCyX-N2VjoQlLnki7b3RjW974CP2miGKr2IibZOt-GrT89q4WO4jOuw", pages: ["G:D9AnakPRAF719vfaOU5buMbqHZGTnKaPXv7ge1qQQFrkIY8cqA87QmTjqLSqRxYR4QcHEDnFIZtD0NLhFRpvqFOQj9iK3_MCWg","G:Ue_ZBY0UaYn6WQA2B_Ny5gWVW4PYmfzMUtGswRupqAGKflQrVp5UQ-6LkJz3_SavYiN19Bcgt0vdBGYu0JE1C1Nuax_YMF9TmZ6H"]
 },
 // ---- Asiatisch ----
