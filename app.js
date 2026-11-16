@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.3.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -274,7 +274,7 @@ function barHtml() {
   return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
     ${state.edit && !sel ? '<button class="chip" type="button" id="hsel">☑ Mehrere wählen</button>' : ''}
     <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}">${state.edit ? 'Fertig' : '✎ Ordner bearbeiten'}</button></div>
-    ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
+    ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
 function renderHome() {
@@ -603,6 +603,20 @@ view.addEventListener('click', e => {
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
   if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
   if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
+  if (e.target.closest('#selup') && sel && sel.size) {
+    [...sel].forEach(id => { const f = FB[id]; if (f && f.parent && !sel.has(f.parent)) f.parent = (FB[f.parent] || {}).parent || null; });
+    sel = null; persist(); renderFilters(); refresh(); return;
+  }
+  if (e.target.closest('#seldown') && sel && sel.size) {
+    const chosen = new Set(sel);
+    chosen.forEach(id => {
+      const f = FB[id]; if (!f) return;
+      const sib = kids(f.parent || null); let i = sib.indexOf(f) - 1;
+      while (i >= 0 && chosen.has(sib[i].id)) i--;
+      if (i >= 0) f.parent = sib[i].id;
+    });
+    sel = null; persist(); renderFilters(); refresh(); return;
+  }
   if (e.target.closest('#selmove')) { if (sel && sel.size) openMoveSheet(); return; }
   if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
   const crumb = e.target.closest('[data-crumb]');
@@ -614,7 +628,7 @@ view.addEventListener('click', e => {
     sel.has(id) ? sel.delete(id) : sel.add(id);
     tile.classList.toggle('sel', sel.has(id));
     const c = $('#selcount'); if (c) c.textContent = sel.size + ' gewählt';
-    const mv = $('#selmove'); if (mv) mv.disabled = !sel.size;
+    ['#selmove', '#selup', '#seldown'].forEach(q => { const b = $(q); if (b) b.disabled = !sel.size; });
     return;
   }
   if (tile && state.edit) return;
