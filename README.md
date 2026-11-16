@@ -3,7 +3,7 @@
 Rezepteverwaltung als PWA (Ersatz für organizEat). Läuft ohne Build-Schritt, einfach den Ordner statisch ausliefern (z. B. GitHub Pages).
 
 ## Inhalt
-- `data.js` – Rezepte (Ordner «Brote» (21) und «Reisgerichte» (12) aus organizEat)
+- `data.js` – Rezepte (Ordner «Brote» (21), «Reisgerichte» (12) und «Kuchen» (47) aus organizEat)
 - `app.js`, `style.css`, `index.html` – App mit Suche (Titel, Zutaten, Zubereitung; ohne Umlaut-/Gross-Kleinschreibung)
 - `sw.js`, `manifest.webmanifest`, `icons/` – Offline-Betrieb und Installation auf dem Home-Bildschirm
 
