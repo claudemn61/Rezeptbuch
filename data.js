@@ -7185,51 +7185,109 @@ window.REZEPTE = [
 {
   n: "Apérohäppchen Im Wermutteig", folder: "Tapas", src: "",
   ing: [
-    
+    "1 Bund Schnittlauch",
+    "200 g Rahmquark",
+    "Salz",
+    "250 g Gemüse, z. B. Blumenkohl, Zwiebel, Federkohl, Peperoni",
+    "120 g Mehl",
+    "2 dl Wermut, z. B. Noilly Prat",
+    "1 Ei",
+    "Pfeffer",
+    "1 Prise Muskatnuss",
+    "Öl zum Frittieren",
+    "8 kleine Champignons",
+    "12 Salbeiblätter",
+    "200 g rohe, geschälte Crevetten",
+    "5 EL Sojasauce"
   ],
   steps: [
-    
+    "Apéro für 4 Personen.",
+    "Schnittlauch fein schneiden. Mit dem Quark mischen. Mit Salz abschmecken und beiseitestellen. Gemüse in mundgerechte Streifen oder Stücke schneiden.",
+    "Für den Ausbackteig Mehl in eine Schüssel geben. Wermut unter Rühren dazugeben. Ei trennen. Eigelb zum Teig geben. Rühren, bis ein dickflüssiger Teig entsteht. Mit Salz, Pfeffer und Muskatnuss würzen. Eiweiss steif schlagen und unter die Masse ziehen. Öl in einer Fritteuse oder in einer grossen Pfanne auf ca. 170 °C erhitzen.",
+    "Zuerst das Gemüse, die Champignons und die Salbeiblätter portionenweise durch den Wermutteig ziehen und ca. 2–3 Minuten frittieren. Dann die Crevetten durch den Teig ziehen und frittieren. Herausheben, auf Haushaltspapier kurz abtropfen lassen und warm stellen. Gemüse, Champignons und Salbeiblätter mit Schnittlauchquark servieren. Crevetten mit Sojasauce servieren. Dazu passt Salat."
   ],
+  port: 4,
   cover: "G:MXPX-keX6eRptpO9xAz2Az6T3ZY7hWdm55tQJDPufaVVU6S_wacT2Z5jJpeAzXCY6GSDUQZZp3QZAF3f575rEjU", pages: ["G:kHP-3X-tl33aT1bymg1JfXPrwDfqZh3BxK-8G0wP6Z-_J7mYRIxjloL1FFx03v6ZE4nxpRq6L_SdkVRUp120cg","G:bUAzYdDutHcB9391Ca7wi-3Edv4R0a_iIxBhrPrvQQoMAynHs8XdnlmE8rxKXbIwTvvUMlZfi9TR0ai-tylMYqw"]
 },
 {
   n: "Aprikosen im Rohschinkenmantel", folder: "Tapas", src: "",
   ing: [
-    
+    "1/4 Bund Schnittlauch",
+    "60 g Frischkäse nature",
+    "1 Knoblauchzehe",
+    "Salz",
+    "Pfeffer",
+    "3 Aprikosen",
+    "6 Tranchen Rohschinken"
   ],
   steps: [
-    
+    "Apéro für 4 Personen (Titel im Rezept: Aprikosenviertel im Rohschinkenmantel).",
+    "Schnittlauch fein schneiden, mit Frischkäse mischen. Knoblauch dazupressen. Mit Salz und Pfeffer abschmecken. Aprikosen halbieren, Steine entfernen. Aprikosenhälften halbieren, Viertel je mit etwas Frischkäse füllen. Rohschinken längs halbieren, Aprikosenstücke damit einwickeln. Bratpfanne ohne Fett erhitzen. Aprikosen rundum kurz und kräftig anbraten. Früchte sollten nicht heiss werden. Nach Belieben auf Zahnstocher stecken. Mit Pfeffer bestreuen."
   ],
+  port: 4,
   cover: "G:W0tSWxsersXtazcMMqv5kQ7W_kGWkXTDRL1q-VEVjUT-yaezYeYK5ZD00BNMmRlB_vO49YsfOYl1PdVyGhwz", pages: ["G:lpUVTvNG5g5sqAuLf987nWTGSQkzswrJ__NTLW9do4eRzFBL9HlWeDR-SWSblbI8lMsi3kzBYKd0xgNVvzkj"]
 },
 {
   n: "Dörrtomaten-Frischkäse-Wrap", folder: "Tapas", src: "",
   ing: [
-    
+    "3 Tortillafladen",
+    "100 g Dörrtomaten (in Öl)",
+    "200 g Frischkäse",
+    "5 EL Schlagrahm",
+    "2 TL Schnittlauch"
   ],
   steps: [
-    
+    "Kochzeit: 15 Minuten.",
+    "Frischkäse, Schlagrahm und klein geschnittenen Schnittlauch mischen. Dörrtomaten in kleine Stücke schneiden und darunterrühren.",
+    "Die Masse auf die Tortilla-Fladen verteilen und verstreichen. Die Fladen aufrollen (dicht packen, dass keine Löcher entstehen). Die Rolle schräg in Stücke schneiden."
   ],
+  port: 4,
   cover: "G:3GIB7GhZ6ZXl5MqUnBOIWVHqUozGkrFPOVwkc6JSY46tMPPYLM5CR7mZV9d1CpV3dQ5eRtp91he-2G8iYOGPeP0", pages: ["G:7cbt144xD0fijMkkT0UkgvUeDolVoWT5HHAIUGG7o2Xybqo7qMTckhjlpHkh1b3dRyfBWXOQzOyNI4LiGbg52Q"]
 },
 {
   n: "Ei-Avocado-Röllchen", folder: "Tapas", src: "",
   ing: [
-    
+    "Masse:",
+    "2 hart gekochte Eier",
+    "1 Avocado, in Würfeli",
+    "100 g Appenzeller Mostbröckli in Tranchen, fein geschnitten",
+    "1/2 Zwiebel, fein gehackt",
+    "1/2 Bund Kerbel, grob geschnitten",
+    "1 TL Zitronensaft",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "Formen:",
+    "4 Piadina Teigfladen (ca. 320 g)",
+    "1 EL Olivenöl"
   ],
   steps: [
-    
+    "24 Stück.",
+    "Masse: Eier und alle Zutaten bis und mit Pfeffer mischen.",
+    "Formen: Piadinas mit der Masse bestreichen, satt aufrollen. Wenig Öl in einer beschichteten Bratpfanne erhitzen. Rollen rundum ca. 3 Min. braten, herausnehmen, in Scheiben schneiden.",
+    "Tipp: Rollen ca. 1/2 Tag im Voraus zubereiten, zugedeckt im Kühlschrank aufbewahren."
   ],
+  port: 24,
   cover: "G:f1fNeOhKHEj0mYf97yd53M5e7xQp7gf4n6O95Jc7nd7id_yMFZFIJX7hZWkT-8wbV7zXcn8IdPXjqdyfpPl5", pages: ["G:pGF9YePs-U2S01BUO0JxmQqtBByzh2ex6PUNR2UnxfpfY5NjtoOMHnmVHIUvKJ01Hci3yPPI8dEcjnL9Tifd","G:ycgUs6iKxkAa0OA2vvUALzfwuQxlYm0fszCJgn5l0RjTAVll44RoNsUnPBsKVIu0fSv9Z4UwbBZ0nsADhUEYzw"]
 },
 {
   n: "Flammkuchen-Schnecken", folder: "Tapas", src: "",
   ing: [
-    
+    "200 g Crème fraîche",
+    "180 g Hinterschinken in Tranchen, fein geschnitten",
+    "2 Schalotten, fein gehackt",
+    "1 Bund Schnittlauch, fein geschnitten",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "1 ausgewallter Flammkuchenteig (ca. 24 × 30 cm)"
   ],
   steps: [
-    
+    "Für 15 Stück, 106 kcal pro Stück. Aktive Zeit 10 Min., Gesamtzeit 30 Min.",
+    "Schnecken: Crème fraîche mit Schinken, Schalotten und Schnittlauch verrühren, würzen. Flammkuchenteig entrollen, Füllung darauf verteilen, dabei ringsum einen Rand von ca. 1 cm frei lassen. Teig von der Längsseite her aufrollen. Rolle mit einem scharfen Messer ohne Druck in ca. 2 cm dicke Scheiben schneiden, auf ein mit Backpapier belegtes Blech legen.",
+    "Backen: ca. 20 Min. in der Mitte des auf 220 Grad vorgeheizten Ofens. Herausnehmen, auf einem Gitter etwas abkühlen.",
+    "Tipp: Statt Schalotten und Schnittlauch 3 Bundzwiebeln mit dem Grün, in feinen Ringen, verwenden.",
+    "Quelle: Coopzeitung Nr. 52 vom 21. Dezember 2019."
   ],
+  port: 15,
   cover: "G:Vd-eYhpkrlDt5jRidnKIWgpCzZgTdhKjQsr5BId-L6xZvsH1p-ylwujMSITuY2nlg-ZG-hiGpJ86mHMC5wyMn_8RXNQCnF5XtpA", pages: ["G:XQ1Tl3ii1W_6mR4_Eopl91r9OLIjwM0X1etfbdHc0hOzVhI9LCqvu00o8KoZofqNG58UXKtVaT_Tas757r1XPfs-Z-1CNUNb7g"]
 },
 {
@@ -7254,41 +7312,104 @@ window.REZEPTE = [
 {
   n: "Gemüse-Crostini", folder: "Tapas", src: "",
   ing: [
-    
+    "Backpapier für das Blech",
+    "1 Rüebli, an der Röstiraffel gerieben",
+    "1 Zucchini, an der Röstiraffel gerieben",
+    "50 g Gruyère, an der Röstiraffel gerieben",
+    "1–2 Knoblauchzehen, gepresst",
+    "3 EL Crème fraîche",
+    "Salz, Pfeffer",
+    "6 Toastbrotscheiben"
   ],
   steps: [
-    
+    "Für 12 Stück. Zubereiten ca. 10 Minuten, Backen ca. 20 Minuten.",
+    "Rüebli bis und mit Crème fraîche gut mischen, würzen. Toast damit bestreichen, diagonal halbieren.",
+    "In der Mitte des auf 190 °C (Heissluft/Umluft) vorgeheizten Ofens ca. 20 Minuten backen. Sofort servieren.",
+    "Tipp: Crostini vor dem Backen zusätzlich mit Kräuterbutter-Flöckli belegen."
   ],
+  port: 12,
   cover: "G:pb8-iHEuwFPp2tG6Ne1mtNhUuWcyfsmWEWArf456KsxYBtB-cQ9gbqFvJpUgDXyIFSvGw3c6GleeDPFLBnQWVGdP8oJxFm1THcM", pages: ["G:uKKAeLdmUC9kAm7qp2As79-Vqwzd72QRQgFxuu6HUH2KNeHHD2WyJcztUDKo_J4dzkCArF9KylEWqmZWbuVBa_vrOpcWNcrHgGND"]
 },
 {
   n: "Käsekräpfli", folder: "Tapas", src: "",
   ing: [
-    
+    "500 g Blätterteig",
+    "1 Ei",
+    "1 TL gehackte Peterli",
+    "6 getrocknete Tomaten",
+    "180 g Greyerzer",
+    "1 Prise Salz & Pfeffer",
+    "200 g Sauerrahm",
+    "170 g Schinken"
   ],
   steps: [
-    
+    "Für 16 Portionen.",
+    "Für die Käsekräpfli den Käse reiben. Auch den Schinken und die Tomaten in Streifen schneiden. Alles in einer Schüssel mit dem Sauerrahm vermischen. Mit Salz, Pfeffer, gehackter Peterli und evtl. einer kleinen gepressten Knoblauchzehe würzen.",
+    "Den Blätterteig ausrollen und Kreise mit ca. 12 cm Durchmesser ausstechen. In die Mitte jedes Kreises ungefähr einen Teelöffel der Masse setzen. Das Ei verquirlen und die Ränder damit bepinseln. Den Teig überschlagen und die Ränder andrücken.",
+    "Die Kräpfli auf ein mit Backpapier belegtes Blech legen und mit dem übrigen Ei bestreichen.",
+    "Mit einer Gabel mehrmals einstechen und bei 200 Grad ca. 20 Minuten backen."
   ],
+  port: 16,
   cover: "G:a9N_DNZw5Xf-APRYhfkdXgT89Cm5rsIMSBGTM_-bp-keKxpTmEf9tw_Q90mrHH0Z3bVFefhC15H_DV5RIg5xXYI", pages: ["G:-Ect1QHVpL6uJfaP7uKfNUSSyifKg4mwRUyBAK640SsyaqZefaoig9jCu_tjJNu8YyQWUxcl9Mjrja56GKpl","G:RChqWWOYan_uW1LYmH2vRzunAvV4Dv9QIB_zKU8sdlAKLtAfzsO5hg5h1U14S-WgtBkL-CUXeU7wT5jcrMv1zYc"]
 },
 {
   n: "Lachs-Avocado-Crostini", folder: "Tapas", src: "",
   ing: [
-    
+    "200 g geräucherter Lachs in Tranchen",
+    "1 Avocado, in Stücken",
+    "100 g Crème fraîche",
+    "1/4 TL Fleur de Sel",
+    "wenig Pfeffer",
+    "1 Pagnol Rustique (ca. 380 g), in ca. 18 Scheiben, getoastet",
+    "1 EL glattblättrige Petersilie, grob geschnitten"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 15 Min. Ergibt ca. 18 Stück.",
+    "Die Hälfte des Lachses in Würfeli schneiden. Avocado mit einer Gabel zerdrücken, Lachswürfeli und Crème fraîche darunter mischen, würzen.",
+    "Lachs-Avocado-Masse auf die Brotscheiben verteilen, mit den restlichen Lachstranchen und Petersilie garnieren.",
+    "Pro Portion: 574 kcal, F 30 g, Kh 47 g, E 26 g."
   ],
+  port: 18,
   cover: "G:Vbrdb_O2U_vNORIz6Cl_sQnvH5cJJweaErpiB1W3mqyGsgC7k0uhz86lf95gtrtK0r2UoPtNCNRjXBM074rS", pages: ["G:qiWsPplei66lUNo34hZBVSdnN3agaYEqjFXcFGrDhDRGNmX95D5aAkcy-NuziIoCn8kc_dLHI_w-x7pD9dDh"]
 },
 {
   n: "Olivenfocaccia", folder: "Tapas", src: "",
   ing: [
-    
+    "Vorteig:",
+    "15 g Hefe",
+    "0,7 dl lauwarmes Wasser",
+    "50 g Mehl",
+    "1 TL Zucker",
+    "Teig:",
+    "250 g Mehl",
+    "1 dl Wasser",
+    "0,3 dl Olivenöl",
+    "Salz",
+    "Belag:",
+    "150 g entsteinte grüne Oliven",
+    "2 Knoblauchzehen, geschält, in feine Scheiben geschnitten",
+    "200 g Ricotta",
+    "Thymian von 10 abgezupften Zweigen",
+    "Fleur de Sel",
+    "grober Pfeffer",
+    "3 EL Olivenöl",
+    "100 g Pecorino-Späne",
+    "Kräutersalat:",
+    "je 1 Handvoll Rucola, Basilikumblätter, Minzblätter und glatte Petersilie",
+    "3 EL Balsamico",
+    "3 EL Olivenöl",
+    "Fleur de Sel",
+    "grob gemahlener schwarzer Pfeffer"
   ],
   steps: [
-    
+    "Für eine sommerliche Mahlzeit aus dem Ofen: Olivenfocaccia mit Kräutersalat obendrauf.",
+    "Vorteig: 15 g Hefe in 0,7 dl lauwarmem Wasser auflösen, mit 50 g Mehl und 1 TL Zucker verrühren. Diesen Vorteig zugedeckt 15 Min. gehen lassen und danach mit 250 g Mehl, 1 dl Wasser, 0,3 dl Olivenöl und Salz zu einem glatten Teig verkneten. Mit etwas Mehl bestäuben und wieder zugedeckt 1 Std. in der Schüssel gehen lassen, bis der Teig sein Volumen verdoppelt hat.",
+    "Den Teig gut durchkneten, mit bemehlten Händen in ein geöltes Backblech (ca. 35 × 35 cm) drücken und nochmals zugedeckt 10 Min. gehen lassen. Dann mit den Fingern Vertiefungen in den Teig drücken und 150 g entsteinte grüne Oliven hineinsetzen. 2 Knoblauchzehen, geschält und in feine Scheiben geschnitten, 200 g Ricotta und Thymian von 10 abgezupften Zweigen darauf verteilen und mit Fleur de Sel und grobem Pfeffer würzen. Weitere 3 EL Olivenöl über den Teig verteilen.",
+    "Im 220 Grad heissen Ofen etwa 30 Min. goldbraun backen. Aus dem Ofen nehmen und mit 100 g Pecorino-Spänen bestreuen.",
+    "Für den Kräutersalat je 1 Handvoll Rucola, Basilikumblätter, Minzblätter und glatte Petersilie mit 3 EL Balsamico und 3 EL Olivenöl sowie Fleur de Sel und grob gemahlenem schwarzem Pfeffer marinieren. Auf die Focaccia geben und geniessen.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:cWPY5HtQlSjkcK2r5llgmJAiniL3iC6zEoRHmwWJfmfLNp3Tvskhomii0L_Bec4UR4Tdk_EQ8nrD4JMDRCcMjBrB8tDjehR-U1c", pages: ["G:GnCPHhwZ5jEZEm-E8Y-E8R6HeD9RLZr9k4O9gspqICrv0TQA6WLJVB98iXuTlBXxd6Wy59R3PURDae5JzbbYjgWDS5b6FnyjhYg","G:_VIcWETTt1qgPqLI0bHV2uCrMTOTmIPy0gCPVFZ7LsD5WS_1rMV3c6smigSJ_sqZHY8rFzRLfWuFSmFK3DJGZOe5_fC5evc-Aws"]
 },
 {
@@ -7315,11 +7436,31 @@ window.REZEPTE = [
 {
   n: "Zucchini-Apéro-Rädli", folder: "Tapas", src: "",
   ing: [
-    
+    "Sauce:",
+    "2 EL Aceto balsamico bianco",
+    "3 EL Olivenöl",
+    "2 EL flüssiger Honig",
+    "1 TL BBQ-Gewürzmischung für Gemüse (McCormick)",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "30 g Haselnüsse",
+    "30 g Mandelstifte",
+    "2 EL Pfefferminze",
+    "Zucchini:",
+    "je 2 gelbe und grüne Zucchini (ca. 500 g)",
+    "1 EL Olivenöl",
+    "Zum Servieren:",
+    "16 Zahnstocher",
+    "wenig BBQ-Gewürzmischung für Gemüse (McCormick)"
   ],
   steps: [
-    
+    "15 Min. + 10 Min. grillieren. Vegetarisch, glutenfrei. Apéro für 4 Personen (ergibt 16 Stück).",
+    "Aceto, Öl und Honig verrühren, würzen. Nüsse und Mandeln grob hacken, Pfefferminze grob schneiden, unter die Sauce mischen.",
+    "Zucchini in 16 gleich grosse Stücke (je ca. 3 cm) schneiden, mit Öl bestreichen.",
+    "Holzkohle-/Gas-/Elektrogrill: Zucchini zugedeckt bei starker Glut oder auf hoher Stufe (ca. 250 Grad) beidseitig je ca. 5 Min. grillieren.",
+    "Zucchini-Rädli an je einen Zahnstocher stecken, würzen, mit der Sauce servieren."
   ],
+  port: 4,
   cover: "G:-BYWSfj-FgfkQy4UCDu59CeEBlupUEgEpQZyHZujEHNxYWKWdIx3b6Qm0jwDcGsJ_nVvXdascF-IzuqZusMI", pages: ["G:GgkmrWscBrpN6bg3xBZjMGN9mZlrE1XMnnfOYar0urcnL3trRcqztusTmsDpJdH3NN5wW2JK5yGR6UM6lv4ev6w"]
 },
 // ---- Teigwaren ----
