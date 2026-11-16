@@ -259,6 +259,14 @@
    "color": "#c0504d",
    "parent": null,
    "show": true
+  },
+  {
+   "id": "cmwjel1i8u3t",
+   "name": "Vorspeisen, Apéro",
+   "icon": "⭐",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
   }
  ]
 }
