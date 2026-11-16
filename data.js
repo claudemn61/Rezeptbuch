@@ -6420,51 +6420,106 @@ window.REZEPTE = [
 {
   n: "Apfel-Curry-Dip (für Fondue)", folder: "Saucen", tags: ["Dips"], src: "",
   ing: [
-    
+    "100 g Apfelmus",
+    "100 g Magerquark",
+    "1 1/2 TL Curry",
+    "1/4 TL Kurkuma",
+    "1/4 TL Kreuzkümmelpulver",
+    "1/2 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Ergibt ca. 2 dl. Aktive Zeit 5 Min., Gesamtzeit 5 Min., 78 kcal pro dl. Vegetarisch, glutenfrei.",
+    "Apfelmus mit allen Zutaten bis und mit Pfeffer verrühren."
   ],
+  port: 2,
   cover: "G:GNd4-P1juob5Rbba1RbVb7ugfIHBI20cLwUkM275RpIjHdxahh_AnAn6ROU40RT56fndWxaKYJSdXR7U5XGQxQ", pages: ["G:Y8IGtJgjeFRdOEhynjX_mqh0X3wsl51Xc4AS_Dzfz7DB7ibWMakLizxh4yqO669mvEA0zqCdEIQMpjPR3farGYQ"]
 },
 {
   n: "Balsamico", folder: "Saucen", src: "",
   ing: [
-    
+    "Essige:",
+    "A: Ponti Aceto di Vino Rosso Aroma Antico (fruchtig)",
+    "B: Ponti Aceto Balsamico di Modena I.G.P. (säuerlich-süss)",
+    "C: Ponti Aceto Balsamico di Modena I.G.P. (aromatisch)",
+    "D: Giacobazzi Aceto Balsamico di Modena I.G.P. Maturato (ausgewogen, aromatisch)"
   ],
   steps: [
-    
+    "Partnerwahl: Geeignet für (Essige A–D siehe Zutaten)",
+    "Dip, Brot: C, D",
+    "Käse: D",
+    "Salatsauce: A, B, C, D",
+    "Fisch, helles Fleisch, Gemüse abschmecken: keiner markiert",
+    "Rotes Fleisch, Grilladen, Wild abschmecken: A, B, C, D",
+    "Rindfleisch, Kaninchen, Wild einlegen & beizen: A, B",
+    "Glace, Milchreis aromatisieren & dekorieren / Früchtedesserts aromatisieren / Pikantes & Süsses dekorieren: keiner markiert",
+    "Hinweis: Tabelle mit Markierungen, Zuordnung der Kreuze aus dem Foto gelesen."
   ],
   cover: "G:80QrrzOJEyGBzwrSEUuJFKIQJPyvh82t2qB86UPVCfMIKV7qfcH-i1uAQmO1rqLh6T9hBnZPnLmqkZlBv2t4Nw", pages: ["G:i94lEX9FVF-mQyfz4zzPHGBGjAJg9gVHEx88fQRQPUPaYycJuNB0__RlgpvCIsGLnkyX2ZSvDZ0p_HubuGEBLA"]
 },
 {
   n: "Humus", folder: "Saucen", tags: ["Dips"], src: "https://m2.bettybossi.ch/de/Rezept/ShowRezept/BB_BBZE140515_0013A-40-de?title=Hummus-Kichererbsenpueree",
   ing: [
-    
+    "Hummus:",
+    "1 Dose Kichererbsen (ca. 400 g), abgespült, abgetropft (siehe Tipp)",
+    "1 Knoblauchzehe",
+    "1 dl Olivenöl",
+    "1 EL Zitronensaft",
+    "1/2 TL Kreuzkümmelpulver",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Spinat-Topping:",
+    "50 g Jungspinat",
+    "2 EL Olivenöl",
+    "1 EL Wasser",
+    "1/4 TL Salz",
+    "1/4 TL Rosenpaprika"
   ],
   steps: [
-    
+    "Kichererbsen mit allen Zutaten bis und mit Pfeffer sehr fein pürieren, in ein Schälchen geben.",
+    "Spinat und alle Zutaten bis und mit Salz pürieren, auf dem Hummus verteilen, Paprika darüberstreuen.",
+    "Tipp: Bei den Kichererbsen Häutchen entfernen, so wird der Hummus besonders fein und cremig."
   ],
+  port: 4,
   cover: "G:6izfYdtL1t2hPulHIslH5CmBYCFddZtWJOkmNFZ0M3klkrYvKxvp_lhEUfYAHkaklIkg6u4oNkvMFXFxDNxs", pages: ["G:dnuwJ_jjSaONWiH5sSPj1dBSMAAcMvg5aEPvvIXsyQW2BldCWXz2FFsCIJbxh1wnuB2EgCoanRt1IbL9Fhhfdkg","G:DanSEavX_BmXYEeQzDZkOawhzKMeXmMDEouLfB5Ho_y9Qv4u3DWaGYR4IbGLpSa8UsJuI58Qr_79kmFra6HwcQ"]
 },
 {
   n: "Humus", folder: "Saucen", tags: ["Dips"], src: "",
   ing: [
-    
+    "250 g getrocknete Kichererbsen",
+    "2 Knoblauchzehen",
+    "80 g Tahini (Sesampaste)",
+    "4 EL Zitronensaft",
+    "6 EL Olivenöl",
+    "Salz",
+    "1 Zweig glattblättrige Petersilie"
   ],
   steps: [
-    
+    "Kichererbsenpüree: Dieses cremige Püree, auch Hummus genannt, schmeckt gut zu Fladenbrot.",
+    "Kichererbsen in kaltem Wasser ca. 12 Stunden einweichen. Wasser abgiessen. Kichererbsen in reichlich Wasser ca. 50 Minuten weich garen. Abgiessen und vom Kochwasser etwas aufheben. Kichererbsen abtropfen lassen.",
+    "Knoblauch zu den Kichererbsen pressen. Tahini, Zitronensaft und die Hälfte des Öls beigeben. Mit dem Stabmixer pürieren. 2 EL Kochwasser beigeben. Zu einem dickflüssigen Püree mischen. Sofern nötig etwas Kochwasser zugeben. Mit Salz abschmecken. Mit Petersilie und dem restlichen Öl servieren.",
+    "Zubereitung ca. 10 Min. + ca. 12 Std. einweichen + ca. 50 Min. garen.",
+    "Rezept: Annina Ciocco."
   ],
+  port: 4,
   cover: "G:Ji9PDKTGyaiy1lras26ao5S9XQ9P-G1Pig-BTSF6Q1DwmFQH409JeRAeO8RBYfERhQ_IK_T0gI8nvhvIZA-y", pages: ["G:x60AZsqDM1cOjQAQ8ZDqpIwsaxjc9mE8-bfdnnh_WXHc0RJTpULKG_D18eRTtzObLrIxnwsI4h8BeZCA-QcdLw"]
 },
 {
   n: "Knoblauch-Paprika-Dip (für Fondue)", folder: "Saucen", tags: ["Dips"], src: "",
   ing: [
-    
+    "1 Knoblauch, ganz, quer halbiert",
+    "wenig Olivenöl",
+    "100 g Crème fraîche",
+    "2 EL Mayonnaise",
+    "1 TL geräucherter Paprika",
+    "1/4 TL Salz"
   ],
   steps: [
-    
+    "Ergibt ca. 1,5 dl. Aktive Zeit 10 Min., Gesamtzeit 55 Min., 412 kcal pro dl. Vegetarisch, glutenfrei.",
+    "Knoblauch: Die Schnittflächen des Knoblauchs mit Öl bestreichen. Knoblauch mit der Schnittfläche nach oben auf ein mit Backpapier belegtes Blech legen.",
+    "Backen: ca. 45 Min. in der Mitte des auf 180 Grad vorgeheizten Ofens, auskühlen lassen. Weiche Knoblauchzehen herauslösen, mit Crème fraîche, Mayonnaise, Paprika und Salz pürieren."
   ],
+  port: 2,
   cover: "G:OqBf0SEbYxjq8X_1mmzMYQGD9mP9I6FUCnh24MuudPJkLPRFQOlrVgb-ycwgOTfv0fgD0-cxEf1ZMut_-KUZIi8", pages: ["G:TAlNfypKunNW5zfS_yT-kUy2xpbSatY-cjzH6epyxbgmWv_efe346dusf3KP6z6We81Dtbg135_H878uZVeHrlE"]
 },
 {
@@ -6480,10 +6535,24 @@ window.REZEPTE = [
 {
   n: "Olivenöl", folder: "Saucen", src: "",
   ing: [
-    
+    "Öle:",
+    "A: Monini Delicato Olio Extra Vergine di Oliva (mild)",
+    "B: Monini Classico Olio Extra Vergine di Oliva (mittel, ausgewogen)",
+    "C: Monini Bios da Agricoltura Biologica Olio Extra Vergine di Oliva (mittel)",
+    "D: Monini Gran Fruttato Olio Extra Vergine di Oliva (intensiv)"
   ],
   steps: [
-    
+    "Partnerwahl: Geeignet für (Öle A–D siehe Zutaten)",
+    "Dip, Brot & rohes Gemüse: C, D",
+    "Salatsauce: A, B, C, D",
+    "Fleisch anbraten: A, B",
+    "Fisch anbraten bei kleiner Hitze: A, B, C, D",
+    "Gemüse & Risotto dünsten: A, B, C, D",
+    "Pastasaucen: A, B",
+    "Pizza- & Kuchenteig: A, B",
+    "Mousses, Glaces, Pralinen, Gebäck: A",
+    "Aromatisieren, abschmecken: C, D",
+    "Hinweis: Tabelle mit Markierungen, Zuordnung der Kreuze aus dem Foto gelesen (rechter Rand teils abgeschnitten)."
   ],
   cover: "G:bhCk2gWqc-1EMiS3i4cblea5jAL1NFl_slnmV92OBu1Fm2E9COUkKBoGWmTGnv9rUNa5SJq8JB58NwQ2opKVfg", pages: ["G:pWYg6_vCv5Xq1yy4lnU5kzYhMQJtWlHQNNZcBG02FQp9KeiaPRvjGK5RFD1hr4f6YCqTpkyy0teqNAgvbyTp"]
 },
