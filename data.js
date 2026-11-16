@@ -8660,11 +8660,35 @@ window.REZEPTE = [
 {
   n: "Gemüseburger mit Tomaten-Avovado-Salat", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "Gemüseburger:",
+    "120 g weisse Champignons",
+    "4 EL Olivenöl",
+    "1 Zwiebel, fein gehackt",
+    "1 Knoblauchzehe, fein gehackt",
+    "1 TL Oregano, gehackt",
+    "1/2 TL Paprika, edelsüss",
+    "420 g Kidneybohnen, aus Dose",
+    "2 EL Petersilie, fein gehackt",
+    "1 EL Mehl",
+    "Salz, Pfeffer aus der Mühle",
+    "Tomaten-Avocado-Salat:",
+    "400 g Datteltomaten, in Streifen geschnitten",
+    "1 Avocado, in Würfel geschnitten",
+    "1 EL Zitronensaft",
+    "2 EL Aceto Balsamico",
+    "4 EL Zitronen-Olivenöl",
+    "1 EL Schnittlauchröllchen",
+    "8 Basilikumblätter, fein geschnitten",
+    "1 Prise italienische Kräutermischung",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Das Miele Rezept: Gemüseburger mit Tomaten-Avocado-Salat, für 4 Personen.",
+    "2 EL Olivenöl erhitzen und Zwiebeln 5 Min. weich dünsten. Knoblauch, Oregano und Paprika hinzufügen und unter Rühren 1 Min. rösten. Pilze 5 Min. mitbraten, bis die Flüssigkeit verdampft ist. In Schüssel geben. Kidneybohnen abtropfen und mit Gabel zerdrücken. Mit Petersilie zu Pilzen geben, gut mischen und würzen. Mit Mehl bestäuben und 4 Burger formen. Backblech einölen, Burger darauflegen und mit Olivenöl bestreichen. Im heissen Backofen (Grill, 180–200 °C) unter Aufsicht auf jeder Seite 4–5 Min. grillieren.",
+    "Tomaten in Schüssel geben. Avocado mit Zitronensaft beträufeln und dazugeben. Für Sauce alle Zutaten mischen und zu den Tomaten-Avocado geben. Salat anrichten und Gemüseburger dazu servieren.",
+    "Wir wünschen en Guete."
   ],
+  port: 4,
   cover: "G:cA_ZSESlNB6qszRURb-QBwTrSY6SqercbhOk_cZObG2-6qC8GqsTC06Qe9ri6fJEd_2GBEQAp3swHkTnuyuX", pages: ["G:FtpL-iqqiNQ5rPSjEj_vcM3Zx7UGeNBkL4ibr64-3M1AjIo5g1qzs-z3gN4md6GsqE4i-kFPtdmR0tz4kArRSQ","G:UsHNYwdK2Fjfkh5ampnIEpgW7mMHy9qjbIplyQIS0nPcdYLYtIezQzvU5qYKmf8sU3BFIbdgvnDqV0ZNvh4b7A"]
 },
 {
@@ -8730,81 +8754,224 @@ window.REZEPTE = [
 {
   n: "Maistätschli mit Nüsslisalat", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "2 Zweige Pfefferminze",
+    "6 EL Olivenöl",
+    "1 TL Limettensaft",
+    "100 g Halbfettquark",
+    "Salz",
+    "Pfeffer",
+    "2 Dosen Maiskörner à 340 g, abgetropft 285 g",
+    "1/2 Peperoncino",
+    "1/2 Bund glattblättrige Petersilie",
+    "1 Ei",
+    "80 g Mehl",
+    "Paprika",
+    "Öl zum Braten",
+    "200 g Nüsslisalat"
   ],
   steps: [
-    
+    "Zubereitung: ca. 20 Minuten.",
+    "Für die Sauce Minze fein hacken. Mit Olivenöl, Limettensaft und der Hälfte des Quarks verrühren. Dressing mit Salz und Pfeffer abschmecken, beiseitestellen. Saft vom Mais abgiessen, die Körner gut abtropfen lassen. Die Hälfte davon mit dem Stabmixer grob pürieren, dann mit den restlichen Maiskörnern vermengen. Peperoncino nach Belieben entkernen. Etwas Petersilie beiseitestellen, Rest mit Peperoncino fein hacken. Ei verquirlen und mit restlichem Quark, Mehl, Peperoncino und Petersilie zur Maismasse geben. Alles verrühren und mit Paprika, Salz und Pfeffer abschmecken. Reichlich Öl in einer Bratpfanne erhitzen. Aus jeweils 1–2 EL der Maismasse Tätschli formen und diese im Öl rundum 3–4 Minuten goldbraun braten. Nüsslisalat mit beiseitegestellter Sauce mischen. Mit den Maistätschli und beiseitegestellter Petersilie anrichten.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:qxq3LD-IdAnn9kLcQKVLh_JQde7Cym875xd70Jg1iOpLVDva6ipFIi3TvNdntFmZWlxsbgjWzJ-kjm6Y_gpCXw", pages: ["G:0eEJXpA8qGkUMvxc7bemevzFPR7rfPrxUy3YKt3VaP_K_mmjS0KC5CIgGTcDvCMAufdvjM7HVOd6tc8qwJSqdg","G:JnnsnVH2gDdeY2uLtVY30jN97GKrUkE8UwjldqbdLBZfQAxnp-SVjZpiXp7Omgldwwfpzs5XJeBTO5WZTydwyg"]
 },
 {
   n: "Pastetli mit Champignonsfüllung", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "300 g Champignons",
+    "500 g Cherry-Tomaten",
+    "2 EL Olivenöl",
+    "1/2 EL Mehl",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "2 dl Gemüsebouillon",
+    "2 dl Saucen-Halbrahm",
+    "4 Blätterteig-Pastetli",
+    "1 Bund Schnittlauch"
   ],
   steps: [
-    
+    "30 Min. Vegetarisch. Titel im Rezept: Pastetli mit Champignons-Rahmfüllung.",
+    "Zwiebel schälen, fein hacken. Champignons sechsteln, Tomaten halbieren. Öl in einer weiten beschichteten Bratpfanne warm werden lassen. Zwiebel kurz andämpfen, Pilze ca. 2 Min. mitdämpfen. Mehl darüberstäuben, unter Rühren kurz weiterdämpfen. Tomaten daruntermischen, würzen.",
+    "Bouillon und Saucen-Halbrahm dazugiessen, aufkochen. Hitze reduzieren, ca. 10 Min. köcheln.",
+    "Die Deckel aus den Pastetli herauslösen, die Pastetli nach Angabe auf der Verpackung aufbacken, mit der Sauce anrichten. Schnittlauch fein schneiden, darüberstreuen.",
+    "Hinweis: Personenzahl nicht angegeben (4 angenommen)."
   ],
+  port: 4,
   cover: "G:JVVzvOqAxndbyynDaorXIErKYR83KusiXiZUTppRPPgexWh8RH9GFj2iuHptWJRhVd39F4ZcUZnn4bWdlTfYQsroVMzQnARn_A", pages: ["G:VWd4Q7nabGIoWaBV1MLSa27l3dra3b2RwDxz7EDMrCdcSbRVAcL6xawwNUr7rsUjMk1-wTn88UGezgRAodlICIM55c9B_3VFYwA"]
 },
 {
   n: "Pastetli mit Pilz-Kräuter-Sauce", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "2 Schalotten",
+    "500 g gemischte Pilze (z. B. Champignons, Kräuterseitlinge und Morcheln)",
+    "3 EL Olivenöl",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "2 dl Weisswein",
+    "3 dl Gemüsebouillon",
+    "1 Bund Kerbel",
+    "1 Bund glattblättrige Petersilie",
+    "2 dl Saucen-Halbrahm",
+    "4 Blätterteig-Pastetli"
   ],
   steps: [
-    
+    "25 Min. Vegetarisch. Pro Portion (1/4): 460 kcal, F 35 g, Kh 20 g, E 7 g.",
+    "Schalotten schälen, fein hacken. Champignons und Morcheln halbieren, Kräuterseitlinge in Scheiben schneiden. Öl in einer weiten beschichteten Bratpfanne heiss werden lassen. Schalotten kurz anbraten, Pilze ca. 5 Min. mitbraten, würzen.",
+    "Wein zu den Pilzen giessen, aufkochen, auf die Hälfte einkochen. Bouillon dazugiessen. Kerbel- und Petersilienblätter mit dem Saucen-Halbrahm pürieren, zu den Pilzen giessen. Hitze reduzieren, ca. 10 Min. köcheln.",
+    "Die Deckel aus den Pastetli herauslösen, Pastetli nach Angabe auf der Verpackung aufbacken, mit der Sauce anrichten."
   ],
+  port: 4,
   cover: "G:HbqKQkkBWts1T6X9PVLrkJfJrOe4upa3lGibbz_O9BRQlwRuPOCB83q3E5fejUT5GEH4-c2DA84vUFanPCUdvGaZ6EW6V7JfLxB6", pages: ["G:4HVQmt3vVe-Ih7LOmFnkTzL6-DrW9DPbaF-ajyz2JmnhOP5lkBmmlkWUk14XDuTRUMtZhyH7Dcvi4UeNYxzq0EleJ5yexmUd31yS","G:j3XgB8sVLYprLtsE7INCSZlnbMKYasdMuaZuXEb3y7VnsR-jmJAFcWQekmjGzZDGVd1otyzNb6J3bQRR97A1i8ehIZT8IcHbx0g"]
 },
 {
   n: "Pfannengemüse mit Nudeln", folder: "Vegetarisch", tags: ["Teigwaren"], src: "",
   ing: [
-    
+    "4 Karotten",
+    "1 Brokkoli",
+    "2 EL Rapunzel Kokosöl nativ",
+    "1 kleiner Rotkohl",
+    "500 g Champignons, braun",
+    "2 Paprikaschoten, rot",
+    "500 g Rapunzel Spaghetti Semola oder Rapunzel Emmer-Spaghetti Semola",
+    "250 g Spinat",
+    "3 EL Tamari",
+    "3 EL Rapunzel Tahin",
+    "3 Zitronen, Saft",
+    "3 EL mediterrane Kräuter",
+    "Rapunzel Meersalz Atlantik"
   ],
   steps: [
-    
+    "Zubereitungszeit: 40 Min. Vegan.",
+    "Karotten in Scheiben schneiden, Brokkoli in kleine Stücke teilen, Rotkohl in feine Streifen schneiden, Champignons vierteln und Paprika klein schneiden. Kokosöl in einer Pfanne erhitzen, Karotten und Brokkoli darin anbraten. Kohlstreifen und Champignons zugeben und ebenfalls mit anbraten.",
+    "Die Spaghetti nach Packungsanweisung kochen. Wenn die Nudeln fast gar sind, Spinat, Tamari, Tahin, Zitronensaft, Kräuter und Salz zum Gemüse geben. Die Nudeln abgiessen und auch zum Gemüse geben, kräftig vermischen. Auf vorgewärmte Teller geben und sofort servieren."
   ],
+  port: 4,
   cover: "G:wpLMz0MldIiBxmoJ15MZcybsZyBtm3_N84zkwg6OyxWs9p2JLWBSP7M4dva-oAkbJcVj_tcQD8IYTkibpzDbNA", pages: ["G:OCvwS8dICV1RXwLUfWdylYxemuwqoGujkTL5pUAWWWIm38jq_4VWkuMrl3t4pWmqezzNwWghv6xOicslPEZLXg"]
 },
 {
   n: "Quinoa-Burger", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "Burger:",
+    "100 g rotes Quinoa",
+    "1,75 dl Gemüsebouillon",
+    "1 Zucchetti à ca. 200 g",
+    "Salz",
+    "1/2 Bund glattblättrige Petersilie",
+    "1 Ei",
+    "50 g geriebener Sbrinz",
+    "3 EL Mehl",
+    "Pfeffer",
+    "HOLL-Rapsöl zum Braten",
+    "Salat:",
+    "250 g Rotkabis",
+    "3 EL Olivenöl",
+    "2 EL Aceto balsamico",
+    "1 EL Akazienhonig",
+    "4 Brötchen, z. B. Semmeli",
+    "4 Blätter Kopfsalat",
+    "Zwiebelsprossen zum Garnieren",
+    "4 EL Basilikumpesto"
   ],
   steps: [
-    
+    "Für die Burger Quinoa mit der Bouillon in eine kleine Pfanne geben. Zugedeckt bei mittlerer Hitze ca. 20 Minuten köcheln lassen. Herdplatte ausschalten und Quinoa ca. 5 Minuten quellen lassen, bis alle Flüssigkeit aufgesogen ist. Quinoa auskühlen lassen.",
+    "Zucchetti durch die Röstiraffel reiben, salzen und ca. 10 Minuten stehen lassen. Flüssigkeit abgiessen und Zucchetti etwas ausdrücken. Petersilie fein hacken. Quinoa, Zucchetti, Petersilie, Ei, Sbrinz und Mehl mischen. Masse mit 1/2 TL Salz und Pfeffer abschmecken. Rapsöl in einer beschichteten Bratpfanne erhitzen. Die Masse mit einem Esslöffel zu 4 Burgern formen. Burger beidseitig ca. 8 Minuten bei mittlerer Hitze braten.",
+    "Für den Salat Kabis mit dem Gemüsehobel fein hobeln. Öl, Essig und Honig verrühren. Über den Kabissalat giessen und gut mischen. Ca. 10 Minuten ziehen lassen. Salat mit Salz und Pfeffer abschmecken. Brötchen halbieren, Schnittflächen in einer Bratpfanne ohne Fett kurz rösten. Brötchenböden mit je einem Salatblatt, Kabissalat, Quinoa-Burgern und Sprossen belegen. Deckel mit Pesto bestreichen und daraufsetzen.",
+    "Zubereitung ca. 50 Min. + auskühlen lassen."
   ],
+  port: 4,
   cover: "G:Wi5V3sWrAF6EedAuYJ9ZX_FA60tfH9rJX4gDPjkh4AJ2Wwuj7yjjVXHwPn6qaO2ge1LwlnwothqS_U_UXEaikQ", pages: ["G:Ds6TcwUZe2GMoLiTvn6HSl92D0ssOnoDF483q7YFD5jUmMGGXswYb712OF4NqQhRnBiNdwFYLCMbhyOdmK8R","G:_LZXrppW4FLvk-Ap4E81NeY-3EKrjQH4yuxqxTHlG4HR-TwOybo9B0OXYj3sKu7TAdZbYlfOS75qa6i9qXwD"]
 },
 {
   n: "Quinoa-Tortilla", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "1 Knoblauchzehe",
+    "2 dl Wasser",
+    "Salz",
+    "150 g Quinoa Tricolore",
+    "1/2 Bund Kräuter, z. B. Thymian",
+    "300 g Tomaten Aromatico",
+    "1 Schalotte",
+    "2 Avocados",
+    "180 g Saurer Halbrahm",
+    "Pfeffer",
+    "4 Tortillas à ca. 40 g"
   ],
   steps: [
-    
+    "Hauptgericht für 4 Personen. Zubereitung ca. 30 Minuten.",
+    "Knoblauch hacken. Mit Wasser aufkochen. Salzen. Quinoa dazugeben. Zugedeckt bei kleiner Hitze ca. 20 Minuten quellen lassen, bis die Flüssigkeit aufgesogen ist. Auskühlen lassen. Inzwischen Thymianblättchen abzupfen. Tomaten vierteln. Schalotte in feine Ringe oder Streifen schneiden. Avocados halbieren, Kern entfernen. Fruchtfleisch aus der Schale lösen. Mit 2 EL Sauerrahm und Thymianblättchen zu einer Creme verrühren. Mit Salz und Pfeffer abschmecken. Tortillas in einer Bratpfanne kurz anrösten. Mit Avocadocreme, Quinoa, Zwiebeln, Tomaten und restlichem Sauerrahm füllen.",
+    "Gewusst wie: Nach Belieben mit Peperoncino ergänzen.",
+    "Rezept: Daniel Tinembart (migusto.migros.ch)."
   ],
+  port: 4,
   cover: "G:sifrzzfJm9Wov7-yNTUuUVh3pGkpzblFJSLzfZyE936nyB8S4hl9tC10ihFZs0lbipHl49lu5g_UIFmSxKEQ", pages: ["G:7KAbnXCZlBxAfXz4j4kfYz8d7uH2lqeGu1I17GD0YyWRGdGF7sSvD7x3-eJBQfas9gaO1dY1K_v3y8xcik08F_w","G:ibvp3qaqDiPK9RT6IhqTh6BTQZJg4oe4wERCkZjb9--Hr9_ZPoDlh1OCcVyAFYDl9lMpC6zJxg5Fchn8Uuzolg"]
 },
 {
   n: "Rollgerste-Pilz-Eintopf", folder: "Vegetarisch", src: "",
   ing: [
-    
+    "30 g getrocknete Steinpilze",
+    "2 dl Wasser",
+    "2 EL Olivenöl",
+    "350 g gemischte Pilze, in Stücken",
+    "1/4 TL Salz",
+    "1 Zwiebel, in Streifen",
+    "2 Knoblauchzehen, in Scheiben",
+    "200 g Knollensellerie, in Würfeln",
+    "150 g geschälte Rollgerste",
+    "1 dl Weisswein",
+    "1 Liter Steinpilzbouillon",
+    "1 Lorbeerblatt",
+    "200 g saurer Halbrahm",
+    "Salz, Pfeffer, nach Bedarf",
+    "Salbei-Topping:",
+    "2 Bund Salbei, grob geschnitten",
+    "1 dl Olivenöl",
+    "1 Bio-Zitrone, nur abgeriebene Schale",
+    "3/4 TL Fleur de Sel",
+    "1 TL Pfeffer"
   ],
   steps: [
-    
+    "Cremiger Rollgerste-Pilz-Eintopf. 30 Min. aktive Zeit, 1 Std. 45 Min. Gesamtzeit, 547 kcal pro Person. Vegetarisch.",
+    "Steinpilze einweichen: Pilze in einer Schüssel mit dem Wasser übergiessen, ca. 15 Min. einweichen. Pilze abtropfen, Einweichwasser auffangen.",
+    "Eintopf: Öl in einem Brattopf erhitzen. Gemischte Pilze portionenweise je ca. 3 Min. anbraten, herausnehmen, salzen. Hitze reduzieren. Zwiebel und Knoblauch ca. 3 Min. andämpfen. Sellerie und Gerste beigeben, ca. 3 Min. mitdünsten. Wein dazugiessen, fast vollständig einkochen. Bouillon und beiseitegestelltes Einweichwasser dazugiessen, aufkochen. Abgetropfte Pilze und Lorbeer beigeben, zugedeckt ca. 30 Min. köcheln. Deckel entfernen, offen ca. 30 Min. weiterköcheln. Sauren Halbrahm darunterrühren, ca. 5 Min. köcheln, würzen.",
+    "Salbei-Topping: Salbei mit Öl pürieren, Zitronenschale daruntermischen, würzen. Topping auf dem Eintopf verteilen.",
+    "Weintipp S. 74 (Quelle)."
   ],
+  port: 4,
   cover: "G:yrHtnyS8OV5vya_oU-6R9o5WGkADMzY34s4K2fqVi9eP0smV0oB-7zbDXOpzk-hXQMWXZQaLbf9ANYni3rx7gpH6qlGycGfbl1U", pages: ["G:4souELCvWkfZayVoQADSUagScyQH-VvJie-2LSL29x2tuDBfIYDKqPAC6WzebA-j84esi2aU8s67Rv8al0_pVULNo0lE-IhIvzM","G:lZ0oPeke9NAbDhVvxr3wpwO_n6GsLcfCy5n0pgGQyrP-WHTQbreAGeNOsODcT7xP8B6J3wq_oEat6NUo5iKB_f03R6nTYa7GZPw"]
 },
 {
   n: "Spargel-Flammkuchen", folder: "Vegetarisch", tags: ["Pizza","Gemüse"], src: "",
   ing: [
-    
+    "Flammkuchen:",
+    "2 ausgewallte Flammkuchenteige",
+    "200 g Crème fraîche",
+    "2 EL Senf",
+    "1 EL Honig",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "500 g weisse Spargeln, geschält, längs halbiert",
+    "2 EL Olivenöl",
+    "1/4 TL Salz",
+    "Vinaigrette:",
+    "3 EL Kräuteressig",
+    "1 EL grobkörniger Senf",
+    "2 EL Olivenöl",
+    "1/2 EL Honig",
+    "1/4 TL Salz",
+    "wenig Pfeffer",
+    "1 Bundzwiebel mit dem Grün, fein gehackt",
+    "1/2 Bund Kerbel, grob geschnitten"
   ],
   steps: [
-    
+    "Pro Person 744 kcal. Aktive Zeit 10 Min., Gesamtzeit 30 Min. Vegetarisch.",
+    "Flammkuchen: Teige entrollen, mit dem Backpapier auf zwei Bleche ziehen. Crème fraîche, Senf, Honig, Salz und Pfeffer verrühren. Teige damit bestreichen. Spargeln und Olivenöl mischen, salzen. Spargeln auf den Teigen verteilen.",
+    "Backen: ca. 20 Min. auf der untersten Rille des auf 240 °C vorgeheizten Ofens. Zweiten Flammkuchen gleich backen.",
+    "Vinaigrette: Essig, Senf, Öl und Honig verrühren, würzen. Bundzwiebeln und Kerbel daruntermischen. Vinaigrette über die Flammkuchen träufeln."
   ],
+  port: 4,
   cover: "G:gqTK2WPf0pH4lFzvGAzio4Flgwv_9bLNV1go9mOAKkSDOngP7JeSISUrhumml-0sSAGpUzMnp6eOP4Qlh36MbnQ_AEIpOnh69A", pages: ["G:6AzchSt0aSOXsh4rGhjJ6MRTjExiS8gN9i4_V5MieuYc_4b73URKUyTTgqDsdzS4Z4kxbMGYprkH-h8-XNYafZ0IzQe4n_QFyQI"]
 },
 {
