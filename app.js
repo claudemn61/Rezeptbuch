@@ -138,14 +138,14 @@ function miniCard(r) {
 }
 
 function renderHome() {
-  countEl.textContent = R.length + ' Rezepte';
+  countEl.textContent = R.length;
   clearEl.hidden = true;
   const tiles = folders.map(f => {
     const rs = R.filter(r => r.folder === f);
     const pick = rs.find(r => r.hasText && r.cover) || rs.find(r => r.cover);
     return `<button class="tile" type="button" data-folder="${esc(f)}">
       ${pick ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(pick.cover, 600))}" alt="">` : ''}
-      <span class="tl"><b>${esc(f)}</b><small>${rs.length} Rezepte</small></span></button>`;
+      <span class="tl"><b>${esc(f)}</b><small>${rs.length} ${rs.length === 1 ? "Rezept" : "Rezepte"}</small></span></button>`;
   }).join('');
   const rec = recent().slice(0, 6);
   const fav = R.filter(r => state.fav.has(r.id));
@@ -189,7 +189,7 @@ function renderFilters() {
 function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
-  countEl.textContent = res.length === R.length ? R.length + ' Rezepte' : res.length + ' von ' + R.length;
+  countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
   if (!res.length) {
     view.innerHTML = `<div class="empty"><b>Nichts gefunden</b>${state.q ? 'Für „' + esc(state.q) + '“ gibt es keine Treffer.' : 'In dieser Auswahl ist noch nichts.'}
