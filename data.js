@@ -5316,21 +5316,47 @@ window.REZEPTE = [
 {
   n: "Kartoffel-Frittata", folder: "Gratin", tags: ["Kartoffel"], src: "",
   ing: [
-    
+    "600 g mehligkochende Kartoffeln",
+    "200 g Zwiebeln",
+    "250 g Kohlrabi oder Lauch",
+    "80 g Cherrytomaten",
+    "200 g Krautstiel oder Lauch",
+    "3 EL Rapsöl",
+    "6 Eier",
+    "2 dl Milch",
+    "40 g Reibkäse (z. B. Emmentaler-Gruyère)",
+    "Salz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Kartoffeln schälen, in 1 cm grosse Würfel schneiden und in reichlich Salzwasser 4 Min. sieden. Zwiebeln in 1 cm breite Streifen, Kohlrabi oder Lauch in 1/2 cm breite Stücke schneiden, Cherrytomaten halbieren und Krautstiel oder Lauch in 2 cm breite Streifen schneiden. Gemüse in Rapsöl während 4-5 Min. unter ständigem Rühren anbraten.",
+    "Kartoffeln und Gemüse in eine Gratinform füllen. Eier, Milch und Reibkäse verrühren und mit Salz und Pfeffer abschmecken. Guss über das Gemüse giessen und etwas vermischen. Im auf 180 °C vorgeheizten Ofen (Ober-/Unterhitze) in der Ofenmitte 30 Min. backen.",
+    "Zubereitung: 20 Min. + ca. 30 Min. backen."
   ],
+  port: 4,
   cover: "G:gVVeUkirycBVkjeY3p9tRn9UGLgHT0ZjL1ztMFqeV6SwqxDWiBX5-nFXI3yGXAo_m4DrKES8fD2m4ruZrtonow", pages: ["G:NSeEOyKkAXRLRTa5hjYYeFI6cp-ATl62DnY_cFsenuv3iAmAeEmgzgk61NtCQ9-2l2UgdQ1uYMss55E-ZdE19RE"]
 },
 {
   n: "Kartoffel-Rüebli-Gratin", folder: "Gratin", src: "",
   ing: [
-    
+    "3 EL Olivenöl",
+    "1 TL Paprika",
+    "2 TL Salz",
+    "wenig Pfeffer",
+    "1 Knoblauchzehe",
+    "900 g mehligkochende Kartoffeln",
+    "500 g Rüebli",
+    "20 g Butter",
+    "40 g geriebener Sbrinz"
   ],
   steps: [
-    
+    "30 Min. + 1 Std. backen. Vegetarisch. Für eine ofenfeste Form von ca. 2 Litern, gefettet. Für 6 Personen.",
+    "Ofen auf 200 Grad vorheizen. Öl, Paprika, Salz und Pfeffer in einer Schüssel verrühren. Knoblauch dazupressen.",
+    "Kartoffeln und Rüebli schälen, längs in ca. 2 mm dicke Scheiben hobeln, beigeben, mischen. Kartoffel- und Rüeblischeiben abwechslungsweise in die vorbereitete Form schichten. Butter in Würfeli schneiden, mit dem Käse auf dem Gratin verteilen.",
+    "Backen: ca. 1 Std. in der unteren Hälfte des Ofens.",
+    "Lässt sich vorbereiten: Gratin ca. 2 Std. im Voraus einschichten, zugedeckt im Kühlschrank aufbewahren (Anfang der Zeile am Foto abgeschnitten). Backzeit bleibt gleich."
   ],
+  port: 6,
   cover: "G:GIsi8swD55beVfuynFVhreduhGOs_etAot3saf46iaOcUEt5VY5t0pLjhiSpjKMg1Kib5nKGaiAWIs-i8aq3gbFs3mhsR-pGA-Rw", pages: ["G:ijFI2ygcCUHIKopaCtKkwj7qxVnAmFazP4M1ZuQm6SvugHWJQebWgZ-IdcjUPRCyKmRH98h0TwZ0bTe9avVJAcBzEm6EfIlqdaxt","G:KKDH9O4N7aCMUge9jnjJ9DSkgSLxIJZ96sDccQ48K-sAv5DBt0QaMlan-SU_C543h6le3ifW6VrnCzgRU6KILPOpTDxcr63I-g"]
 },
 // ---- Kartoffel ----
@@ -5373,11 +5399,21 @@ window.REZEPTE = [
 {
   n: "Ofenrösti mit Ei", folder: "Kartoffel", src: "",
   ing: [
-    
+    "1 kg festkochende Kartoffeln",
+    "4 Rüebli",
+    "Salz",
+    "Pfeffer",
+    "100 g geriebener Gruyère",
+    "50 g Rohschinken, in Streifen geschnitten",
+    "3 EL Butter",
+    "4 Eier"
   ],
   steps: [
-    
+    "Kartoffeln und Rüebli schälen und alles durch eine Röstiraffel reiben, mit Salz und Pfeffer würzen. Gruyère und Rohschinken untermischen. Masse in 4 Portionen teilen und zu einer Rösti formen. In der Mitte mit dem Löffel eine kleine Mulde eindrücken.",
+    "Im auf 200 °C vorgeheizten Ofen in der Ofenmitte (Ober-/Unterhitze) 25 Min. backen. 10 Min. vor Backende Butter auf die Rösti verteilen. Je eines der Eier in die vorbereitete Mulde giessen und bei 180 °C ca. 10 Min. fertig backen. Vor dem Servieren Ei mit Salz und Pfeffer würzen.",
+    "Zubereitung: 10 Min. + 35 Min. backen."
   ],
+  port: 4,
   cover: "G:iW7Nlp67wUA1tOJ-FCHJ9eVXBrT4gZMWHEGAbRfBkKIWu9et5umej-mBF0rKitGarn59sw3Gu_yd0SyozP4C", pages: ["G:qIQz--3JNjQ7OMs_xkuueg3KUIJNXXrSYzqbYbBrrPQRoUL2P9sGUgn39XPhWF6coDA6VqJJAR47VVMMluq8"]
 },
 {
@@ -5404,11 +5440,19 @@ window.REZEPTE = [
 {
   n: "Sweet Potato Fries", folder: "Kartoffel", src: "",
   ing: [
-    
+    "500 g Süsskartoffeln",
+    "1/2 EL (gestrichen) Stärke, z. B. Mais- oder Kartoffelstärke",
+    "4 EL Öl, z. B. Erdnussöl",
+    "Salz",
+    "Madras-Curry"
   ],
   steps: [
-    
+    "Beilage für 4 Personen.",
+    "Süsskartoffeln unter fliessendem Wasser gut abbürsten. In ca. 7 mm dicke Stäbchen schneiden. Süsskartoffeln ca. 1 Stunde in kaltem Wasser einweichen.",
+    "Backofen auf 200 °C Umluft vorheizen. Kartoffeln in ein Sieb geben und das Wasser abtropfen lassen. Mit einem sauberen Küchentuch trocken tupfen. Mit der Stärke in einen verschliessbaren Beutel geben, Beutel verschliessen. Kartoffeln im Beutel schütteln, bis die Stäbchen mit einem dünnen Stärkefilm überzogen sind.",
+    "Süsskartoffeln einlagig auf zwei mit Backpapier belegte Bleche verteilen. Mit Öl beträufeln. Süsskartoffeln im Ofen 20–25 Minuten backen, dabei einmal wenden und die Bleche tauschen, das heisst, das untere Blech oben einschieben, das obere unten. Süsskartoffeln herausnehmen. Noch heiss mit Salz und Curry würzen."
   ],
+  port: 4,
   cover: "G:2i6x3bwfeXECE79WWv6-dE_tBAnoIxIw24puAN-F_wH-vJ0WSAqs8pn9Z4oYsWlC6UmX5oFrB16_36n2nmYctqdpjjzA2qQmgyI", pages: ["G:JKx6QE7fC02v237ftrDG7BmQFkuCmnv-K57zgxtO_TKaJ3OlW0vplMtG1__UF7fJp7Aj0vhxK0j6f9kQwzrUTHS53dBAXOnagQ","G:9MrDXLCn_PQVTn_B9aCMS5vzFIkbmC-NGIaWukrNr2aChpImWCxx0ex7JGbqd_nuqqYzsU_vReAh1lzAdAS-WB-oIthTC37rng"]
 },
 // ---- Kekse ----
