@@ -37,9 +37,9 @@
    "show": true
   },
   {
-   "id": "Getränke",
-   "name": "Getränke",
-   "icon": "🍹",
+   "id": "cmwjel1i8u3t",
+   "name": "Vorspeisen, Apéro",
+   "icon": "⭐",
    "color": "#d98e04",
    "parent": null,
    "show": true
@@ -109,10 +109,10 @@
    "show": true
   },
   {
-   "id": "Gewürze",
-   "name": "Gewürze",
-   "icon": "🌶️",
-   "color": "#6b8f71",
+   "id": "Getränke",
+   "name": "Getränke",
+   "icon": "🍹",
+   "color": "#d98e04",
    "parent": null,
    "show": true
   },
@@ -181,10 +181,10 @@
    "show": true
   },
   {
-   "id": "Saucen",
-   "name": "Saucen",
-   "icon": "🫙",
-   "color": "#d98e04",
+   "id": "Gewürze",
+   "name": "Gewürze",
+   "icon": "🌶️",
+   "color": "#6b8f71",
    "parent": null,
    "show": true
   },
@@ -261,9 +261,9 @@
    "show": true
   },
   {
-   "id": "cmwjel1i8u3t",
-   "name": "Vorspeisen, Apéro",
-   "icon": "⭐",
+   "id": "Saucen",
+   "name": "Saucen",
+   "icon": "🫙",
    "color": "#d98e04",
    "parent": null,
    "show": true
