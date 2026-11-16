@@ -6579,31 +6579,85 @@ window.REZEPTE = [
 {
   n: "Eier-Räucherlachs Gipfeli", folder: "Snacks", tags: ["Vorspeisen","Tapas"], src: "",
   ing: [
-    
+    "1 Pkg. Blätterteig",
+    "1 Ei, zum Bestreichen",
+    "Für die Füllung:",
+    "125 g QimiQ Rahm-Basis, ungekühlt",
+    "4 Eier, hartgekocht",
+    "200 g Räucherlachs, gewürfelt",
+    "1 TL Senf",
+    "1 TL Meerrettich, gerieben",
+    "1 EL Schnittlauch, gehackt",
+    "1 EL Dill, gehackt",
+    "Salz und Pfeffer"
   ],
   steps: [
-    
+    "Backofen auf 200 °C (Ober- und Unterhitze) vorheizen. Den Teig laut Packungsanleitung vorbereiten und in 12 gleich grosse Dreiecke schneiden.",
+    "QimiQ für die Füllung glatt rühren. Restliche Zutaten dazu mischen und abschmecken.",
+    "Je 1 Esslöffel der Füllung auf die Breitseite der Teigdreiecke geben, zur Spitze hineinrollen und zu Gipfeli formen.",
+    "Mit Ei bestreichen und im vorgeheizten Backofen ca. 15 Minuten goldbraun backen."
   ],
+  port: 12,
   cover: "G:s4TXu_PXbKw8oPP5O5bHiQMmkoYa20yTHejHLmE5DwMibiJFGfztKQwewFMviaDa3ajYFlTtL0xrTEupvTXOTLk", pages: ["G:A9UvaqSQLHnE5NRpnGVSZL-EwF0wG47iOueJsvxULwm66x3EggLoY7njNDKpX_t3eJJSazNICwVkdRBBRd3YjA"]
 },
 {
   n: "Grundrezept Tofu dreimal anders", folder: "Snacks", tags: ["Tapas","Vegetarisch","Vorspeisen"], src: "",
   ing: [
-    
+    "3 Tofu à 250 g nature oder Räuchertofu",
+    "4 EL Sojasauce",
+    "2 EL Sesamöl",
+    "2 EL Ahornsirup",
+    "Curry-Panko-Topping:",
+    "1 Knoblauchzehe",
+    "100 g Panko",
+    "1 EL Currypaste",
+    "1 EL Öl",
+    "Currypaste zum Bepinseln",
+    "1 EL rosa Pfeffer",
+    "Koriander-Sriracha-Topping:",
+    "2 EL Sriracha-Sauce",
+    "1 Bund Koriander",
+    "1 Limette",
+    "Spiesse nach Belieben"
   ],
   steps: [
-    
+    "Apéro für 4 Personen.",
+    "Am Vortag Tofu waagrecht halbieren. Sojasauce, Öl und Sirup in einer Schüssel mischen. Tofustücke hineinlegen und mischen. Abdecken und kühl stellen. Ab und zu wenden.",
+    "Am Zubereitungstag Tofu aus der Marinade heben. Ca. 4 Minuten beidseitig braten oder grillieren. Mit restlicher Marinade während des Bratens ab und zu bepinseln.",
+    "Variante 2, Curry-Panko-Topping: Ein Drittel des Tofus in 6 fingerdicke Sticks schneiden. Nach Belieben auf Spiesse stecken. 1 Knoblauchzehe hacken. Mit 100 g Panko und 1 EL Currypaste in 1 EL Öl kurz anrösten. Beiseitestellen. Spiesse mit Currypaste bepinseln. Mit Panko-Mix und 1 EL rosa Pfeffer bestreuen.",
+    "Variante 3, Koriander-Sriracha-Topping: Ein Drittel des Tofus in 6 fingerdicke Sticks schneiden. Nach Belieben auf Spiesse stecken. Mit 2 EL Sriracha-Sauce bestreichen. 1 Bund Koriander hacken und Tofu darin wenden. 1 Limette in Schnitze schneiden und dazuservieren.",
+    "Hinweis: Variante 1 steht nicht auf den Fotos."
   ],
+  port: 4,
   cover: "G:5mILDPowAMYjUB4oU_E9yZM39MCSQoMwmUnuMiYZYZcE395PSgXIo-zppEzqYlO4yPaNQrR3aeHii04mVpc9L5d1pE5qGpjjrdjq", pages: ["G:VetAsGRHa_2g46ojqkEegXcfLeQJ7jL1hZcwQyFjW_FXH7bsKdXLM_69yxoyR7-2hAHicBzQJ6TSqFGdH8beQZ8xLYjIPsK7TlLx","G:uKPEFwPESc5Te8EKztwcsgvOInYUncLOK4c9AEdZdj1NdSdHiHb1qwEqR6byaVDhjPBi8AgZsApKP92UahSV3ORLY0QrjTVT1Gue"]
 },
 {
   n: "Lachs-Tartar mit Spargelsalat", folder: "Snacks", tags: ["Vorspeisen"], src: "",
   ing: [
-    
+    "Lachstatar:",
+    "600 g Lachsrückenfilet (Sushi-Qualität)",
+    "3 Bundzwiebeln mit dem Grün",
+    "1 Bio-Zitrone",
+    "2 EL Olivenöl",
+    "1 1/2 TL Fleur de Sel",
+    "wenig Pfeffer",
+    "Spargelsalat:",
+    "2 EL Olivenöl",
+    "1/2 TL Fleur de Sel",
+    "wenig Pfeffer",
+    "500 g grüne Spargeln",
+    "Garnitur:",
+    "30 g Micro Greens oder Kresse",
+    "wenig Fleur de Sel"
   ],
   steps: [
-    
+    "40 Min., schlank, glutenfrei.",
+    "Lachs in Würfeli, Bundzwiebeln in feine Ringe schneiden. Von der Zitrone Schale abreiben, mit dem Lachs, den Bundzwiebeln, Öl, Fleur de Sel und Pfeffer in einer Schüssel mischen, kühl stellen.",
+    "Von der Zitrone 1 EL Saft auspressen, mit Öl verrühren, würzen. Unteren hölzernen Teil der Spargeln wegschneiden. Spargeln mit dem Sparschäler in dünne Streifen schälen, mit der Sauce mischen.",
+    "Spargelsalat mit dem Lachstatar auf Tellern anrichten, Micro Greens und Fleur de Sel darüberstreuen.",
+    "Hinweis: Personenzahl steht nicht auf dem Foto (4 angenommen)."
   ],
+  port: 4,
   cover: "G:rPgfTcABxJ2ZGH99rvPXjokRw0Fn8-lwoLAyVNtrP6j2x7TVLxIykMjms0LDqzju7zCVmJMvwUfX5WdaPVr_Lmk", pages: ["G:P90zRMM7QWsSgCk6AC5YaqUYkuCDnnTOmCXwrTDfJJWqR_yL4qbWEK4r0Jt-QjeejJowX7v3KV4HHW10cnsHrg","G:pUDKsUt3WPb3QBEX4zYcY3mMfiqg7y-P78xDQMS4iKVOom4mwHfJ0ddunb94LrwmdExpjPz1i7u88p1BW7zj_w"]
 },
 {
@@ -6663,21 +6717,40 @@ window.REZEPTE = [
 {
   n: "Würzige Apéro-Erbsli", folder: "Snacks", src: "",
   ing: [
-    
+    "400 g tiefgekühlte Erbsli, aufgetaut, abgetropft",
+    "1 EL Olivenöl",
+    "1/2 TL Knoblauchpulver",
+    "1/4 TL Chiliflocken",
+    "1/4 TL Salz"
   ],
   steps: [
-    
+    "Ergibt 300 g.",
+    "Erbsli: Erbsli trockentupfen, mit Öl, Knoblauchpulver, Chiliflocken und Salz mischen, auf einem mit Backpapier belegten Blech verteilen.",
+    "Backen: ca. 25 Min. in der Mitte des auf 220 °C vorgeheizten Ofens. Herausnehmen, Erbsli auf dem Blech auskühlen.",
+    "Tipp: Als Snack geniessen oder über Salate oder Suppen streuen.",
+    "Haltbarkeit: gut verschlossen ca. 1 Woche."
   ],
+  port: 4,
   cover: "G:3zfgOjE8DPMqvGtceLuqi8iNPicB8J-kDUmBM4rJNKDmX_HLoxf7N_-Om0oTddEtKYTDZ80Qaf-5VpPnF4fatfVGNxee8s-gW15t", pages: ["G:45L8xl0kfagHg3DWFAE_sWCToUeMyTSzNmOzJLKnESfHDW4RxJuohyFD8BS0uK7Tv2mEydOuFeHwNKMDK3pY1oKIMPkcN8KoC-1y","G:MuKrQlz01OzfBPiw28C7c-4pwAo2W2DL2ca0dmdDmcpa3uysmd1CNIuNc6Q9CcC1UjJo5lRdV3ZxzWKulKVwXZQJOZpdGzQ_RHg"]
 },
 {
   n: "Zucchetti-Carpacco", folder: "Snacks", tags: ["Vorspeisen"], src: "",
   ing: [
-    
+    "4 kleine Zucchetti, ca. 400 g",
+    "100 g Parmesan, am Stück",
+    "100 g Schinken",
+    "50 g schwarze Oliven, entsteint",
+    "4 EL Olivenöl",
+    "1 Zweig Basilikum",
+    "Saft einer halben Zitrone",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Die ungeschälten, gewaschenen Zucchetti schräg in dünne Scheiben schneiden oder hobeln.",
+    "In einer beschichteten Bratpfanne das Olivenöl erhitzen und die Zucchettischeiben portionenweise beidseitig braten. Auf Küchenpapier abtropfen, leicht salzen und erkalten lassen.",
+    "Parmesan in kleine Stücke brechen und hacken. Schinken und Oliven ebenfalls hacken. Zucchettischeiben auf vier Tellern anrichten. Mit Zitronensaft beträufeln und mit reichlich Pfeffer würzen. Die gehackten Zutaten daraufverteilen und mit Basilikum garnieren."
   ],
+  port: 4,
   cover: "G:hHugmsaeRwbkGD2gpk3s7wuX-UIiwBrciUl-4_UFnKluy8Lk-HoyHRNjnLoI7zn1VDa_plCqJoZToHfPWYcL", pages: ["G:nka34cHOr21P0q7HnKc2RscKtBYVwWtmyHCta9MxcKyVqSGWzDx6aP-biIuNLz64UYcNUMFRSevDM5bc3k97Hw"]
 },
 // ---- Suppen ----
