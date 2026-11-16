@@ -643,7 +643,8 @@ function tilesBlock(parent) {
 function barHtml() {
   return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
     ${state.edit && !sel ? '<button class="chip" type="button" id="hsel">☑ Mehrere wählen</button>' : ''}
-    <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}">${state.edit ? 'Fertig' : '✎ Ordner bearbeiten'}</button></div>
+    ${state.edit ? '' : '<button class="chip" type="button" id="import" aria-label="Rezept importieren" title="Rezept importieren">➕</button>'}
+    <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}" aria-label="Ordner bearbeiten" title="Ordner bearbeiten">${state.edit ? 'Fertig' : '✏️'}</button></div>
     ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
@@ -656,8 +657,7 @@ function renderHome() {
     <section class="home${state.edit ? ' editing' : ''}">
       ${barHtml()}
       ${tilesBlock(null)}
-      ${state.edit ? '' : `<button class="chip big" type="button" id="import">＋ Rezept importieren</button>
-      <button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
+      ${state.edit ? '' : `<button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
       ${rec.length ? `<h3 class="sec">Zuletzt angesehen</h3><div class="strip">${rec.map(miniCard).join('')}</div>` : ''}
       ${fav.length ? `<h3 class="sec">Favoriten</h3><div class="strip">${fav.map(miniCard).join('')}</div>` : ''}`}
     </section>`;
