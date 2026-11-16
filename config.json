@@ -37,10 +37,10 @@
    "show": true
   },
   {
-   "id": "cmwjel1i8u3t",
-   "name": "Vorspeisen, Apéro",
+   "id": "cmwjf6buvj4j",
+   "name": "Snacks, Gebäck",
    "icon": "⭐",
-   "color": "#d98e04",
+   "color": "#7a5c9e",
    "parent": null,
    "show": true
   },
@@ -109,10 +109,10 @@
    "show": true
   },
   {
-   "id": "cmwjf03u2ve2",
-   "name": "Hauptgang",
+   "id": "cmwjel1i8u3t",
+   "name": "Vorspeisen, Apéro",
    "icon": "⭐",
-   "color": "#6b8f71",
+   "color": "#d98e04",
    "parent": null,
    "show": true
   },
@@ -181,10 +181,10 @@
    "show": true
   },
   {
-   "id": "Getränke",
-   "name": "Getränke",
-   "icon": "🍹",
-   "color": "#d98e04",
+   "id": "cmwjf03u2ve2",
+   "name": "Hauptgang",
+   "icon": "⭐",
+   "color": "#6b8f71",
    "parent": null,
    "show": true
   },
@@ -261,6 +261,14 @@
    "show": true
   },
   {
+   "id": "Getränke",
+   "name": "Getränke",
+   "icon": "🍹",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
+  },
+  {
    "id": "Gewürze",
    "name": "Gewürze",
    "icon": "🌶️",
@@ -289,14 +297,6 @@
    "name": "Brote, Backen",
    "icon": "⭐",
    "color": "#4f7cac",
-   "parent": null,
-   "show": true
-  },
-  {
-   "id": "cmwjf6buvj4j",
-   "name": "Snacks, Gebäck",
-   "icon": "⭐",
-   "color": "#7a5c9e",
    "parent": null,
    "show": true
   }
