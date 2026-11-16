@@ -84,7 +84,8 @@
    "icon": "🥩",
    "color": "#7a4b3a",
    "parent": "cmwjf03u2ve2",
-   "show": true
+   "show": true,
+   "photo": "rindsgulasch"
   },
   {
    "id": "Gebäck",
@@ -271,7 +272,8 @@
    "icon": "🍗",
    "color": "#7a5c9e",
    "parent": null,
-   "show": true
+   "show": true,
+   "photo": "rindsgulasch"
   },
   {
    "id": "cmwjf3g5ufcl",
