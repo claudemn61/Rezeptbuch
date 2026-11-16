@@ -2,7 +2,9 @@
  "v": 1,
  "size": "l",
  "photos": true,
- "fav": [],
+ "fav": [
+  "same-day-sauerteigbrot"
+ ],
  "assign": {},
  "folders": [
   {
