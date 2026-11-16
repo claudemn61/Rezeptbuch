@@ -3305,72 +3305,192 @@ window.REZEPTE = [
 {
   n: "One-Pot-Potato", folder: "Eintöpfe", tags: ["Kartoffel"], src: "",
   ing: [
-    
+    "300 g Raclette-Kartoffeln",
+    "2 EL Olivenöl",
+    "1 Pouletbrust",
+    "80 g Salsiz",
+    "1 Zwiebel, gehackt",
+    "1 Knoblauchzehe, gehackt",
+    "2 Tomaten",
+    "2 dl Gemüsebouillon",
+    "Salz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Raclette-Kartoffeln in Salzwasser weich kochen, abtropfen lassen und in 2-3 cm dicke Scheiben schneiden.",
+    "Olivenöl in einer Bratpfanne erhitzen, Pouletbrust in Streifen schneiden und anbraten. Salsiz in 1 cm dicke Scheiben schneiden und in derselben Pfanne anbraten, Zwiebel und Knoblauchzehe dazugeben und weiterbraten. Tomaten in kleine Würfel schneiden und mit den gekochten Kartoffeln dazugeben und mit Gemüsebouillon auffüllen. Den One-Pot ca. 10 Min. weiter kochen lassen, bis die Flüssigkeit auf 1/3 reduziert ist. Mit Salz und Pfeffer abschmecken und servieren.",
+    "Zubereitung: 40 Min.",
+    "Tipp: Salametti oder Chorizo statt Salsiz verwenden."
   ],
+  port: 4,
   cover: "G:bqe6RHUFNNHH4ZNrdywNQ1kQhIBIqgSogiADIgrRhHcY8jrAtosoKgWZdTg7fSAHEIszhc1vj6z11tJmu1BSvg", pages: ["G:LXf8OHOeUQiOAZqYJ9wZ739xo6rmpiNyx6Tpck61iAZ0QrgeinHILCUrJZvOmtB8VwuUgRfleDNd0LGXoboLF8Y"]
 },
 // ---- Fisch ----
 {
   n: "Crevetten mit Chili und Panko", folder: "Fisch", src: "",
   ing: [
-    
+    "2 Knoblauchzehen",
+    "200 g Lattich",
+    "1 rote Zwiebel",
+    "1 Limette",
+    "4 EL Öl zum Braten",
+    "6 EL Panko (japanisches Paniermehl)",
+    "400 g küchenfertige Crevetten Tail-on, roh",
+    "Salz",
+    "6 EL Sweet Chilisauce",
+    "1 Bund Koriander"
   ],
   steps: [
-    
+    "Kleine Mahlzeit für 4 Personen.",
+    "Grill auf 200 °C vorheizen. Knoblauch hacken. Lattich in feine Streifen, Zwiebel in kleine Schnitze schneiden. Limette auspressen. Eine ofenfeste Bratpfanne auf den Grill stellen. Die Hälfte des Öls darin erhitzen. Panko und Knoblauch dazugeben und anrösten. Aus der Pfanne nehmen und beiseitestellen. Restliches Öl in die Pfanne geben. Crevetten und Zwiebeln beigeben und ca. 5 Minuten rundum anbraten. Lattich dazugeben und kurz mitbraten, bis er zusammenfällt.",
+    "Mit Salz abschmecken. Chilisauce und Limettensaft dazugiessen und alles mischen. Mit beiseitegestelltem Panko bestreuen. Koriander darüberzupfen und servieren.",
+    "Tipp: Mit geröstetem Baguette servieren.",
+    "Zubereitung ca. 25 Minuten, Einsteiger.",
+    "Pro Person ca. 25 g Eiweiss, 12 g Fett, 28 g Kohlenhydrate, 1350 kJ / 330 kcal."
   ],
+  port: 4,
   cover: "G:t4MaEhUvO-wnv5SjvRQye0xrO6TwGcDv_B_nl6VPYaadtETZe-xfdIIJgnwFNlu1dVopXNgGmLltll7nR-BCu_k", pages: ["G:IuOlAb8YtdOQCLlb6p-I_DW80CvItDy_aS0J9H4XNgYmsDGXGofjF9O6-QSg4t3jai9MX-klcXpr3sLXZZyU","G:PpjENBxfkzNe5uVuNNfjbYuOMnrsZQ8ofBtmoEAe7NYyQhOrYo6bsSggnRmDY4cv0XtbnBNt0MUoAZGRE0wqsQ"]
 },
 {
   n: "Crevetten mit Gemüse", folder: "Fisch", src: "",
   ing: [
-    
+    "2 EL Olivenöl",
+    "12 ungeschälte rohe Riesencrevetten-Schwänze",
+    "2 Knoblauchzehen, in Scheibchen",
+    "1 Bio-Zitrone, in Scheiben",
+    "1/2 TL Fleur de Sel",
+    "1 EL Olivenöl",
+    "1 rote Zwiebel, in Schnitzen",
+    "2 Zucchini, längs geviertelt, in ca. 3 cm langen Stängeln",
+    "250 g Cherry-Tomaten, halbiert",
+    "1/2 Bund glattblättrige Petersilie, zerzupft"
   ],
   steps: [
-    
+    "Gamberi con verdure. Pro Portion ca. 169 kcal, F 9 g, KH 6 g, EW 14 g. Vor- und Zubereitungszeit ca. 35 Min.",
+    "Öl in einer Bratpfanne erhitzen. Crevetten mit dem Knoblauch beidseitig je ca. 1 Min. braten. Zitronen ca. 3 Min. mitbraten, herausnehmen, salzen, warm stellen.",
+    "Öl in derselben Pfanne erwärmen. Zwiebel und Zucchini ca. 6 Min. andämpfen. Tomaten ca. 2 Min. mitdämpfen, mit den Crevetten anrichten. Petersilie darüberstreuen.",
+    "Dazu passt: Reis."
   ],
+  port: 4,
   cover: "G:jkQL-XzAQOf0YZGBIxM-1AUjDslvOcmIAZLREyWUqXa_yqKcVdFuIpMKDPevDMDx6VsFgMlfrRFx04VUdk7yrQ", pages: ["G:P49df3SEnw1OEhOc3O4zRDq5mCAs2WF5MI6UOJkfwniT-5GVh0yhh_XJ7FaO1ymvJW9-KB88xJaL3OANm0DGsX8"]
 },
 {
   n: "Crevetten-Topf", folder: "Fisch", src: "",
   ing: [
-    
+    "Marinade:",
+    "1 Bio-Zitrone",
+    "1 EL Öl",
+    "1 roter Peperoncino",
+    "8 geschälte rohe Crevettenschwänze (Bio, ca. 400 g)",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "Couscous und Gemüse:",
+    "200 g Couscous",
+    "3 dl Wasser",
+    "1/2 TL Salz",
+    "2 Fenchel (ca. 400 g)",
+    "2 Zucchini (ca. 400 g)",
+    "50 g Kapernäpfel",
+    "3 EL Öl",
+    "1/2 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Ofen auf 200 Grad vorheizen. Von der Zitrone Schale abreiben, beiseite stellen. Saft auspressen, 1 EL davon mit dem Öl in einer Schüssel verrühren. Peperoncino entkernen, in feine Streifen schneiden, mit den Crevetten beigeben, mischen, würzen, zugedeckt marinieren.",
+    "Couscous in den Brattopf geben. Wasser dazugiessen, salzen. Fenchel in ca. 2 mm dicke Scheiben hobeln, in eine Schüssel geben. Zucchini in Stängel schneiden, Kapernäpfel abtropfen, mit der beiseite gestellten Zitronenschale beigeben. Restlichen Zitronensaft und Öl darunter mischen, würzen, auf dem Couscous verteilen.",
+    "Backen: zugedeckt ca. 30 Min. in der Mitte des Ofens. Herausnehmen, Deckel entfernen, die marinierten Crevetten darauflegen.",
+    "Fertig backen: ca. 8 Min. in der Mitte des Ofens. Herausnehmen.",
+    "Hinweis: Die Personenzahl ist auf dem Foto nicht sichtbar."
   ],
   cover: "G:NGjYU8yy2NBgUskjN_FD4rcaushl4O5ZndBp1shEMqB7RY3E5cZBoDFtqUFuvygoVG_eZoj2OvZ5hdRbJfvX6g", pages: ["G:DnEUVBTPv-ZeulDgl8jp79eSsOYGy4ecvJ0KvrW40DlePsNcE8bN6607cSEFAann3u2FjYY3PCuWg-nyvLMipg","G:_2qRSKoi_H5m-6QffIGPh5LOGvea3dSTrq2fP-n6AJW5cMwLPUZUPQaxzU81X-Tjmcr405bZQQn_PaOW83tQ9Q"]
 },
 {
   n: "Dorsch mit Sommergemüse", folder: "Fisch", src: "",
   ing: [
-    
+    "Pesto:",
+    "1 Bund Petersilie, Blätter abgezupft",
+    "1/2 Bund Pfefferminze, Blätter abgezupft",
+    "50 g Haselnüsse, geröstet",
+    "1 EL Ingwer, grob gehackt",
+    "1 Bio-Zitrone, abgeriebene Schale und 1 EL Saft",
+    "1 dl Olivenöl",
+    "1/4 TL Salz",
+    "30 g geriebener Parmesan",
+    "Gemüse:",
+    "500 g Zucchetti, quer halbiert, längs gedrittelt",
+    "500 g verschiedenfarbige Cherry-Tomaten",
+    "2 Knoblauchzehen, in Scheibchen",
+    "2 EL Olivenöl",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "Fisch:",
+    "1 EL Olivenöl",
+    "1 EL Ingwer, fein gerieben",
+    "1 1/2 EL Ahornsirup",
+    "1/2 TL Salz",
+    "4 Dorschfilets Royal (MSC, je ca. 150 g)"
   ],
   steps: [
-    
+    "Pesto: Petersilie und alle Zutaten bis und mit Salz in ein Mixglas geben, pürieren. Käse beigeben, mischen.",
+    "Gemüse: Zucchetti und alle Zutaten bis und mit Pfeffer in die vorbereitete Form geben, mischen.",
+    "Fisch: Öl, Ingwer und Ahornsirup verrühren, salzen. Fischfilets beidseitig damit bestreichen und auf das Gemüse legen.",
+    "Backen: Ca. 20 Min. in der oberen Hälfte des auf 220 °C vorgeheizten Ofens. Herausnehmen, Gemüse und Fisch mit dem Pesto anrichten."
   ],
+  port: 4,
   cover: "G:AaQPP-fK838krzeVT2CU27qM88jvDDVEGuKgGGcSretDz3OuzGqAMsHVTQQi5gxizyiibBMPcsJ4Gbyw7feHvJjdRMYNzZxzDnjH", pages: ["G:LJI4mkR7gpOADMHOPNliPibAEIsYsVEaIfX7FjwHd8w6CR6iG5A5Zld3x1BwZHMCQ1u54FmSTpq6llkntG5VUeIGozhkTeZWtaWp","G:NwTqAxLbAgVxFwxXNylWj1bDOWH_d63psNhOwfzYv9fiDKftUXWsAH2arc6Vum0RwYpHTJMhA4-E-pFCoUe2Ku8Q4ibTBihL_TdY"]
 },
 {
   n: "Dorschfilet mit Tomaten-Kräuter-Haube", folder: "Fisch", src: "",
   ing: [
-    
+    "500 g Kartoffeln, mehligkochend",
+    "3 EL Olivenöl (1)",
+    "4 Dorschfilets, à je 130 g",
+    "1/2 Zitrone, Saft",
+    "8 mittlere, feste Tomaten",
+    "1 Bund Petersilie",
+    "1 Bund Basilikum",
+    "6 Zweige Thymian",
+    "4 Scheiben Weissbrot",
+    "3 EL Olivenöl (2)",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Eine Porzellanform mit etwas Olivenöl (1) bestreichen. Die Kartoffelscheiben hineinschichten und mit Salz und Pfeffer würzen. Mit dem restlichen Olivenöl (1) beträufeln.",
+    "Die Dorschfilets mit Zitronensaft beträufeln und mit Salz und Pfeffer würzen. Nebeneinander auf das Kartoffelbeet legen.",
+    "Die Tomaten waschen, in ca. 4 mm dicke Scheiben schneiden, mit Salz und Pfeffer leicht würzen, ziegelartig auf die Dorschfilets legen.",
+    "Petersilie, Basilikum und Thymian waschen und trockenschütteln. Kräuter fein hacken und in eine Schüssel geben. Das Weissbrot entrinden und fein hacken. Zusammen mit dem Olivenöl (2) zu den Kräutern geben und mischen. Die Kräuter-Brot-Masse auf die Tomatenscheiben verteilen.",
+    "Fischgratin im vorgeheizten Backofen (200 °C) während 20-25 Minuten überbacken.",
+    "Hinweis: Die Kartoffeln werden auf dem Foto nicht als vorgekocht oder roh beschrieben; Schnittart der Kartoffelscheiben nicht angegeben."
   ],
+  port: 4,
   cover: "G:echnswQkWCBUW9dU_80UgVfdnEMfzY5jc57LimnYurrvMBrldFBX5VDo-62o8csikoKMy5OtH_CgjehYqO1_", pages: ["G:5IornJ29HcuKHDKjCWJoixBwqtuRGtaq5aivNAlkLbY8T6oZRuhcfPB5z5BU2bn_5RYsZONbFigwbl8IVXvY","G:AZq6DNSGmAjTou80DZFb-aLlGcbnUI-OWyovxsereHIX4C3_lliiqn48LdTdqbVl89wVYSENXLfkOsjQA4fUBek"]
 },
 {
   n: "Eglifilet vom Blech", folder: "Fisch", src: "",
   ing: [
-    
+    "Fenchel:",
+    "3 Fenchel (je ca. 350 g), in Schnitzen",
+    "2 EL Butter, flüssig",
+    "1/2 TL Salz",
+    "wenig Zitronenpfeffer",
+    "Egli:",
+    "600 g Eglifilets ohne Haut",
+    "1 EL Butter, flüssig",
+    "3/4 TL Salz",
+    "wenig Zitronenpfeffer",
+    "1/2 Bund Dill, grob geschnitten",
+    "1/2 Bund glattblättrige Petersilie, grob geschnitten",
+    "1 Bio-Zitrone, in Scheiben"
   ],
   steps: [
-    
+    "Pro Portion 275 kcal. Aktive Zeit 20 Min., Gesamtzeit 1 Std. Glutenfrei.",
+    "Fenchel: Fenchel mit Butter, Salz und Pfeffer mischen, auf einem mit Backpapier belegten Blech verteilen.",
+    "Backen: ca. 30 Min. in der Mitte des auf 220 Grad vorgeheizten Ofens. Fenchel von Zeit zu Zeit wenden, sodass er regelmässig bräunt. Ofentemperatur auf 180 Grad reduzieren.",
+    "Egli: Fischfilets auf den Fenchel legen, mit Butter bestreichen, würzen. Kräuter und Zitrone auf dem Fisch verteilen.",
+    "Fertig backen: ca. 12 Min. in der Mitte des vorgeheizten Ofens fertig backen.",
+    "Dazu passen: Salzkartoffeln."
   ],
+  port: 4,
   cover: "G:S0pUixAqhQ8BnBFuvsHRQs4cF5hx2EofzeH8cBVWoZHeSAq67rKeB73lgLVH7NQfd9tbWN0udJ2vyZEPFVZSXg", pages: ["G:TYoFIncDEQFXcFT0uG1RPW5A5RYCdyUYvzVYBVAgUnVDZbEB8ATxWL5UBcfeVbwAFqyuMqJsAEsKrQGMqc_e_g"]
 },
 {
@@ -3386,41 +3506,112 @@ window.REZEPTE = [
 {
   n: "Fischcanelloni", folder: "Fisch", src: "",
   ing: [
-    
+    "6 Krautstiele mit Grün, ca. 300 g",
+    "4 EL Olivenöl",
+    "300 g Lachsfilet",
+    "250 g Ricotta",
+    "360 g Saucen-Halbrahm",
+    "4 EL geriebener Parmesan",
+    "Salz, Pfeffer",
+    "8 frische Lasagneblätter"
   ],
   steps: [
-    
+    "Hauptgericht für 4 Personen.",
+    "Krautstielblätter von den Stängeln schneiden. In kochendem Wasser blanchieren. Herausheben und beiseitestellen. Krautstielstängel klein würfeln und in etwas Öl 3-4 Minuten dünsten. Fisch würfeln. Mit Ricotta, 60 g Halbrahm und der Hälfte des Parmesans zu den Krautstielwürfelchen geben. Mit Salz und Pfeffer würzen.",
+    "Backofen auf 200 °C vorheizen. Lasagneblätter auf der Arbeitsfläche auslegen. Beiseitegestellte Krautstielblätter darauflegen und die Masse in der Mitte der Lasagneblätter verteilen, Blätter aufrollen. Cannelloni in eine Gratinform legen. Die Resten von Halbrahm, Parmesan und Öl mischen, Cannelloni damit übergiessen. Im Ofen ca. 20 Minuten gratinieren.",
+    "Zubereitung ca. 20 Minuten + 20 Minuten im Ofen gratinieren.",
+    "Pro Person ca. 37 g Eiweiss, 52 g Fett, 52 g Kohlenhydrate, 3450 kJ / 820 kcal."
   ],
+  port: 4,
   cover: "G:wyBbXzd0WaGriS805dBNp5aWrfTM6wTLDWVzlbptoNG98dJpi_N1pjFqQEU8epEy-vHVihPn4Tpk5KuPPXdfqw", pages: ["G:hCsOlrOThkRSZa1TY1wIKwrcoy7rp6kcxWZ40-e33lu0mCrDH0Cgnyl5nPXVI3Yv2R4hDCyxsWkmJ8QiJxgH"]
 },
 {
   n: "Forelle nach Rioja-Art", folder: "Fisch", src: "",
   ing: [
-    
+    "4 Forellen (Bio, je ca. 250 g)",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "120 g Rohschinken in Tranchen (z.B. Serrano)",
+    "4 EL Weissmehl",
+    "Öl zum Braten",
+    "Knoblauch-Kartoffeln:",
+    "Öl zum Braten",
+    "800 g festkochende Kartoffeln, in ca. 3 mm dicken Scheiben",
+    "2 Knoblauchzehen, in feinen Scheiben",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "1/2 Bund glattblättrige Petersilie, grob geschnitten"
   ],
   steps: [
-    
+    "Aktive Zeit 40 Min., Gesamtzeit 40 Min., 506 kcal pro Person. Glutenfrei-Symbol auf dem Foto.",
+    "Forellen: Ofen auf 80 °C vorheizen. Fische innen und aussen kalt abspülen, trocken tupfen. Fische innen und aussen würzen, mit den gefalteten Rohschinkentranchen füllen, mit einem Zahnstocher schliessen. Mehl in einen flachen Teller geben, Fische darin wenden. Öl in einer beschichteten Bratpfanne erhitzen. Fische portionenweise beidseitig je ca. 5 Min. goldbraun braten, warm stellen.",
+    "Knoblauch-Kartoffeln: Öl in einer beschichteten Bratpfanne erhitzen. Kartoffeln und Knoblauch unter gelegentlichem Rühren ca. 5 Min. anbraten, würzen. Hitze reduzieren, zugedeckt ca. 10 Min. dämpfen. Deckel entfernen, ca. 10 Min. fertig braten. Petersilie beigeben. Forellen mit den Knoblauch-Kartoffeln anrichten.",
+    "Dazu passen: Zitronenscheiben."
   ],
+  port: 4,
   cover: "G:i2H3WgQ2b7eu2QEP6UIneJXwCYlkItF4r7Mg_KJcRyZmrTxwH5JJ9w4nPwZOpsHf94nRRTawgPLE0hxm_yQ9_L0qbCpdn7mLhw", pages: ["G:WijOuD9z-MFQiXXJ5v4HEhuBwNE5Z_v0QRrrnffbdlqeNvLYJZJ0JoqbU36vpn6-0GCFxdqJl9bJ4sG7EAThcQ7s44SeV7XCj2I","G:pKk_VXHC3VQ60nbtqGLYZRKK8Rchszk6QA8FB-zfaN4O7ltJEWa_u1j_OqVW87FMuwIhQvrXx8-L_xK9E5RgC3DNr29Nm2CwElDr"]
 },
 {
   n: "Lachs-Saltimbocca mit Zucchinigratin", folder: "Fisch", src: "",
   ing: [
-    
+    "Gratin:",
+    "2 Zucchini",
+    "Salz, Pfeffer aus der Mühle",
+    "5 EL Rahm",
+    "3 EL Parmesan",
+    "etwas Olivenöl",
+    "Saltimbocca:",
+    "4 Lachsfilets, je ca. 150 g",
+    "4 Tranchen Parmaschinken",
+    "8 Salbeiblätter",
+    "1 EL Mehl",
+    "2 EL Bratbutter",
+    "Salbeisauce:",
+    "1 dl Weisswein",
+    "1 dl Gemüsebouillon",
+    "6 Salbeiblätter",
+    "1 EL Zitronensaft",
+    "2 EL Butter, kalt"
   ],
   steps: [
-    
+    "Für den Gratin Zucchini in 3 mm dünne Scheiben schneiden und im kochenden Salzwasser blanchieren. Sofort mit kaltem Wasser abschrecken.",
+    "4 flache Gratinförmchen mit Olivenöl bestreichen. Zucchinischeiben ziegelartig einschichten und würzen. Mit Rahm beträufeln und Parmesan darüberstreuen. Gratins im heissen Backofen (Heissluft, 200 °C) ca. 15 Min. überbacken.",
+    "Lachsfilets quer halbieren und mit Salz und Pfeffer würzen. Rohschinkentranchen halbieren, zusammen mit einem Salbeiblatt auf Lachshälften legen und mit Holzspiessli befestigen. Fisch auf der Unterseite mit Mehl bestäuben. Bratbutter erhitzen und Lachsfilets auf jeder Seite 3 Min. braten.",
+    "Für die Sauce Weisswein, Gemüsebouillon und Salbeiblätter aufkochen. Mit Zitronensaft, Salz und Pfeffer abschmecken. Die kalte Butter mit dem Schwingbesen in die Sauce rühren. Lachs-Saltimboccas auf heisse Teller anrichten, Zucchinigratin und Salbeisauce dazu servieren."
   ],
+  port: 4,
   cover: "G:3QLHHGHRd7xvWa1G3iEomEI4_biAv5TycU7aw5gWdg442FDftidkysgQjkTLQ7GFEZA-CLG4srPxpdSr3UGyMm4", pages: ["G:PqFIWxeD1VaKxYIFdJncYIisNSWAdNiB451Bnaorzg73ebogRycztTd-Ksdpp2zkOxjuCTdVSH95TDBLImPIFQ","G:fHC9JqSMqT-6o604Zzui5TMkA80zGOdSqPqux__L5Z1YTvSpb238uBrznNXYWVGix_oJ7ncSpeXSZI-GTulOig"]
 },
 {
   n: "Lachstranchen mit Erdbeersalsa", folder: "Fisch", src: "",
   ing: [
-    
+    "Marinade:",
+    "2 EL Aceto balsamico bianco",
+    "2 EL Olivenöl",
+    "1 Knoblauchzehe, gepresst",
+    "600 g Lachsfilets mit Haut (bio), in 4 Tranchen",
+    "1/2 TL Salz",
+    "Erdbeersalsa:",
+    "3 EL Aceto balsamico bianco",
+    "1 EL Sojasauce",
+    "3 EL Olivenöl",
+    "1 Dose weisse Bohnen (z. B. Cannellini, ca. 400 g), abgespült, abgetropft",
+    "250 g Erdbeeren, in Würfeli",
+    "100 g Cherry-Tomaten, geviertelt",
+    "1 roter Peperoncino, entkernt, in feinen Ringen",
+    "1/2 Bund glattblättrige Petersilie, fein geschnitten",
+    "wenig Pfeffer",
+    "Lachs braten:",
+    "1 EL Öl"
   ],
   steps: [
-    
+    "Pro Person 551 kcal. Aktive Zeit 30 Min., Gesamtzeit 1 Std.",
+    "Marinade: Aceto, Öl und Knoblauch verrühren. Lachs damit bestreichen, zugedeckt im Kühlschrank ca. 30 Min. marinieren, salzen.",
+    "Erdbeersalsa: Aceto, Sojasauce und Öl in einer Schüssel verrühren. Bohnen mit allen Zutaten bis und mit Petersilie darunter mischen, würzen.",
+    "Lachs braten: Öl in einer beschichteten Bratpfanne erhitzen. Lachs beidseitig je ca. 4 Min. braten. Herausnehmen, auf Tellern anrichten, Salsa darauf verteilen.",
+    "Dazu passt: Reis, Bratkartoffeln oder geröstetes Brot."
   ],
+  port: 4,
   cover: "G:fC67ar9o9VHEQKdZ7_0cB6CpE2xDPeywzdQU-P0wyNcM0JrWqMNHsgnq6P3MAVnEor9-6FHXddQ-0PxxOZuNzqcVrTsi5rSA4g", pages: ["G:AOiYEAHZBBrI0IeO_fd0cVhVG-VKhLhwKFSaNrXRZ9LnxWXk6c4cDHywQRJRwzBUcDnLQipXY7TI_T7tnyFbBKy7lgiZyAK22opz"]
 },
 {
@@ -3456,60 +3647,186 @@ window.REZEPTE = [
 {
   n: "Reissalat mit Crevetten", folder: "Fisch", src: "",
   ing: [
-    
+    "250 g schwarzer Reis (z. B. Venere)",
+    "Salzwasser, siedend",
+    "je 1 rote und orange Peperoni",
+    "1 roter Peperoncino",
+    "Öl zum Braten",
+    "400 g rohe geschälte Crevettenschwänze",
+    "3/4 TL Fleur de Sel",
+    "Wasabi-Dressing:",
+    "2 TL Wasabi-Paste",
+    "3 EL Reisessig",
+    "5 EL Sesamöl",
+    "2 EL flüssiger Honig",
+    "1/2 TL Salz",
+    "1 Bund Koriander",
+    "Salat:",
+    "150 g Jungsalat",
+    "40 g Asiatischer Reis- und Nuss-Snack (Saitaku Arare Mix)"
   ],
   steps: [
-    
+    "Zubereitung 40 Min.",
+    "Reis im siedenden Salzwasser ca. 25 Min. weich kochen, kalt abspülen, abtropfen.",
+    "Peperoni und Peperoncino entkernen, in Streifen schneiden. Wenig Öl in einer beschichteten Bratpfanne heiss werden lassen. Crevetten beidseitig je ca. 1 1/2 Min. braten, herausnehmen. Peperoni und Peperoncino in wenig Öl ca. 1 Min. braten, mit den Crevetten mischen, salzen.",
+    "Wasabi-Dressing: Wasabi-Paste mit Essig, Öl, Honig und Salz in einer Schüssel gut verrühren. Koriander fein schneiden, darunter mischen.",
+    "Salat, Reis, Peperoni und Crevetten mit der Sauce mischen, anrichten. Reis-Snack darüberstreuen.",
+    "Hinweis: Die Personenzahl und die Nährwerte sind auf dem Foto abgeschnitten."
   ],
   cover: "G:qBFEG4PanpWaCOD_a1N1tL436HQDo4mvZZz4OjWPMso9WamvqKyGfSo2Ce7NbUEPOTId9QCDuhlAMBIvkNQFuA", pages: ["G:obMwAQGMUi_A30I4hQvbHXxvT0RmmF8wtN7W9zctQN5YrKG0gdfSG8TGopDmYMYXlhmmsGAsZNxfpzK_zSX_"]
 },
 {
   n: "Rotzungenfilet auf Spargel-Morchel-Ragout", folder: "Fisch", src: "",
   ing: [
-    
+    "Ragout:",
+    "150 g Morcheln, frisch (oder 15 g getrocknete)",
+    "250 g Spargeln, weiss",
+    "250 g Spargeln, grün",
+    "1 EL Butter",
+    "1 Schalotte, fein gehackt",
+    "1 TL Mehl",
+    "1 dl Weisswein",
+    "1,5 dl Gemüsebouillon",
+    "1 dl Doppelrahm",
+    "Salz, Pfeffer aus der Mühle",
+    "Rotzungenfilets:",
+    "4 Rotzungenfilets, je 80 g",
+    "etwas Fleur de Sel",
+    "3 EL Zitronen-Olivenöl",
+    "1 EL glatte Petersilie, fein gehackt"
   ],
   steps: [
-    
+    "Morcheln in einem Tuch schütteln bis aller Sand entfernt ist oder unter der Brause schnell waschen und gut trocknen, evtl. kleinschneiden (getrocknete Morcheln 30 Min. in kaltem Wasser einweichen, ausdrücken).",
+    "Spargeln in gelochter Garschale im Dampf (100 °C, grüne 5-7 Min. und weisse 8-10 Min.) weichgaren. Sofort abschrecken, Spargelspitzen wegschneiden und beiseitestellen. Übrige Spargeln in 3 cm lange Stücke schneiden.",
+    "Butter in Pfanne erhitzen, Schalotte und Morcheln dazugeben und dünsten. Mit Mehl bestreuen. Mit Weisswein und Gemüsebouillon ablöschen und zur Hälfte einkochen lassen. Doppelrahm dazugiessen und Spargelstücke beifügen. Ragout abschmecken.",
+    "Rotzungenfilets in Gratinform legen. Mit Fleur de Sel bestreuen, mit Zitronen-Olivenöl beträufeln, Petersilie dazugeben und im Dampf (95 °C, 5 Min.) oder im Backofen 8 Min. (Heissluft, 160 °C) garen.",
+    "Das Ragout anrichten, Rotzungenfilet draufsetzen und mit Spargelspitzen garnieren."
   ],
+  port: 4,
   cover: "G:BWfQOpzOJBxd7dIrrTAiRfLa2dxQShYVFXPpWrsWSCyab3h59KucbCFw2VmfVDg98yUcQwWd8s0D7KbwfhyduA", pages: ["G:VaOZlY7W6XOs-S7DZ6msSoJAR9yFaUIoYnvxKKDtKGIH15IYxp_MaH0S0npyd_WxH6D4CmBhRn6P8t08Ral70g","G:4lVeHzMZdOEAaT1o6pWhsiMQJ9DeDnkPMzY-VN75YGr2T_1q6x7ZU_rG32Ht5JO1xP9O9NTZji6oOnz2D_U"]
 },
 {
   n: "Rotzungenfilets mit Gemüsesalat", folder: "Fisch", src: "",
   ing: [
-    
+    "300 g Rotzungenfilets",
+    "1 EL Butter",
+    "1 dl Weisswein",
+    "10 Basilikumblätter",
+    "Gemüsesalat:",
+    "100 g grüne Bohnen",
+    "400 g Broccoli",
+    "1 kleiner Fenchel",
+    "8 Cherry-Tomaten",
+    "Salatsauce:",
+    "1 TL scharfer Senf",
+    "1/2 Knoblauchzehe",
+    "2 EL Sherry-Essig",
+    "4 EL Olivenöl",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Das Miele Rezept: Gemüsesalat mit Rotzungenfilets.",
+    "Für den Gemüsesalat Bohnen rüsten, je nach Länge halbieren oder dritteln. In der gelochten Schale im Dampf (100 °C, 8-10 Minuten) oder im Salzwasser garen, mit kaltem Wasser abschrecken.",
+    "Broccoli rüsten, in mundgerechte Röschen teilen und in der gelochten Schale im Dampf (100 °C, 3-4 Minuten) garen. Fenchel rüsten und in dünne Scheiben schneiden oder hobeln. Tomaten waschen und halbieren.",
+    "Für die Sauce Senf, Salz, Pfeffer, Sherry-Essig, Olivenöl und gepresste Knoblauchzehe mischen. Basilikumblätter in Streifen schneiden und beiseitestellen.",
+    "Fischfilets quer in 2 cm breite Streifen schneiden. Butter in Bratpfanne erhitzen und Fischstreifen kurz braten. Mit Weisswein ablöschen und den Fisch noch kurz ziehen lassen. Sobald sie gar sind, sorgfältig herausheben und warmstellen (Backofen, 60 °C). Den zurückgebliebenen Sud auf 2 EL einkochen und zur Salatsauce geben.",
+    "Gemüse mit Sauce mischen und auf Teller verteilen. Die warmen Fischstreifen daraufgeben und mit Basilikumstreifen garnieren."
   ],
+  port: 4,
   cover: "G:-9x1cKrKGtSyMjyT4VcFelIAfyu5v6Wq72KBVqYQtrphVnd_mJUS6Bl_IklNJEULD19EoXqVZ2COKjxf0J0U", pages: ["G:YQSwtnguTI6Ctb-ODQxNrSCC9d44kzA2Lw4FBEvAraypX1aoBeBVDiS0jqJRsPdgE_L6F9czJg_X65dEHNDbvdc","G:3WsMMo5hQHbxmF7xCXE00LyU8R8X1dltmrt2_LF9ORYwgbWYrNaT1FFPUbHxmQJ-sy6zPa0m86PbUMqpG5kT7A"]
 },
 {
   n: "Seeteufel auf Lauch-Risotto", folder: "Fisch", src: "",
   ing: [
-    
+    "Seeteufel-Médaillons:",
+    "8 Seeteufel-Médaillons à 50 g",
+    "1 EL Senf",
+    "Salz, Pfeffer aus der Mühle",
+    "etwas Mehl",
+    "etwas Bratbutter",
+    "etwas Olivenöl",
+    "Lauch-Risotto:",
+    "400 g Lauch",
+    "30 g Butter (1)",
+    "1 Zwiebel, klein",
+    "2 Knoblauchzehen",
+    "30 g Butter (2)",
+    "200 g Risotto-Reis",
+    "0,6 dl Weisswein",
+    "6 dl Gemüsebouillon",
+    "60 g Parmesan",
+    "0,6 dl Rahm",
+    "Salz, Pfeffer aus der Mühle"
   ],
   steps: [
-    
+    "Für Risotto den Lauch rüsten und in feine Streifen schneiden. Butter (1) erhitzen und die Lauchstreifen dünsten, mit Salz und Pfeffer würzen. Beiseitestellen.",
+    "Zwiebel und Knoblauch schälen und fein hacken. Butter (2) in einer Pfanne erhitzen und Zwiebel dünsten. Reis und Knoblauch dazugeben, kurz umrühren und mit Weisswein ablöschen. Etwas Gemüsebouillon zugiessen und weiterrühren. Sobald die Flüssigkeit vom Reis aufgenommen ist, wieder Bouillon nachgiessen. Nach 15-20 Minuten probieren, ob der Reis al dente ist. Kurz bevor der Risotto fertig ist, den glacierten Lauch und den Rahm dazugeben. Parmesan dazureiben, Risotto mit Salz und Pfeffer abschmecken.",
+    "Die Seeteufel-Médaillons mit Senf bestreichen, würzen und mit Mehl bestäuben. Bratbutter und Olivenöl erhitzen, Seeteufel glasig braten.",
+    "Den Lauch-Risotto auf heisse Teller anrichten und die Seeteufel-Médaillons daraufsetzen."
   ],
+  port: 4,
   cover: "G:TQBgN2Mm5e9KkEfDY58gPDNLySga_1wkbXlclIqDf8ZFVSx19MiVp6n4TJ-jnjD7jLionHmflj6eogIRwzk7PgQ", pages: ["G:LBetu5pr7L7a3hDJQAe6ngN-FmWXERzWAd8Cl-mU7_sPaMcBAhnJoZkKzLjXB5jwJB6lDKAjQmdsNTfcl_6Ukw","G:gspX6wTc-OMgw-Homx3jzvXq13TK0Y5tMd9eruaf4ZaXqMtzd_Iabhia-g1J1lXiwkRsKvYxj1W3icc_mNIJ"]
 },
 {
   n: "Seeteufel-Médaillons im Speckmantel auf Gemüserösti", folder: "Fisch", src: "",
   ing: [
-    
+    "Seeteufel:",
+    "8 Seeteufel-Médaillons à ca. 60 g",
+    "Meersalz, Pfeffer aus der Mühle",
+    "1 TL Zitronenschale",
+    "8 Tranchen Rohessspeck",
+    "2 EL Olivenöl",
+    "Gemüserösti:",
+    "120 g Auberginen",
+    "120 g Zucchetti",
+    "120 g Rüebli",
+    "120 g Peperoni, rot",
+    "150 g Kartoffeln",
+    "3 EL Bratbutter",
+    "Salz, Pfeffer aus der Mühle, Muskatnuss",
+    "Zitronensauce:",
+    "1 Bio-Zitrone, Raps und 3 EL Saft",
+    "2 dl Gemüsefond",
+    "1 dl Weisswein",
+    "1 EL Zitronen-Olivenöl",
+    "1 dl Rahm, geschlagen"
   ],
   steps: [
-    
+    "Das Miele Rezept: Seeteufel-Médaillons im Speckmantel auf Gemüserösti.",
+    "Gemüse rüsten, evtl. entkernen und in feine Streifen schneiden. In Schüssel mischen und würzen. 4 kleine Rösti formen. Butter erhitzen und Gemüserösti ca. 4 Min. braten.",
+    "Gemüsefond in Pfanne geben und auf die Hälfte einkochen lassen. Zitronenschale fein abreiben und beiseitestellen. Zitrone auspressen und Saft durch ein Sieb in den Sud passieren. Weisswein dazugiessen und sämig einkochen lassen. Zitronenraps beifügen und Sauce abschmecken.",
+    "Médaillons mit Salz, Pfeffer und Zitronenschale marinieren und im Speck einwickeln. Olivenöl erhitzen und Médaillons beidseitig braten. Warmstellen (Backofen, 60 °C).",
+    "Rahm kurz vor dem Servieren in Sauce mischen. Rösti anrichten, Médaillons daraufsetzen und mit Sauce nappieren.",
+    "Wir wünschen en Guete."
   ],
+  port: 4,
   cover: "G:LXYdmGXmAEMA-1Kk_D95dP4s0mMt2NphVzvldbes6mHeMVR-4i4v7pI2ByeZ_X2aHN6ZhRPGEdLs1JjCjDmWXw", pages: ["G:cMMT-SgobNdbTfzLhAWWP9TapMrf8nOSquny07jneo55G7ivyJXHLEPARR6Q3AL1YicGKH8AS4d4NlMmW4j2"]
 },
 {
   n: "Spargel-Curry mit Lachs", folder: "Fisch", src: "",
   ing: [
-    
+    "500 g grüne Spargeln",
+    "500 g weisse Spargeln",
+    "3 Bundzwiebeln mit dem Grün",
+    "1 roter Chili",
+    "30 g Ingwer",
+    "2 Knoblauchzehen",
+    "3 Stängel Zitronengras",
+    "1 EL Olivenöl",
+    "3 EL grüne Currypaste",
+    "2 1/2 dl Gemüsebouillon",
+    "5 dl Kokosmilch (Thai Kitchen)",
+    "1/4 TL Salz",
+    "400 g Lachsrückenfilet",
+    "1/4 TL Salz",
+    "100 g Jungspinat",
+    "1 Limette"
   ],
   steps: [
-    
+    "Unteren hölzernen Teil der grünen Spargeln wegschneiden. Weisse Spargeln gut schälen, beide in ca. 3 cm lange Stängel schneiden. Bundzwiebeln in ca. 2 cm breite Ringe schneiden. Chili entkernen, in feine Ringe schneiden. Ingwer und Knoblauch schälen, fein reiben. Zitronengras quetschen.",
+    "Öl in einer Pfanne warm werden lassen. Spargeln ca. 5 Min. andämpfen. Bundzwiebeln kurz mitdämpfen, herausnehmen. Ingwer, Knoblauch, Chili und Currypaste kurz in derselben Pfanne andämpfen. Bouillon und Kokosmilch dazugiessen, Zitronengras beigeben, aufkochen. Hitze reduzieren, ca. 5 Min. kochen, salzen. Spargeln mit den Bundzwiebeln wieder beigeben, bei mittlerer Hitze ca. 5 Min. mitkochen.",
+    "Lachs in ca. 2 cm grosse Würfel schneiden, salzen, mit dem Spinat beigeben, mischen, zugedeckt bei kleiner Hitze ca. 5 Min. ziehen lassen. Limette heiss abspülen, trocken tupfen, in Schnitze schneiden, dazu servieren.",
+    "Hinweis: Titel, Personenzahl und Zubereitungszeit sind auf dem Foto nicht sichtbar."
   ],
   cover: "G:LLMtFy5bzXlhWv7hKCCErRCuYRt60CW5omRljcRCIUBChe8iujbAOc0MlbyvJ1CcUUk15yZMMDd1vJKMs8qTorMyeGDHVhUymwNv", pages: ["G:dDVXrhh-HoSiM8RITZbZjurwsh8c3pmlebCYI68e4Y6fwJEaPh8uA3kHFi6ut9OoDhvRSOOcjRPBkpa8Vy9FDvRJVgb0dra9OQ","G:atxwVlt9RiFVnxvdkqRdmQt3WDhQcItBCOMd-8TKs0iMZYtW8bfgIfPErT8gC_4hHJEXckMxOA3ThLdgW3-zasHDl9N9-kg4ng"]
 },
