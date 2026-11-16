@@ -1466,20 +1466,48 @@ window.REZEPTE = [
 {
   n: "Asiatischer Fried Rice", folder: "Asiatisch", src: "",
   ing: [
-    
+    "250 g Langkornreis, z. B. Basmati",
+    "1 Zwiebel, in Streifen",
+    "2 Knoblauchzehen, in feinen Scheiben",
+    "3 cm Ingwer, fein gehackt",
+    "1 rote Peperoni, in Streifen",
+    "1 EL Rapsöl",
+    "4 Eier, verquirlt",
+    "100 g tiefgekühlte Erbsli, angetaut",
+    "100 g geräucherte Trutenbrust in Streifen oder gekochte Pouletbruststreifen",
+    "3-4 EL Sojasauce",
+    "1 EL Ketchup",
+    "1 Zitrone oder Limette, in Schnitzen",
+    "100 g Cashewkerne, geröstet"
   ],
   steps: [
-    
+    "Zubereiten ca. 45 Minuten.",
+    "Reis nach Verpackungsangabe zubereiten.",
+    "Zwiebel und alle Zutaten bis und mit Peperoni im Wok oder in einer weiten Bratpfanne im heissen Öl anbraten. Eier beigeben und ca. 3 Minuten rührbraten. Reis beigeben, ca. 4 Minuten rührbraten. Erbsli, Trutenbrust oder Pouletbruststreifen, Sojasauce und Ketchup beigeben, mischen.",
+    "Mit Zitronenschnitzen und Cashewkernen garnieren. Nach Belieben mit Sojasauce servieren.",
+    "Tipp: Lässt sich gut am Vortag zubereiten. Schmeckt kalt oder aufgewärmt."
   ],
+  port: 4,
   cover: "G:TULKKIWVVhrrZ1j_7BzZkk3R9QnB4tSLzSu-gIKtOb4DSVIzLxqgAXU7MYWddSD_UVb6GTy7q40saKlQ6xCjHCi7PAzwcKW5Og", pages: ["G:9dvlrYtYPfxLRdZeJ4O3MbtcMPyoNysqJOZMHeAlWusnq5_iuV_CxvsvHPnqlIHdGATXUYS8DqbTg2z8dYOESjCtC8kBdBzU-fw","G:QD1rEFRtoR7gB6ggUD4a4Nu3wujZ43_YuBRg9ItsswgLTG8NUoyzdNoaEEpFrK0cqAM6LoZDsg0bgx283KUwpbVcmrPp30Rd0Zo"]
 },
 {
   n: "Bami Goreng", folder: "Asiatisch", src: "",
   ing: [
-    
+    "125 g Chinesische Nudeln (z. B. Mei Yang Chinese Noodles)",
+    "Salzwasser, siedend",
+    "400 g Rüebli",
+    "3 Bundzwiebeln mit dem Grün",
+    "300 g Pak-Choi",
+    "Erdnussöl zum Braten",
+    "400 g geschnetzeltes Pouletfleisch",
+    "3 EL Sojasauce oder Ketjap Manis (siehe Hinweis)",
+    "1 EL Sambal Oelek",
+    "1 dl Gemüsebouillon"
   ],
   steps: [
-    
+    "Nudeln im siedenden Salzwasser ca. 3 Min. al dente kochen, abtropfen, kalt abspülen.",
+    "Rüebli schälen, in dünne, ca. 5 cm lange Streifen schneiden. Bundzwiebeln schräg in Ringe schneiden, Bundzwiebelgrün beiseite stellen. Pak-Choi in ca. 1 cm dicke Streifen schneiden.",
+    "Öl im Wok oder in einer weiten beschichteten Bratpfanne heiss werden lassen. Poulet portionenweise je ca. 2 Min. braten, herausnehmen. Wenig Öl in derselben Pfanne heiss werden lassen. Nudeln ca. 3 Min. rührbraten, herausnehmen. Wenig Öl in derselben Pfanne heiss werden lassen. Rüebli ca. 3 Min. rührbraten, Bundzwiebeln und Pak-Choi ca. 2 Min. mitrührbraten. Sojasauce und Sambal Oelek beigeben, Bouillon dazugiessen, aufkochen. Hitze reduzieren, Poulet und Nudeln wieder beigeben, nur noch heiss werden lassen. Beiseitegestelltes Bundzwiebelgrün darüberstreuen."
   ],
   cover: "G:E82Fs9wCupICqMdxuf9EX2ucGhqxoBb1w_ZPJi3dDPQhZujV6OZ2nP8lLfWaFNS9lVYYY9koaGVWQjTZQ_9eY4hFN4tehsQtP1gJ", pages: ["G:L97bwZaRoivDxQMp-wZvWVw49h38nJE5jXGZXDVYD-xGwORH5LnZF6m60K4jywIor378KznRia5O2lp-MwPj7YXBVLGzf5_Ahw","G:4TOMviTOfoGPo3sXffLimHHqoByEqKCsVYXiT2SWSYEraL-cuGYIFTh0uZ6Sk4laeHpjBC0Lj1UaHEdcfQ2o-drdBf-mXjRe4aI"]
 },
@@ -1511,10 +1539,27 @@ window.REZEPTE = [
 {
   n: "Frische Frühlingsrolle mit Poulet", folder: "Asiatisch", src: "",
   ing: [
-    
+    "150 g Hähnchenbrustfilet",
+    "1 Bio-Zitrone",
+    "1 EL Sojasauce",
+    "50 g feinste Reisnudeln",
+    "2 kleine Zwiebeln (100 g)",
+    "2-3 Möhren",
+    "100 g Sojabohnensprossen",
+    "1/2 Bund Koriandergrün",
+    "1/2 Bund Petersilie",
+    "16 Salatblätter",
+    "2 EL Öl",
+    "Salz",
+    "schwarzer Pfeffer aus der Mühle",
+    "1 EL Fischsauce",
+    "20 Reispapierblätter",
+    "Austernsauce und süßscharfe Chilisauce zum Dippen"
   ],
   steps: [
-    
+    "Das Filet waschen, trocken tupfen, quer halbieren und in dünne Streifen (0,5 x 4 cm) schneiden. Zitrone heiß waschen und abtrocknen. Die Schale mit einem Zestenreißer in dünnen Streifen abziehen, beiseitestellen. 2 EL Saft auspressen, mit der Sojasauce mischen. Die Hähnchenstreifen darin marinieren. Die Reisnudeln nach Packungsangabe kochen. Kalt abspülen und klein schneiden.",
+    "Zwiebeln schälen, halbieren und in feine Streifen schneiden. Die Möhren schälen, in schmale Streifen schneiden (0,3 x 4 cm). Sprossen waschen und trocken tupfen. Koriandergrün und Petersilie waschen, trocken schütteln und die Blättchen abzupfen. Die Salatblätter waschen und trocken schleudern, dicke Mittelrippen herausschneiden.",
+    "(Der Rest der Zubereitung — Anbraten, Füllen und Rollen der Reispapierblätter — fehlt auf dem Foto.)"
   ],
   cover: "G:4WnhGBpm6UB1CaYYRAgCkYd3scSV9XsNpGCSciEB34LpMUzy5lvFxT0MGLh59TbDqhFfBcOY0LxbpWcJKhAJ0ko", pages: ["G:JOuYHwWXGL1S86ZYN1oPqCSzWTv4BUiLn9k0myIZkflEE57ivwHjoSCNeYpzq21joYDmgHl_r1sGzA8H6qWt7to","G:ukZgZO42A9GMIA53SiLcT4Fe3t7mEkYfPXxKyIBnm_Ez0B-vE2B-N-MLmmbGegsyF91E8nJvDI_WOQscZlOSHyk"]
 },
@@ -1560,11 +1605,42 @@ window.REZEPTE = [
 {
   n: "Grünes Thaicurry", folder: "Asiatisch", src: "",
   ing: [
-    
+    "Currypaste:",
+    "2 Stängel Zitronengras",
+    "3 grüne Chilis",
+    "2 grüne Peperoncini",
+    "2 Knoblauchzehen",
+    "2 Schalotten",
+    "50 g Galgant oder Ingwer",
+    "4 Kaffirlimetten-Blätter",
+    "1 Bund Koriander",
+    "1 TL Koriandersamen",
+    "1 TL Kreuzkümmel",
+    "2 EL grobkörniger Rohzucker",
+    "1 dl Fischsauce",
+    "Gemüse:",
+    "1 Pack Thai-Mix (ca. 350 g, Betty Bossi; siehe Tipps)",
+    "1 Rüebli",
+    "1 Pack-Choi",
+    "Ausserdem:",
+    "2 EL Erdnussöl",
+    "300 g Pouletbrustwürfel",
+    "2 1/2 dl Hühnerbouillon",
+    "5 dl Kokosmilch (Thai)",
+    "1 Limette",
+    "1 Bund Thai-Basilikum"
   ],
   steps: [
-    
+    "Zeit: 40 Min.",
+    "Currypaste: Inneres der Zitronengrasstängel fein schneiden. Chilis und Peperoncino entkernen, in Stücke schneiden. Knoblauch, Schalotten und Galgant schälen, in Stücke schneiden, mit Kaffirlimetten-Blättern in einen Messbecher geben.",
+    "Koriander gut waschen, mit den Stängeln beigeben. Koriandersamen, Kreuzkümmel, Rohzucker und Fischsauce beigeben, pürieren.",
+    "Thai-Auberginen, Mini-Mais und evtl. Okras halbieren. Schlangenbohnen in Stücke schneiden. Rüebli schälen, in Stängel, Pak-Choi in Streifen schneiden. Zitronengras quetschen.",
+    "Öl im Wok oder in einer weiten Bratpfanne heiss werden lassen. Pouletwürfel ca. 2 Min. rührbraten, herausnehmen. In derselben Pfanne Gemüse ca. 3 Min. rührbraten, 3 EL der Currypaste beigeben.",
+    "Bouillon und Kokosmilch dazugiessen, aufkochen, Hitze reduzieren, ca. 10 Min. köcheln.",
+    "Pouletwürfel wieder beigeben, nur noch heiss werden lassen. Limette gut waschen, in Schnitze schneiden, Basilikum grob schneiden, darauf verteilen.",
+    "Pro Portion (1/4): 482 kcal, F 30 g, Kh 25 g, E 26 g."
   ],
+  port: 4,
   cover: "G:hGJxfPwTz-2gTFi0KkDH5euxRRA0zHEIVnSEc_SDIxAedR5LTAb3vbTTdYtCTuRTItjLcmh60faMz6NDcEtTQ2s", pages: ["G:1-37-glSv5XB9YMxoT_zWXAu-zgs6vRdRVn8lWMAx25bZrCRkwCgvsOJ-SNvV65Es6ZzDrE8KqLtxToiDJc-","G:7bZ_zgXFJeagr3DJBXOnx1PB7I-LXV3on1poKRO1uW8nw48NjnRiVxlARPECoo8dYT8vlqDc3K6mOrQr3dV4"]
 },
 {
@@ -1620,20 +1696,58 @@ window.REZEPTE = [
 {
   n: "Pad Thai", folder: "Asiatisch", src: "",
   ing: [
-    
+    "100 g Reisnudeln (z. B. Mei Yang Rice Noodles)",
+    "Wasser, siedend",
+    "400 g geräucherter Tofu",
+    "2 Knoblauchzehen",
+    "6 Bundzwiebel mit dem Grün",
+    "50 g geröstete, gesalzene Erdnüsse",
+    "Erdnussöl zum Braten",
+    "250 g Mungbohnen-Sprossen",
+    "1 Limette",
+    "2 EL gemahlener Rohzucker",
+    "1 TL Chiliflocken",
+    "2 EL Fischsauce",
+    "2 EL Tamarindenpaste",
+    "1 dl Wasser",
+    "40 g geröstete, gesalzene Erdnüsse",
+    "1 Bund Koriander"
   ],
   steps: [
-    
+    "Reisnudeln in eine Schüssel geben, mit dem siedenden Wasser übergiessen, ca. 10 Min. ziehen lassen, abtropfen, kalt abspülen.",
+    "Tofu in ca. 3 cm dicke Stängel schneiden. Knoblauch schälen, in Scheibchen schneiden, Bundzwiebeln schräg in Ringe schneiden. Erdnüsse grob hacken. Wenig Öl im Wok oder in einer weiten beschichteten Bratpfanne heiss werden lassen. Tofu portionenweise je ca. 2 Min. braten, herausnehmen. Wenig Öl in derselben Pfanne heiss werden lassen. Knoblauch, Bundzwiebeln, Erdnüsse und Mungbohnen-Sprossen ca. 5 Min. rührbraten.",
+    "Von der Limette den ganzen Saft dazupressen. Rohzucker, Chiliflocken, Fischsauce, Tamarindenpaste und Wasser beigeben, aufkochen. Hitze reduzieren, Tofu und Nudeln wieder beigeben, mischen, nur noch heiss werden lassen.",
+    "Erdnüsse grob hacken, Korianderblätter abzupfen, darüberstreuen."
   ],
   cover: "G:d3wkzldIrtbLYOu8e6J7Ua0EveXLcMcbuFJJxnXgtejKYmW-RGCxZTVIjAo0x4iXG3POezHJXKpwBuysBdausLsAm7pc3Ess1CM", pages: ["G:MTU5I7BtzuuuA2VSWA1EBPEebDJeJoDVyVG5fk-I2WDRSiL6auhNPT93g2PgfUb_wODXMRNBuN8QFHc3SVhR5dxesRTm2-p-in4","G:P5Q3pZobf-g9M5TmAYM2SIH853yEtrPTOfwmvuomKPNKyqGLuR3mqPi5Ql81QcQ9LYbrqvlyxME9nd5ozCqzVlVeZjTLVlgS8DY"]
 },
 {
   n: "Rotes Thai-Curry mit Crevetten", folder: "Asiatisch", src: "",
   ing: [
-    
+    "Reis:",
+    "300 g Parfümreis oder Basmatireis",
+    "4 1/2 dl Kokoswasser (Bio)",
+    "20 g Ingwer",
+    "Gemüse und Sauce:",
+    "1 Baby-Ananas (ca. 400 g)",
+    "3 Pak-Choi (ca. 600 g)",
+    "20 g Ingwer",
+    "1 EL Erdnussöl",
+    "2 EL rote Currypaste",
+    "1 Limette",
+    "4 1/2 dl Wasser",
+    "2 1/2 dl Kokosmilch (Thai Kitchen)",
+    "3/4 TL Salz",
+    "Crevetten:",
+    "1 EL Erdnussöl",
+    "16 geschälte rohe Crevettenschwänze (ca. 350 g)",
+    "1/2 TL Salz"
   ],
   steps: [
-    
+    "Reis im Sieb unter fliessendem, kaltem Wasser so lange spülen, bis dieses klar ist, gut abtropfen. Kokoswasser mit dem Reis in eine Pfanne geben. Ingwer schälen, dazureiben, aufkochen, zugedeckt auf der kleinsten Stufe ca. 15 Min. quellen lassen, dabei den Deckel nie abheben. Reis mit einer Gabel lockern.",
+    "Ananas schälen, in Würfeli schneiden. Pak-Choi in Streifen schneiden. Ingwer schälen, fein reiben.",
+    "Öl im Wok oder in einer weiten Bratpfanne heiss werden lassen. Ananas, Pak-Choi und Ingwer ca. 3 Min. rührbraten. Herausnehmen, 1/4 davon beiseite stellen, Hitze reduzieren. Currypaste beigeben, ca. 2 Min. andämpfen. Von der Limette Saft auspressen, dazugiessen, vollständig einkochen. Wasser und Kokosmilch dazugiessen, aufkochen, salzen. Hitze reduzieren, ca. 10 Min. köcheln. Gemüse wieder beigeben, nur noch heiss werden lassen.",
+    "Öl in einer beschichteten Bratpfanne heiss werden lassen. Crevetten in zwei Portionen beidseitig je ca. 1 Min. braten. Herausnehmen, salzen, unter das Curry mischen, nur noch heiss werden lassen. Beiseite gestelltes Gemüse darauf verteilen."
   ],
   cover: "G:gCmR9aKMdahvN5pED7xfd-Ou1NRwVMdGrVcRReNqUa7sbcgTXtDQHeJ78G8qDiTPhj1KBfx3dLLZ5ApwL2sAmQ39GuV1GAeaYmA", pages: ["G:GFxSjeLw7-safS73On46zWELC2wp0u1pKhVTn90jP0aMBWVWn84CbIS1QVSwJBXkQ9F73viyyz5quV-M1RMw0ezhtpePwUPFKA8","G:8FE5r5HESBMAu0v56ZHPrlBPOIF3vJ8IQdmLGvYEFozmY8vL086ilLpbcjpZf5a6ZQAuyK-cyQBGOLUkp8XrHJ2BeHGx1C8uK_8"]
 },
@@ -1663,11 +1777,24 @@ window.REZEPTE = [
 {
   n: "Teriyaki-Crevetten mit Knusper-Panko", folder: "Asiatisch", tags: ["Fisch"], src: "",
   ing: [
-    
+    "350 g Basmatireis",
+    "5,5 dl Wasser",
+    "Salz",
+    "2 Frühlingszwiebeln",
+    "1 Pak-Choi",
+    "1 Peperoni",
+    "40 g Paniermehl, z. B. Panko",
+    "Öl zum Braten",
+    "400 g Crevetten, vor Gebrauch aufgetaut",
+    "1,5 dl Teriyaki-Sauce",
+    "1/2 Bund Koriander"
   ],
   steps: [
-    
+    "Reis unter fliessendem kaltem Wasser in einem Sieb gut abspülen. Wasser leicht salzen und mit Reis aufkochen. Hitze auf ein Minimum reduzieren. Reis zugedeckt ca. 15 Minuten gar ziehen lassen, bis das Wasser komplett aufgesogen ist. Dabei nicht mehr rühren.",
+    "Inzwischen Zwiebeln fein schneiden. Pak-Choi in feine Streifen schneiden. Peperoni halbieren, entkernen und in Würfelchen schneiden. Pfanne ohne Öl erhitzen. Panko dazugeben und kurz rösten, bis es schön braun wird. Salzen. Herausheben und beiseitestellen. Öl in die Pfanne geben. Crevetten, Peperoni, Pak-Choi und Zwiebeln dazugeben. 3-5 Minuten rührbraten. Leicht salzen. Sauce dazugeben, aufkochen und auf dem Reis anrichten. Mit Panko und Koriander bestreuen.",
+    "Tipp: Nach Belieben mit Limetten servieren."
   ],
+  port: 4,
   cover: "G:1CjpNHYs2-eUHkhTuqp9DtuEz_bBCRrOEshJAcENSsz4xGh0NfnImswKaHhbYL8CKM7JL799EfH1swJHUPxfE8rijRRAErHg9ElF", pages: ["G:d8GTO-oQhwy6LFvISJ5N0tyYLtT_i5s5oT7Ms6htHo5IStmICJgZhs9OmN3f8skRrs0B5mZL4dyBvVgXlckMqqX85OKpR59FQAY","G:L37fcYxO-Zb57naZCm43GWT1zuFi8CYQY9CI9lVTZbFAiGAHd6s-zgPmkO6UP0xRUt_RBIZKzdEMyxneVS2fwG13WsgOClYD6tk"]
 },
 {
@@ -1699,10 +1826,23 @@ window.REZEPTE = [
 {
   n: "Vietnamesische Frühlingsrolle mit Tofu", folder: "Asiatisch", src: "",
   ing: [
-    
+    "60 g Glasnudeln",
+    "2 EL helle Sojasauce",
+    "1 Bund Schnittknoblauch",
+    "100 g Mungobohnensprossen",
+    "1 Bio-Limette",
+    "Öl zum Braten",
+    "süße Chili-Sauce (Fertigprodukt oder selbst gemacht)",
+    "150 g Tofu",
+    "150 g Möhren",
+    "10 große Salatblätter",
+    "1 Bund Koriandergrün",
+    "1 Avocado",
+    "20 runde Reispapierblätter (16 cm Ø)"
   ],
   steps: [
-    
+    "Glasnudeln in einer Schüssel mit kochend heißem Wasser übergießen und ca. 4 Min. ziehen lassen. Abtropfen lassen und klein schneiden. Tofu zwischen Küchenpapier fest ausdrücken, in 1/2 cm dicke Streifen schneiden und mit der Sojasauce mischen. Möhren schälen und raspeln. Schnittknoblauch waschen, trocken tupfen und in 4 cm lange Stücke schneiden. Salat waschen und trocken schleudern. Sprossen heiß waschen und abtropfen lassen. Koriander waschen und trocken tupfen. Limette heiß abwaschen, abtrocknen, Schale abreiben und Saft auspressen. Avocado schälen, halbieren, entkernen und in feine Streifen schneiden, sofort mit Limettensaft beträufeln. Möhren und Sprossen im Öl im Wok 2-3 Min. rührbraten. Abkühlen und mit allen Zutaten außer Salat, Reispapier und Chilisauce mischen.",
+    "Reispapier je 1-2 Min. in einem tiefen Teller in Wasser einweichen. Je 1 gehäuften EL Füllung daraufgeben. Das Papier von unten über die Füllung klappen, die Seiten einschlagen und vollständig aufrollen. Mit Frischhaltefolie abdecken. Zum Servieren die Salatblätter halbieren, die Rollen hineinwickeln und Chilisauce dazu reichen."
   ],
   cover: "G:VA-KXB7tByf2uau60noSC0mwLRtp0TkR2q3SbNlnCvfX2-9NVjAXqJ2igmBEyq3Mu7PQzNSbSzaEc0jv4Tun0oc", pages: ["G:M6Lu5rZvqRj0WbuQHFBAxYETztl88bCDLzcT0Vs0TJ4_D6nYAQnUqFnlm6ZBc014xTVILV_3MW-OpgG7IJF2","G:ak-k1JhW64lzh-BgnmUMXJiHHPvhu8cGVY5Rz5WIfCTEigERlAzmgAM7c_aCkfb428LLJMOzxrW6ICplry1b"]
 },
