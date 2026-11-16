@@ -285,18 +285,18 @@
    "show": true
   },
   {
-   "id": "Getränke",
-   "name": "Getränke",
-   "icon": "🍹",
-   "color": "#d98e04",
-   "parent": null,
-   "show": true
-  },
-  {
    "id": "Gewürze",
    "name": "Gewürze",
    "icon": "🌶️",
    "color": "#6b8f71",
+   "parent": null,
+   "show": true
+  },
+  {
+   "id": "Getränke",
+   "name": "Getränke",
+   "icon": "🍹",
+   "color": "#d98e04",
    "parent": null,
    "show": true
   }
