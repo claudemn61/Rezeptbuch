@@ -317,7 +317,7 @@ function readImage(file) {
   return new Promise((res, rej) => {
     const u = URL.createObjectURL(file), im = new Image();
     im.onload = () => { URL.revokeObjectURL(u); res(im); };
-    im.onerror = () => { URL.revokeObjectURL(u); rej(new Error('Bild «' + (file.name || '') + '» lässt sich nicht öffnen')); };
+    im.onerror = () => { URL.revokeObjectURL(u); rej(new Error('Bild «' + (file.name || '') + '» lässt sich nicht öffnen' + (/\.hei[cf]$/i.test(file.name || '') || /hei[cf]/i.test(file.type || '') ? ' (HEIC wird nur in Safari auf iPhone/Mac gelesen; sonst vorher als JPG sichern)' : ''))); };
     im.src = u;
   });
 }
@@ -416,9 +416,9 @@ function openImport() {
   let busyOn = false;
   const start = (msg = '') => {
     sheet(`<h3>Rezept importieren</h3>
-      <button class="chip big" type="button" id="i-photo">📷 Foto oder Scan wählen</button>
-      <input id="i-file" type="file" accept="image/*" multiple hidden>
-      <p class="note tiny">Mehrere Bilder = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge.</p>
+      <button class="chip big" type="button" id="i-photo">📷 Foto, Scan oder PDF wählen</button>
+      <input id="i-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif,application/pdf,.pdf" multiple hidden>
+      <p class="note tiny">Mehrere Dateien = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge. Möglich: JPG, PNG, iPhone-Format HEIC und PDF.</p>
       <label>Oder Link zu einem Rezept<input id="i-url" type="url" inputmode="url" autocapitalize="off" placeholder="https://…"></label>
       <button class="chip on" type="button" id="i-go">🔗 Link importieren</button>
       <p class="note tiny err" id="i-msg">${esc(msg)}</p>
@@ -478,10 +478,21 @@ function openImport() {
   };
   const fromPhotos = async files => {
     try {
-      busy('Bilder werden vorbereitet …');
-      const images = []; for (const f of files) images.push(await shrink(f, 1600, 0.82));
+      busy('Dateien werden vorbereitet …');
+      const isPdf = f => f.type === 'application/pdf' || /\.pdf$/i.test(f.name || '');
+      const images = [], content = [];
+      for (const f of files) {
+        if (isPdf(f)) {
+          if (f.size > 20 * 1024 * 1024) throw new Error('PDF «' + f.name + '» ist zu gross (über 20 MB)');
+          const data = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('PDF lässt sich nicht lesen')); fr.readAsDataURL(f); });
+          content.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } });
+        } else {
+          const u = await shrink(f, 1600, 0.82); images.push(u);
+          content.push({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } });
+        }
+      }
       busy('Claude liest das Rezept …');
-      const content = [...images.map(u => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } })), { type: 'text', text: recipePrompt() }];
+      content.push({ type: 'text', text: recipePrompt() });
       review(await askClaude(content), images, '');
     } catch (e) { start('⚠ ' + e.message); }
   };
@@ -539,7 +550,7 @@ function openEditSheet(r) {
         <label class="chk"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip" data-del="${i}">Entfernen</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
       <button class="chip big" type="button" id="p-add">＋ Bilder hinzufügen</button>
-      <input id="p-file" type="file" accept="image/*" multiple hidden>
+      <input id="p-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden>
       <p class="note tiny err" id="p-msg">${esc(msg)}</p>
       <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
   };
