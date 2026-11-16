@@ -2055,90 +2055,223 @@ window.REZEPTE = [
 {
   n: "Beerencremschnitte", folder: "Dessert", src: "",
   ing: [
-    
+    "300 g Blätterteig",
+    "1/2 dl Vollrahm",
+    "100 g weisse Schokolade, fein gehackt",
+    "2 frische Eigelbe",
+    "3 EL Zucker",
+    "3 Blatt Gelatine, ca. 5 Min. in kaltem Wasser eingelegt, abgetropft",
+    "1 EL Wasser, siedend",
+    "1/2 dl Vollrahm",
+    "250 g Mascarpone",
+    "125 g Brombeeren, zerdrückt",
+    "125 g Himbeeren, zerdrückt",
+    "2 frische Eiweisse",
+    "1 Prise Salz",
+    "200 g Puderzucker",
+    "3 EL Himbeergeist",
+    "Borretschblüten, Himbeeren und Brombeeren zum Verzieren"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 35 Min. Backen: ca. 15 Min. Kühl stellen: ca. 2 Std.",
+    "Teig quer dritteln, je ca. 2 mm dick auswallen (ca. 35 x 10 cm). Teige mit einer Gabel dicht einstechen, auf ein mit Backpapier belegtes Blech legen.",
+    "Backen: ca. 15 Min. in der unteren Hälfte des auf 220 Grad vorgeheizten Ofens. Herausnehmen, auf einem Gitter auskühlen. Alle Blätterteigstücke gleich gross zuschneiden.",
+    "Mousse: Rahm aufkochen, Pfanne von der Platte nehmen. Schokolade beigeben, schmelzen, glatt rühren.",
+    "Eigelbe und Zucker rühren, bis die Masse schaumig ist. Schokolade darunterrühren. Gelatine mit dem Wasser auflösen, mit 3 Esslöffel Masse verrühren und sofort gut unter die restliche Masse rühren.",
+    "Rahm und Mascarpone knapp steif schlagen, mit dem Gummischaber sorgfältig unter die Masse ziehen. Brombeeren und Himbeeren daruntermischen. Eiweisse mit dem Salz steif schlagen, sorgfältig darunterziehen, ca. 1 Std. kühl stellen.",
+    "Eine Teigplatte auf eine Platte legen, die Hälfte der Creme daraufgeben, glatt streichen. Eine Teigplatte darauflegen, sorgfältig andrücken, restliche Creme darauf verteilen, letzte Teigplatte darauflegen, sorgfältig andrücken.",
+    "Puderzucker und Himbeergeist zu einer dickflüssigen Glasur verrühren. Schnitte gleichmässig damit bestreichen, zugedeckt ca. 1 Std. kühl stellen. Mit Borretschblüten und Beeren verzieren.",
+    "Pro Stück: 558 kcal, E 8 g, Kh 56 g, F 33 g."
   ],
   cover: "G:og7YKh9dFwaLCJRyQBy6ui5lJfw4FaIX0kVglHWmCHih1aM8AcL5-NOGW8KZYZhTc-2N5IEqwwpmGZtfjLaZpk-k1quhPKA9r9Y", pages: ["G:nFaQti8uY4lG8CbJ40QUn2QxhLGYznyI-tx5RRc2m9LIvsFL2kiGUx0YzkhBVK5kdUQ6-0rykaDsbUJ-PUcRwIJZq61ebO1pxQ","G:QlpLPpmeNkXjD-1cDZ46Cjf8qYDUf1T6kpgzntM0iKc9IGZCSOQM1UeXWgX2xMVp88SBafB8WhO8nDyc3OUfeaNoeWKjHVFD7VI"]
 },
 {
   n: "Beeri-Eistorte", folder: "Dessert", src: "",
   ing: [
-    
+    "100 g Schokoladeguetzli (z. B. Gran Cereale)",
+    "30 g Butter, flüssig, abgekühlt",
+    "2 frische Eigelbe",
+    "4 EL Zucker",
+    "je 150 g Himbeeren und Heidelbeeren, püriert, durch ein Sieb gestrichen",
+    "2 frische Eiweisse",
+    "1 Prise Salz",
+    "1 EL Zucker",
+    "2 dl Vollrahm, steif geschlagen",
+    "1/2 dl Vollrahm",
+    "50 g dunkle Schokolade, fein gehackt",
+    "100 g Himbeeren",
+    "100 g Heidelbeeren"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 35 Min. Gefrieren: ca. 4 Std. Kühl stellen: ca. 1 Std. Für eine Springform von ca. 18 cm Ø, mit Klarsichtfolie ausgelegt.",
+    "Guetzli grob hacken, Butter daruntermischen, auf dem vorbereiteten Formenboden verteilen, andrücken.",
+    "Eigelbe und Zucker in einer Schüssel mit den Schwingbesen des Handrührgeräts rühren, bis die Masse heller ist. Beerenpüree daruntermischen.",
+    "Eiweisse mit dem Salz steif schlagen, Zucker beigeben, weiterschlagen, bis der Eischnee glänzt. Eischnee und Schlagrahm sorgfältig unter die Masse ziehen, auf den Guetzliboden verteilen. Zugedeckt ca. 4 Std. tiefkühlen.",
+    "Torte vor dem Servieren ca. 1 Std. in den Kühlschrank stellen. Springform entfernen, Torte auf eine Platte schieben. Rahm in einer Pfanne heiss werden lassen. Pfanne von der Platte nehmen. Schokolade beigeben, glatt rühren, über die Torte giessen, mit Beeren verzieren."
   ],
   cover: "G:B9H95pOWGXcRUMWwaxdU9z87jgcImmQz0XXB0tu9eXMUu31EdQHBwnbUtDq6xEZDBpRYU9L16K6viXIh1tO9ozk", pages: ["G:1r-vFEH9nUd1aZ9x2CBGMwsNyjlE41d7Vnb6fmqEEvnxNta3qXEAd_ptDBDTVip7lQi359b266b9pauGcRaytg","G:uKeX6Xc8zJlqgx-AVrlcC03EEaMlGIq-NfQKaVyQMeNse-XjR3MqZ6Lkpa_F3Oww-MFOAM_VYo4cSrAIMOZhBg"]
 },
 {
   n: "Brombeer-Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "500 g Brombeeren",
+    "1 Bio-Limette, abgeriebene Schale und ganzer Saft",
+    "2 cm Ingwer, fein gerieben",
+    "1 Zimtstange",
+    "3 EL Süsswein (z. B. Vin Santo)",
+    "500 g Mascarpone",
+    "300 g griechischer Jogurt nature",
+    "40 g Puderzucker",
+    "180 g Löffelbiskuits",
+    "250 g Brombeeren"
   ],
   steps: [
-    
+    "Aktive Zeit 30 Min., Gesamtzeit 30 Min., 477 kcal pro Person. Vegetarisch. Für eine Cakeform (ca. 20 cm), kalt ausgespült, mit Klarsichtfolie ausgelegt.",
+    "Brombeer-Masse: Brombeeren und alle Zutaten bis und mit Süsswein in eine Pfanne geben, zugedeckt ca. 5 Min. köcheln. Deckel entfernen, ca. 5 Min. fertig köcheln. Zimtstange entfernen, Brombeeren mit einer Gabel zerdrücken.",
+    "Mascarpone-Creme: Mascarpone, Jogurt und Puderzucker glattrühren, in einen Spritzsack mit glatter Tülle (ca. 10 mm Ø) füllen.",
+    "Tiramisu: 1/2 der Löffelbiskuits mit der gezuckerten Seite nach unten in die vorbereitete Form legen. 1/2 der Brombeer-Masse darauf verteilen, 1/2 der Mascarpone-Creme darauf spritzen und 1/2 der frischen Brombeeren darauf verteilen. Mit den restlichen Zutaten gleich verfahren, mit den frischen Brombeeren abschliessen."
   ],
+  port: 8,
   cover: "G:-QS23oqMZp_DRNuVNQUZG-FC-EOu0UwkV64Dq_-c4djWG3hlj38cnGgtuSd-FR9PmbJ7rn6mDG0I_xIlt4zFrztxkdW6kCgBW1_i", pages: ["G:YRM0GekcXSkhJritASydAsHUpq6WliCoxjY_nZbOfAIqrPgAs7Qt7Ujn_ScfvJQlmmO4PZmRORpyZFl1ezWlRlQdo-i-tLWX1gcg"]
 },
 {
   n: "Crema Catalana mit Pfirsich", folder: "Dessert", src: "",
   ing: [
-    
+    "Crema:",
+    "2 dl Milch",
+    "1 dl Vollrahm",
+    "2 Zweiglein Lavendel oder Rosmarin",
+    "2 Pfirsiche, in Würfeln",
+    "2 EL Brandy",
+    "150 g Zucker",
+    "3 Eier",
+    "2 Eigelbe",
+    "Garen:",
+    "6 EL fein gemahlener Rohzucker"
   ],
   steps: [
-    
+    "Milch, Rahm und Lavendel aufkochen, von der Platte nehmen, ca. 10 Min. ziehen lassen, Lavendel entfernen.",
+    "Pfirsiche mit dem Brandy fein pürieren, beiseite stellen.",
+    "Zucker, Eier und Eigelbe in einer Schüssel verrühren, Milch nach und nach unter Rühren beigeben. Pfirsichpüree beigeben, mischen.",
+    "Förmchen auf einen Lappen in eine ofenfeste Form geben, Masse in die Förmchen giessen.",
+    "(Angaben zum Garen im Ofen fehlen auf dem Foto.)",
+    "Je 1 Esslöffel Zucker gleichmässig auf der Creme verteilen. Mit dem Bunsenbrenner (siehe «Gewusst wie») Zucker sorgfältig caramelisieren."
   ],
   cover: "G:_VxwVg9CPfIwNkw089zWtmnF2HyZgDWslNsGwAGo-zX-VUttyydRMxpwmdBSH8YOi2PEkc5o9nD0Mm29mJfwYw", pages: ["G:-nmdNbZEOQZHzVLamR9dIDPjRDv1IMwi8Q19c_L0wD78X_0MLgh9xZaJbkt_wGJHwk1kmZBQvQbPkmxp-wudZi4","G:HuQ96bpZKbJbdBuoIBSToEPrFjdXdVki-CcRirQGB6YxyUngrFVJRlzzNm_tbmDti6HfDMGdMnYRyqd3mr452w"]
 },
 {
   n: "Crema Catalana mit Rhabarber", folder: "Dessert", src: "",
   ing: [
-    
+    "250 g Rhabarber",
+    "4 EL Zucker",
+    "1 EL Wasser",
+    "1 EL Zitronensaft",
+    "50 g tiefgekühlte Himbeeren, angetaut",
+    "3 dl Milch",
+    "1 dl Vollrahm",
+    "3 EL Zucker",
+    "2 EL Maizena",
+    "3 frische Eigelbe",
+    "2 EL grobkörniger Rohzucker"
   ],
   steps: [
-    
+    "25 Min. + 4 Std. kühl stellen. Vegetarisch. Für 4 Förmchen von je ca. 2 dl.",
+    "Rhabarber evtl. schälen, in ca. 2 cm grosse Stücke schneiden, in eine Pfanne geben. Zucker, Wasser und Zitronensaft daruntermischen, zugedeckt ca. 5 Min. weich kochen. Himbeeren daruntermischen, in die Förmchen verteilen, auskühlen.",
+    "Milch, Rahm, Zucker, Maizena und Eigelbe in einer Pfanne mit dem Schwingbesen gut verrühren. Unter ständigem Rühren bei mittlerer Hitze zum Kochen bringen. Sobald die Masse bindet, Pfanne sofort von der Platte nehmen, ca. 2 Min. weiterrühren. Creme durch ein Sieb in einen Messbecher streichen, in die Förmchen giessen, auskühlen, zugedeckt im Kühlschrank ca. 4 Std. fest werden lassen.",
+    "Zucker kurz vor dem Servieren gleichmässig auf der Creme verteilen, mit der Flamme des Bunsenbrenners caramelisieren."
   ],
+  port: 4,
   cover: "G:XdF2ZDBUoBbaHluRxHYRNl9-6Omcws2cDSBuB9HkHadSxigXWpMVhk9prsyXOPjs1RELpIvBn0aN6Z04-uz3yEz9H7EHp-nhzaA", pages: ["G:qUHP8PEaMGlHMbHfvqAtrrEoIQNUUHUvn0i88iWi-KrgLc77iSF02RdbXfH5xzgFKbzdtuon1RUiNhktTY7SHjdv9zG8IR0Z4NiN","G:pm4YsQKQTSddwEBVW7cLCBxADg3S9mmhp-TwQOHqno2JWorkKx5Vpd53p_xbZhhaL6VCb3LGWcO97_dMS0cur-rwfBYfzSSqSQ"]
 },
 {
   n: "Erdbeer-Rhabarber-Crumble", folder: "Dessert", src: "",
   ing: [
-    
+    "300 g Erdbeeren",
+    "350 g Rhabarber, z. B. Erdbeerrhabarber",
+    "1 Beutel Vanillezucker à 10 g",
+    "3 EL Rum",
+    "2 EL flüssiger Honig",
+    "2 TL Maisstärke",
+    "100 g Weissmehl",
+    "50 g Zucker",
+    "50 g Butter",
+    "200 g Doppelrahm"
   ],
   steps: [
-    
+    "Erdbeeren rüsten und je nach Grösse halbieren oder vierteln. Rhabarber rüsten und in Stücke à ca. 1 cm schneiden. Erdbeeren, Rhabarber, Vanillezucker, Rum, Honig und Maisstärke mischen. Beiseitestellen. Für die Streusel Mehl und Zucker mischen. Butter in kleine Würfel schneiden und beigeben. Zwischen den Händen bröselig reiben, kühl stellen.",
+    "Backofen auf 180 °C vorheizen. Erdbeer-Rhabarber-Masse in eine ofenfeste Form geben. Streusel darüberverteilen. Crumble in der Ofenmitte ca. 20 Minuten backen. Ofentemperatur auf 200 °C erhöhen, Crumble 10 Minuten weiterbacken, bis die Streusel leicht braun werden. Herausnehmen und mit Doppelrahm servieren.",
+    "Zubereitung ca. 20 Minuten (Einsteiger) + ca. 20 Minuten marinieren + ca. 30 Minuten backen.",
+    "Pro Person ca. 6 g Eiweiss, 34 g Fett, 51 g Kohlenhydrate, 2300 kJ / 560 kcal."
   ],
+  port: 4,
   cover: "G:gaD8KU5YM9UwizUmBlXYcPQoP-rWKvMLoOZz4QefalVHSPSiZYIQ5K-NvOYaPW5C3HBT1D-JBRPvSoBV3J_Q", pages: ["G:kI2zu6A-Xc6vWcWXRHkNio44_VDYE8FLgNOVrBIVZxZHUe82ibnvp3E4s43dKfuMjP4Z9q9L0RrH801rQZCxedQ","G:ATQjm9SjNXky1MSSuh6aF7hiDCWOFobiQ_rA-RgbTFn3qkJ_iAbmztwPC6GTzK9z93nhpLCT7x8e-QnJzlhAWQ"]
 },
 {
   n: "Erdbeer-Trifle", folder: "Dessert", src: "",
   ing: [
-    
+    "250 g Erdbeeren",
+    "2 EL Ahornsirup",
+    "150 g griechisches Joghurt nature",
+    "150 g Rahmquark",
+    "2 EL Ahornsirup",
+    "1 Vanillestängel",
+    "2 dl Vollrahm",
+    "4 Erdbeeren"
   ],
   steps: [
-    
+    "25 Min. Vegetarisch, glutenfrei. Für 4 Gläser von je ca. 3 dl.",
+    "Erdbeeren in Stücke schneiden, in einen Messbecher geben, mit dem Ahornsirup pürieren.",
+    "Joghurt, Quark und Ahornsirup in einer Schüssel verrühren. Vanillestängel längs aufschneiden, Samen auskratzen. Rahm mit den Vanillesamen knapp steif schlagen, sorgfältig unter die Creme ziehen, diese in zwei Schüsseln verteilen. Zwei Drittel des Erdbeerpürees so verteilen, dass die Cremen unterschiedlich stark eingefärbt sind. Restliches Erdbeerpüree mit den beiden Cremen abwechslungsweise in die Gläser verteilen. Erdbeeren in Würfeli schneiden, darauf verteilen."
   ],
+  port: 4,
   cover: "G:_0GWXYF5Grtm74hs8IFkHGpkAw0cMxs4zTqyUaiGQTSQ7hbm-AiPsLgfi6jE0a4qedN3gRLfgmbm7-Vuiuuj293PZDs47JdNh7A", pages: ["G:tB0LNhuGXZe3OdNl5WjIoXeKvxw4GEhtmkcwBfeGzhgGh-cUkgserRBdqUUomFHpWaXSSjNyxzjhTsaW0uWo_ZDIOLaxyINMMaA"]
 },
 {
   n: "Erdbeertiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "250 g Erdbeeren",
+    "3 EL Zucker",
+    "2 EL roter Portwein",
+    "1 TL Zitronensaft",
+    "250 g Magerquark",
+    "250 g Mascarpone",
+    "4 EL Zucker",
+    "1 EL roter Portwein",
+    "1 1/2 dl Vollrahm",
+    "150 g Löffelbiskuits",
+    "1 EL Kakaopulver",
+    "100 g Erdbeeren"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 30 Min. Kühl stellen: ca. 2 Std.",
+    "Erdbeeren mit dem Zucker, Portwein und Zitronensaft pürieren, zugedeckt kühl stellen.",
+    "Quark mit Mascarpone, Zucker und Portwein verrühren. Rahm steif schlagen, darunterziehen.",
+    "Die Hälfte der Löffelbiskuits in eine rechteckige Form (ca. 1 Liter) verteilen. Die Hälfte der Erdbeersauce darübergiessen, die Hälfte der Quarkmasse darauf verteilen, restliche Biskuits darauflegen, restliche Sauce und Quarkmasse darauf verteilen. Zugedeckt ca. 2 Std. kühl stellen. Kurz vor dem Servieren mit Erdbeeren verzieren und mit Kakaopulver bestäuben."
   ],
+  port: 4,
   cover: "G:ilXVx9Jtv0T0SEMPd7rXPtfd7EMOCbqLnzXAJ-Ti04298tPt6tiqmneWj5vmIkmX3VgzSYbsf01nmLUPHd_07w", pages: ["G:k1-L9YlOAh0Vt9A87RwWNE069Kn1wihUU1ChHxsN-ODkMUHMrmLWj5RcGuC55uELvbsDDvnYqhPp1msrN6Nt1w"]
 },
 {
   n: "Fasnacht-Krapfen", folder: "Dessert", tags: ["Gebäck"], src: "",
   ing: [
-    
+    "450 g Blätterteig",
+    "Erdnussöl, zum Frittieren",
+    "etwas Zucker",
+    "etwas Zimtpulver",
+    "Füllung:",
+    "200 g Speisequark",
+    "75 g Zucker",
+    "1 TL Zimt",
+    "1 EL Zitronensaft",
+    "100 g Mandeln, geschält und gerieben",
+    "50 g Sultaninen",
+    "0,5 dl Rahm"
   ],
   steps: [
-    
+    "Ergibt ca. 12 Stück.",
+    "Für die Füllung in einer Schüssel Quark, Zucker, Zimt, Zitronensaft und Mandeln verrühren. Sultaninen grob beifügen und Rahm daruntermischen. Die Füllung sollte feucht, jedoch nicht flüssig sein.",
+    "Den Blätterteig dünn auswallen und Rondellen (7 cm Ø) ausstechen. Je 1 Esslöffel Füllung auf die eine Seite der Rondelle geben. Die andere Hälfte darüberklappen und sorgfältig andrücken. Die Krapfen vor dem Backen 60 Minuten im Kühlschrank ruhen lassen.",
+    "Das Frittieröl auf 180 °C erhitzen und die Krapfen im heissen Öl etwa 4 Minuten schwimmend goldbraun ausbacken. Mit der Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen. Zimt und Zucker in einem Teller mischen und Krapfen darin wenden. Die Fasnacht-Krapfen schmecken ganz frisch, fast noch lauwarm, am besten."
   ],
   cover: "G:S5Nh2GfTrMASyp89n2ttyaTeim9ejm5DGSrNE5rmOO6jPbmQnk7OQsHkbAUKm--l_ewvStegZ6le_FEvW5bmsw", pages: ["G:E-oLvs8hglD4A-5AXmNj6-WnAW71klOcqxf0NHVBUWQboSqrZSMWoUlb0LgYuom4NhB5mTi_h3O3FegN8xUG","G:I_4CPUPNoChl8WkfaZKL_fw0sRm9zv99u_BC-UkyIoegJcxGkrmAoBTjNWfWfz0uvmk19OfnAiwusUkIvNUi"]
 },
@@ -2155,61 +2288,133 @@ window.REZEPTE = [
 {
   n: "Halbgefrorenes Nektarinen-Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "3 Nektarinen, in Schnitzen",
+    "2 EL Zucker",
+    "1 EL Wasser",
+    "1 EL Zitronensaft",
+    "12 Löffelbiskuits",
+    "1 1/2 dl Vollrahm",
+    "200 g Mascarpone",
+    "2 EL Zucker",
+    "250 g Erdbeeren, in Stücken",
+    "1 EL Zucker",
+    "1 EL Zitronensaft",
+    "1 EL Maraschino oder Zitronenlikör (z. B. Limoncello), nach Belieben",
+    "Kakaopulver zum Bestäuben"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 30 Min. Gefrieren: ca. 4 Std. Für eine Porzellanform «Duo» oder eine Form von ca. 2 Litern.",
+    "Nektarinen mit Zucker, Wasser und Zitronensaft zugedeckt ca. 5 Min. knapp weich köcheln, auskühlen.",
+    "Die Hälfte der Löffelbiskuits in die Formen verteilen. Die Hälfte des Nektarinenkompotts darauf verteilen.",
+    "Rahm mit Mascarpone und Zucker steif schlagen.",
+    "Erdbeeren mit Zucker, Zitronensaft und Maraschino pürieren. 2 Esslöffel der Erdbeersauce unter die Mascarponecreme mischen.",
+    "Die Hälfte der Erdbeersauce auf die Nektarinen geben. 1/2 der Mascarponecreme darauf verteilen. Restliche Biskuits darauflegen. Restliches Nektarinenkompott, Erdbeersauce und Mascarponecreme darauf verteilen, zugedeckt ca. 4 Std. gefrieren. Mit Kakaopulver bestäuben."
   ],
   cover: "G:EDFa_-rodYLuMDyaE9Wxu7JG57qZWeh4VXmrQO0k_zYSEUYYSRnwhhKeozokNp6CokYUNiymwDBETRw9bl8Q0U8", pages: ["G:9HvGKGFu1K-xClOI08gqORVMyFKwSytQ07IkjUFYCcCCdJYqvcLbIQyPsT6FT2egJjJroUftQiZ2t4e5jwX5N0I"]
 },
 {
   n: "Heidelbeertörtchen", folder: "Dessert", src: "",
   ing: [
-    
+    "1 ausgewallter Mürbeteig à 320 g",
+    "1 EL Zucker",
+    "1 EL Maisstärke",
+    "1/2 TL Vanillepaste",
+    "1 Limette",
+    "1,5 dl Rahm",
+    "1 Ei",
+    "250 g Heidelbeeren",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Dessert für 8 Personen. Für 8 Alu-Förmchen à 9 cm Ø.",
+    "Aus dem Teig Rondellen à ca. 10 cm Ø ausstechen, in die Förmchen legen. Teigböden mit einer Gabel dicht einstechen, kühl stellen.",
+    "Backofen auf 200 °C vorheizen. Zucker, Maisstärke und Vanillepaste mischen. Wenig Limettenschale dazureiben. Rahm und Ei verrühren, zum Zucker giessen, gut verrühren. Förmchen auf ein Blech stellen. Heidelbeeren in die Törtchen verteilen. Guss darübergiessen. Auf der untersten Rille ca. 25 Minuten backen, herausnehmen, auskühlen lassen. Mit Puderzucker bestäuben. Törtchen zum Transportieren gut verpacken.",
+    "Zubereitung ca. 20 Minuten + ca. 25 Minuten backen.",
+    "Pro Person ca. 3 g Eiweiss, 15 g Fett."
   ],
+  port: 8,
   cover: "G:dBgVNXfhqm8_JWns0IeyKkorxispxUdJplkUVwbqvTI3l1R4NTeGu6znrfB3uxaxS1_0FIzLq-RQKArooLnJig", pages: ["G:71c6xPDL8CkcWf4f1CeSLi7lZZ7yRX6tUcGonmzLvE1qI0uAQqLf_u5PAUYOsjKUi4Nb_LArVlNi6Wxx1zg6"]
 },
 {
   n: "Himbeer-Schokolade-Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "80 g Löffelbiskuits, in Stücken",
+    "300 g Himbeeren",
+    "1 EL Zucker",
+    "1 EL Orangensaft",
+    "250 g Protein-Jogurt (z. B. YoQua nature)",
+    "1 dl Vollrahm",
+    "2 EL Zucker",
+    "25 g dunkle Schokolade (64 % Kakao), in feinen Spänen"
   ],
   steps: [
-    
+    "Aktive Zeit: 25 Min. Gesamtzeit: 25 Min. Pro Portion 327 kcal.",
+    "Fruchtfüllung: Löffelbiskuits in die Gläser verteilen. Die Hälfte der Himbeeren mit dem Zucker und Orangensaft mischen, mit einer Gabel etwas zerstossen, die Hälfte davon auf den Löffelbiskuits verteilen.",
+    "Creme: Jogurt, Rahm und Zucker gut verrühren, mit der restlichen Himbeermasse schichtweise einfüllen. Restliche Himbeeren darauflegen.",
+    "Verzieren: Tiramisu mit der Schokolade verzieren.",
+    "Vorbereiten: Tiramisu ca. 1/2 Tag im Voraus zubereiten und zugedeckt im Kühlschrank aufbewahren."
   ],
+  port: 4,
   cover: "G:VbPWSgJYiMmy5H6C5zS7BHI4p-W7TygrRs30QMnq_26lUCOHkwyD0GrLAX2epnQ1ndrGWfOckKWhysMH2LBc", pages: ["G:Yy3GDjahAuI0pfDwCnxB4BB66lJOD5W-JvY5GxGYq4O1R_QygPS7kN65ExjKpWwIVzhj_8pV8ii3VwhimOwf"]
 },
 {
   n: "Himbeer-Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "500 g Himbeeren, frisch oder TK",
+    "250 ml Amaretto",
+    "250 g Frischkäse, alles von vollfett bis viertelfettstufe möglich)",
+    "100 g saure Sahne (10% Fett)",
+    "2 EL Zitronenmelisse, frische, fein gehackte",
+    "100 g Löffelbiskuits",
+    "Zucker nach Geschmack",
+    "2 EL Schokoladenraspel, weiße"
   ],
   steps: [
-    
+    "Die Himbeeren verlesen, falls TK-Früchte verwendet werden, diese auftauen und gut abtropfen lassen. Die Früchte mit einem Stabmixer fein pürieren und je nach Eigensüße der Früchte mit Zucker abschmecken. Wer keine \"Kerne\" in seinem Tiramisu will, streicht das Püree noch durch ein feines Haarsieb.",
+    "1/3 vom Fruchtmus beiseite stellen und mit dem Likör vermischen. Das übrige Himbeerpüree in eine Schüssel geben und mit dem Frischkäse und der Zitronenmelisse verrühren. Die Saure Sahne hinzufügen und mischen, bis eine homogene Creme entstanden ist. Bei Bedarf noch etwas Zucker dazu geben.",
+    "Jetzt wird, entweder in einzelne Dessertschälchen oder in eine große rechteckige Form, abwechselnd eine Lage Löffelbiskuits mit der Himbeer-Likör-Mischung getränkt, darauf kommt eine Schicht der Himbeer-Frischkäse-Creme. So lange wiederholen, bis die Zutaten aufgebraucht sind, abgeschlossen wird mit einer Schicht Frischkäse-Creme. Bis zum Servieren, mindestens aber 2 Stunden, in den Kühlschrank stellen.",
+    "Wer mag, garniert sein Dessert mit einigen ganzen Himbeeren und weißen Schokoraspeln.",
+    "Arbeitszeit: ca. 30 Min. Ruhezeit: ca. 2 Std. Schwierigkeitsgrad: simpel."
   ],
+  port: 4,
   cover: "G:688gxT2uriHbhWKRItqOGKO1hQIvwUbbvWMnkmiR-IviwqlbZ8PRm9FHxrHVcvQt_2vHtSmTpFjQX4ENuHbLUFYXIMeU1AhXkL9C", pages: ["G:7An7XohoQE8u0z-G7wxddeLE7qMQOq9IAILlJj-i0T9ryI50B31UH1BEst2gYzBuA2VaJ2eeptQHYB_ADtM6QOgvzDoRjJVa5w","G:zr0IZPXnjas2GUgVqDpojBZtcz9TVq5wOU7Yp9WevcF_kC4TodSa-AUUTLYfm6XY_SHl7OEmne44VFphtqNcMdv_080NtKYrWuA8"]
 },
 {
   n: "Himbeerbecher", folder: "Dessert", src: "",
   ing: [
-    
+    "200 g tiefgefrorene Himbeeren, vor Gebrauch aufgetaut",
+    "0,5 dl Himbeersirup",
+    "4 Blatt Gelatine",
+    "300 g Himbeerjoghurt",
+    "1,25 dl Rahm",
+    "8 Mini-Meringues",
+    "essbare Blüten oder Pfefferminzblättchen für die Garnitur"
   ],
   steps: [
-    
+    "Für 4 Gläser à 2 dl.",
+    "Himbeeren mit Sirup ca. 3 Minuten zu einem Kompott kochen. Abkühlen lassen. Inzwischen Gelatine in kaltem Wasser einweichen. Joghurt glatt rühren. Gelatine tropfnass in einer Pfanne schmelzen. Wenig Joghurt dazugeben, verrühren und unter das restliche Joghurt rühren. Masse ca. 20 Minuten kühl stellen, bis sie am Rand beginnt, fest zu werden.",
+    "Rahm steif schlagen. Vorsichtig unter die Joghurtmasse heben. Meringues grob zerbröseln. Himbeerkompott, Mousse und Meringues abwechslungsweise in Gläser schichten. Ca. 2 Stunden kühl stellen. Nach Belieben mit Blüten oder Minzeblättchen garnieren.",
+    "Zubereitung ca. 20 Min. + ca. 140 Min. kühl stellen."
   ],
+  port: 4,
   cover: "G:aVknqRLlfH6RkZLAh0t5Fx-f-kpr7hXQH8S6k8Jkg-OPkVw68n3xCxwwgXzs9_-PY00jGSlgLQQFgvYup-Xf", pages: ["G:-Eku0mG7ixld8leFdX4BaIeR7cSFWaGIkpIXztW6N5Btsh9AOLd_YT3_yMwUKKxcmZvy8qnGqM3BTur-SRB8-A","G:lBlBZA7CdeMw39EuQR-Mr2Du-rDvZ7mOf0ETsbp1ZVPFVUDZPt4JaLig-h5wiseO-OYxiPGJ71KWJHqfXjNCEw"]
 },
 {
   n: "Himbeercrumble mit Kokos", folder: "Dessert", src: "",
   ing: [
-    
+    "500 g tiefgekühlte Himbeeren, vor Gebrauch aufgetaut",
+    "2 EL Himbeersirup",
+    "60 g Butter, kalt",
+    "20 g Kokosraspel",
+    "40 g Mehl",
+    "40 g Zucker"
   ],
   steps: [
-    
+    "Backofen auf 200 °C vorheizen. Himbeeren mit dem Sirup mischen. In 4 ofenfeste Formen verteilen. Butter in Würfel schneiden. Mit Kokosraspel, Mehl und Zucker zwischen den Händen bröselig reiben, sodass eine gleichmässig gemischte Streuselmasse entsteht. Streusel über die Beeren verteilen. Crumbles in der oberen Ofenhälfte 10-15 Minuten backen. Noch warm servieren.",
+    "Zubereitungszeit: 10 Minuten + 10-15 Minuten backen.",
+    "Nährwerte pro Portion ca. 230 kcal, 3 g Eiweiss, 16 g Fett, 15 g Kohlenhydrate."
   ],
+  port: 4,
   cover: "G:8kbz4MGaOtAeGTzkeXI5oyqP5FIbjpO3KexHxOCfY2m775FN9PvyDOvAkKK0Eed7svo7fRR2sarOCrp-0TLLEjo", pages: ["G:z5pr3ucHxwcg0HNhMIVm7YeFsGdviAgZu8jPV7EGQQwmwfORYcRHx4K8sKe3CQPR3K0iZoWk_L5z54m_vVeE"]
 },
 {
@@ -2241,71 +2446,169 @@ window.REZEPTE = [
 {
   n: "Johannisbeerroulade", folder: "Dessert", src: "",
   ing: [
-    
+    "2 Eier",
+    "80 g Butter, weich",
+    "150 g Zucker",
+    "1 Prise Salz",
+    "1/2 Zitrone",
+    "250 g Mehl",
+    "80 g geschälte gemahlene Mandeln",
+    "1 TL Backpulver",
+    "1/2 dl Milch",
+    "100 g Cantucci alle mandorle",
+    "250 g Johannisbeeren"
   ],
   steps: [
-    
+    "Ergibt 16 Stück.",
+    "Die Hälfte der Eier trennen. Restliches Ei mit Eigelb, Butter, Zucker und Salz in eine Schüssel geben. Zitronenschale fein dazureiben. Saft auspressen und beigeben. Alles mit einem Rührgerät ca. 3 Minuten schaumig schlagen. Mehl, Mandeln und Backpulver mit der Milch zur Buttermasse geben und daruntermischen. Teig auf ein grosses Stück Frischhaltefolie geben und ca. 30 Minuten kühl stellen.",
+    "Cantucci in einen Gefrierbeutel geben. Mit dem Wallholz zerdrücken. Teig auf der Frischhaltefolie mit bemehlten Händen zu einem Rechteck von ca. 30 x 40 cm flachdrücken. Cantuccibrösel darüber streuen. Johannisbeeren abzupfen und darüberstreuen. Teig von der Längsseite mithilfe der Folie aufrollen. Rolle wieder in die Folie wickeln, nochmals 30 Minuten kühl stellen.",
+    "Backofen auf 200 °C vorheizen. Teigrolle aus der Folie wickeln, auf ein mit Backpapier belegtes Blech legen. Eiweiss leicht verquirlen. Roulade damit bestreichen. In der Ofenmitte ca. 40 Minuten backen. Auskühlen lassen. Zum Servieren in dicke Scheiben schneiden.",
+    "Zubereitung ca. 30 Minuten + 60 Minuten kühl stellen + ca. 40 Minuten backen.",
+    "Pro Stück ca. 5 g Eiweiss, 9 g Fett, 26 g Kohlenhydrate, 860 kJ / 200 kcal."
   ],
   cover: "G:0LUAPLsS31xW0s1cbu1Is1VuutcSiSIuIA7kzpQEbc2kuqZhK3I1-jzVsMUewCNR0HuFyeTTTeKB5DBcPs0IyvM", pages: ["G:CGf1KIu-_4p6wBaCLv817nzjPCUQgJfPAyfe7BB-q1bsnCOsx7Z6p-d_ORAnXlWiOhpdbVlW7fOVzIFpsN2phQ"]
 },
 {
   n: "Kaffee mit Vanilleglace", folder: "Dessert", src: "",
   ing: [
-    
+    "50 g gemischte Nüsse",
+    "2 EL Zucker",
+    "1 dl Rahm",
+    "4 Espressi",
+    "8 kleine Kugeln Vanilleglace"
   ],
   steps: [
-    
+    "Kaffee mit Vanilleglace und caramelisierten Nüssen. Dessert für 4 Personen.",
+    "Nüsse grob hacken. Zucker in einer Bratpfanne hellbraun caramelisieren lassen. Nüsse dazugeben und verrühren. Auf ein Backpapier geben und auskühlen lassen. Krokant auseinanderbrechen. Rahm steif schlagen. Espressi in die Gläser füllen. Je 2 Kugeln Vanilleglace dazugeben, mit Rahm und Krokant sofort servieren.",
+    "Zubereitung ca. 15 Minuten.",
+    "Pro Person ca. 6 g Eiweiss, 23 g Fett, 20 g Kohlenhydrate, 1300 kJ / 310 kcal."
   ],
+  port: 4,
   cover: "G:dabbVOZ66pvpz0cmATW8IwLVAcjfvhgdVnOZGqOgJmLvjmhM8lYPG_0svdS_A9zLIVkwHe2izJkHTYNOWFl78g", pages: ["G:w8QbTUE2JFW4sqGP1djl0CgBQOYWYObu8Nz3Gixr2EJWkPALIItIeyhc1zu8vskR5GHa4D4SJgKn1t9OvFG7"]
 },
 {
   n: "Kirschen Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "500 g Kirschen",
+    "1 1/2 EL Zucker",
+    "2 EL Wasser",
+    "1 Päckli Vanillezucker",
+    "2 EL Amaretto, nach Belieben",
+    "12 Löffelbiskuits (ca. 80 g)",
+    "150 g Blanc battu",
+    "200 g Crème fraîche",
+    "2 EL Zucker",
+    "1 Bio-Zitrone, wenig abgeriebene Schale, 1 1/2 EL Saft",
+    "Kakaopulver zum Bestäuben"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 30 Min. Kühl stellen: ca. 1 Std. Für eine Form von ca. 1 Liter. Für 4-6 Personen.",
+    "Kirschen mit allen Zutaten bis und mit Vanillezucker zugedeckt bei kleiner Hitze ca. 10 Min. weich köcheln. Amaretto daruntermischen, auskühlen.",
+    "Löffelbiskuits mit der Zuckerseite nach unten in die Form legen, Kirschen und Saft darauf verteilen.",
+    "Blanc battu und alle Zutaten bis und mit Zitronensaft verrühren, auf Kirschen verteilen, zugedeckt ca. 1 Std. kühl stellen. Tiramisu mit Kakaopulver bestäuben.",
+    "Tipp: Statt Kirschen Aprikosen oder Zwetschgen, in Schnitzen, verwenden.",
+    "Pro Portion (1/6): 287 kcal, F 13 g, Kh 36 g, E 5 g."
   ],
+  port: 5,
   cover: "G:uZ4Tn670zihLBkvwwVKTpFkg9ycRar86Jow0pOOZ62_iamH5YhakmlKzIIwWQQHJPscgiZqMRsk5SUCbe_bVxA", pages: ["G:hEn8X-G6XSGND9Zg4NZd2muz3MTEX5PmhmoHt3gW8_1A7ZGxXNc7Sa-8cf6JFomsJEZlYkf6tLDrbt_58nqE","G:vUMuca5huM5M9eZpcdgQ1Gal1UYcGId74XyKXYQ8oJNqWopr3kpPwhnIRSeiywQPCqK0JXzlIjU56XXYjyuG8A"]
 },
 {
   n: "Kokos-Himbeer-Eiszorte", folder: "Dessert", src: "",
   ing: [
-    
+    "Für den Eiswaffel-Boden:",
+    "50 g weiße Schokolade",
+    "1 Packung Eiswaffeln (55 g)",
+    "Für das Kokoseis:",
+    "1 l leicht angetaute Vanille-Eiskrem",
+    "125 ml gesüßte Kokoscreme",
+    "1 Zitrone (nur den Saft)",
+    "100 g Himbeeren",
+    "Für die Dekoration:",
+    "4 Kugeln Kokoskonfekt",
+    "1 Portion Himbeeren",
+    "Außerdem:",
+    "1 Gefrierbeutel",
+    "1 Backpapier"
   ],
   steps: [
-    
+    "Vorbereitungszeit 45 Minuten, insgesamt 45 Minuten. Wartezeit 5-6 Stunden.",
+    "Schritt 1, Vorbereitungen: Schokolade fein hacken. Schokolade auf einem heißen Wasserbad schmelzen. Eiswaffeln in einem Gefrierbeutel mit einer Kuchenrolle fein zerbröseln. Waffelbrösel mit der geschmolzenen Schokolade vermischen. Auf dem Boden einer mit Backpapier ausgekleideten Springform (18 cm Ø) verteilen. Ca. 10 Minuten kühl stellen.",
+    "Schritt 2, Kokoseis herstellen: Für das Kokoseis Vanille-Eis, Kokoscreme und Zitronensaft glatt rühren. Himbeeren darunter ziehen. Kokoseis in der Form glatt streichen. Im Tiefkühlfach 5-6 Stunden gefrieren lassen.",
+    "Schritt 3, Eistorte verzieren: Kokoskonfekt halbieren. Eistorte aus der Form nehmen, Backpapier entfernen. Torte mit Himbeeren und den Kokoskonfekthälften verzieren."
   ],
+  port: 8,
   cover: "G:IkEyG4cpd_R4T5F18LVoyKv51k2N9mbF_Tnh_Gv8VzuaU5BL1S_Y7mpmBXpVa_AELMzbUrpGd4qq-3Xpy3eh9g", pages: ["G:E2okFhV7XvsshhL8QW4eEaK277s6eRuE1aBeSTpKFHI9pUZisadRGVKvE5enr_zx20wbo39C2zX2vLGiZHRBkA","G:bObXJtsF29thtjY-u_ixgP64k1YjyKtHXMe-3z7n7Mj9VSIoHrH0g5dyKIJ6ZO-wMEgSgnn547RYxqm3s-C8rQ"]
 },
 {
   n: "Mango-Cremeschnitte", folder: "Dessert", src: "",
   ing: [
-    
+    "1 ausgewallter Blätterteig (ca. 25 x 42 cm)",
+    "1 Mango (ca. 420 g)",
+    "80 g Puderzucker",
+    "1 EL Limettensaft",
+    "100 g Puderzucker",
+    "5 Blatt Gelatine",
+    "2 EL Wasser, siedend",
+    "2 dl Vollrahm"
   ],
   steps: [
-    
+    "45 Min. + 17 Min. backen + 4 Std. 50 Min. kühl stellen. Ergibt 8 Stück.",
+    "Ofen auf 220 Grad vorheizen. Teig auf Blechgrösse zuschneiden, mit dem Backpapier auf ein Blech ziehen, mit einer Gabel sehr dicht einstechen.",
+    "Backen: ca. 17 Min. in der unteren Hälfte des Ofens. Herausnehmen, ein Blech auf den heissen Teig legen, Teig damit etwas flach drücken, auf ein Gitter ziehen, auskühlen. Teig längs in 6 Streifen schneiden.",
+    "Mango schälen, in Stücke schneiden, mit Puderzucker und Limettensaft pürieren. 2 EL davon mit dem Puderzucker verrühren, die Glasur mithilfe eines Löffelrückens auf zwei Teigstreifen verteilen, trocknen lassen.",
+    "Gelatine ca. 5 Min. in kaltem Wasser einweichen, abtropfen, mit dem heissen Wasser auflösen. 3 EL Mangopüree mit dem Schwingbesen darunterrühren, sofort gut unter das restliche Mangopüree rühren. Masse zugedeckt kühl stellen, bis sie am Rand leicht fest ist (ca. 30 Min.).",
+    "Mangomasse glatt rühren. Rahm steif schlagen, mit dem Gummischaber sorgfältig darunterziehen, nochmals kühl stellen, bis die Masse spritzfähig ist und nicht zerfliesst (ca. 20 Min.).",
+    "Mangomasse in einen Spritzsack mit glatter Tülle (ca. 12 mm Ø) füllen, die Hälfte davon auf zwei Teigstreifen spritzen. Je einen Teigstreifen darauflegen, restliche Mangomasse daraufspritzen, die glasierten Teigstreifen darauflegen. Beide Cremeschnitten zugedeckt ca. 4 Std. im Kühlschrank fest werden lassen, in je 4 Stücke schneiden."
   ],
   cover: "G:CjmrBBNSaePhEO33okDqB3yC_zLFA43wVCptC7hO5g8zO-7lfOIJdVe7PjMyEbJgWXrvDexSYsr8FVHmkc1wyA", pages: ["G:KWg8qlTwxy88WeuAH6WbUQVHfvDUK7b5UE9gtYngdzoRvnu5lKYG8J-9IORyMoFE-gd4XqvoamWqTK9npSfc4w","G:OO4mi1Kj44geGnDUcNxAdfOw2FlonHZaMD1Gj3N9VlL_ouODGr6C4HtTntSc_w3aaj1C4cfLa9vxak1JTw2BKg"]
 },
 {
   n: "Mangocreme mit Granatapfel", folder: "Dessert", src: "",
   ing: [
-    
+    "280 g Mango, gerüstet gewogen",
+    "500 g Rahmquark",
+    "2 Beutel Vanillezucker",
+    "1 Granatapfel",
+    "1/2 Bund Basilikum"
   ],
   steps: [
-    
+    "Mango pürieren. 2/3 des Pürees mit der Hälfte des Quarks und der Hälfte des Vanillezuckers verrühren. Püree und Mangocreme kühl stellen.",
+    "Granatapfel halbieren. Kerne auslösen. Die Hälfte der Kerne mit wenig Quark pürieren. Durch ein grobes Sieb streichen. Mit restlichem Quark und Vanillezucker mischen. Erst Mangocreme und -püree, dann Granatapfelcreme und -kerne in ein Glas schichten. Mit Basilikum servieren."
   ],
+  port: 4,
   cover: "G:pNpXgXDvdEXEdj6wI3sCEgj_jgkTiiKOl12PSO02hQ9kMD9N-O2W8w1VknfaUCuECY7EOYPUnYnTzB6wYGXMsiDLtAtW2cMwSkl_", pages: ["G:wqKmS0q7bj4TY9RmbjEofLImIagvvWyeVgOd14Fc98wRC4dUB8tT9vXeR-wnLWrpuG_641gvmmc6ENNq-Cm3I1LYwC_ozdWUCPw"]
 },
 {
   n: "Mangoküchlein", folder: "Dessert", src: "",
   ing: [
-    
+    "1 Mango (ca. 400 g)",
+    "1 EL Zucker",
+    "1 EL Limettensaft",
+    "100 g Mehl",
+    "100 g gemahlene geschälte Mandeln",
+    "70 g Zucker",
+    "1 TL Backpulver",
+    "1 Prise Salz",
+    "80 g weisse Schokolade",
+    "1 Limette",
+    "50 g Butter",
+    "2 Eier",
+    "0.75 dl Milch",
+    "Puderzucker zum Bestäuben",
+    "2 Zweiglein Zitronenmelisse oder Pfefferminze",
+    "1 EL Puderzucker",
+    "1 EL Limettensaft"
   ],
   steps: [
-    
+    "Mango schälen, entsteinen. 100 g Mango mit Zucker und Limettensaft pürieren. Masse in 6 Vertiefungen des Eiswürfelbehälters verteilen (siehe Hinweis), zugedeckt ca. 3 Std. gefrieren. Restliche Mango in Würfeli schneiden, zugedeckt kühl stellen.",
+    "Ofen auf 180 Grad vorheizen. Mehl, Mandeln, Zucker, Backpulver und Salz in einer Schüssel mischen. Schokolade fein hacken, beigeben. Limette heiss abspülen, trocken tupfen, Schale dazureiben, mischen. Butter in einer kleinen Pfanne schmelzen, etwas abkühlen, mit Eiern und Milch beigeben, verrühren. Teig in die vorbereiteten Förmchen füllen, je 1 gefrorenen Mangowürfel in die Mitte des Teigs drücken.",
+    "Backen: ca. 25 Min. in der Mitte des Ofens. Küchlein herausnehmen, etwas abkühlen, aus den Förmchen nehmen, auf einem Gitter auskühlen, mit Puderzucker bestäuben.",
+    "Zitronenmelisse fein schneiden, mit Puderzucker und Limettensaft zu den kühl gestellten Mangowürfeli geben, mischen, zu den Küchlein servieren.",
+    "Form: Für 6 ofenfeste Förmchen von je ca. 1 1/2 dl, gefettet, bemehlt, und 1 Eiswürfelbehälter.",
+    "Hinweis: Wir haben dafür eine Form genommen, die Eiswürfel von ca. 2 cm ergibt. Sollte Ihre Form viel kleinere Würfel ergeben, können Sie auch 2 kleine, gefrorene Mangowürfel in den Teig drücken.",
+    "Haltbarkeit: ca. 1 Tag."
   ],
+  port: 6,
   cover: "G:fw5tpMX0kYhoX8od_PCeA7UddNMjqMKniqgAW_Fw-ovhwZn3cqzJf_6yqy04O2waBsl6v5Wl9hiaiwI43vsscg", pages: ["G:xsVxVJh4EJdY5cdw6M3m-PsORFS-4SMQW3Dg0JFevqvL_wngfdd0DOJVQssdDiB-tm6j1bZzAGxjRYZbgAU-Ww","G:VjSVzHM9U-GqTXPsEFs4DRXphHcdy-gbZJHAv5kh1Kkawe7kLdQfbxQQL1qju8p1rMPtNfyWUAKrQGqynX5jrg"]
 },
 {
@@ -2330,81 +2633,180 @@ window.REZEPTE = [
 {
   n: "Orangen mit Granatapfel und Zimt", folder: "Dessert", src: "",
   ing: [
-    
+    "4 Orangen",
+    "10 Kumquats",
+    "1 grosser Granatapfel",
+    "Zimt",
+    "nach Belieben getrocknete Rosenblätter für die Garnitur, aus dem Alnatura-Supermarkt",
+    "1 Bund Pfefferminze",
+    "2 EL Orangenblütenhonig"
   ],
   steps: [
-    
+    "Orangen samt weisser Haut schälen. In Scheiben à ca. 5 mm schneiden. Kumquats in dünne Scheiben schneiden. Granatapfel halbieren. Kerne auslösen. Alles auf einer Platte anrichten. Mit Zimt bestäuben. Nach Belieben Rosenblüten zerbröseln und darüberstreuen. Pfefferminze darüberzupfen. Honig darüberträufeln. Dazu passt Vanilleglace."
   ],
+  port: 4,
   cover: "G:KsKjQ3GLEtbmx2P8FCgcswGq0RCd4_8yV-7lV_jzQ8BbdDoKnJxF32lCxNxssK24tE9BVMECcE-kwRTLTGI_au4hgd-WbQWjFm22", pages: ["G:oVCR3V5K62qMvwwzXc2v44IdeT0_miDzxCjdzpLAdkFBlaD6wmUrSnCSAVfJXRYlJncb3Gli8rBVutndP2JHe9ILZWhCZT09iw"]
 },
 {
   n: "Panna Cotta Mit exotischen Früchten", folder: "Dessert", src: "",
   ing: [
-    
+    "0,5 dl Orangensaft",
+    "2 Pr. Lebkuchengewürz",
+    "1 Orange",
+    "1 Mango",
+    "1 Baby-Ananas",
+    "5 dl Rahm",
+    "150 g Zucker",
+    "1 Vanillestange",
+    "1 Zimtstange",
+    "3 Bl. Gelatine",
+    "2 Passionsfrüchte"
   ],
   steps: [
-    
+    "Panna Cotta mit exotischem Fruchtsalat.",
+    "Orangensaft erhitzen, Lebkuchengewürz dazugeben und vom Herd nehmen. Je 1 geschälte und in Würfel geschnittene Orange, Mango und Baby-Ananas dazugeben und auskühlen lassen. Rahm mit Zucker, je 1 Vanille- und Zimtstange aufkochen. 3 Bl. ausgedrückte Gelatine dazugeben, gut auflösen und durch ein Sieb in Förmchen füllen. 4-5 Std. kühl stellen. Panna Cotta mit Fruchtsalat und dem Fleisch von 2 Passionsfrüchten garnieren.",
+    "Zubereitung: 45 Min. + 4-5 Std. kühl stellen."
   ],
+  port: 4,
   cover: "G:UC3aBAoyHSe74bT-ODx187sTpIrQqUhevBP2y6AB5U2jM07FijFVTgO6Fj6513iDHQ6OKGVq0OuMd6duYgHz8w", pages: ["G:S2Sokd4Jy4jcq8ulCm4G8Y7SBgRTixY6WIdOZR_20A_qa30nE1C1RctW8kS78nvTaCT7wthbkKH5qHFsHOpBlw"]
 },
 {
   n: "Panna Cotta mit Himbeeren", folder: "Dessert", src: "",
   ing: [
-    
+    "2 Blätter Gelatine",
+    "2 1/2 dl Rahm",
+    "2 1/2 dl Milch",
+    "50 g Zucker",
+    "300 g tiefgekühlte oder frische Himbeeren",
+    "80 g Zucker",
+    "15 g ungesalzene geschälte Pistazien"
   ],
   steps: [
-    
+    "25 Min. + 4 Std. kühl stellen. Glutenfrei. Für 4 Gläser von je ca. 2 dl.",
+    "Gelatine ca. 5 Min. in kaltem Wasser einlegen. Rahm, Milch und Zucker in einer Pfanne verrühren, aufkochen. Hitze reduzieren, auf ca. 4 1/4 dl einkochen. Pfanne von der Platte nehmen, Gelatine abtropfen, mit den Schwingbesen darunterrühren. Masse durch ein Sieb in einen Messbecher giessen, in die Gläser giessen, auskühlen. Zugedeckt im Kühlschrank ca. 4 Std. fest werden lassen.",
+    "Himbeeren mit dem Zucker in einer kleinen Pfanne aufkochen, durch ein Sieb streichen (ergibt ca. 220 g), auskühlen. Himbeersauce vor dem Servieren auf das Panna cotta verteilen. Pistazien fein hacken, darüberstreuen.",
+    "Pro Portion (1/4): 429 kcal, F 25 g, Kh 44 g, E 5 g."
   ],
+  port: 4,
   cover: "G:MBi0uVrfPVm4jkterC-lLplZ7NtL3SXnNq7WAvh3y_-8K8vAkCFOo5c1B8dmeHfwVbXYeqmmSe0cpx4Dkcu4XKxU30tom2YBIayv", pages: ["G:szE7kSmsNXBBTnEb4kWQZwo6RGNi0XK4EdkcCmx9CsKoy2Ql2UPYFmFIK7rptDhUdLFFcYkd7cmyyeSKqOVcMaNRB9YyU5YrVw"]
 },
 {
   n: "Panna Cotta Passionsfrucht", folder: "Dessert", src: "",
   ing: [
-    
+    "2 Blatt Gelatine",
+    "4 dl Halbrahm",
+    "6-8 Passionsfrüchte",
+    "5 EL Zucker"
   ],
   steps: [
-    
+    "Gelatine ca. 5 Min. in kaltem Wasser einlegen. Rahm aufkochen, Hitze reduzieren, ca. 5 Min. köcheln. Pfanne von der Platte nehmen, Gelatine abtropfen, unter den Rahm rühren.",
+    "Passionsfrüchte halbieren, Fruchtfleisch auskratzen, davon 2 EL beiseitestellen. Rest mit dem Zucker kurz pürieren, durch ein Sieb streichen (ca. 4 EL Saft), mit dem Rahm verrühren.",
+    "Creme in Gläser (je ca. 1 1/2 dl) füllen, zugedeckt etwa 1 Std. kühl stellen. Beiseitegestelltes Fruchtfleisch darauf verteilen.",
+    "Tipp: Statt Passionsfrüchte können Sie auch den Saft von einer Blutorange (ca. 4 EL) mit dem Zucker unter den warmen Rahm rühren."
   ],
+  port: 4,
   cover: "G:yEJQJmF5c41PcXOHfAupugVXja0gYAkq8H9cqCiC-t_PFFu67Jwp1-HmE_mreOfjywLtLenA3tSIxoslG2-2oQ", pages: ["G:zaQttv2b-2mNnS-dd8LKxNBkNy2qHJRcrCbzk2jNwi4TV5UO-IBpULiKl0MrslexZQzxE1G69RqlO_4cDG-qjN0"]
 },
 {
   n: "Passionsfrucht-Roulade", folder: "Dessert", src: "",
   ing: [
-    
+    "Zutatenliste auf dem Foto nicht vorhanden."
   ],
   steps: [
-    
+    "Für die Füllung Passionsfrüchte halbieren. Von 7 Früchten Fruchtfleisch herauslöffeln, durch ein Sieb passieren, Kerne entfernen. Fruchtfleisch der restlichen Passionsfrucht dazulöffeln. Ergibt total ca. 240 g Fruchtfleisch. Mit Gelierzucker aufkochen. 3 Minuten sprudelnd kochen, Konfitüre in ein Glas füllen und auskühlen lassen.",
+    "Backofen auf 190 °C mit Umluft vorheizen. Ein grosses, eckiges Backblech mit Backpapier belegen. Für das Biskuit Zitronenschale fein abreiben. Mit Eiern, Salz und Zucker in eine Schüssel geben und mit dem Handührgerät ca. 5 Minuten hell und schaumig schlagen. Mehl portionenweise dazusieben und unterheben. Masse sofort auf das Backpapier giessen und gleichmässig ca. 1 cm dick ausstreichen. Kokosraspel darüberstreuen. Sofort in der Ofenmitte 6-8 Minuten hell backen. Herausnehmen. Biskuit samt Backpapier vom Blech auf eine hitzeresistente Unterlage ziehen. Backblech umgekehrt darauflegen, Biskuit auskühlen lassen.",
+    "Backpapier sorgfältig vom Biskuit ablösen. Trockene Ränder wegschneiden (das Biskuit misst jetzt ca. 30 x 24 cm). Biskuit dünn mit der Passionsfrucht-Konfitüre bestreichen, dabei einen Rand frei lassen. Sorgfältig längs aufrollen. Roulade in Backpapier gewickelt bis zum Fertigstellen kühl stellen.",
+    "Für Meringue Eiweiss mit Zitronensaft und 1/3 des Zuckers mit einem Handrührgerät zu Schnee schlagen. Ein weiteres Drittel Zucker einrieseln lassen und weiterschlagen, bis die Masse glänzt. Restlichen Zucker dazugeben und nur noch kurz weiterschlagen. Masse in einen Spritzbeutel mit runder Tülle mit ca. 1 cm Durchmesser füllen. Meringue-Tupfer auf die Roulade spritzen. Meringue mit dem Gasbrenner leicht abflämmen. Roulade sofort servieren.",
+    "Tipp: Selbst gemachte Passionsfrucht-Konfitüre durch gekaufte, samtige Konfitüre nach Belieben ersetzen.",
+    "Zubereitung ca. 1 Stunde + 6-8 Minuten backen.",
+    "Pro Stück ca. 7 g Eiweiss, 3 g Fett, 67 g Kohlenhydrate, 1400 kJ / 340 kcal."
   ],
   cover: "G:ciFqaSUdTGCBAlGQKKOEyjonlMvIhx_apNqkGvTBvzF17wwOxoDdi52jj3Ug9yiim8HpG35DrogOiNfs202p9w", pages: ["G:FxxFT1XBKVDAVgl2g99i6_PnKgVdrFGlKxYP7QAFQ8M7yEcpxde2bmcy_px9hx49UGoBDLpUe31IWc6Voqbr","G:M6vgBtpE-EIetm0KA6WUmmltIgya2Dwdf22TWPaqGJHG0GQeMGwoYZDc3cRCasWROqMZPTCmYFEQpyRAwl492Q"]
 },
 {
   n: "Petit Gâteau mit weisser Kaffeeglace", folder: "Dessert", src: "",
   ing: [
-    
+    "85 g dunkle Couverture-Drops, 70% Kakao, aus dem Delikatessgeschäft",
+    "85 g Butter",
+    "2 Eier",
+    "1 Eigelb",
+    "35 g Zucker",
+    "35 g Mehl",
+    "Butter und Mehl für die Förmchen",
+    "12 dunkle Couverture-Drops, 70% Kakao, aus dem Delikatessgeschäft",
+    "Puderzucker zum Bestäuben",
+    "Glace:",
+    "1 dl Wasser",
+    "120 g Zucker",
+    "4 dl Soja-Schlagcreme oder Rahm",
+    "100 g Kaffeebohnen"
   ],
   steps: [
-    
+    "Dessert für 4 Personen. Für 4 ofenfeste Förmchen à 1,25 dl.",
+    "Für die Glace Wasser und Zucker aufkochen. 5 Minuten köcheln lassen. Sirup in eine Schüssel geben. Auskühlen lassen. Schlagcreme und Kaffeebohnen aufkochen. Pfanne vom Herd nehmen. Flüssigkeit 15 Minuten ziehen lassen.",
+    "Flüssigkeit durch ein Sieb zum Sirup giessen. Gut mischen. Masse in eine Glacemaschine füllen, gefrieren lassen. Glace bis zur Verwendung tiefkühlen.",
+    "Für die Küchlein Couverture mit Butter über dem heissen Wasserbad schmelzen. Eier, Eigelb, Zucker und Mehl verrühren. Schokoladenbutter beigeben, mischen. Teig ca. 1 Stunde auskühlen lassen.",
+    "Backofen auf 180 °C vorheizen. Die Förmchen ausbutten. Mit Mehl bestäuben. Teig in die Förmchen füllen. Je 3 Schokoladen-Drops in die Mitte drücken. In der Ofenmitte ca. 9 Minuten backen. Herausnehmen, etwas abkühlen lassen. Küchlein stürzen. Mit Puderzucker bestäuben, noch warm mit Glace servieren.",
+    "Tipp: Falls keine Glacemaschine vorhanden: Masse in eine Metallschüssel füllen. Ca. 6 Stunden gefrieren lassen. Dabei stündlich mit einem Schwingbesen gut durchrühren.",
+    "Zubereitung ca. 40 Minuten + gefrieren lassen + ca. 1 Stunde auskühlen lassen.",
+    "Pro Person ca. 8 g Eiweiss, 69 g Fett, 70 g Kohlenhydrate, 4000 kJ / 950 kcal."
   ],
+  port: 4,
   cover: "G:k45kDaJgILkpJWtwii6skdUABAqHm4GgrH4yjfh-kJWrCF0yXpKlc4NNNyQndnezCL2c_OBiuERQAKmeUiFmbWj1MrCqSkG05HU", pages: ["G:VIf8Wf63BWD7dLOYCx88M-Pi7SY7hMDL5_NQ7Pjkdjpewe4UnKVtw7wmxU2-viANgMgpcmnYaNio7CbNcROdyQGDm5GQMGra2io","G:p0vzq2wLGZbMHsn1ezqO2R8j8Wq-x_taOAmNg01UWd-7YjqFYUS3O3v7jvZ0wwSbzSnskCLa-PFo6TOc2JWSIN1IkGAjbFVg2LE"]
 },
 {
   n: "Pflaumen-Plunder", folder: "Dessert", src: "",
   ing: [
-    
+    "Vanille-Backcreme:",
+    "1 1/2 dl Milch",
+    "1 Vanillestängel, längs aufgeschnitten, nur ausgekratzte Samen",
+    "2 Esslöffel Maizena",
+    "1 frisches Ei",
+    "2 Esslöffel Zucker",
+    "Plunder:",
+    "1 ausgewallter Blätterteig (ca. 25 x 42 cm)",
+    "1 Ei, verklopft, zum Bestreichen",
+    "3-6 Pflaumen oder Zwetschgen, halbiert",
+    "Glasur:",
+    "35 g Puderzucker",
+    "1 1/2 Esslöffel Rahm"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 30 Min. Backen: ca. 30 Min. Ergibt 6 Stück.",
+    "Alle Zutaten der Backcreme bis und mit Zucker in einer Pfanne mit dem Schwingbesen verrühren, unter ständigem Rühren bei mittlerer Hitze zum Kochen bringen. Sobald die Masse bindet, Pfanne sofort von der Platte nehmen, ca. 2 Min. weiterrühren. Creme durch ein Sieb in eine Schüssel giessen, auskühlen.",
+    "Formen: Teig längs halbieren und je quer dritteln, mit Ei bestreichen. Alle Ecken der Teigstücke zur Mitte einschlagen, auf ein mit Backpapier belegtes Blech legen. Creme auf die Teigmitten verteilen und je 1 oder 2 Pflaumenhälften mit der Schnittfläche nach unten darauflegen.",
+    "Backen: ca. 30 Min. in der Mitte des auf 200 Grad vorgeheizten Ofens. Herausnehmen, etwas abkühlen. Für die Glasur den Puderzucker mit dem Rahm verrühren, Plunder damit bestreichen.",
+    "Tipp: Die Plunder schmecken frisch am besten.",
+    "Pro Stück: 17 g Fett, 6 g Eiweiss, 36 g Kohlenhydrate, 1341 kJ (321 kcal)."
   ],
   cover: "G:G1wcCMbSzf0QrLRlADDjyB05zgUqZl5kpq8g0mT3w28ZWZZJreLql96BjZozj_R85ake_27tQc6t4VinJkzQzQ_FTnhqufxglaw", pages: ["G:BuLT92TrrAMU627vJxnJRKKNbqSyt-52vhGXJCcxnt049PX9t4JD3f3WZLO3d9CY38mL_mvIECa0GCAc4CTnSVcERNj3O9ZL_1PI"]
 },
 {
   n: "Quarktorte mit Erdbeeren", folder: "Dessert", src: "",
   ing: [
-    
+    "300 g Erdbeeren, in feinen Scheiben",
+    "2 EL Zucker",
+    "1 Bio-Zitrone, 1/2 abgeriebene Schale und 2 EL Saft",
+    "500 g Halbfettquark",
+    "150 g Zucker",
+    "1 Päckli Bourbon-Vanillezucker",
+    "8 Blätter Gelatine, ca. 5 Min. in kaltem Wasser eingelegt, abgetropft",
+    "3 EL Wasser, siedend",
+    "2 dl Vollrahm",
+    "2 frische Eiweisse, steif geschlagen",
+    "1 Prise Salz",
+    "120 g Löffelbiskuits",
+    "200 g Erdbeeren, einige halbiert, Rest in Scheiben"
   ],
   steps: [
-    
+    "Für 12 Stück (1 Torte). Nährwerte pro Stück: 219 kcal. Aktive Zeit: 40 Min. Gesamtzeit: 4 Std. 40 Min.",
+    "Erdbeeren: Erdbeeren, Zucker, Zitronenschale und -saft mischen, zugedeckt beiseitestellen.",
+    "Quarkmasse: Quark, Zucker und Vanillezucker gut verrühren. Gelatine im Wasser auflösen, mit 2 EL Quarkmasse verrühren, sofort unter die restliche Masse rühren. Schlagrahm auf die Quarkmasse geben. Eiweisse mit dem Salz steif schlagen, Eischnee mit dem Schlagrahm sorgfältig unter die Quarkmasse ziehen.",
+    "Boden: Springformring (ca. 24 cm) mit Öl bestreichen, mit Klarsichtfolie belegen, auf Tortenplatte stellen. Löffelbiskuits mit Zuckerseite nach unten satt auf dem Boden auslegen. Beiseitegestellte Erdbeeren mit dem Saft darauf verteilen. Quarkmasse darauf verteilen, zugedeckt im Kühlschrank ca. 4 Std. fest werden lassen.",
+    "Verzierung: Formenrand sorgfältig entfernen. Torte mit Erdbeeren verzieren.",
+    "Haltbarkeit: im Kühlschrank ca. 2 Tage."
   ],
+  port: 12,
   cover: "G:Bgs4G0-6X7eos70k-DePrR6_lg9jsipLXdbj9MM4DDcVIvVVnYk-Cq4DAmeHetWIaLIzRtlVAl7GXQ1yZlW4ZkU", pages: ["G:kkMtl2F5FLKTKVCtZIWczIRW_HSEW9ueWFptxI7mo_dp8r8UKGKFc_-K9YokrWkpPpJOMnJGqOv3NMRV7Gzm","G:2wexfc3LZVJsKP0xU2BclwLNiCqDMOrGVyjuRAKKn-wIVf_jA29ERG13TcRP3tXeou4C39KOxKGV1PYSOYuV"]
 },
 {
@@ -2427,11 +2829,23 @@ window.REZEPTE = [
 {
   n: "Rosmarin-Crème-brûlée mit Blutorange", folder: "Dessert", src: "",
   ing: [
-    
+    "1 kleiner Rosmarinzweig",
+    "5 dl Halbrahm",
+    "4 Eigelb",
+    "50 g Zucker",
+    "1 Blutorange",
+    "3 EL gemahlener Rohzucker"
   ],
   steps: [
-    
+    "Für 6 flache, ofenfeste Förmchen à ca. 1,75 dl.",
+    "Backofen auf 140 °C vorheizen. Rosmarin abzupfen und grob hacken. Mit dem Rahm in einer Pfanne erhitzen und auf kleinster Hitze ca. 5 Minuten ziehen lassen. Eigelb mit Zucker verrühren. Rosmarinrahm durch ein feines Sieb zur Eimischung rühren.",
+    "Förmchen auf Haushaltspapier in eine Gratinform stellen. Eimasse in die Förmchen verteilen. Siedendes Wasser bis ca. 1 cm unter den Förmchenrand einfüllen. Flans in der Ofenmitte ca. 35 Minuten pochieren. Sie sind gar, wenn die Masse beim Einstechen mit einem Messerchen fest ist. Flans aus dem Wasser heben, im Kühlschrank ca. 2 Stunden kühl stellen.",
+    "Orange samt weisser Haut schälen, in Scheiben schneiden. Scheiben auf Haushaltspapier abtropfen lassen. Auf den Cremen verteilen. Zucker gleichmässig darüberstreuen. Zucker mit dem Bunsenbrenner hellbraun caramelisieren. Sofort servieren.",
+    "Tipp: Übriges Eiweiss tiefkühlen oder für Eiweissguetzli wie Makrönli oder für Meringues verwenden.",
+    "Zubereitung ca. 20 Minuten + ca. 35 Minuten pochieren + ca. 2 Stunden kühl stellen.",
+    "Pro Person ca. 5 g Eiweiss, 26 g Fett, 21 g Kohlenhydrate, 1450 kJ / 350 kcal."
   ],
+  port: 6,
   cover: "G:3LoCJ52WOw42xScBNfbUMXRcPXQGwKYrxlMmfr2dQlstIsQSnOTCW7R6VonZXhoYqJUxMN2s6gYvBydM_3OFAR84T0-Ne-5IPQ", pages: ["G:W8cyxDIXT-qw16PSGfTYhMk7fulwSpe3xDVmQDjkAQ6zE2CvOUNqqZEGbqTMukqPY2QRYNrpAlE_CuwFI3UpsFvjxlaecryKzA"]
 },
 {
@@ -2463,21 +2877,53 @@ window.REZEPTE = [
 {
   n: "Süssmostcrème", folder: "Dessert", src: "",
   ing: [
-    
+    "Crème:",
+    "2 EL Speisestärke, z. B. Maizena",
+    "5 dl Süessmost",
+    "3 Eier",
+    "2-3 EL Zucker",
+    "Wenig gemahlener Zimt",
+    "1,5 dl Vollrahm, steif geschlagen",
+    "Garnitur:",
+    "50 g Nuss-Stängeli, zerkrümelt",
+    "Wenig gemahlener Zimt",
+    "8 getrocknete Apfelringe"
   ],
   steps: [
-    
+    "Crème: Speisestärke mit Süessmost in einer Pfanne anrühren, Eier gut darunterrühren. Zucker und Zimt beigeben. Unter ständigem Rühren mit dem Schwingbesen aufkochen, sofort durch ein Sieb in eine Schüssel giessen, auskühlen lassen. Crème zugedeckt 1 Stunde kühl stellen. Schlagrahm sorgfältig unterziehen, in vier Gläser verteilen.",
+    "Garnitur: Nuss-Stängeli-Krümel auf die Süessmostcrème geben, mit Zimt bestäuben und mit Apfelringen garnieren.",
+    "Öise Tipp: Der Thurgau ist der «Apfelkanton» der Schweiz und Heimat vieler Mostereien. Most und Äpfel prägen auch die Küche, wie im weitum bekannten Thurgauer Dessert, der Süessmostcrème.",
+    "Zubereiten ca. 20 Minuten, kühl stellen ca. 1 Stunde."
   ],
+  port: 4,
   cover: "G:xMSfzGBmA0rPyiRE2kiSYy-n2bzsd_iXpT5JGhokYIJA-uH584zAWK7pi8xqbP8CJ3IwqX55dZP7kpwvkxcOgIshVLMloohg1sBq", pages: ["G:Sx5cs6HmP5dD2TUlgO3w4djOlZsmyDoE2PLJj22e-jsSsR0Dnc8xPfQk9YLjYJFTdsaZsUPKEoaxN7k0MArOXhPg84s9iIUMI9c"]
 },
 {
   n: "Tiramisu", folder: "Dessert", src: "",
   ing: [
-    
+    "2 dl starker Kaffee (z.B. Espresso), heiss",
+    "1 EL Zucker",
+    "3 EL Amaretto",
+    "3 EL Orangenlikör (z.B. Cointreau)",
+    "3 EL Zucker",
+    "3 frische Eigelbe",
+    "1 Bio-Zitrone, nach Belieben",
+    "500 g Mascarpone",
+    "3 frische Eiweisse",
+    "1 Prise Salz",
+    "1 EL Zucker",
+    "250 g Löffelbiskuits",
+    "Kakaopulver zum Bestäuben"
   ],
   steps: [
-    
+    "Kaffee mit dem Zucker verrühren, bis sich der Zucker aufgelöst hat. Amaretto und Orangenlikör beigeben, auskühlen.",
+    "Zucker und Eigelbe in einer Schüssel mit den Schwingbesen des Handrührgeräts rühren, bis die Masse heller ist. Von der Zitrone Schale dazureiben, Mascarpone darunterrühren.",
+    "Eiweisse mit dem Salz steif schlagen. Zucker beigeben, kurz weiterschlagen, bis der Eischnee glänzt, mit dem Gummischaber sorgfältig unter die Masse ziehen.",
+    "Die Hälfte der Löffelbiskuits mit der gezuckerten Seite nach unten in die Form legen, die Hälfte des Kaffees darüberträufeln. Die Hälfte der Masse darauf verteilen. Restliche Biskuits in den Kaffee tauchen, darauflegen, restliche Masse darauf verteilen. Tiramisu zugedeckt ca. 2 Std. kühl stellen.",
+    "Kakaopulver darüberstäuben.",
+    "Form: für eine weite Form von ca. 2 1/2 Litern."
   ],
+  port: 6,
   cover: "G:OJ2wPcS0Mkb35yiMDNX5HHYMcRB7hQ8N6rcT2_6T6d_oL3Myl_zhbdHdyTm-SPkS51tO3HfCW4I_F3cb4IHCy5I-GhjkgyVRLA", pages: ["G:6VTkJbvLU8Rj8UlQuq0I5tTYZxVL25yKOVWJ8NHtK8fKLz2p7QzqdmIH8RoRUFPpXES4y5tGIa3EprVOrgawu4-ogNzOnZUnBvk","G:vUfjLPJ86kVPmfjJ1DEJFMxy_WhQfTqIThrlmqup4XSKozRLfsoEXqnuhvQt2maRuZ79vRPuZfABKJqItoO2ROEeA3ZieS_Lrw"]
 },
 {
@@ -2505,41 +2951,105 @@ window.REZEPTE = [
 {
   n: "Tiramisu mit Mango", folder: "Dessert", src: "",
   ing: [
-    
+    "Mangopüree:",
+    "1 Mango (ca. 350 g)",
+    "2 Limetten",
+    "2 dl Orangensaft",
+    "1 EL flüssiger Honig",
+    "Mascarponemasse:",
+    "250 g Mascarpone",
+    "2 dl Rahm",
+    "150 g Rahmquark",
+    "80 g flüssiger Honig",
+    "Schichten:",
+    "150 g Löffelbiskuits",
+    "2 Mangos (je ca. 350 g)",
+    "Dekoration:",
+    "Kakaopulver zum Bestäuben",
+    "150 g dunkle Schokolade",
+    "einige Zuckerperlen"
   ],
   steps: [
-    
+    "Für eine Form von ca. 2 Litern.",
+    "Mango schälen, in Stücke schneiden. Von den Limetten den ganzen Saft auspressen, zusammen mit den Mangostücken, dem Orangensaft und dem Honig fein pürieren.",
+    "Mascarpone, Rahm und Quark in einer Schüssel mischen, mit den Schwingbesen des Handrührgeräts so lange schlagen, bis die Masse fest wird. Honig sorgfältig darunter mischen.",
+    "Löffelbiskuits mit der Zuckerseite nach unten in die Form legen. Mangopüree darauf verteilen. Mangos schälen, in feine Scheiben schneiden, darauf verteilen. Mascarponemasse darauf verteilen, zugedeckt ca. 2 Std. kühl stellen.",
+    "Tiramisu mit Kakaopulver bestäuben, Schokolade grob hacken, Tiramisu mit der Schokolade und den Zuckerperlen dekorieren.",
+    "Lässt sich vorbereiten: Tiramisu ca. 1 Tag im Voraus zubereiten, zugedeckt im Kühlschrank aufbewahren."
   ],
+  port: 8,
   cover: "G:GsU2Hh0F2xQPdDmStEnxhG1twIl13Z6qYHzVdfMLU51DGXQMO51HHzmQXtLimpvLyA0Qz8IRmSafst6Mq3x8i1JUEzHqj6rn6kw", pages: ["G:wmJWBoxTFdK2sW6L5v3T5j3bqPff_LHOiTgr7tEcSpJ7NroBx1EC8cXvKak8sK9DFMRZcCS0kudOccBCobTCVOJuDk9B4aOj9wI","G:RViW3eNQ9HMJLsB9hlED6gwCOd26XDtuY2IHBlpEGJ8SFKIlOWGCyRD1zZ2fKrfIgybRTk0luWRUEbgiuF1Kwe3d5Oj7JiXjoQ"]
 },
 {
   n: "Tiramisu, klassisch italienisch", folder: "Dessert", src: "",
   ing: [
-    
+    "800 ml Kaffee",
+    "2,67 EL Zucker",
+    "8 EL Amaretto",
+    "5,33 Eigelbe",
+    "93,33 g Zucker",
+    "1,33 Prisen Salz",
+    "1000 g Mascarpone",
+    "133,33 g Schlagsahne",
+    "333,33 g Löffelbiskuits",
+    "etwas Kakaopulver zum Bestreuen"
   ],
   steps: [
-    
+    "Für 8 Portionen. Auflaufform ca. 23 x 33 cm.",
+    "1. Schritt: Kaffee kochen, im heissen Zustand Zucker zugeben und verrühren. Etwas abkühlen lassen. Im warmen Zustand den Amaretto zugeben und die Flüssigkeit beiseite stellen.",
+    "2. Schritt: Eigelb mit Zucker und Salz mind. 2 Min schaumig schlagen. Mascarpone und 3 EL der Eigelb-Creme mit einem Schneebesen KURZ glatt rühren. Restliche Creme vorsichtig unterheben. Sahne steif schlagen und zuletzt unter die Creme heben.",
+    "3. Schritt: Löffelbiskuits einzeln kurz in den abgekühlten Kaffee tauchen und dicht an dicht den Boden der Auflaufform (ca. 23 x 33 cm) bedecken. Etwas weniger als die Hälfte der Mascarpone-Creme darauf geben und glatt streichen. Erneut eine Schicht getränkter Löffelbiskuits darauf verteilen und leicht andrücken. Restliche Creme in einen Spritzbeutel mit Lochtülle füllen und die Biskuits mit Tuffs bedecken. Mind. 2 Stunden kühl stellen. Kurz vor dem Servieren mit Kakaopulver bestreuen.",
+    "Hinweis: Der Schluss des 3. Schritts war auf dem Foto abgeschnitten (Kühlzeit und Kakao sinngemäss ergänzt)."
   ],
+  port: 8,
   cover: "G:orbqFOduo8SJS7vT3hGnzKPp7UVWFCDPk8syawq001wH2Uyf69SOJrWgANKWT_pV8AT-cElmgV2uKNVo0lozvOGdqn5cL3NH3A", pages: ["G:MH4plFKw7vvkLedhQbN6Mxt8AbIFe-h558ZvdLx4of5cbyclr3WG1yfTDmV5RtoFkihk87WT6QvefVAZzS6nARZVAmpja_FRlw","G:LQYiUdwKTjicsLjtJ5IvaQE7E_0F8wsanKlOgJ5e2sW9sN_IxvNLSGa8ORm4FNIFhDbEAcpkhiy6WoMIndgPI1w0jad_qwj7e_E"]
 },
 {
   n: "Zitronencreme mit Brombeere", folder: "Dessert", src: "",
   ing: [
-    
+    "4 Bio-Zitronen",
+    "3 dl Wasser",
+    "100 g Zucker",
+    "2 EL Maizena",
+    "2 frische Eier",
+    "2 dl Vollrahm",
+    "250 g Brombeeren",
+    "1 EL Puderzucker",
+    "2 EL Pfefferminze"
   ],
   steps: [
-    
+    "Für 4 Gläser von je ca. 2 1/2 dl. Glutenfrei.",
+    "Von den Zitronen Schale abreiben, Saft auspressen (ergibt ca. 2 dl), mit dem Wasser in eine Pfanne geben.",
+    "Zucker, Maizena und Eier beigeben, mit dem Schwingbesen verrühren. Unter ständigem Rühren bei mittlerer Hitze zum Kochen bringen. Sobald die Masse bindet, die Pfanne sofort von der Platte nehmen, ca. 2 Min. weiterrühren. Creme durch ein Sieb in eine Schüssel giessen, Klarsichtfolie direkt auf die Creme legen, auskühlen, ca. 1 Std. kühl stellen. Creme glatt rühren.",
+    "Rahm steif schlagen, unter die Creme ziehen, in die Gläser füllen.",
+    "Brombeeren halbieren, mit dem Zucker mischen, auf die Creme verteilen. Pfefferminze fein schneiden, darüberstreuen.",
+    "Zubereitung 30 Min. + 1 Std. kühl stellen.",
+    "Pro Portion (1/4): 377 kcal, F 21 g, Kh 41 g, E 5 g."
   ],
+  port: 4,
   cover: "G:AYT-EY3bTMibfUbs0GCfzwJBJwecvh4rN9DQSuefIKN_yxjsuvl_8kBr3f3_BsTWXN1DTHpSLzLvyw36kNgZluE", pages: ["G:WJYXrT6F2GtEdIXZf__7CFL65XriXQoWliLmWsPidgSa1qdQbNk9qdN6Ebdin4Pyv7CacvV6GoiUGgaqFYhD-w"]
 },
 {
   n: "Zwetschgen-Joghurtcreme", folder: "Dessert", src: "",
   ing: [
-    
+    "600 g Zwetschgen",
+    "4 EL Akazienhonig",
+    "4 EL Wasser",
+    "2 EL Zitronensaft",
+    "4 Zweiglein Thymian",
+    "300 g griechisches Joghurt nature",
+    "150 g Rahmquark",
+    "4 EL Akazienhonig",
+    "2 dl Vollrahm"
   ],
   steps: [
-    
+    "Für 4 Gläser von je ca. 3 dl.",
+    "Zwetschgen halbieren, entsteinen, mit Honig, Wasser, Zitronensaft und Thymian zugedeckt in einer Pfanne ca. 5 Min. knapp weich köcheln. Zwetschgen herausnehmen, Thymian entfernen. Sud auf ca. 4 EL einkochen, Zwetschgen wieder beigeben, auskühlen.",
+    "Joghurt, Quark und Honig in einer Schüssel verrühren. Rahm steif schlagen, sorgfältig unter die Creme ziehen. Creme und Zwetschgen schichtweise in die Gläser füllen.",
+    "Lässt sich vorbereiten: Creme ca. 1/2 Tag im Voraus zubereiten, zugedeckt im Kühlschrank aufbewahren.",
+    "Pro Portion (1/4): 547 kcal, F 31 g, Kh 58 g, E 7 g."
   ],
+  port: 4,
   cover: "G:GBAOUv1P9RGgnKrDn2v1QW8osbm7dc21M80AO7VNS5PWPr8Wx00ePuMuide4-gKR6WGQXCZG2aD5Kqn8eKsLujsSBuqLhNTgdDuR", pages: ["G:5wQy7NnmwXM-_1W5XOZs7nhRDXRi-8Zvj31hdBcTObPDYLZ4kwgCt3OuUBSaGa3LHMxQLoRlL64B3V5-ZDxODB456XhICmXqsy4"]
 },
 // ---- Dips ----
