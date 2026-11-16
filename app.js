@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.5.0';
+const APP_VERSION = '1.5.1';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -268,8 +268,9 @@ function applySize() {
 let sel = null; // Auswahl-Modus: Set von Ordner-IDs
 function tileHtml(f) {
   const sub = kids(f.id).length;
-  return `<button class="tile${f.show ? '' : ' off'}${sel && sel.has(f.id) ? ' sel' : ''}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
-    ${(ph => ph ? `<span class="ic photo" style="background-image:url('${esc(ph)}')"></span>` : `<span class="ic">${esc(f.icon)}</span>`)(cfg.photos ? folderPhoto(f.id) : '')}<b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
+  const ph = cfg.photos ? folderPhoto(f.id) : '';
+  return `<button class="tile${f.show ? '' : ' off'}${ph ? ' hasphoto' : ''}${sel && sel.has(f.id) ? ' sel' : ''}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
+    ${ph ? `<span class="ic photo" style="background-image:url('${esc(ph)}')"></span>` : `<span class="ic">${esc(f.icon)}</span>`}<b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
 }
 function tilesBlock(parent) {
   const list = kids(parent).filter(f => state.edit || f.show);
