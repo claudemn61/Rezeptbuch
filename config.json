@@ -117,6 +117,14 @@
    "show": true
   },
   {
+   "id": "Kuchen",
+   "name": "Kuchen",
+   "icon": "🍰",
+   "color": "#a0527c",
+   "parent": null,
+   "show": true
+  },
+  {
    "id": "Gratin",
    "name": "Gratin",
    "icon": "🧀",
@@ -137,14 +145,6 @@
    "name": "Kekse",
    "icon": "🍪",
    "color": "#7a5c9e",
-   "parent": null,
-   "show": true
-  },
-  {
-   "id": "Kuchen",
-   "name": "Kuchen",
-   "icon": "🍰",
-   "color": "#a0527c",
    "parent": null,
    "show": true
   },
