@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.3.1';
+const APP_VERSION = '1.4.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -59,7 +59,8 @@ function tokens(q) { return norm(q).split(/\s+/).filter(Boolean); }
 
 function search(q) {
   const t = tokens(q);
-  const fset = FB[state.filter] ? subtree(state.filter) : null;
+  // Ordner mit Unterordnern: ohne Suchbegriff nur die direkt zugeordneten Rezepte, den Rest zeigen die Unterordner
+  const fset = FB[state.filter] ? (!t.length && kids(state.filter).some(f => f.show) ? new Set([state.filter]) : subtree(state.filter)) : null;
   let list = R.filter(r => {
     switch (state.filter) {
       case 'fav': return state.fav.has(r.id);
