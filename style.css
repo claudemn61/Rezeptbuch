@@ -200,3 +200,6 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 
 .fchip{display:inline-flex;align-items:center;gap:4px}
 .fchip button{border:0;background:none;color:var(--muted);font-size:15px;line-height:1;padding:0 0 0 2px;cursor:pointer}
+
+.secret{-webkit-text-security:disc;text-security:disc;user-select:text;-webkit-user-select:text}
+.tokrow .chip{padding:6px 10px}

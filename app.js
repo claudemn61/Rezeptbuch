@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.1.1';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -631,8 +631,13 @@ const settingsEl = $('#settings');
 $('#gear').addEventListener('click', e => { e.stopPropagation(); settingsEl.hidden = !settingsEl.hidden; });
 document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.closest('#settings')) settingsEl.hidden = true; });
 settingsEl.addEventListener('click', async e => {
-  const sz = e.target.closest('[data-size]');
+  const sz = e.target.closest('#sizeseg [data-size]');
   if (sz) { cfg.size = sz.dataset.size; applySize(); persist(); return; }
+  if (e.target.closest('#tokpaste')) {
+    try { $('#tok').value = (await navigator.clipboard.readText()).trim(); setSync($('#tok').value ? 'Token eingefügt, jetzt «OK» tippen' : 'Zwischenablage ist leer', ''); }
+    catch { setSync('Zugriff auf die Zwischenablage nicht erlaubt: ins Feld tippen und lange drücken → Einfügen', 'err'); }
+    return;
+  }
   if (e.target.closest('#toksave')) {
     const v = $('#tok').value.trim();
     if (v) localStorage.setItem('rb_token', v); else localStorage.removeItem('rb_token');
@@ -653,7 +658,7 @@ settingsEl.addEventListener('click', async e => {
 });
 applyTheme();
 function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; }
-updTok(); applySize(); $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
+updTok(); applySize(); $('#tok').addEventListener('keydown', e => { if (e.key === 'Enter') $('#toksave').click(); }); $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
 
 /* ---------- Start ---------- */
 renderFilters();
