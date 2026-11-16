@@ -4990,21 +4990,37 @@ window.REZEPTE = [
 {
   n: "Advent: Hot Drink", folder: "Getränke", src: "",
   ing: [
-    
+    "frischer Ingwer (nach Belieben), zerstossen",
+    "4 cl Whisky oder Rum",
+    "2 TL Zucker",
+    "2 TL Honig",
+    "2 cl Zitronensaft",
+    "1 dl heisses Wasser",
+    "2 Anissterne",
+    "Zitronenzeste"
   ],
   steps: [
-    
+    "Für 1 Person.",
+    "Alle Zutaten bis auf die Zitronenzeste der Reihe nach direkt ins Glas geben. Die Zeste über den Glasrand drapieren."
   ],
+  port: 1,
   cover: "G:8Zp3Isz8EHWvvpLiHCGQ4Pi7Ns1KraRG_VTbTpeMm9EO5aQsxLvsOl001gyKw8xUDalJ8VJO-vNUwicY_ckKxw", pages: ["G:dM5Rc2bAF6OpONSCCI4QZqC0TG1V0W_EuFHCydBnogUcY_ij0PhTpVFGCkyjbmHPWD8lTZwE6CalyfVkT5JJR6s"]
 },
 {
   n: "Apfel-Zimt-Bellini", folder: "Getränke", src: "",
   ing: [
-    
+    "1/4 frischer Apfel, zerstossen",
+    "2 cl Zimtsirup",
+    "2 cl Apfelliqueur",
+    "10 cl Cremant (oder anderen Schaumwein)",
+    "Zimtstange",
+    "ein paar Apfelscheiben"
   ],
   steps: [
-    
+    "Für 1 Person.",
+    "Erste drei Zutaten zusammen shaken, in ein Champagnerglas geben und mit Schaumwein auffüllen. Zur Dekoration dünne Apfelscheiben zurechtschneiden und fächerartig auf einen Cocktailspiess aufstechen. Den Spiess in eine Zimtstange stecken und auf das Glas legen."
   ],
+  port: 1,
   cover: "G:3dlmuWnh5OvKfnmgzIE-x9KAyUMPuSnPV7aEo5s-xWj406u6GoIdamMyHy9EgHdo4IKlw-nQ-S-0j-317QRPMho", pages: ["G:XhRgELa-h88FiSH_i0BDuGdtYbCF61KxaK7y5ojqyGbXZDGDbGRSjOIovJ6WbQHKtn60zb740xvXBgU_brtbtQ"]
 },
 {
@@ -5037,21 +5053,42 @@ window.REZEPTE = [
 {
   n: "Bier-Mojito", folder: "Getränke", src: "",
   ing: [
-    
+    "480 ml Ingwerbier",
+    "80 ml Limettensaft",
+    "80 ml Holunderblütensirup",
+    "5-8 Eiswürfel",
+    "160 ml weisser Rum",
+    "Limettenscheiben",
+    "brauner Zucker",
+    "Minzblätter",
+    "Eiswürfel"
   ],
   steps: [
-    
+    "Hinweis: Auf dem Foto sind nur die Zutaten vorhanden, die Zubereitung fehlt."
   ],
   cover: "G:e093D98da0BdVMolFwscrYK7AwdPCyb_8Z_87m0BH1DE5HGvxa6IKCu9VAhgr9QaasEni4qFHIxTD1kogHlkTOnCoPxBBo66O4D_", pages: ["G:GmJCO6tU3PD7j5roMFB4AfCCZEZMfdRuYtPqCqCgx5gBtZY_YxwB80u04pwJyqVJkvy4wMmBofce-AYbqDzZg7yZagQMeBjezYQ"]
 },
 {
   n: "Christmas Old Fashioned", folder: "Getränke", src: "",
   ing: [
-    
+    "50 g frische Cranberries",
+    "3 EL Zucker",
+    "2 dl naturtrüber Apfelsaft",
+    "2 dl frisch gepresster Orangensaft",
+    "2 EL Honig",
+    "Eiswürfel",
+    "4 Zimtstangen",
+    "Whiskey nach Belieben"
   ],
   steps: [
-    
+    "Ergibt 4 Gläser à 3 dl.",
+    "Cranberries waschen, abtropfen lassen. Mit Zucker mischen und auf Spiesse stecken. Apfel- und Orangensaft mischen. Mit Honig verrühren und erwärmen, bis sich der Honig aufgelöst hat. Auskühlen lassen.",
+    "Drink in Gläser mit Eiswürfeln füllen. Mit Zimtstangen und Cranberryspiessen dekorieren. Nach Belieben mit Whiskey aromatisieren.",
+    "Tipp: Anstelle frischer Cranberries getrocknete verwenden und diese vorher über Nacht in Wasser einweichen.",
+    "Zubereitung ca. 20 Minuten + auskühlen lassen.",
+    "Pro Glas ca. 0 g Eiweiss, 0 g Fett, 35 g Kohlenhydrate, 650 kJ / 150 kcal."
   ],
+  port: 4,
   cover: "G:8EXN0sNHehvTivvOiBHerocSuoFuenMWlfNG-atUIBXwDg6DD9Pqb2fGi4Yb_HFPxZ6BWzbtaTHvBmPgB1qpewhKI0cccxJzKqY", pages: ["G:foOE0CRzZAYOr1UN0bjGY6jq-dGr4eg3Sp42n7N0lSr9WfxNr6lwyLKWhX8xiMTmvwQ4_smU7VBti0nZGpC778FfS926gufA9g"]
 },
 {
@@ -5074,11 +5111,25 @@ window.REZEPTE = [
 {
   n: "Feuerzangenbowle", folder: "Getränke", src: "https://m.bettybossi.ch/de/Rezept/ShowRezept/BB_BBZJ071115_0011A-40-de?title=Feuerzangenbowle",
   ing: [
-    
+    "2 Flaschen Rotwein (je 7 1/2 dl; z. B. Hallauer Spätlese, Pinot noir AOC)",
+    "0.5 Bio-Zitrone, nur dünn abgeschälte Schale",
+    "0.5 Bio-Orange, nur dünn abgeschälte Schale",
+    "0.5 Zimtstange",
+    "3 Sternanise",
+    "1 cm Ingwer, in feinen Scheiben",
+    "0.5 Zitrone, ganzer Saft",
+    "1 Orange, ganzer Saft",
+    "1 Glas Preiselbeeren (ca. 400 g)",
+    "2 dl Rum",
+    "1 Zuckerstock (ca. 250 g; siehe Hinweis)"
   ],
   steps: [
-    
+    "Wein und alle Zutaten bis und mit Ingwer in einer Pfanne heiss werden lassen, nicht kochen, zugedeckt ca. 10 Min. ziehen lassen.",
+    "Wein absieben, in die Pfanne zurückgiessen. Zitronen- und Orangensaft beigeben, Preiselbeeren darunterrühren. Pfanne auf ein Rechaud stellen, warm halten.",
+    "Rum in einer kleinen Pfanne warm werden lassen. Zuckerstock auf die Feuerzange legen, quer über die Pfanne legen. So viel Rum darüberträufeln, bis der Zuckerstock gut durchtränkt ist. Anzünden und brennen lassen, dabei mit einer kleinen Schöpfkelle den restlichen Rum nach und nach darübergiessen, Zucker in den Wein tropfen lassen. Sobald der Zuckerstock aufgelöst ist, Feuerzange entfernen, Bowle umrühren.",
+    "Hinweis: Der Abschnitt «Hinweis» zum Zuckerstock ist auf dem Foto abgeschnitten."
   ],
+  port: 4,
   cover: "G:l6w2udJgaiO8uUArsd5ImMyMMnvaNDe0ma05rvFNQv_5VG-bkRWvQwcRlimAacZSAJCsSryV4BzEl5H9-I30", pages: ["G:kB0yL7CwxQwoh1VnuEmRC7f9ktEoDIJBzcUcPoIQadZBYUCUZn0cVUjkPo5uyo-HE0dOZkY-LvkHo6Zdmgdcpw","G:CT8TQOdBMgyQMqVNHcqqLCGSuyrRMCCMMpfALuCA4YR9lpIyqe4bBqWr5VN_JJhDHSdUYPynqHI9bjbb30GmhSc"]
 },
 {
@@ -5128,31 +5179,55 @@ window.REZEPTE = [
 {
   n: "Orangen-Mojito-Punsch", folder: "Getränke", src: "",
   ing: [
-    
+    "6 dl Orangensaft",
+    "2 EL Rohzucker",
+    "3 cm Ingwer, in Stängeli",
+    "1 Zimtstange",
+    "1 Limette, heiss abgespült, trocken getupft, in Stücken",
+    "1 Bio-Orange, in Stücken",
+    "2 EL Rohzucker",
+    "4 Zweiglein Pfefferminze",
+    "1 dl brauner Rum"
   ],
   steps: [
-    
+    "Für 4 Gläser (à ca. 2 1/2 dl). Aktive Zeit 15 Min., Gesamtzeit 15 Min., 212 kcal pro Glas. Vegetarisch, vegan, laktose- und glutenfrei.",
+    "Orangensaft mit Zucker, Ingwer und Zimt aufkochen. Pfanne von der Platte nehmen und zugedeckt ca. 5 Min. ziehen lassen. Limette, Orange und Zucker in Gläser verteilen, mit einer Gabel leicht zerdrücken. Pfefferminze beigeben. Rum und heissen Orangensaft dazugiessen, sofort servieren.",
+    "Tipp: Sehr fein auch mit Mandarinensaft."
   ],
+  port: 4,
   cover: "G:Ir3xUiHEzSeP3SPsw1o2Ma-glifM-xvwtJr7d5a75FM1SZqgq3CIpiXJ_6_I-tQEC2B6XLxejh_g9LSBSuGq8Fg", pages: ["G:HpS2TpKa9qXuvGivh8tmAbQxfzlhQRDL5yRICUZ3DwmklGyQgVHJwX_tU2H1kAauEQFSHwR2D2GJphq76J57"]
 },
 {
   n: "Rhabarber-Ingwer-Fizz", folder: "Getränke", src: "",
   ing: [
-    
+    "25 ml Edinburgh Gin's Rhubarb & Ginger Likör",
+    "100 ml Prosecco",
+    "Garnitur: frische Zitronenschale"
   ],
   steps: [
-    
+    "Der klassische Fizz neu interpretiert mit einem belebenden Ingwer-Kick.",
+    "Den Rhabarber-Ingwer-Likör in einen gekühlten Sektkelch geben. Mit dem Prosecco auffüllen und einer Zitronenspirale garnieren.",
+    "Hinweis: Die Personenzahl ist nicht angegeben (Mengen entsprechen einem Glas)."
   ],
+  port: 1,
   cover: "G:hta2Y7SyqY7AAlD1qK9t9kUzpTPi_5QBHMje3eN4_Xl8N9xM9vPdbeWeA9lHAmB4te1xM7539YmcSRMTt2qmxO6worPucwuoG7E", pages: ["G:FF9DVxTmuXjdXajkvqceqTe0iYWq5Q8rhYsZbQF8m0qCUborW1upXk-aWBhPURQA-mABDpNcX0BIRoNTudqsMBHN0Q44iMRLwx8","G:AKDpMsfOe_Bo1yU7-IWt_aEof4lN6fX7iBT4g9ybborlujUXVJ4fxvVyuD59gkAqKdQH407HmA9pOFflXopBEp40rnTmN_e_cI0"]
 },
 {
   n: "Rhabarbersirup", folder: "Getränke", src: "",
   ing: [
-    
+    "500 g Rhabarber",
+    "100 g tiefgekühlte Himbeeren",
+    "300 g Zucker",
+    "5 dl Wasser"
   ],
   steps: [
-    
+    "30 Min. Vegan, laktosefrei, glutenfrei. Für 3 Einmachflaschen von je ca. 2 dl.",
+    "Ofen auf 100 Grad vorheizen. Die sauberen Flaschen auf ein Backblech legen, in den vorgeheizten Ofen schieben.",
+    "Rhabarber in Stücke schneiden, in eine Pfanne geben. Himbeeren, Zucker und Wasser beigeben, mischen, unter gelegentlichem Rühren aufkochen. Unter Rühren ca. 15 Min. sprudelnd kochen. Sirup durch ein Sieb giessen (ergibt ca. 6 dl). Zurück in die Pfanne giessen, nochmals aufkochen, siedend heiss bis knapp unter den Rand in die vorgewärmten Flaschen füllen, sofort verschliessen, auf einer isolierenden Unterlage auskühlen.",
+    "Haltbarkeit: kühl und dunkel gelagert ca. 6 Monate. Einmal geöffnet, Flasche im Kühlschrank aufbewahren und Sirup rasch geniessen.",
+    "DL: 220 kcal, F 0 g, Kh 54 g, E 1 g."
   ],
+  port: 3,
   cover: "G:8rFPSo1eMIYMLGenELMRc4m3ISNvljcQFXpC_Vd9O3PD7tb4wVmgi9WjdQ4VNPfFYuPuaqFkkk-NHEqSvLbdO00tzxMCS3GfLHw", pages: ["G:UPsX3_WtfuaHebQ3q2E3YY0AHlNuT_WGujAzA1OBXQ83c44mPjw-A9hJbwXOmQSDYQqQZbhcOctneIDC2CY_xCAOaQ-W_uNKEqeX"]
 },
 {
