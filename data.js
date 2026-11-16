@@ -4490,10 +4490,27 @@ window.REZEPTE = [
 {
   n: "Brot-Pouletauflauf", folder: "Geflügel", tags: ["Gratin"], src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "2 Zweige Rosmarin",
+    "3 1/2 dl Milch",
+    "1/2 Becher Saurer Halbrahm",
+    "2 Eier",
+    "Salz, Pfeffer",
+    "1 EL Öl",
+    "2 Pouletbrüstli",
+    "100 g Champignons",
+    "2 Frühlingszwiebeln",
+    "1 Birne",
+    "2 Feigen",
+    "100 g Gorgonzola"
   ],
   steps: [
-    
+    "Zwiebel schälen, achteln und mit Rosmarin und Milch in einen Topf geben. Bei kleiner Hitze aufkochen lassen, vom Herd nehmen und etwas abkühlen lassen. Lauwarme Milch durch ein Sieb giessen, mit Sauerrahm und Eiern verquirlen und mit Salz und Pfeffer pikant abschmecken.",
+    "Pouletbrust mit Salz und Pfeffer würzen, in einer Bratpfanne im heissen Öl beidseitig scharf anbraten, in Tranchen schneiden.",
+    "Champignons in dünne Scheiben schneiden. Frühlingszwiebel mitsamt Grün in feine Streifen schneiden. Birne halbieren, entkernen und längs in dünne Scheiben schneiden. Feigen waschen, trocknen und in dünne Scheiben schneiden.",
+    "Brot in ca. 1 cm dicke Scheiben schneiden, zusammen mit den restlichen Zutaten in eine gefettete Auflaufform schichten. Gorgonzola klein würfeln und darauf verteilen.",
+    "Milch-Eiguss gleichmässig darüber giessen und im vorgeheizten Ofen (180 °C Ober-/Unterhitze) auf der untersten Schiene ca. 25 Minuten backen.",
+    "Hinweis: Brotmenge und Personenzahl sind auf dem Foto nicht angegeben."
   ],
   cover: "G:FN2gKmJ9GkC9-0n2We50TAyaU-sPxVmCrpNHYkxQ0e2z2XTsoytoNX_-GyXT5asND4hcVy_qXrFEkkiB__vfkFM", pages: ["G:ZWUiT960I3DOVtKPgmkDRlxcsd2JTfiaAh0-aivTJDVm9iGHvmHit0reMCznANe_RH7IavFVcuUJUf1fYAHZ8w","G:jLHm0oQqTNOCHp5pzAyjoMiEHjZ_-nhK0YYC1ymhOYb4lnoDTCHCi0q89PIVAExZ2N1b0XP_wR4Ujj3S8R-umc4"]
 },
@@ -4522,31 +4539,71 @@ window.REZEPTE = [
 {
   n: "Poulet mit Pilzsauce", folder: "Geflügel", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "1 Knoblauchzehe",
+    "300 g Krautstiel",
+    "250 g Shiitake",
+    "250 g braune Champignons",
+    "Öl zum Braten",
+    "4 Pouletbrüstli (je ca. 160 g)",
+    "3/4 TL McCormick Hawaii Salz",
+    "wenig McCormick Pfeffer Bouquet",
+    "2 dl Weisswein",
+    "4 dl Vollrahm",
+    "3/4 TL McCormick Hawaii Salz",
+    "wenig McCormick Pfeffer Bouquet"
   ],
   steps: [
-    
+    "40 Min. Glutenfrei.",
+    "Zwiebel und Knoblauch grob hacken. Krautstiel mit den Blättern in ca. 1 1/2 cm breite Streifen schneiden. Von den Shiitake Stiele entfernen, mit den Champignons in Scheiben schneiden.",
+    "Öl in einer weiten beschichteten Bratpfanne heiss werden lassen. Poulet beidseitig je ca. 5 Min. braten, herausnehmen, würzen.",
+    "Wenig Öl in derselben Pfanne heiss werden lassen. Zwiebel und Knoblauch anbraten, Pilze ca. 2 Min. mitbraten. Krautstiel beigeben, ca. 3 Min. mitbraten. Wein dazugiessen, auf die Hälfte einkochen, Rahm dazugiessen, ca. 10 Min. einkochen, würzen. Poulet wieder beigeben, nur noch heiss werden lassen."
   ],
+  port: 4,
   cover: "G:_pMc1lfOY2m2pmbB74_4cxU8WmGWo5ezk_weV-7HqbmLxuEsgSFmFuliAauenRM8OO3ft_szDODoKn3SSXMf8A", pages: ["G:3f1nKmzuuHe8-7Hdz9u2W8EL_2hQR0Ojf_G_8DM3rp5efF5B_PGsR5JzDXAYYgCoD-eWHrrlDvoh8gX7LB8hGA","G:xKfVx8e5sChqi3ZFUyqXaRFbNj_DKLA5NcsiALIaHWyD2za1HkX8wFSUTXjRzRQiRXPEW8T4sNJg2zKCNXQERw"]
 },
 {
   n: "Poulet Saltinbocca Style", folder: "Geflügel", src: "",
   ing: [
-    
+    "600 g Broccoli",
+    "300 g Trockenreis",
+    "Salzwasser, siedend",
+    "4 Pouletbrüstli (je ca. 160 g)",
+    "100 g Rohschinken in Tranchen",
+    "8 Zweiglein Salbei",
+    "Öl zum Braten",
+    "1 1/2 dl Weisswein oder Gemüsebouillon",
+    "250 g Cherry-Tomaten",
+    "1/2 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Broccoli in Röschen schneiden. Reis im siedenden Salzwasser ca. 15 Min. kochen, dabei ca. 5 Min. vor Kochende Broccoli mitkochen, abtropfen.",
+    "Poulet in ca. 2 cm grosse Würfel, Rohschinken und Salbei in Streifen schneiden. Öl in einer beschichteten Bratpfanne heiss werden lassen. Pouletwürfel, Rohschinken und Salbei zusammen portionenweise je ca. 4 Min. rührbraten. Wein dazugiessen, ca. 2 Min. köcheln.",
+    "Tomaten halbieren, beigeben, würzen, mit dem Reis anrichten.",
+    "Pro Portion (1/4): 582 kcal, F 9 g, Kh 65 g, E 55 g."
   ],
+  port: 4,
   cover: "G:U9URsd1FAscBkoFH-toidKQrYiqZYl0NWU7SRvA32XCX-lT89QdUGtA1Ey0bElMy-UQpFCcPrTjneszZnguf1Hq0DqMauPawsgI", pages: ["G:zbdteRneMyjvm6SeBsgBU4BDtnav0gzgW_6ZsagMplrzlcZrZ0HE9yaxXkjuuiMYKIZSujWqwGKWvi2b-6VFMAWgU-all-h5kO4"]
 },
 {
   n: "Poulet-Spargel-Pfanne", folder: "Geflügel", src: "",
   ing: [
-    
+    "500 g Pouletgeschnetzeltes",
+    "Bratbutter oder Bratcrème",
+    "1 kg Spargeln, Kohlrabi und Rüebli, gerüstet, in Stücken",
+    "2 dl Bouillon",
+    "1 dl Saucenhalbrahm",
+    "1 TL Feigensenf oder milder Senf",
+    "Salz, Pfeffer, Zucker",
+    "1 Bund Estragon, gehackt"
   ],
   steps: [
-    
+    "Zubereiten: ca. 30 Minuten.",
+    "Poulet in der heissen Bratbutter rundum 3 Minuten anbraten, warm stellen.",
+    "Hitze reduzieren, Gemüse in derselben Pfanne 5-10 Minuten rührbraten. Mit Bouillon, Rahm und Senf ablöschen, aufkochen. Fleisch samt Saft dazugeben, bei mittlerer Hitze 10-15 Minuten köcheln. Abschmecken, garnieren."
   ],
+  port: 4,
   cover: "G:dDHIdHSrk7Gpj07U3AJFUU6e9HfFuJovBdEi9QDkzMFxjKC04KiTEG6nIlKwijBOrIfJcdYOyZRhTn0eg6ah", pages: ["G:ddPjqWBSSP_MXUtg-QSGMSYI3McMlV_ZxAk21LbwL7iO8zWd401pIbg9d4RuIjeEDZCknjDrOshxDpbC7Jw5-qg"]
 },
 {
@@ -4572,21 +4629,56 @@ window.REZEPTE = [
 {
   n: "Poulet-Stroganoff aus dem Ofen", folder: "Geflügel", src: "",
   ing: [
-    
+    "Bratbutter zum Braten",
+    "4 Pouletbrüstli (je ca. 150 g)",
+    "0.5 EL Edelsüss-Paprika",
+    "0.5 TL Salz",
+    "Sauce:",
+    "1 rote Zwiebel",
+    "1 rote Peperoni",
+    "250 g Champignons",
+    "1 EL Edelsüss-Paprika",
+    "1 EL Cognac",
+    "1 dl Hühnerbouillon",
+    "2 dl Vollrahm",
+    "100 g Essiggurken",
+    "1 EL Senf",
+    "Salz, nach Bedarf"
   ],
   steps: [
-    
+    "Ofen auf 180 Grad vorheizen. Bratbutter in einer beschichteten Bratpfanne heiss werden lassen. Pouletbrüstli halbieren, beidseitig je ca. 2 Min. anbraten, herausnehmen, Paprika darüberstreuen, salzen. Bratfett auftupfen, evtl. wenig Bratbutter beigeben.",
+    "Zwiebel schälen, fein hacken. Peperoni entkernen, in feine Streifen schneiden. Pilze vierteln. Zwiebel, Peperoni und Pilze ca. 5 Min. andämpfen. Paprika und Cognac beigeben, Bouillon und Rahm dazugiessen, aufkochen, Hitze reduzieren, ca. 5 Min. köcheln. Essiggurken in Würfeli schneiden, mit dem Senf daruntermischen, salzen. Sauce in die Form geben, Poulet darauflegen.",
+    "Garen: ca. 20 Min. in der Mitte des Ofens.",
+    "Hinweise: Form: für eine ofenfeste Form von ca. 2 Litern.",
+    "Passt zu: Spätzli, Nüdeli, Wildreis-Mix.",
+    "Lässt sich vorbereiten: Poulet und Sauce ca. 1/2 Tag im Voraus zubereiten, in die Form geben, auskühlen, zugedeckt im Kühlschrank aufbewahren. Form in den kalten Ofen schieben, die Backzeit verlängert sich um ca. 10 Min."
   ],
+  port: 4,
   cover: "G:2W40dYES1MFWhsA4rBlLPz-krdgEZSelp0EIBGhJWGeiv9lYW9KDhRX7kFVNDH9_UoP4-C0c3mkrRfhfPDVtodrfGHBMS_BHKw", pages: ["G:IP1ylMUZj-z5bxY0zyKDdl2JNO4xeu7YSFRsJo4Zu2hOBRzh_awm8B8WlvIPiTA43q_fH-S-bIo3MwH_R-rVxRheDntEx72aRGN4"]
 },
 {
   n: "Pouletbrust im Teig mediterran gefüllt", folder: "Geflügel", src: "",
   ing: [
-    
+    "Füllung:",
+    "30 g Kapern, grob gehackt",
+    "50 g getrocknete, in Öl eingelegte Tomaten, fein geschnitten",
+    "30 g schwarze Oliven, entsteint, grob gehackt",
+    "2 EL geschälte Mandeln, fein gehackt",
+    "200 g Frischkäse nature",
+    "1 Prise Zucker",
+    "Salz, Pfeffer",
+    "Poulet:",
+    "4 Pouletbrüste, je ca. 150 g",
+    "Salz",
+    "2 EL Rapsöl",
+    "1 eckig ausgewallter Blätterteig",
+    "1 Ei, verquirlt"
   ],
   steps: [
-    
+    "Mediterran gefüllte Pouletbrust im Teig. Zubereiten ca. 30 Minuten, backen ca. 30 Minuten. Backpapier für das Blech, Teigrad.",
+    "Hinweis: Die Zubereitungsschritte sind auf dem Foto nicht vorhanden (nur Zutatenliste)."
   ],
+  port: 4,
   cover: "G:N68V9BuvNP0WKW7DnAaUHMk1NHlDSrdm2iyvLak5Ou8oEqVrMIwK-ZByI28CnVIgOSVedttX8g6TIaBulAVWmzxL0R76ZCrTQv4S", pages: ["G:P6cIE2IhvGL36IqV8-vmIqvzjYqW56Yq5YH0B_yyUfCOba5EQ8VlrHUApRPglAfklBbeS-Uy8ANl2k4VrJTI8VIgxaE6egCbd0c"]
 },
 {
@@ -4611,11 +4703,27 @@ window.REZEPTE = [
 {
   n: "Pouletinvoltini mit Basilikim-Tomaten", folder: "Geflügel", src: "",
   ing: [
-    
+    "4 Pouletbrüstli à ca. 150 g mit dem Filet (beim Metzger bestellen)",
+    "Salz, Pfeffer aus der Mühle",
+    "75 g Mozzarella",
+    "12 Tranchen Rohschinken",
+    "1 EL Bratbutter",
+    "1/2 Bund Basilikum",
+    "Basilikum-Tomaten:",
+    "1 kg Peretti-Tomaten",
+    "Salz, Pfeffer aus der Mühle",
+    "1 EL Bratbutter",
+    "1/2 Bund Basilikum"
   ],
   steps: [
-    
+    "Das Miele Rezept: Pouletinvoltini mit Basilikum-Tomaten.",
+    "Mozzarella in Streifen schneiden und beiseitestellen. Filets von den Pouletbrüstli abschneiden. Pouletbrüstli zum Füllen seitlich längs einschneiden und aufklappen, flachdrücken, mit Salz und Pfeffer würzen. Basilikumblätter daraufverteilen, je eine Rohschinkentranche darauflegen und Mozzarellastreifen verteilen. 1 Filet daraufgeben und auf Pouletbrüstchen einrollen. Jedes mit 3 Rohschinken-Tranchen umwickeln und mit Holzspiessli fixieren.",
+    "Den Backofen (Heissluft, 220 °C) vorheizen. Die Bratbutter in der Pfanne erhitzen und Involtini ca. 4 Minuten auf allen Seiten anbraten. Im Backofen während 12 Minuten braten, danach Temperatur auf 60 °C reduzieren. Involtini warmhalten.",
+    "Die Tomaten waschen, halbieren, entkernen und in 1 cm breite Streifen schneiden. Die Basilikumblätter in feine Streifen schneiden. Die Bratbutter in einer Pfanne erhitzen und die Tomaten kurz braten und Hitze reduzieren. Würzen und mit den Basilikumstreifen mischen.",
+    "Involtini auf vorgewärmten Tellern anrichten und mit den Basilikum-Tomaten servieren.",
+    "Wir wünschen en Guete."
   ],
+  port: 4,
   cover: "G:vLDhjT7kKPy1wsoF3FuyVXOson5Yy4wyXPO0-AkHyhgEty-MBobM-lVb58iq_xf5dggJyps2Mf3lkcVg0mxyZg", pages: ["G:d5OcBieGOerOalsdi1CxRLVKEp-Tm8W97TRsmPL1j6A-RdAGvqPJ8fdcA66WlcIGMaa6-Sq5SIwa84vHp3-uaA","G:3r2ugFMXNo2LGIUsMurahTRcH2ZjImNCjGd_spgWOmtH3q4tCSaPc7y48tLEZUNg4a-wFGBoNJ7wMOQbAli-NA"]
 },
 {
@@ -4643,11 +4751,32 @@ window.REZEPTE = [
 {
   n: "Senfpoulet", folder: "Geflügel", src: "",
   ing: [
-    
+    "Pastinaken-Sellerie-Stock:",
+    "500 g Pastinaken geschält, in Stücken",
+    "500 g Knollensellerie geschält, in Stücken",
+    "20 g Butter",
+    "100 g saurer Halbrahm",
+    "Salz, Pfeffer, nach Bedarf",
+    "Senfpoulet:",
+    "1 EL Bratbutter",
+    "4 Pouletbrüstli (je ca. 120 g)",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "1 Schalotte, fein gehackt",
+    "1 Knoblauchzehe, fein gehackt",
+    "1 dl Weisswein",
+    "2 dl Saucen-Halbrahm",
+    "100 g saurer Halbrahm",
+    "2 EL grobkörniger Senf",
+    "100 g Jungspinat",
+    "Salz, Pfeffer, nach Bedarf"
   ],
   steps: [
-    
+    "Pro Person 507 kcal. Aktive Zeit 45 Min., Gesamtzeit 45 Min. Glutenfrei.",
+    "Pastinaken-Sellerie-Stock: Pastinaken und Sellerie in siedenden Salzwasser ca. 25 Min. weichkochen. Wasser abgiessen, Restfeuchtigkeit unter Hin- und Herbewegen der Pfanne auf der ausgeschalteten Platte verdampfen lassen. Butter beigeben, Gemüse pürieren. Sauren Halbrahm darunterrühren, würzen, zugedeckt warm stellen.",
+    "Senfpoulet: Bratbutter in einer beschichteten Bratpfanne erhitzen. Poulet würzen, bei mittlerer Hitze beidseitig je ca. 5 Min. anbraten. Poulet herausnehmen. Schalotte und Knoblauch in derselben Pfanne ca. 5 Min. andämpfen. Wein dazugiessen, fast vollständig einkochen. Saucen-Halbrahm dazugiessen. Poulet wieder beigeben, ca. 10 Min. köcheln. Sauren Halbrahm und Senf darunterrühren, Spinat beigeben, zusammenfallen lassen, würzen. Poulet mit dem Pastinaken-Sellerie-Stock anrichten."
   ],
+  port: 4,
   cover: "G:K3Wtr4BZ1uZBiHpqAokyOYXW-OnSQdld4-uJaw3MR2OyXAQJbjtKFxxVGwzXFIEKycwirfXEnJHl4UxfqEPnUGGCZkVOt4gGp30H", pages: ["G:4e-XdqL3wUndPX0XK2mn04a_PAje0Rt2gttIYCTNVHF5d1qg8BnucjtcpuRUDm6rKETFcRO5WEPmMkbIKpDGQTlTVug0AQo4Nko","G:fg92g8RKYXeOtvrFpEgcFkwMYtzyzxpQHkyASti9h0J9juWfES3z4xaqMyLnhQlU-hQvVlLP6-f9KL-OWcIMyPws27uwxhDFEWxp"]
 },
 // ---- Gemüse ----
