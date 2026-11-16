@@ -15,3 +15,11 @@ Bilder sind verlinkt (nicht im Repo gespeichert) und werden beim ersten Ansehen 
 ```
 python3 -m http.server 8000
 ```
+
+## Versionierung
+
+Die App-Version steht in `app.js` (`APP_VERSION`) und `sw.js` (`VERSION`) und wird in den Einstellungen angezeigt. Beide Werte immer gemeinsam ändern.
+
+- **Major** (1.x.x): grundlegende Änderungen, z. B. neues Datenformat
+- **Minor** (x.1.x): neue Funktionen
+- **Patch** (x.x.1): Korrekturen und Rezept-Inhalte
