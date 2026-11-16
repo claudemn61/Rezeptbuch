@@ -5459,101 +5459,236 @@ window.REZEPTE = [
 {
   n: "Amaretti mit Schokoladenpulver", folder: "Kekse", src: "",
   ing: [
-    
+    "Backpapier",
+    "2 ofengrosse Bleche",
+    "200 g gemahlene Mandeln",
+    "150 g Zucker",
+    "1 1/2 EL Mehl",
+    "1 EL Schokoladenpulver",
+    "1/2 Fläschchen Bittermandelaroma",
+    "1 1/2 Eiweiss",
+    "1 Prise Salz",
+    "Puderzucker, zum darin Wenden"
   ],
   steps: [
-    
+    "Zubereiten 20 Min., Backen 20 Min., auf dem Tisch in 40 Min.",
+    "Mandeln, Zucker, Mehl und Schokoladenpulver mischen. Bittermandelaroma darüberträufeln, gut mischen. Eiweiss zusammen mit dem Salz steif schlagen, zur Masse geben, mischen.",
+    "Baumnussgrosse Kugeln formen, im Puderzucker wenden. Auf die vorbereiteten Bleche setzen. Mit einem Glas leicht flach drücken.",
+    "Ofen auf 130 °C Heissluft vorheizen (150 °C Ober-/Unterhitze).",
+    "In der Mitte des vorgeheizten Ofens 20 Minuten backen. Die Amaretti sollen aussen knusprig und innen weich sein.",
+    "Hinweis: Menge (Stückzahl) steht nicht im Foto."
   ],
+  port: 30,
   cover: "G:iUx_RQu4sYadx4GxpWwMtfvMREwqGgAAstxr9DXeo_QGkHzn-oIR6r0pwJGK0Mo1tSqaHuy8J9hwbOPlrsg-ZYKzPHUVbKYJmXIW", pages: ["G:p6XgCuVnAMQCbnkc3gNIF3JUrRLLu5Oew2Rqlc6TeTBrI5w8HrAsxH6LvRpv3Vpv7N8G9Qe_spfrW-Mmlv5NyYsK61A_UhB8Vgo","G:DmQ8dxheuAHoa8IC0Ry3GnUv1Uc0_rmdWCztPnAFl6nDoQfT_TnrV9N2gCvUKfUhKUcqCWBsvUN9oOaco09VT_nH0M-5A0eOWPB1"]
 },
 {
   n: "Amaretti morbidi", folder: "Kekse", src: "",
   ing: [
-    
+    "275 g Mandeln, gehäutet",
+    "140 g Zucker",
+    "1/2 TL Meersalz",
+    "2 mittelgrosse Eiweiss (60 g)",
+    "1 1/2 TL Amaretto",
+    "50 g Puderzucker"
   ],
   steps: [
-    
+    "Besonders weiche, saftige Mandelkekse aus Italien. Variante der klassischen Amaretti von Nicole Stich. Vorbereitung 20 Min., Backzeit 16 Min., Menge 20 Stück.",
+    "Ofen auf 180 Grad vorheizen und ein Blech mit Backpapier auslegen. Die gehäuteten Mandeln im Blitzhacker oder in der Küchenmaschine fein mahlen; alternativ bereits fertig gemahlene Mandeln verwenden. Mit (normalem) Zucker und Salz vermischen.",
+    "Die Eiweisse in einer Schüssel schaumig, aber nicht steif schlagen. Den Amaretto dazugeben. Die Mandelmischung mit einem Esslöffel gut untermengen, bis sich ein gleichmässiger, leicht klebriger Teig gebildet hat. Davon gut walnussgrosse Portionen nehmen, vorsichtig zwischen den Handflächen zu Kugeln formen und die Kugeln in Puderzucker wälzen, bis sie dick überzogen sind.",
+    "Teigkugeln mit etwas Abstand auf das Blech setzen. Rund 16–18 Min. backen. Die Amaretti sind fertig, wenn die Unterseite leicht gebräunt ist – sie sind dann aber noch sehr weich.",
+    "Amaretti aus dem Ofen nehmen und auf dem Blech auskühlen lassen. In eine luftdicht verschliessbare Dose füllen. Die Kekse sind darin bis zu zwei Wochen haltbar.",
+    "Tipp: Wer die (blanchierten) Mandeln nicht selber mahlen will, nimmt einfach die bereits gemahlenen Mandeln ohne Haut. Für eine spannende Variante einfach 125 g der Mandeln durch andere gemahlene Kerne oder Nüsse ersetzen, z. B. Pistazien.",
+    "Quelle: backenmachtgluecklich.de"
   ],
+  port: 20,
   cover: "G:wBcOJ77I7-sPJ7_zOPEKC0Wd1s5eL70qQFfkteb9FA_ETs5kyaJsEaremqWd4qw3VzJ9jAAf8UwEx5murabl1zVJLR2XH_i770w", pages: ["G:lQboxlB9Vnnw9tAQuwQJKE8-DILuiHXxmdj6RzWqjqWiQcRsEVnBZylBSHhaWMv23dy6XXnLuzwEGxGsPJJ7qToFY9E1WA1Odcg","G:6Pyk9KYdg_Ci7o-g1qR53TlZDwZNxT9A8ZUO-uRYdIfsNML7x9bK1RCB4NZ4EoujAjSUslUHKcnaqLIfoDhZHFPkuxaUaIvl8Ic"]
 },
 {
   n: "Cassis-Kokosmakrönli", folder: "Kekse", src: "",
   ing: [
-    
+    "Makrönlimasse:",
+    "3 frische Eiweiss",
+    "1 Prise Salz",
+    "100 g Zucker",
+    "200 g Kokosraspel",
+    "Füllen:",
+    "150 g Cassiskonfitüre"
   ],
   steps: [
-    
+    "Makrönlimasse: Eiweisse mit dem Salz steif schlagen. Zucker nach und nach beigeben, weiterschlagen, bis der Eischnee glänzt. Kokosraspel mit einem Gummischaber sorgfältig unter den Eischnee ziehen.",
+    "Formen und trocknen: Mit 2 Teelöffeln baumnussgrosse Häufchen formen, einem mit Backpapier belegten Blech verteilen. Mit dem nassen Zeigefinger in der Mitte der Makrönli Vertiefungen eindrücken. Makrönli bei Raumtemperatur ca. 3 Std. trocknen lassen.",
+    "Füllen: Konfitüre in einen Einweg-Spritzsack geben, an der Spitze ca. 1 cm abschneiden, Konfitüre in die Vertiefungen spritzen.",
+    "Backen: Ca. 10 Min. in der Mitte des auf 180 °C vorgeheizten Ofens. Herausnehmen, etwas abkühlen, auf einem Gitter auskühlen.",
+    "Hinweis: Stückzahl steht nicht im Foto."
   ],
+  port: 30,
   cover: "G:Bt0hBVkYtSeeyuxpRT0waxksm90keUotNPobZx0V9W8i3xHHsASOQEeztaRapOelvVo45sRW7wLVIB373ZPriffuBcP1meFdiQ", pages: ["G:crQyxHWSBRZHZLbF8GepRc1qYcRLlcyhQkBhDTbxcAP1gzXZy0F1kgaYZLQHNn6gr6WAjmF1m4_8H4NEGAhBDFo6pxl_AAk-nJyo","G:GVp8s6JmJFa5StE978J0tjhWFkfkZN4Huv3w5BBq3ie9PYcHVvogsTjTz4VNeTF4tXzb3AH_NUwnf9bmiyE7ehL5pQ6yvPIxbgI"]
 },
 {
   n: "Cornflakes Guetzli", folder: "Kekse", src: "",
   ing: [
-    
+    "Backpapier",
+    "200 g dunkle Schokolade, gehackt",
+    "1 EL Butter",
+    "1 TL Vanillezucker",
+    "80 g Cornflakes"
   ],
   steps: [
-    
+    "Schokolade mit der Butter in eine Schüssel geben, über dem Wasserbad bei kleiner Hitze schmelzen. Vanillezucker darunterrühren. Cornflakes daruntermischen.",
+    "Mit einem Esslöffel nussgrosse Häufchen aus der Masse formen, auf das vorbereitete Blech geben, kühl stellen und fest werden lassen.",
+    "Tipp: Die Cornflakes-Guetzli lassen sich trocken und kühl 1–2 Wochen aufbewahren.",
+    "Hinweis: Stückzahl steht nicht im Foto."
   ],
+  port: 20,
   cover: "G:SDng-4kubPxOYsXXeHu9RWJxe8T_Jv03LpvwIsbqUAYxvCVWuEDGpI80WUzQK0zJyaH3gL3JnMREHIzzRc4sT4jP8Qipjw5fGd8", pages: ["G:TCsS5B5vTRPQQFVUkVzGK0c0Y4mThdD9-ierSOfK5PEZ4Ebid06ChRtLhaC2gk-pXH7SGWZQZoKEnQxcYbGVl-XnvfLU-reZz6E","G:F7nK0LK-SjMymAdR-JQFrmAnaI25lHL14bqhxw9HTwiN7GrhhVzPP4bKETAFIIUKiCveQ66Sqmx4oolUhjeXA-gXa9vuPhlkTBU"]
 },
 {
   n: "Dörrfrüchte-Cookies", folder: "Kekse", src: "",
   ing: [
-    
+    "100 g Butter, weich",
+    "125 g grobkörniger Rohzucker",
+    "1 Päckli Vanillezucker",
+    "1 Prise Salz",
+    "1 Ei",
+    "50 g getrocknete Apfelschnitze, in Würfeli",
+    "50 g Dörraprikosen, in Würfeli",
+    "50 g Korinthen oder Rosinen",
+    "80 g Haselnüsse, geröstet, fein gehackt",
+    "120 g glutenfreie Mehlmischung (Schär Kuchen & Kekse)",
+    "1 TL Backpulver (Dr. Oetker)",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Butter in eine Schüssel geben, Zucker, Vanillezucker, Salz und Ei beigeben, mit den Schwingbesen des Handrührgeräts rühren, weiterrühren, bis die Masse heller ist.",
+    "Apfelwürfeli und alle Zutaten bis und mit Nüssen daruntermischen. Mehl und Backpulver mischen, daruntermischen. Teig mit einem Teelöffel in kleinen Häufchen mit genügend Abstand auf ein mit Backpapier belegtes Blech verteilen.",
+    "Backen: ca. 8 Min. in der Mitte des auf 200 Grad vorgeheizten Ofens. Herausnehmen, auf einem Gitter auskühlen, mit Puderzucker bestäuben.",
+    "Haltbarkeit: Tiefgekühlt ca. 2 Monate. Cookies auf einem Gitter auftauen.",
+    "Hinweis: Foto unten abgeschnitten, Stückzahl und weitere Zusatzinformationen fehlen."
   ],
+  port: 20,
   cover: "G:YdSByR14XD9S9ND_gEMscFup7sAxEXRk2yXQcxeepeATulrdyw7tjtj4iQBU74Ocmo6VeY8AQuTnJBPC8Jkw0UY", pages: ["G:dNPFEu8W7AxOsuN5m3C8eKZvuz5s6_-YWuszlQP9VHTW-5Q25GW1LZc9hGePkz4rZxDxKoBSuap8KIiH9ToBlA","G:ZXDc_xJ6OOAqI0EGgPJNbUIemC38Wm-o9cEcgKjI1lf-a0idXHdmG1hImqbl3QxrjqL1wSiSmZ77RQ9tDsjaRQ"]
 },
 {
   n: "Elisen-Lebkuchen", folder: "Kekse", src: "",
   ing: [
-    
+    "500 g Honig (fester Honig)",
+    "5 Eier",
+    "500 g gemahlene Nüsse oder Mandeln",
+    "Orangeat und Zitronat je 100 g",
+    "1 Prise Salz",
+    "Zimt (nach Bedarf)",
+    "Lebkuchengewürz (nach Bedarf)",
+    "je 1/2 Fläschchen Zitronenaroma, Rumaroma, Bittermandelaroma",
+    "grosse Oblaten",
+    "Schokolade zum Bestreichen (nach Bedarf)"
   ],
   steps: [
-    
+    "Handschriftliche Notiz, Zubereitung nicht ausformuliert: Zutaten mischen, Teig auf grosse Oblaten streichen.",
+    "Backen: 160 Grad, 20–30 Min., mittlere Schiene.",
+    "Nach Bedarf mit Schokolade bestreichen.",
+    "Hinweis: Handschrift teils schwer lesbar (Aromen sinngemäss gelesen), Stückzahl unbekannt."
   ],
+  port: 20,
   cover: "G:KCqPQCQx3c6mxEF1I1Oc6949BWSjwSHBaRLWpFtQgZL361oikCoggDb_Rq88QMPyvB4LoIwHg12-rH2zkd_p", pages: ["G:mjMkB4HOvibFBXQabCiWVWCfVWYMBKWDPa5D5nDv41ik4vTkXrhpOe1zOIaDTurHv_ckPIr3SEudTWzLRJaLEQ"]
 },
 {
   n: "Knusper-Schokoguetzli", folder: "Kekse", src: "",
   ing: [
-    
+    "175 g Butter, weich",
+    "125 g Vollrohrzucker",
+    "1 TL Vanillezucker",
+    "wenig Zimt",
+    "1 Ei",
+    "50 g gemahlene Mandeln",
+    "200 g Mehl",
+    "1/2 TL Backpulver",
+    "100 g dunkle Schokolade, fein gehackt"
   ],
   steps: [
-    
+    "Butter rühren, bis sich Spitzchen bilden. Zucker, Zimt und Ei beigeben, weiterrühren, bis die Masse hell ist. Mandeln, Mehl, Backpulver und Schokolade zugeben, zu einem Teig zusammenfügen. Mit 2 Teelöffeln nussgrosse Häufchen auf die mit Backpapier belegten Bleche setzen. In der Mitte des auf 200 °C vorgeheizten Ofens 10–15 Minuten backen.",
+    "Tipp: Die Knusperli lassen sich trocken und kühl 2–3 Wochen aufbewahren.",
+    "Hinweis: Stückzahl steht nicht im Foto."
   ],
+  port: 30,
   cover: "G:UhnnV8wxrNIaDbpHi4X6-KbL-xm1In_HoTjiJr1sexHZg7nagiF_ic_XwGk_GBqZqj5iLyyabP8z56zUbH60dXE", pages: ["G:Uq46_weBuNbSCemlSRSfHOS-c0hIBumAK3QgzlfJTIAw-18sqGqdUqW-RAMX9NtJrEdRk1XRrQalAm5EQdTtuQ","G:gQ-dL6VBQOtelqP1VjYfch-WjVvzZSTK2qZO930oqXnduc4n75fS58SDU6FzAc5jo8hY6r3w9-Wf_q5RuBkmAQ"]
 },
 {
   n: "Läckerli", folder: "Kekse", src: "",
   ing: [
-    
+    "125 g gemahlene Mandeln",
+    "60 g Mandeln, grob gehackt",
+    "60 g Haselnüsse, grob gehackt",
+    "100 g entsteinte Dörrpflaumen, fein gehackt",
+    "100 g saure getrocknete Aprikosen, fein gehackt",
+    "125 g Zucker",
+    "3 EL helles Dinkelmehl oder Weissmehl",
+    "1/2 TL Zimt",
+    "1/2 TL Backpulver",
+    "2 EL flüssiger Honig",
+    "2 frische Eiweisse",
+    "1 Prise Salz",
+    "50 g Puderzucker",
+    "1 TL Zitronensaft",
+    "1 TL Zwetschgenschnaps"
   ],
   steps: [
-    
+    "72 kcal pro Stück. Aktive Zeit 30 Min., Gesamtzeit 3 Std. 40 Min.",
+    "Teig: Mandeln und alle Zutaten bis und mit Honig in einer Schüssel mischen. Eiweisse mit dem Salz steif schlagen, daruntermischen, rasch zu einem Teig zusammenfügen, zugedeckt ca. 3 Std. kühl stellen.",
+    "Formen: Teig zwischen zwei Backpapieren ca. 1 cm dick auswallen. Oberes Papier entfernen, Teig in ca. 4×2 cm grosse Rechtecke schneiden, auf zwei mit Backpapier belegte Bleche legen.",
+    "Backen pro Blech: ca. 13 Min. in der Mitte des auf 180 Grad vorgeheizten Ofens. Puderzucker, Zitronensaft und Schnaps verrühren, Läckerli noch warm damit bestreichen, auf einem Gitter auskühlen.",
+    "Haltbarkeit: In einer Dose gut verschlossen, kühl und trocken ca. 3 Wochen.",
+    "Hinweis: Stückzahl steht nicht im Foto."
   ],
+  port: 30,
   cover: "G:35qzDKdPWBQA5n3OdI2y3BxqH3PoVbQPlPtI3Tq1Yi0cZjHDO_aB58MGKMPd5X1xR6ww8GLchjgI-zKLYcTK", pages: ["G:5ooR769p9vsfTRQbM8ArB9JBgoaysIOOqK-xYuqGJfbARCNwvB3jb91IKqJEQIz-Z-lfQx9T8fXsLK9cYH4e9uc","G:1L2cD4cAot4batId_YjbMI57b6qG3eRT9Z4ugmUuRx2xIeOkm2HmweJs8Oc6qOpbBjtf_v6Uh9BO4TkiRZ8sRw"]
 },
 {
   n: "Linzertörtchen", folder: "Kekse", src: "",
   ing: [
-    
+    "300 g Mehl",
+    "80 g Haselnüsse, gemahlen",
+    "1 Pkt. Vanillezucker",
+    "100 g Zucker",
+    "2 Eier, davon das Eigelb",
+    "200 g Butter, kalte",
+    "100 g Gelee (Johannisbeergelee)",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Mehl, gemahlene Haselnüsse, Zucker, Vanillezucker mischen, kalte Butter und die zwei Eigelb zugeben. Alles rasch zu einem glatten Teig kneten. Den Teig mindestens 1 Stunde in den Kühlschrank stellen.",
+    "Anschliessend ca. 2 cm grosse Kugeln formen und auf ein mit Backpapier belegtes Blech geben. Mit einem Kochlöffelstiel in jede Kugel eine Mulde drücken. Das Johannisbeergelee in die Vertiefung spritzen.",
+    "Die Plätzchen werden bei 180 Grad ca. 15 Minuten gebacken. Nachdem Erkalten wird der Puderzucker über die Plätzchen gesiebt.",
+    "Arbeitszeit ca. 30 Min., Ruhezeit ca. 1 Std., Schwierigkeitsgrad simpel.",
+    "Hinweis: Das Foto trägt den Titel «Husarenkrapfen» (Rezept für 1 Portion, ca. 3.936 kcal), Stückzahl nicht angegeben."
   ],
+  port: 1,
   cover: "G:HACRHSaVTtes_fSlNQhDah4CP8G1DCexMXZvpAejk5xB370BpvW1Iy_AOvcsJC_4NvCDkWp2cybGfltPpKcNT84", pages: ["G:eFlNipVD9b-mSPHyIEFXNgKu-x1OkX2nZ5IwxPq3aaUy1vwRbKdIzeA7pCQTVHNk3XDgss3buVoHRMnQsdwBJrA","G:TxEp-DcBhoHxqNzSexeJlmlxKET7dhyGG_Z493Z_v5JcoqaZNFZAL0aexQdHMPDRnTWtjflxveVqhPn6kvzO"]
 },
 {
   n: "Ovo-Schoggiguetzli", folder: "Kekse", src: "",
   ing: [
-    
+    "Backpapier",
+    "150 g Butter, weich",
+    "120 g Zucker",
+    "1/2 Päckchen Vanillezucker",
+    "1 Prise Salz",
+    "1 Ei",
+    "60 g Ovomaltine",
+    "100 g dunkle Schokolade, grob gehackt",
+    "180 g Mehl",
+    "1/4 TL Backpulver",
+    "50 g Rice Krispies",
+    "2 Beutel dunkle Kuchenglasur, nach Belieben"
   ],
   steps: [
-    
+    "Für 45–50 Stück.",
+    "Butter mit dem Handmixer rühren, bis sich Spitzchen bilden. Zucker, Vanillezucker und Salz dazurühren. Ei dazugeben, rühren, bis die Masse hell ist (2–3 Minuten). Ovomaltine und Schokolade daruntermischen. Mehl und Backpulver mischen, dazusieben, darunterrühren. Rice Krispies sorgfältig darunterziehen. Zugedeckt 1 Stunde kühl stellen.",
+    "Ofen auf 200 °C vorheizen (Heissluft/Umluft 180 °C). Aus dem Teig mit den Händen baumnussgrosse Kugeln formen, auf die mit Backpapier belegten Bleche legen. Mit einer in kaltes Wasser getauchten Gabel leicht flach drücken.",
+    "In der Mitte des vorgeheizten Ofens 9–11 Minuten backen. Auskühlen lassen.",
+    "Kuchenglasur nach Anleitung schmelzen. Beutel möglichst knapp über der flüssigen Glasur aufschneiden. Cookies zu 1/3 hineintauchen, auf Backpapier trocknen lassen.",
+    "Hinweis: Schritt 1 ist auf dem Foto nicht enthalten (Quelle: swissmilk.ch)."
   ],
+  port: 48,
   cover: "G:omKzMWzz7qYAumUsdaYaJQpHsdddL0rGZIdibMxdKj5Fe2KzBVwtNgDiv2g-XPA1J6EqRYSCWab5f71EwOyY0A", pages: ["G:jrgk30YhOqSYxzoalxijUUbEKXv5_7uU70VCztF188qqz9Nkc0VChhROJ8DQN_KxltOJ6badubtNGuOKdqA7sQ","G:iX91pY5q8d8VAR4h4MFUo10XQEdFe_gbyPAyr-tF3kb1SRbdAYOGNClDoA2-VNpmBoVOair2n_cEeNTc36hm"]
 },
 // ---- Overnight Oats ----
