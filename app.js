@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.4.0';
+const APP_VERSION = '1.5.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -377,7 +377,7 @@ function openTileEditor(id, parentForNew) {
       <label>Name<input id="e-label" type="text" maxlength="40" value="${esc(m.name)}" placeholder="z. B. Sonntagsessen"></label></div>
     <label>Symbol <small>(eigenes Emoji eintippen oder wählen)</small><input id="e-icon" type="text" maxlength="8" value="${esc(m.icon)}"></label>
     <div class="emojis">${EMOJI_PICK.map(x => `<button type="button" data-e="${x}">${x}</button>`).join('')}</div>
-    <div class="swatches">${COLORS.map(c => `<button type="button" data-c="${c}" style="background:${c}" aria-pressed="${c === m.color}" aria-label="Farbe"></button>`).join('')}</div>
+    <div class="swatches">${COLORS.map(c => `<button type="button" data-c="${c}" style="background:${c}" aria-pressed="${c === m.color}" aria-label="Farbe"></button>`).join('')}<label class="cpick" title="Eigene Farbe"><input id="e-color" type="color" value="${/^#[0-9a-f]{6}$/i.test(m.color) ? esc(m.color) : '#888888'}"><span>Eigene Farbe</span></label></div>
     <label>Liegt in<select id="e-parent">${opts}</select></label>
     <label class="chk"><input id="e-show" type="checkbox" ${m.show ? 'checked' : ''}> Anzeigen</label>
     <div class="acts">
@@ -400,6 +400,7 @@ function openTileEditor(id, parentForNew) {
   o.addEventListener('click', e => {
     if (e.target === o) return isNew ? o.remove() : save();
     const em = e.target.closest('[data-e]'); if (em) { $('#e-icon', o).value = em.dataset.e; upd(); return; }
+    if (e.target.closest('.cpick')) return;
     const c = e.target.closest('[data-c]'); if (c) { color = c.dataset.c; $$('.swatches button', o).forEach(b => b.setAttribute('aria-pressed', b === c)); upd(); return; }
     if (e.target.id === 'e-cancel') { o.remove(); return; }
     if (e.target.id === 'e-reset') { const d = defFolder(m.id); Object.assign(FB[m.id], { name: d.name, icon: d.icon, color: d.color, show: true }); persist(); renderFilters(); done(); return; }
@@ -414,6 +415,7 @@ function openTileEditor(id, parentForNew) {
     if (e.target.id === 'e-ok') save();
   });
   $('#e-icon', o).addEventListener('input', upd);
+  $('#e-color', o).addEventListener('input', e => { color = e.target.value; $$('.swatches button', o).forEach(b => b.setAttribute('aria-pressed', b.dataset.c === color)); upd(); });
   if (isNew) $('#e-label', o).focus();
 }
 
