@@ -33,7 +33,7 @@
    "name": "Dessert",
    "icon": "🍮",
    "color": "#6b8f71",
-   "parent": null,
+   "parent": "cmwjf3g5ufcl",
    "show": true
   },
   {
@@ -121,7 +121,7 @@
    "name": "Kuchen",
    "icon": "🍰",
    "color": "#a0527c",
-   "parent": null,
+   "parent": "cmwjf3g5ufcl",
    "show": true
   },
   {
@@ -145,7 +145,7 @@
    "name": "Kekse",
    "icon": "🍪",
    "color": "#7a5c9e",
-   "parent": null,
+   "parent": "cmwjf3g5ufcl",
    "show": true
   },
   {
