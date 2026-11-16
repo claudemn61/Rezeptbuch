@@ -348,8 +348,30 @@ window.REZEPTE = [
   pages: ["G:EdAVS5PNwh4zRySh7EC_ICk8BHpbMwc5l2U4ch533D9Qj89TrnHAbrrCGj4edRjSW5gp6_WBC1NvfrcwU0IVfxVCJ1bTt9PLiQg9", "G:ZmYfc0Bmp4TMSs5mMqdtFxYKHic2OYQ_ELfgX_01EiJbnmmgeVgmv3Xal92tR3z0ohoMjzbXO0hotFb_tBfhaoaSEw5ncgEOyw"]
 },
 {
-  n: "Sauerteigbrot", folder: "Brote", src: "", ing: [],
-  steps: ["Dehnen u. Falten des Teigs verleiht ihm mehr Struktur und Volumen und macht ihn besser formbar. Einfach den Teig in der Schüssel liegen lassen und die Hand kurz in Wasser tauchen, damit der Teig nicht anklebt. Anschließend nimmt man den Rand des Teiges und zieht ihn nach oben, um ihn zu dehnen. Danach legt man den Teig zur Teigmitte hin und drückt ihn leicht an."],
+  n: "Sauerteigbrot", folder: "Brote", src: "", ing: [
+    "Sauerteig:",
+    "30 g Anstellgut (sehr aktiv)",
+    "30 g Weizenmehl Type 1050",
+    "30 g Wasser (35 °C)",
+    "Fermentolyseteig:",
+    "400 g Weizenmehl Type 1050 (11 °C)",
+    "80 g vom Sauerteig",
+    "240 g Wasser (12 °C)",
+    "Hauptteig:",
+    "Fermentolyseteig",
+    "40 g Wasser (12 °C)",
+    "9 g Salz"
+  ],
+  steps: [
+    "Das Anstellgut muss sehr aktiv sein. Bei Bedarf vorher 2–3 Mal auffrischen.",
+    "Alle Zutaten für den Sauerteig mischen und bei 28–29 °C 4 Stunden oder bis kurz vor dem Peak (die Vollreife) reifen lassen.",
+    "Alle Zutaten für den Fermentolyseteig grob mischen, dann 60 Minuten ruhen lassen (Teigtemperatur 21 °C).",
+    "Für den Hauptteig Wasser und Salz zum Fermentolyseteig geben und 8–10 Minuten kneten (Teigtemperatur 23 °C). 6 Stunden bei Raumtemperatur (22 °C) reifen lassen, bis sich das Volumen verdoppelt hat. Nach 30, 60 und 90 Minuten jeweils D&F (Dehnen und Falten, siehe Seiten 15–16).",
+    "Den Teig formen, mit Schluss nach oben im Gärkorb 10–14 Stunden oder über Nacht im Kühlschrank (5–6 °C) ruhen lassen.",
+    "Den Ofen auf 250 °C (Ober-/Unterhitze) vorheizen.",
+    "Im Ofen mit Topf (oder Dampf und Hitzeschild) 15 Minuten backen. Den Deckel abnehmen bzw. den Dampf entweichen lassen, die Ofentemperatur auf 220 °C reduzieren und das Brot 30 Minuten fertig backen.",
+    "Dehnen u. Falten des Teigs verleiht ihm mehr Struktur und Volumen und macht ihn besser formbar. Einfach den Teig in der Schüssel liegen lassen und die Hand kurz in Wasser tauchen, damit der Teig nicht anklebt. Anschließend nimmt man den Rand des Teiges und zieht ihn nach oben, um ihn zu dehnen. Danach legt man den Teig zur Teigmitte hin und drückt ihn leicht an."
+  ],
   cover: "G:ZCjBR4yRTqlxcIhF6_vwLjgZUHnmNLERZf9ii_S3-YXpOmE1b_BRhUe41MBZAaD3jy8tydNhqGL3Ea1lf_USEjEn4uCDxKaoIVQ",
   pages: ["G:8RJreIDBZuq1FFlC8fgqu5CvNI9VgslzBlIib2HEOymJVZl6MlNNP0Vp4K2-BXNlO9p6RVnsjoE4H4Y_u18y5rIFDs62M7VDofE", "G:mTZzb1R00vPzos6DjZ1QFjjlHRXP3A_vidoDKshQhsJbeOj69rgp5dfhvnxl40GR0sSTlomlPVfPp7PTxZ03Xja7Bkn8bk-XD5SY"]
 },
@@ -1976,7 +1998,7 @@ window.REZEPTE = [
     
   ],
   steps: [
-    
+    "Hinweis: Das Foto zeigt nur eine Packung bzw. ein Bild von Spätzli in einer Pfanne, kein Rezepttext. Zutaten und Zubereitung sind nicht erfasst."
   ],
   cover: "G:S1vRie-rOHzNzCfsC3tojjbIYeJzF5DVBjRLfwK767lWNN8BYosWlQqVrQyD5rjRp7AI-qgckK7s59rqMBbGQaOiqyZ-hQ94uQ3N", pages: ["G:uLJ8cHK_O0a-ORh3XhsgtCCKtMdiKMelU74sWuEH3LxDol_Cw5lnY3WVaF83F99g1eisjVDvLeEOYSfs6t52mEEm-7Eskq3I7Tfp"]
 },
@@ -4079,7 +4101,21 @@ window.REZEPTE = [
 {
   n: "Lammnierstück im Studelteig mit Asia-Gemüse", folder: "Fleisch", src: "",
   ing: [
-    
+    "Marinade:",
+    "1 EL Limettensaft",
+    "1 EL Sesamöl",
+    "4 Lamnierstücke (je ca. 170 g)",
+    "1 EL Öl",
+    "1 Bundzwiebel mit dem Grün, fein gehackt",
+    "1 Knoblauchzehe, gepresst",
+    "400 g tiefgekühlte, asiatische Gemüsemischung",
+    "2 EL helle (light) Sojasauce",
+    "Öl zum Anbraten",
+    "1/4 TL Salz",
+    "wenig Pfeffer aus der Mühle",
+    "1 Päckli Strudelteig (ca. 120 g)",
+    "2 EL Paniermehl",
+    "30 g Butter, flüssig"
   ],
   steps: [
     "Und so wirds gemacht: * Limettensaft und Sesamöl verrühren, Fleisch damit bestreichen, zugedeckt ca. 2 Std. im Kühlschrank marinieren. Fleisch ca. 30 Min. vor dem Anbraten herausnehmen. * Öl warm werden lassen. Zwiebel und Knoblauch andämpfen, Gemüse beigeben, kurz mitdämpfen. Zugedeckt bei kleinster Hitze ca. 10 Min. dämpfen, bis das Gemüse aufgetaut ist. Herausnehmen, Sojasauce beigeben, mischen, auskühlen. * Öl in einer Bratpfanne heiss werden lassen. Fleisch trockentupfen, ringsum ca. 3 Min. anbraten, herausnehmen, würzen, auskühlen lassen. * Teig sorgfältig auseinander falten, auf ein Küchentuch legen,Teigblätter voneinander lösen. 2 Teigblätter zugedeckt beiseite legen. Ein Blatt mit wenig Öl bestreichen, das zweite Blatt darauflegen. Die Hälfte des Paniermehls und ein Viertel des Gemüses, in der Länge von zwei Filets, in der Mitte verteilen. Filets hintereinander darauflegen, mit dem zweiten Viertel Gemüse bedecken. Teigrand mit Wasser bestreichen, Längsseiten übereinander legen, seitliche Ränder sorgfältig nach unten einschlagen. Päckli auf ein mit Backpapier belegtes Blech legen, mit etwas flüssiger Butter bestreichen. Das zweite Päckli gleich formen. * Sojasauce und Wasabi gut verrühren, in kleine Schälchen verteilen. Zusatzinformationen * Backen: ca. 20 Min. in der Mitte des auf 220 Grad vorgeheizten Ofens. Päckli einmal mit Butter bestreichen. Herausnehmen, quer halbieren, auf vorgewärmten Tellern anrichten, Soja-Wasabi-Sauce dazu servieren. * Hinweis: Wasabi, japanischer grüner Meerrettich, ist in grösseren Coop Verkaufsstellen erhältlich. * Lässt sich vorbereiten: Gemüsemischung, Fleisch und Sauce ca. halben Tag im Voraus zubereiten, separat zugedeckt im Kühlschrank aufbewahren. 1 Std. im Voraus Päckli formen, zugedeckt im Kühlschrank aufbewahren."
@@ -4158,15 +4194,31 @@ window.REZEPTE = [
 {
   n: "Rindsgulasch", folder: "Fleisch", src: "",
   ing: [
-    
+    "600 g Rindergulasch, ca. 3x3 cm grosse Stücke, gegebenenfalls selbst kleiner schneiden",
+    "400 ml Rinderfond, selbstgemacht oder aus dem Glas",
+    "300 g Schalotten, geschält und halbiert",
+    "200 ml trockener Rotwein, einen den Du gerne trinkst (alternativ roter 100% Traubendirektsaft)",
+    "40 g Tomatenmark",
+    "3 EL Butterschmalz, z. B. Buttaris; Alternativ Pflanzenöl",
+    "1 Knoblauchzehe, geschält, klein geschnitten",
+    "1–2 TL Zitronenabrieb (unbehandelt bzw. Bio), kannst Du auch weglassen",
+    "2 TL Paprikapulver, edelsüss",
+    "1/2 TL Majoran, getrocknet",
+    "1 Msp. Cayennepfeffer",
+    "1 Prise Salz"
   ],
   steps: [
+    "Hinweis: Die Zutatenmenge reicht für einen Schmortopf/Bräter mit 3,7 Liter Fassungsvermögen. Für die doppelte Menge sollte der Bräter 6–7 Liter fassen.",
+    "Das Gulasch-Fleisch bitte ca. eine halbe Stunde vor der Zubereitung aus dem Kühlschrank nehmen, damit es Zimmertemperatur annehmen kann und nicht eiskalt gebraten wird. Wenn Du das Fleisch selbst schneidest, erst Scheiben quer zur Fleischfaser und daraus wiederum Würfel schneiden. Eine ideale Grösse ist ca. 3x3 cm (Walnussgrösse). Die 600 g Fleisch nur mässig salzen, wenn überhaupt nur mit 1 Prise Salz kurz vor dem Anbraten.",
+    "Jetzt schälst Du die 300 g Schalotten und halbierst sie, besonders grosse Exemplare kannst Du auch vierteln. 1 EL Butterschmalz in einem Bräter/Schmortopf erhitzen und darin die Schalotten goldgelb anbraten. Herausnehmen und zur Seite stellen.",
+    "Im Anschluss wieder 1 EL Butterschmalz im Bräter erhitzen und bei sehr hoher Temperatur das Fleisch portionsweise anbraten. Erst nach ca. 1 Minute das erste Mal wenden, damit nicht zu viel Hitze vom Boden entweicht, das Fleisch eine Kruste bekommt … (Text im Foto abgeschnitten)",
     "4. Nun kommt das gesamte fleisch zurück in den topf, ebenfalls die schalotten sowie 40g Tomatenmark. Alles zusammen kurz rösten.",
     "5. Mit 200ml Rotwein ablöschen und den Rotwein zu 2/3 verkochen lassen (um1/3 reduzieren).",
     "6. Anschiessend: 1 knoblauchzehe (feine würfen), zitronenschale (vorher heiss abwaschen), paprika, majoran und Cayennepfeffer hinzufügen und kurz unterrühren.",
     "7. Das Fleisch und die Schalotten nun mit 400ml Rinderfond ablöschen und mit Deckel für ca. 1.5 Std. bei kleiner Hitze garen.",
     "7. Nach 1 Std. nachschauen, ob die Sauce noch zu flüssig erscheint, dann die letzten 30 Min. ohne Deckel weiter garen. Am Schluss nach Belieben abschmecken und gegebenenfalls eindicken."
   ],
+  port: 4,
   cover: "G:WfLmZRui7LdZze4Zbpapf4WBgrFRZYCJqfCq0BB3QDtj3wj3UyY4M6sdPJk2R60MVYn9N9Cj_o4IW9i50k5ybEeqkdhQ1eqsgWE", pages: ["G:LFn3sBu3RnXYze1X1taWVZStRa4DbV7QfWUSDPWiOaBBKFaEch0Gm_Aw5rkVN0vA25X27dKRTkPRSxebEYG0qNO9ydqsTbSk-hY","G:w4U6d4V3GDLXHqcPGRh9P7cly4l1aQdEzj1ZfliUWWPeF__Ni8N-nhS-Ipq7o1x2rL5_8IGD6uvWcTdLBbSSILY2rxJDtn3UCxY"]
 },
 {
@@ -6726,7 +6778,21 @@ window.REZEPTE = [
 {
   n: "Sommerlicher Poulet-Pfirschsalat", folder: "Salate", tags: ["Geflügel"], src: "",
   ing: [
-    
+    "8 EL Baumnüsse",
+    "500 g Feldsalat",
+    "100 g Feta",
+    "60 Stk Himbeeren, frisch",
+    "500 g Lollo Rosso",
+    "2 EL Olivenöl zum Braten",
+    "4 Stk Pfirsich, frisch",
+    "1000 g Pouletbrustfilets",
+    "2 Prisen Salz und Pfeffer",
+    "Vinaigrette:",
+    "4 EL Apfelessig",
+    "2 EL Honig, flüssig",
+    "4 EL Olivenöl",
+    "2 Prisen Salz und Pfeffer",
+    "2 TL Senf"
   ],
   steps: [
     "Das Fleisch waschen und trocken tupfen. Den Salat putzen, waschen und trocken schütteln. Feta würfeln.",
@@ -6736,6 +6802,7 @@ window.REZEPTE = [
     "Salat in einer Schüssel mit der Vinaigrette gut vermischen und dabei den Feta unterheben.",
     "Jetzt den Salat mit dem Feta auf 2 Schüsseln verteilen, die grillierten Pfirsiche und das Pouletfleisch - in Tranchen geschnitten - darauf verteilen. Himbeeren sowie Baumnüsse darüber streuen und servieren."
   ],
+  port: 4,
   cover: "G:-EuXyASKawT_RXyG-XHAQukcIjh9Ii8pwbWthhPeD5BNDCUDm_bBwMhzMcusKKyKGMbI0meN_MMwY7yFtGWasxgYj8CTII3gZg8", pages: ["G:qZC4ySP4rILbO1WS2GOmPQ29ziFQz8DcHNDxVh3bPrlwu4xAI3hig2LMOTron7X5Ug0s_OOhcH4G8f9Rdwu1O7fxo51ZRLFZsw6D"]
 },
 {
@@ -8502,7 +8569,21 @@ window.REZEPTE = [
 {
   n: "Nudeln mit Kefen und Pouletstreifen", folder: "Teigwaren", src: "",
   ing: [
-    
+    "Hinweis: Mengenangaben fehlen auf den Fotos; Zutaten aus der Zubereitung:",
+    "Pouletbrüstchen",
+    "Kefen",
+    "Zwiebel",
+    "Petersilie",
+    "Bratbutter",
+    "Salz, Pfeffer",
+    "Weisswein",
+    "Butter (1)",
+    "Bratenjus",
+    "Bouillon",
+    "Rahm",
+    "Gorgonzola",
+    "Nudeln",
+    "Butter (2)"
   ],
   steps: [
     "Zutatenliste auf dem Foto nicht vorhanden.",
