@@ -4266,60 +4266,143 @@ window.REZEPTE = [
 {
   n: "Apfelblumenküchlein", folder: "Gebäck", src: "",
   ing: [
-    
+    "1 Kuchenteig, eckig, ausgewallt",
+    "6 Äpfel",
+    "2 EL Mandeln, gemahlen",
+    "1 Ei",
+    "1 dl Rahm",
+    "1/2 EL Mehl",
+    "1 EL Zucker",
+    "1/2 TL Vanillezucker"
   ],
   steps: [
-    
+    "Zutaten für 12 Stück.",
+    "Vom Teig 12 Rondellen in Ø 7 cm ausstechen und 12 runde Backförmchen damit auslegen. Äpfel halbieren, entkernen und in hauchdünne Scheiben schneiden. Die vorbereiteten Förmchen mit Mandeln ausstreuen.",
+    "Jeweils 10-12 Apfelscheibchen auf einer Linie halb überlappend aneinander reihen und aufrollen, so dass eine Blume in der Grösse der Papierförmchen entsteht. Die Apfelblumen in die Förmchen stellen.",
+    "Übrige Zutaten zu einem Guss verrühren. Die Förmchen zuerst 10 Min. bei 185 °C ohne Guss backen. Dann in jedes Förmchen etwas Guss einfüllen und weitere 25 Min. bei 175 °C fertig backen.",
+    "Zubereitung: 30 Min. + 35 Min. backen."
   ],
+  port: 12,
   cover: "G:BeG21GYgnxSVy3NVwqaD8ZmyU3TCAP1FW9IqfmOtzmlYgVXIrpz_tEFOZTqBNbP8IghpxF24cIJWIvGCJZF02To", pages: ["G:rle3wM0tai8H79VpwaO2PNtNMEMw8PMY-8GHlq7KIZiHghw4g_VsaFThif5g8JjGau2MMFlMXlYWZvpo4lFzYg","G:yEtr5Y0TuAaVhUKNpDIwnTizbWQXfi8CNwpwuno1S6PUowHAOoVPUDZCkMXZDi9fRXuBudmW1e8JKGOJ95sx"]
 },
 {
   n: "Berliner Zöpfli", folder: "Gebäck", src: "",
   ing: [
-    
+    "300 g Mehl",
+    "1/2 TL Salz",
+    "3 EL Zucker",
+    "1 Päckli Vanillezucker",
+    "1/2 Würfel Hefe (ca. 20 g), zerbröckelt",
+    "40 g Butter",
+    "1 dl Milch",
+    "1 Ei, verklopft",
+    "Öl zum Frittieren",
+    "1 Trinkhalm",
+    "150 g Himbeer- oder Johannisbeergelee",
+    "50 g Zucker"
   ],
   steps: [
-    
+    "Berliner-Zöpfli. Ergibt 8 Stück. Vor- und zubereiten: ca. 30 Min. Aufgehen lassen: ca. 3 Std.",
+    "1. Mehl und alle Zutaten bis und mit Hefe in einer Schüssel mischen. Butter, Milch und Ei beigeben, mischen, zu einem weichen, glatten Teig kneten. Zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "2. Teig in 8 gleich grosse Stücke teilen, je zu einer ca. 35 cm langen Rolle formen, Zöpfli flechten (siehe Bild). Auf ein mit Backpapier belegtes Blech legen, zugedeckt nochmals ca. 1 1/2 Std. aufgehen lassen.",
+    "3. Frittieren: Brattopf bis 1/3 Höhe mit Öl füllen, auf ca. 160 Grad erhitzen (siehe Tipp). Zöpfli portionenweise mit einer Schaumkelle so ins heisse Öl legen, dass die Zöpfli-Oberseiten zum Pfannenboden schauen. Ca. 3 Min. frittieren, wenden, ca. 3 Min. fertig backen. Herausnehmen, auf Haushaltpapier abtropfen.",
+    "4. Berliner-Zöpfli von oben und unten mit einem Trinkhalm bis zur Mitte einstechen, einige Male hin und her fahren, bis die Öffnung ca. 5 mm breit ist. Gelee in einen Spritzsack mit glatter Tülle (ca. 5 mm Ø) geben, in das Berliner-Zöpfli spritzen.",
+    "5. Zucker in einen tiefen Teller geben, Berliner-Zöpfli darin wenden.",
+    "Tipp: Temperatur des Öls prüfen: Holzstäbchen ins Öl tauchen, wenn sich daran viele Blasen bilden, ist das Öl heiss genug. Oder die Temperatur mit einem Fleischthermometer messen.",
+    "Pro Stück: 369 kcal, F 16 g, Kh 49 g, E 7 g."
   ],
+  port: 8,
   cover: "G:jgIC3_cb8nP3hJHy5aXeV3cBrOL2jiy_6Hkv6fhmbKorNU8IwZuG6FyybmxHK0OpT9M252FTXPCZY1VRjqXaDw", pages: ["G:uO2k5dPBgiVICT3APceRdcoTLUZ74Qsj5BjC9VZkfuaBTjRP1y0wWGSLLzdlrgc1QDoB8QrAaKguX7xDC9hYSDw","G:YdHccefLX6ma3sm1vyzBxVzVXjboqS1HN7vrwX2NjiphdKnoGIsb85vnV6Wwgl-kZlisJVxcCwVYQdEMBV4v"]
 },
 {
   n: "Birnen-Tartelettes mit Zitronen-Mascarpone", folder: "Gebäck", src: "",
   ing: [
-    
+    "1 eckiger Blätterteig (550 g)",
+    "8 Birnenhälften aus der Dose",
+    "150 g Mascarpone",
+    "Saft von 1 Zitrone",
+    "1 Ei",
+    "2 EL Mehl",
+    "2 EL Puderzucker"
   ],
   steps: [
-    
+    "Blätterteig in 8 gleich grosse Stücke schneiden und auf einem Backpapier auslegen. Birnenhälften aus der Dose abtropfen und zu einem Fächer schneiden.",
+    "Mascarpone, Zitronensaft, Ei, Mehl und Puderzucker gut verrühren. Masse auf den Teig streichen und mit den Birnen belegen.",
+    "Im auf 180 °C vorgeheizten Backofen (Umluft) 30 Min. in der Ofenmitte backen.",
+    "Zubereitung: 15 Min. + ca. 30 Min. backen.",
+    "Tipp: mit gerösteten Mandelblättchen bestreuen."
   ],
+  port: 4,
   cover: "G:UCCngqXY9UOzGHOBrk0EIWAVZ5rXcFKETc50c5_Cf0A22Os1-ARx9WzEFuqM8EkO1Kje0vkQPiN_Cp7vqbEeZZ8", pages: ["G:6vfMB-lkhjFyJRMLQer7YGVa5ZTLu_bCyoHfAReYwAhEnWSoGM6DV8ywCd2oZHEU7aobb_FgAld-Dq2G5WYx"]
 },
 {
   n: "Cranberry-Hefeknöpfe", folder: "Gebäck", src: "",
   ing: [
-    
+    "500 g Mehl",
+    "1/2 EL Salz",
+    "50 g Zucker",
+    "1/2 Würfel Hefe (ca. 20 g)",
+    "70 g Butter",
+    "250 g Magerquark",
+    "1 dl Wasser",
+    "Füllung:",
+    "50 g frische oder tiefgekühlte Cranberrys, angetaut",
+    "1 dl Cranberrysaft",
+    "1 EL Zucker",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Ergibt 4 Stück. 35 Min. + 1 1/4 Std. aufgehen lassen + 30 Min. backen.",
+    "1. Mehl, Salz und Zucker in einer Schüssel mischen. Hefe zerbröckeln, daruntermischen. Butter in Stücke schneiden, mit dem Quark und dem Wasser beigeben, mischen, zu einem weichen, glatten Teig kneten. Teig zugedeckt bei Raumtemperatur ca. 1 1/2 Std. aufs Doppelte aufgehen lassen.",
+    "2. Ofen auf 180 Grad vorheizen. Cranberrys fein hacken, in eine Pfanne geben, Cranberrysaft dazugiessen, Zucker beigeben, aufkochen. Hitze reduzieren, sirupartig auf die Hälfte einkochen (ergibt ca. 1/2 dl), auskühlen.",
+    "3. Teig auf die leicht bemehlte Arbeitsfläche geben, etwas flach drücken, zu einem Rechteck von ca. 30 x 50 cm auswallen. Cranberrymasse auf der Hälfte des Teiges verteilen, freie Teighälfte darüberlegen, gut andrücken, in 16 Streifen schneiden.",
+    "4. Je 4 Teigstreifen zu einem flachen Zopf flechten, Enden zusammendrücken.",
+    "5. Zöpfe locker aufrollen, sodass Knöpfe entstehen. Nochmals ca. 15 Min. aufgehen lassen.",
+    "6. Backen: ca. 30 Min. in der unteren Hälfte des Ofens. Herausnehmen, Cranberry-Knöpfe auf einem Gitter auskühlen. Knöpfe mit Puderzucker bestäuben.",
+    "Tipp: Cranberry-Hefeknöpfe schmecken frisch am besten.",
+    "Hinweis: Die Überschrift «Füllung:» ist sinngemäss ergänzt."
   ],
+  port: 4,
   cover: "G:691NJxgQNjrR8gbCferDMkxJVlwG_-_b5vF43FVQS9tOaEmmHF9Wyo77_0jBD6NQreMU69zILxmYOUGc1xoeYQ", pages: ["G:LwJKrx3Hv2UFgUdSikN8UdKy8-WSvzdjW8NzQRexdRrXVdw0AjW1EBvYvTGY9TXQ-wzYvY4Welxj1S1mgYc9zA","G:OsHfOt1_NGrwjsLjuY-iC9png3dUqrsZGrCfBCO18XMuQkBB71dwjbgCMkYVNFdhrsMrceVHoC_tc13n7Ox8Zw"]
 },
 {
   n: "Dänischer Plunder", folder: "Gebäck", src: "",
   ing: [
-    
+    "1 Bt. Crème fix Vanille",
+    "5 dl Milch",
+    "1 Blätterteig, eckig, ausgewallt (28x42 cm)",
+    "2 EL Himbeerkonfitüre",
+    "6 Aprikosen",
+    "1 Eigelb",
+    "Puderzucker, zum Bestäuben"
   ],
   steps: [
-    
+    "Zutaten für 12 Stück.",
+    "Vanillecrème gemäss Packungsangabe zubereiten und kalt stellen. Blätterteig auslegen und in 12 Quadrate schneiden.",
+    "Quadrate mit Konfitüre bestreichen und auf einem mit Backpapier belegten Blech verteilen. Ecken zur Mitte einschlagen. In jede Mitte 1 EL Vanillecrème geben. Aprikosen halbieren, Steine entfernen und je 1 Aprikosenhälfte auf die Crème setzen.",
+    "Eigelb verquirlen, Teigränder damit bestreichen und im auf 185 °C vorgeheizten Ofen ca. 20 Min. backen. Auf einem Gitter etwas abkühlen lassen, die noch warmen Plunder mit Puderzucker bestäuben und auskühlen lassen.",
+    "Zubereitung: 25 Min. + 20 Min. backen."
   ],
+  port: 12,
   cover: "G:Sh4VM-UCdOwe58xJLK02hr9L4PPA_HptVmUez7j5g_pIDvcIOXZmroUKrJdmKQ8t0LEsVerVQDjfgDZgNmTC1A", pages: ["G:2iPLh1BACc4-BFtLPvMDwkSjJUWtr_-tRiV4CyVMD4YBPuMRficBusRG2ZAu_3MUnEobrk-tgH_ebYDy9dFSEQ","G:K1Jae9rvAjKjw-54ekX1_-tvTbqbYLPlMPzHFtuQaadlOBYrj7RnrHCnKA411u0o0KRg7X4nB0-d7plxi9Ca4cg"]
 },
 {
   n: "Himbeer-Blätterteig-Twist", folder: "Gebäck", src: "",
   ing: [
-    
+    "100 g Himbeeren",
+    "2 EL Zucker",
+    "1 Päckli Vanillezucker",
+    "2 ausgewallte Blätterteige (je ca. 32 cm Ø)",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "15 Min. + 30 Min. kühl stellen + 25 Min. backen.",
+    "Ofen auf 220 Grad vorheizen. Himbeeren mit dem Zucker und dem Vanillezucker in einer Schüssel mit einer Gabel zerdrücken.",
+    "Einen Teig entrollen, mit dem Backpapier auf ein Blech legen. Himbeermasse auf dem Teig verteilen. Zweiten Teig entrollen, darauflegen, andrücken, ca. 30 Min. kühl stellen.",
+    "Teig bis ca. 2 cm zur Mitte in 16 Stücke einschneiden. Immer zwei Teigstücke nach aussen drehen (siehe Bild 1). Dieselben Teigstücke mit einem Messer bis zur Mitte einschneiden, je die Enden nochmals 2-mal nach aussen drehen (siehe Bild 2). Die Enden unten zusammendrücken, mit Puderzucker bestäuben.",
+    "Backen: ca. 25 Min. in der unteren Hälfte des Ofens. Herausnehmen, auf einem Gitter auskühlen.",
+    "Tipp: Schmeckt frisch am besten.",
+    "Hinweis: Personenzahl nicht angegeben."
   ],
   cover: "G:JWGD36BcaHK_5SvO3OVZKr4SrW_KB-VoUI4DkZrp8u_t8ZCHOAjnUhYZI1JVjOTOmUlHZF3_6zop3W9dgW3pmQ", pages: ["G:z4qL8Jo28KTQVJ5hr1krh5YoK_Jsb6UlW2rvQh8Cs5aoi3vasYPMRBrLqMlIK-CjZ3lGsZIO6yEjsPRZ31Lf","G:1fkoDBsELCOPyHiBgESvbZxpV7BTMmYqMjqWAM1pH4YxAOR0fNvz0pq4ROOxyPkxUn4qaBjtu2Senm-2nVLgSig"]
 },
@@ -4342,31 +4425,65 @@ window.REZEPTE = [
 {
   n: "Mohn-Kranz", folder: "Gebäck", src: "",
   ing: [
-    
+    "400 g Halbweissmehl",
+    "1 TL Salz",
+    "40 g Zucker",
+    "1/2 Würfel Hefe (ca. 20 g)",
+    "60 g Butter, in Stücken, weich",
+    "1 1/2 dl Vollmilch, lauwarm",
+    "1 Ei, verklopft",
+    "Füllung:",
+    "150 g Fine Food Lemon Curd (Zitronencrème)",
+    "40 g Mohn"
   ],
   steps: [
-    
+    "Mohn-Zitronen-Swirl. Ergibt 12 Stück.",
+    "1. Mehl und alle Zutaten bis und mit Hefe in einer Schüssel mischen. Butter, Milch und Ei beigeben, mischen, zu einem weichen, glatten Teig kneten. Teig zugedeckt bei Raumtemperatur ca. 1 Std. aufs Doppelte aufgehen lassen.",
+    "2. Teig auf wenig Mehl rechteckig ca. 30 x 50 cm auswallen, längs halbieren. Lemon Curd und Mohn verrühren, darauf verteilen. Längsseiten der Teigstreifen über die Füllung legen. Teigstreifen ineinander drehen, ringförmig auf ein mit Backpapier belegtes Blech legen, zugedeckt ca. 30 Min. aufgehen lassen.",
+    "3. Backen: ca. 25 Min. in der unteren Hälfte des auf 180 Grad vorgeheizten Ofens.",
+    "Tipp: Der Hefekranz schmeckt frisch am besten.",
+    "Vorbereitungszeit ca. 2 Std., Zubereitungszeit ca. 25 Min. Nährwert pro Person: 942 kJ / 225 kcal.",
+    "Quelle: Frohe Ostern, Seite 17."
   ],
+  port: 12,
   cover: "G:LLDpWJA9pjKtSQC3KdtBlSrIuyYcMjB05c9aad6KbqI6MEVIWoErQOtxe3CsrPUUhDY-S8mBW-Tlnb3tCZ0r", pages: ["G:9P2zjo8VwTka5nQET84Bqjzs7_lRfhPRstguC90oO_e1idmo-5jtCZ5lApYbWymWE61DSoOM2-Njtwhsnc2H5ro"]
 },
 {
   n: "Rhabarberküchlein", folder: "Gebäck", src: "",
   ing: [
-    
+    "1 rechteckig ausgewallter Blätterteig (ca. 42x25 cm)",
+    "100 g Mandelmasse",
+    "50 g Haselnüsse, grob gehackt",
+    "250 g Rhabarber, in Scheibchen",
+    "1 EL Zucker"
   ],
   steps: [
-    
+    "Aktive Zeit 10 Min., Gesamtzeit 35 Min., 167 kcal pro Stück. Vegetarisch, vegan. Für ein Muffinblech mit 12 Vertiefungen von je ca. 7 cm Ø, gefettet, bemehlt.",
+    "Küchlein: Teig in 12 gleich grosse Vierecke (9x8 cm) schneiden, in das vorbereitete Blech legen. Mandelmasse darauf verteilen, restlichen Teig zerzupfen, mit den Nüssen, Rhabarber und Zucker mischen, in die Küchlein verteilen.",
+    "Backen: Ca. 25 Min. in der unteren Hälfte des auf 220 °C vorgeheizten Ofens. Herausnehmen, etwas abkühlen, aus dem Blech nehmen, auf einem Gitter auskühlen."
   ],
+  port: 12,
   cover: "G:ldQFAKwtByqaHV6R4CZyguEKtxBvMVUnPFAU6JNnhuK5RS5EgP-ZzsR9xchkXxwkzsj5paSqbKrdrSlaaBiOpXo", pages: ["G:wCMKxe84Z4MRBdgZdUqFfWdWt8vUbAXaKl6yUDywGlP-WhfdQaqAasT4GcJ6XU9lQdGulVcqlawBht3uZZu03A","G:Vt9RqTOZwPVoe9sncsUTO_mMN8TxsoOeFcsLJvR4Zs6Xhz_p-3ask9Zlb4JJ4Aan9vuitUq_wccnNm1FJtV2sg"]
 },
 {
   n: "Spanisch Brötli", folder: "Gebäck", src: "",
   ing: [
-    
+    "100 g ganze Haselnüsse",
+    "50 g Karotten",
+    "4 EL Quittengelee",
+    "1 kleines Ei",
+    "500 g Blätterteig (Block)",
+    "Mehl zum Auswallen",
+    "Puderzucker zum Bestäuben"
   ],
   steps: [
-    
+    "Ergibt ca. 12 Stück.",
+    "Haselnüsse in einer Pfanne etwas anrösten, bis es anfängt zu duften. Nüsse auf ein sauberes Küchentuch geben, Tuch einschlagen und Nüsse aneinanderreiben, bis sich die Häutchen lösen. Geschälte Nüsse mit einem Cutter mahlen. Karotten fein dazureiben. Mit Quittengelee mischen. Ei verquirlen. Die Hälfte des Eis zur Nussmasse geben. Rest beiseitestellen.",
+    "Backofen auf 220 °C vorheizen. Teigblock halbieren, jede Hälfte auf etwas Mehl zu Rechtecken à 24x32 cm auswallen. Je in 12 Quadrate à 8x8 cm teilen. Die Hälfte auf ein mit Backpapier belegtes Blech legen. Mit der Nussmasse bestreichen. Dabei den Rand frei lassen. Rand mit etwas vom beiseitegestellten Ei bestreichen. Restliche Teigstücke darauflegen und Rand leicht andrücken. Teigdeckel mit einem Messer über Kreuz einschneiden. Mit restlichem Ei bestreichen. In der Ofenmitte ca. 12 Minuten goldbraun backen. Herausnehmen, abkühlen lassen und mit Puderzucker bestäuben.",
+    "Zubereitung ca. 30 Minuten + ca. 12 Minuten backen.",
+    "Pro Stück ca. 4 g Eiweiss, 16 g Fett, 20 g Kohlenhydrate, 1050 kJ / 250 kcal (Werte am Foto schlecht lesbar)."
   ],
+  port: 12,
   cover: "G:1KoxxVYLq0a1tVzbL_o1y4f3JdzwVSKIpn1NuXf4sa_BKi0l3JRR-PQhnAeQvDZ3hA_3qyDSXEuFfhci92r2H5PcRVS3ob3E-A", pages: ["G:hybFRCRwfnz1ir9jNqCNbqTUBeTmPI0JTM9tBgp8tg1Z6PuDDo6z8dEULG91QpdfdbUfUEyrEM0sqeahHk_5qq5lYG-KXCWLPU8","G:UGwI9T8juA9C7niDR6nkeIxb8L7LhmTMiUmK52cJOemF4EWQO0NRy7pZkjwmDZgEesO5cjdtGOv-j8Jx30HVBXupSLFE7ouQ2w"]
 },
 // ---- Geflügel ----
