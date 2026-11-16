@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.6.1';
+const APP_VERSION = '1.6.2';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -504,6 +504,87 @@ function openImport() {
   start();
 }
 
+/* Eigene Rezepte: Bilder nachladen / entfernen, Rezept löschen */
+async function modifyUserList(fn, msg) {
+  if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
+  for (let i = 0; i < 4; i++) {
+    const next = fn(await uGet());
+    const r = await putFile(UREC_PATH, b64enc(JSON.stringify({ v: 1, recipes: next }, null, 1) + '\n'), msg, usync.sha);
+    if (r.ok) { store.set('rb_userrec', next); setUserRecipes(next); renderFilters(); return; }
+    if (r.status === 409 || r.status === 422) continue;
+    if (r.status === 401 || r.status === 403 || r.status === 404) throw new Error('Token ungültig oder ohne Schreibrecht für das Repo');
+    throw new Error('Speichern fehlgeschlagen (' + r.status + ')');
+  }
+  throw new Error('Konflikt beim Speichern, bitte nochmals versuchen');
+}
+async function delFile(path) {
+  if (!/^img\/u\//.test(path)) return;
+  const u = `https://api.github.com/repos/${REPO}/contents/${path}`;
+  const g = await fetch(`${u}?ref=main&_=${Date.now()}`, { headers: hdr(getToken()), cache: 'no-store' });
+  if (g.status === 404) return;
+  if (!g.ok) throw new Error('Foto löschen fehlgeschlagen (' + g.status + ')');
+  const { sha } = await g.json();
+  const r = await fetch(u, { method: 'DELETE', headers: hdr(getToken(), true), body: JSON.stringify({ message: 'App: Rezeptfoto gelöscht', sha, branch: 'main' }) });
+  if (!r.ok) throw new Error('Foto löschen fehlgeschlagen (' + r.status + ')');
+}
+function openPicSheet(r) {
+  const o = document.createElement('div'); o.className = 'sheet-bg'; document.body.appendChild(o);
+  const orig = [r.cover, ...(r.pages || [])].filter(Boolean);
+  let items = orig.map(p => ({ path: p, src: p })), cov = 0, busyOn = false;
+  const draw = (msg = '') => {
+    o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Bilder"><h3>Bilder von «${esc(r.n)}»</h3>
+      <div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
+        <label class="chk"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
+        <button type="button" class="chip" data-del="${i}">Entfernen</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
+      <button class="chip big" type="button" id="p-add">＋ Bilder hinzufügen</button>
+      <input id="p-file" type="file" accept="image/*" multiple hidden>
+      <p class="note tiny err" id="p-msg">${esc(msg)}</p>
+      <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button><button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
+  };
+  const lock = on => { busyOn = on; o.querySelectorAll('button').forEach(b => { b.disabled = on; }); };
+  draw();
+  o.addEventListener('change', async e => {
+    if (e.target.name === 'p-cov') { cov = Number(e.target.value); return; }
+    if (e.target.id === 'p-file' && e.target.files.length) {
+      try { for (const f of [...e.target.files]) { const d = await shrink(f, 1600, 0.82); items.push({ dataUrl: d, src: d }); } draw(); }
+      catch (err) { draw('⚠ ' + err.message); }
+    }
+  });
+  o.addEventListener('click', async e => {
+    if (e.target === o) { if (!busyOn) o.remove(); return; }
+    if (e.target.id === 'p-cancel') { o.remove(); return; }
+    if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
+    const del = e.target.closest('[data-del]');
+    if (del) { const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
+    if (e.target.id === 'p-save') {
+      lock(true); $('#p-msg', o).textContent = 'Speichere …';
+      try {
+        const ordered = items.length ? [items[cov], ...items.filter((x, i) => i !== cov)] : [];
+        const stamp = Date.now().toString(36);
+        const files = [];
+        ordered.forEach((it, n) => { if (it.dataUrl) { it.path = `img/u/${r.id}-${stamp}-${n + 1}.jpg`; files.push({ path: it.path, b64: it.dataUrl.split(',')[1] }); } });
+        for (const f of files) { const x = await putFile(f.path, f.b64, 'App: Rezeptfoto'); if (!x.ok) throw new Error('Foto speichern fehlgeschlagen (' + x.status + ')'); }
+        await modifyUserList(l => l.map(x => x.id === r.id ? { ...x, cover: ordered[0] ? ordered[0].path : '', pages: ordered.slice(1).map(p => p.path) } : x), 'App: Bilder von «' + r.n + '» geändert');
+        const keep = new Set(ordered.map(p => p.path));
+        for (const p of orig) if (!keep.has(p)) { try { await delFile(p); } catch {} }
+        o.remove(); route();
+      } catch (err) { lock(false); $('#p-msg', o).textContent = '⚠ ' + err.message; }
+      return;
+    }
+    if (e.target.id === 'p-delrec') {
+      if (!confirm('Rezept «' + r.n + '» endgültig löschen? Die Fotos werden ebenfalls gelöscht.')) return;
+      lock(true); $('#p-msg', o).textContent = 'Lösche …';
+      try {
+        await modifyUserList(l => l.filter(x => x.id !== r.id), 'App: Rezept «' + r.n + '» gelöscht');
+        for (const p of orig) { try { await delFile(p); } catch {} }
+        let ch = false; cfg.folders.forEach(f => { if (f.photo === r.id) { delete f.photo; ch = true; } });
+        if (ch) persist();
+        o.remove(); location.hash = '';
+      } catch (err) { lock(false); $('#p-msg', o).textContent = '⚠ ' + err.message; }
+    }
+  });
+}
+
 function folderPhoto(id) {
   const pr = byId[(FB[id] || {}).photo];
   if (pr && pr.cover) return imgUrl(pr.cover, 240);
@@ -834,7 +915,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<label class="fsel"><select id="fadd"><option value="">＋ Ordner</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip" id="fphoto">🖼 Als Ordnerfoto …</button>' : ''}${r.u ? '<button type="button" class="chip" id="rmgr">✎ Bilder / Löschen</button>' : ''}${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -934,6 +1015,7 @@ view.addEventListener('click', e => {
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
   }
+  if (e.target.closest('#rmgr')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r && r.u) openPicSheet(r); return; }
   if (e.target.closest('#fphoto')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openPhotoSheet(r); return; }
   const rmf = e.target.closest('[data-rmf]');
   if (rmf) {
