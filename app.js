@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const APP_VERSION = 'v34';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -641,7 +642,7 @@ settingsEl.addEventListener('click', async e => {
 });
 applyTheme();
 function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; }
-updTok(); applySize(); setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
+updTok(); applySize(); $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
 
 /* ---------- Start ---------- */
 renderFilters();
