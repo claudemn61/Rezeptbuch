@@ -58,13 +58,14 @@ function tokens(q) { return norm(q).split(/\s+/).filter(Boolean); }
 
 function search(q) {
   const t = tokens(q);
+  const fset = FB[state.filter] ? subtree(state.filter) : null;
   let list = R.filter(r => {
     switch (state.filter) {
       case 'fav': return state.fav.has(r.id);
       case 'text': return r.hasText;
       case 'foto': return !r.hasText;
       case 'alle': return true;
-      default: return r.folder === state.filter;
+      default: return fset ? fset.has(folderOf(r)) : true;
     }
   });
   if (!t.length) return list.map(r => ({ r, score: 0, hit: null }));
@@ -138,7 +139,8 @@ function miniCard(r) {
     <div class="body"><h3>${esc(r.n)}</h3></div></a>`;
 }
 
-/* ---------- Startbildschirm: Ordner-Icons (sortierbar, editierbar) ---------- */
+/* ---------- Konfiguration: Ordner, Favoriten, Grösse (liegt als config.json im Repo) ---------- */
+const REPO = 'claudemn61/Rezeptbuch', CFG_PATH = 'config.json';
 const ICONS = {
   Brote:'🍞', Reisgerichte:'🍚', Kuchen:'🍰', Asiatisch:'🥢', Beilagen:'🥔', Dessert:'🍮', Dips:'🥣', Eierspeisen:'🍳',
   'Eintöpfe':'🍲', Fisch:'🐟', Fleisch:'🥩', 'Gebäck':'🥐', 'Geflügel':'🍗', 'Gemüse':'🥕', 'Getränke':'🍹', 'Gewürze':'🌶️',
@@ -146,50 +148,152 @@ const ICONS = {
   Snacks:'🥨', Suppen:'🍜', Tapas:'🫒', Teigwaren:'🍝', Vegetarisch:'🥦', Vorspeisen:'🥟', 'Wähen':'🥧', Wild:'🦌', alle:'📖'
 };
 const COLORS = ['#b5651d', '#c0504d', '#d98e04', '#6b8f71', '#3f8f8a', '#4f7cac', '#7a5c9e', '#a0527c', '#7a4b3a', '#5f6b73'];
-const EMOJI_PICK = ['🍞','🥖','🥐','🍰','🧁','🍪','🍮','🍚','🍝','🍜','🥢','🍲','🥗','🥕','🥦','🥔','🍳','🧀','🥩','🍗','🐟','🦐','🦌','🍕','🥧','🥟','🥨','🫒','🌶️','🍹','☕','🥣','🫙','🍯','🍎','🍓','🍋','🍄','🌿','⭐','❤️','🎂','🎄','🍽️'];
-const FOLDER_COLORS = Object.fromEntries(folders.map((f, i) => [f, COLORS[i % COLORS.length]]));
-FOLDER_COLORS.alle = '#46604b';
-const home = (() => { const h = store.get('rb_home', {}); return { order: h.order || [], meta: h.meta || {} }; })();
-const saveHome = () => store.set('rb_home', home);
-const tileMeta = k => ({ icon: ICONS[k] || '🍽️', color: FOLDER_COLORS[k] || COLORS[0], label: k === 'alle' ? 'Alle Rezepte' : k, show: true, ...(home.meta[k] || {}) });
-function orderedKeys() {
-  const all = ['alle', ...folders];
-  const known = home.order.filter(k => all.includes(k));
-  return [...known, ...all.filter(k => !known.includes(k))];
-}
-const orderedFolders = () => orderedKeys().filter(k => k !== 'alle');
+const EMOJI_PICK = ['📁','🍞','🥖','🥐','🍰','🧁','🍪','🍮','🍚','🍝','🍜','🥢','🍲','🥗','🥕','🥦','🥔','🍳','🧀','🥩','🍗','🐟','🦐','🦌','🍕','🥧','🥟','🥨','🫒','🌶️','🍹','☕','🥣','🫙','🍯','🍎','🍓','🍋','🍄','🌿','⭐','❤️','🎂','🎄','🍽️'];
+const BUILTIN = new Set(folders);
+const defColor = id => COLORS[Math.max(0, folders.indexOf(id)) % COLORS.length];
+const defFolder = id => ({ id, name: id, icon: ICONS[id] || '🍽️', color: defColor(id), parent: null, show: true });
 
-function tileHtml(k) {
-  const m = tileMeta(k);
-  const n = k === 'alle' ? R.length : R.filter(r => r.folder === k).length;
-  return `<button class="tile${m.show ? '' : ' off'}" type="button" data-folder="${esc(k)}" style="--c:${esc(m.color)}">
-    <span class="ic">${esc(m.icon)}</span><b>${esc(m.label)}</b><small>${n}</small>${state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
+function normalize(c) {
+  c = c || {};
+  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [] };
+  const seen = new Set();
+  (c.folders || []).forEach(f => {
+    if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
+    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false });
+  });
+  folders.forEach(b => { if (!seen.has(b)) out.folders.push(defFolder(b)); });
+  const ids = new Set(out.folders.map(f => f.id));
+  out.folders.forEach(f => { if (f.parent && (!ids.has(f.parent) || f.parent === f.id)) f.parent = null; });
+  out.folders.forEach(f => { let p = f, n = 0; while (p && p.parent && n++ < 60) p = out.folders.find(x => x.id === p.parent); if (n >= 60) f.parent = null; });
+  Object.entries(c.assign || {}).forEach(([rid, fid]) => { if (byId[rid] && ids.has(fid)) out.assign[rid] = fid; });
+  return out;
+}
+let cfg = normalize(store.get('rb_pending', null) || store.get('rb_cfgcache', null));
+let FB = {};
+const reindex = () => { FB = Object.fromEntries(cfg.folders.map(f => [f.id, f])); };
+reindex();
+state.fav = new Set(cfg.fav.length ? cfg.fav : store.get('rb_fav', []));
+
+const kids = parent => cfg.folders.filter(f => (f.parent || null) === (parent || null));
+function subtree(id) {
+  const s = new Set([id]); let ch = true;
+  while (ch) { ch = false; cfg.folders.forEach(f => { if (f.parent && s.has(f.parent) && !s.has(f.id)) { s.add(f.id); ch = true; } }); }
+  return s;
+}
+const folderOf = r => { const a = cfg.assign[r.id]; return a && FB[a] ? a : (FB[r.folder] ? r.folder : (cfg.folders[0] || {}).id); };
+const folderName = id => (FB[id] || {}).name || id;
+const countIn = id => { const s = subtree(id); return R.filter(r => s.has(folderOf(r))).length; };
+function pathOf(id) { const p = []; let f = FB[id], n = 0; while (f && n++ < 60) { p.unshift(f); f = f.parent && FB[f.parent]; } return p; }
+const rootOf = id => (pathOf(id)[0] || {}).id;
+function flat(parent = null, depth = 0, skip = null) {
+  return kids(parent).flatMap(f => f.id === skip ? [] : [{ f, depth }, ...flat(f.id, depth + 1, skip)]);
+}
+const newId = () => 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+/* ---------- Speichern im Repo (GitHub-API) ---------- */
+const API = `https://api.github.com/repos/${REPO}/contents/${CFG_PATH}`;
+const sync = { sha: null, timer: null, saving: false, again: false, dirty: !!store.get('rb_pending', null), msg: '', kind: '' };
+const getToken = () => (localStorage.getItem('rb_token') || '').trim();
+const hdr = (tok, json) => ({ Accept: 'application/vnd.github+json', ...(tok ? { Authorization: 'Bearer ' + tok } : {}), ...(json ? { 'Content-Type': 'application/json' } : {}) });
+const b64enc = s => { const b = new TextEncoder().encode(s); let t = ''; for (let i = 0; i < b.length; i += 8192) t += String.fromCharCode(...b.subarray(i, i + 8192)); return btoa(t); };
+const b64dec = s => { const t = atob(s.replace(/\s/g, '')); return new TextDecoder().decode(Uint8Array.from(t, c => c.charCodeAt(0))); };
+function setSync(msg, kind) {
+  sync.msg = msg; sync.kind = kind;
+  const el = $('#syncstat'); if (el) { el.textContent = msg; el.dataset.k = kind || ''; }
+  const bar = $('#savebar'); if (bar) { bar.textContent = msg; bar.dataset.k = kind || ''; }
+}
+async function ghGet() {
+  let r = await fetch(`${API}?ref=main&_=${Date.now()}`, { headers: hdr(getToken()), cache: 'no-store' });
+  if (r.status === 401) r = await fetch(`${API}?ref=main&_=${Date.now()}`, { headers: hdr(''), cache: 'no-store' });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error('GET ' + r.status);
+  const j = await r.json(); sync.sha = j.sha;
+  return JSON.parse(b64dec(j.content));
+}
+function persist() {
+  cfg.fav = [...state.fav];
+  reindex(); sync.dirty = true;
+  store.set('rb_pending', cfg);
+  clearTimeout(sync.timer);
+  if (!getToken()) { setSync('⚠ Nicht gespeichert: GitHub-Token fehlt (Einstellungen)', 'err'); return; }
+  setSync('Speichere …', '');
+  sync.timer = setTimeout(flush, 700);
+}
+async function flush() {
+  if (sync.saving) { sync.again = true; return; }
+  sync.saving = true;
+  try {
+    for (let i = 0; i < 3; i++) {
+      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify(cfg, null, 1) + '\n'), branch: 'main' };
+      if (sync.sha) body.sha = sync.sha;
+      const r = await fetch(API, { method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify(body) });
+      if (r.ok) { const j = await r.json(); sync.sha = j.content.sha; sync.dirty = false; localStorage.removeItem('rb_pending'); store.set('rb_cfgcache', cfg); setSync('✓ Gespeichert', 'ok'); break; }
+      if (r.status === 409 || r.status === 422) { try { await ghGet(); } catch {} continue; }
+      if (r.status === 401 || r.status === 403 || r.status === 404) { setSync('⚠ Token ungültig oder ohne Schreibrecht für das Repo', 'err'); break; }
+      throw new Error('PUT ' + r.status);
+    }
+  } catch { setSync('⚠ Offline: Änderung noch nicht gespeichert', 'err'); }
+  sync.saving = false;
+  if (sync.again) { sync.again = false; flush(); }
+}
+async function loadRemote(quiet) {
+  try {
+    const remote = await ghGet();
+    if (sync.dirty) { if (getToken()) flush(); return; }
+    if (remote) {
+      cfg = normalize(remote); reindex(); state.fav = new Set(cfg.fav); store.set('rb_cfgcache', cfg);
+      const legacy = store.get('rb_fav', []).filter(x => byId[x] && !state.fav.has(x));
+      if (legacy.length && getToken()) { legacy.forEach(x => state.fav.add(x)); persist(); localStorage.removeItem('rb_fav'); }
+    }
+    applySize(); renderFilters();
+    if (!state.edit && !document.querySelector('.sheet-bg') && !location.hash.startsWith('#/r/')) refresh();
+    if (!quiet) setSync(getToken() ? '✓ Aktuell' : 'Nur lesen (kein Token eingetragen)', getToken() ? 'ok' : '');
+  } catch { if (!quiet) setSync('Offline: zuletzt geladene Daten', 'err'); }
+}
+function applySize() {
+  document.documentElement.dataset.size = cfg.size;
+  $$('#sizeseg [data-size]').forEach(b => b.setAttribute('aria-pressed', b.dataset.size === cfg.size));
 }
 
+/* ---------- Startbildschirm & Ordnerseiten ---------- */
+function tileHtml(f) {
+  const sub = kids(f.id).length;
+  return `<button class="tile${f.show ? '' : ' off'}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
+    <span class="ic">${esc(f.icon)}</span><b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
+}
+function tilesBlock(parent) {
+  const list = kids(parent).filter(f => state.edit || f.show);
+  const all = !parent && !state.edit ? '' : '';
+  const allTile = parent ? '' : `<button class="tile all fixed" type="button" data-folder="alle" style="--c:#46604b"><span class="ic">📖</span><b>Alle Rezepte</b><small>${R.length}</small></button>`;
+  if (!list.length && !state.edit && parent) return '';
+  return `<div class="tiles" id="tiles" data-parent="${esc(parent || '')}">${allTile}${list.map(tileHtml).join('')}${state.edit ? `<button class="tile add fixed" type="button" id="hadd"><span class="ic">＋</span><b>Neuer Ordner</b></button>` : ''}</div>`;
+}
+function barHtml() {
+  return `<div class="hbar">${state.edit ? '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>' : '<span></span>'}
+    <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}">${state.edit ? 'Fertig' : '✎ Ordner bearbeiten'}</button></div>
+    ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
+}
 function renderHome() {
   countEl.textContent = R.length;
   clearEl.hidden = true;
-  const keys = orderedKeys().filter(k => state.edit || k === 'alle' || tileMeta(k).show);
   const rec = recent().slice(0, 6);
   const fav = R.filter(r => state.fav.has(r.id));
   view.innerHTML = `
     <section class="home${state.edit ? ' editing' : ''}">
-      <div class="hbar">
-        ${state.edit ? '<span class="hint2">Ziehen zum Sortieren, antippen zum Bearbeiten</span><button class="chip" type="button" id="hreset">Zurücksetzen</button>' : '<span></span>'}
-        <button class="chip" type="button" id="hedit" aria-pressed="${state.edit}">${state.edit ? 'Fertig' : '✎ Bearbeiten'}</button>
-      </div>
-      <div class="tiles" id="tiles">${keys.map(tileHtml).join('')}</div>
+      ${barHtml()}
+      ${tilesBlock(null)}
       ${state.edit ? '' : `<button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
       ${rec.length ? `<h3 class="sec">Zuletzt angesehen</h3><div class="strip">${rec.map(miniCard).join('')}</div>` : ''}
       ${fav.length ? `<h3 class="sec">Favoriten</h3><div class="strip">${fav.map(miniCard).join('')}</div>` : ''}`}
     </section>`;
+  if (state.edit) setSync(sync.msg, sync.kind);
 }
 
 /* Bearbeiten: Sortieren per Ziehen */
 let drag = null;
 view.addEventListener('pointerdown', e => {
-  const tile = state.edit && e.target.closest('.tile');
-  if (!tile || (e.pointerType === 'mouse' && e.button !== 0)) return;
+  const tile = state.edit && e.target.closest('#tiles .tile');
+  if (!tile || tile.classList.contains('fixed') || (e.pointerType === 'mouse' && e.button !== 0)) return;
   drag = { tile, x: e.clientX, y: e.clientY, on: false, id: e.pointerId, ghost: null, dx: 0, dy: 0 };
 });
 window.addEventListener('pointermove', e => {
@@ -208,9 +312,9 @@ window.addEventListener('pointermove', e => {
   drag.ghost.style.transform = `translate(${e.clientX - drag.dx}px,${e.clientY - drag.dy}px)`;
   const el = document.elementFromPoint(e.clientX, e.clientY);
   const over = el && el.closest && el.closest('#tiles .tile');
-  if (over && over !== drag.tile) {
-    const kids = [...over.parentNode.children];
-    over.parentNode.insertBefore(drag.tile, kids.indexOf(drag.tile) < kids.indexOf(over) ? over.nextSibling : over);
+  if (over && over !== drag.tile && !over.classList.contains('fixed')) {
+    const kidsEls = [...over.parentNode.children];
+    over.parentNode.insertBefore(drag.tile, kidsEls.indexOf(drag.tile) < kidsEls.indexOf(over) ? over.nextSibling : over);
   }
   const vh = window.innerHeight;
   drag.scroll = e.clientY < 90 ? -14 : e.clientY > vh - 90 ? 14 : 0;
@@ -222,46 +326,69 @@ function endDrag(e) {
   if (d.ghost) d.ghost.remove();
   if (d.on) {
     d.tile.classList.remove('lifted');
-    home.order = $$('#tiles .tile').map(t => t.dataset.folder);
-    saveHome(); renderFilters();
+    const box = $('#tiles'); const parent = box.dataset.parent || null;
+    const ids = $$('.tile[data-folder]', box).map(t => t.dataset.folder).filter(id => FB[id] && (FB[id].parent || null) === parent);
+    const slots = cfg.folders.map((f, i) => (f.parent || null) === parent ? i : -1).filter(i => i >= 0);
+    const objs = ids.map(id => FB[id]);
+    if (objs.length === slots.length) { slots.forEach((ix, j) => { cfg.folders[ix] = objs[j]; }); persist(); renderFilters(); }
   } else if (e.type === 'pointerup') openTileEditor(d.tile.dataset.folder);
 }
 window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
 
-/* Bearbeiten: Symbol, Name, Farbe, Sichtbarkeit */
-function openTileEditor(k) {
-  const m = tileMeta(k);
+/* Ordner bearbeiten / neu anlegen */
+function openTileEditor(id, parentForNew) {
+  const isNew = !id;
+  const m = isNew ? { id: newId(), name: '', icon: '📁', color: COLORS[(cfg.folders.length) % COLORS.length], parent: parentForNew || null, show: true } : { ...FB[id] };
+  const builtin = !isNew && BUILTIN.has(m.id);
+  const opts = [`<option value="">Hauptebene</option>`, ...flat(null, 0, isNew ? null : m.id).map(({ f, depth }) =>
+    `<option value="${esc(f.id)}" ${f.id === m.parent ? 'selected' : ''}>${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`)].join('');
   const o = document.createElement('div');
   o.className = 'sheet-bg';
   o.innerHTML = `<div class="sheet" role="dialog" aria-label="Ordner bearbeiten">
-    <h3>Ordner bearbeiten</h3>
+    <h3>${isNew ? 'Neuer Ordner' : 'Ordner bearbeiten'}</h3>
     <div class="row"><span class="prev" id="e-prev" style="--c:${esc(m.color)}">${esc(m.icon)}</span>
-      <label>Name<input id="e-label" type="text" maxlength="30" value="${esc(m.label)}"></label></div>
+      <label>Name<input id="e-label" type="text" maxlength="40" value="${esc(m.name)}" placeholder="z. B. Sonntagsessen"></label></div>
     <label>Symbol <small>(eigenes Emoji eintippen oder wählen)</small><input id="e-icon" type="text" maxlength="8" value="${esc(m.icon)}"></label>
     <div class="emojis">${EMOJI_PICK.map(x => `<button type="button" data-e="${x}">${x}</button>`).join('')}</div>
     <div class="swatches">${COLORS.map(c => `<button type="button" data-c="${c}" style="background:${c}" aria-pressed="${c === m.color}" aria-label="Farbe"></button>`).join('')}</div>
-    ${k === 'alle' ? '' : `<label class="chk"><input id="e-show" type="checkbox" ${m.show ? 'checked' : ''}> Auf Startseite anzeigen</label>`}
-    <div class="acts"><button type="button" class="chip" id="e-reset">Standard</button><button type="button" class="chip on" id="e-ok">Fertig</button></div>
+    <label>Liegt in<select id="e-parent">${opts}</select></label>
+    <label class="chk"><input id="e-show" type="checkbox" ${m.show ? 'checked' : ''}> Anzeigen</label>
+    <div class="acts">
+      ${isNew ? '<button type="button" class="chip" id="e-cancel">Abbrechen</button>' : builtin ? '<button type="button" class="chip" id="e-reset">Standard</button>' : '<button type="button" class="chip danger" id="e-del">Löschen</button>'}
+      <button type="button" class="chip on" id="e-ok">${isNew ? 'Anlegen' : 'Fertig'}</button>
+    </div>
   </div>`;
   document.body.appendChild(o);
   let color = m.color;
-  const upd = () => { $('#e-prev', o).textContent = $('#e-icon', o).value || '🍽️'; $('#e-prev', o).style.setProperty('--c', color); };
-  const close = (save) => {
-    if (save) {
-      const meta = { icon: $('#e-icon', o).value.trim() || ICONS[k] || '🍽️', color, label: $('#e-label', o).value.trim() || (k === 'alle' ? 'Alle Rezepte' : k), show: k === 'alle' ? true : $('#e-show', o).checked };
-      home.meta[k] = meta; saveHome();
-    }
-    o.remove(); refresh();
+  const upd = () => { $('#e-prev', o).textContent = $('#e-icon', o).value || '📁'; $('#e-prev', o).style.setProperty('--c', color); };
+  const done = () => { o.remove(); refresh(); };
+  const save = () => {
+    const f = {
+      id: m.id, name: $('#e-label', o).value.trim() || (isNew ? 'Neuer Ordner' : m.name),
+      icon: $('#e-icon', o).value.trim() || '📁', color, parent: $('#e-parent', o).value || null, show: $('#e-show', o).checked
+    };
+    if (isNew) cfg.folders.push(f); else cfg.folders[cfg.folders.findIndex(x => x.id === m.id)] = f;
+    persist(); renderFilters(); done();
   };
   o.addEventListener('click', e => {
-    if (e.target === o) return close(true);
+    if (e.target === o) return isNew ? o.remove() : save();
     const em = e.target.closest('[data-e]'); if (em) { $('#e-icon', o).value = em.dataset.e; upd(); return; }
     const c = e.target.closest('[data-c]'); if (c) { color = c.dataset.c; $$('.swatches button', o).forEach(b => b.setAttribute('aria-pressed', b === c)); upd(); return; }
-    if (e.target.id === 'e-reset') { delete home.meta[k]; saveHome(); o.remove(); refresh(); return; }
-    if (e.target.id === 'e-ok') close(true);
+    if (e.target.id === 'e-cancel') { o.remove(); return; }
+    if (e.target.id === 'e-reset') { const d = defFolder(m.id); Object.assign(FB[m.id], { name: d.name, icon: d.icon, color: d.color, show: true }); persist(); renderFilters(); done(); return; }
+    if (e.target.id === 'e-del') {
+      if (!confirm('Ordner «' + m.name + '» löschen? Unterordner rücken eine Ebene hoch, Rezepte kehren in ihren ursprünglichen Ordner zurück.')) return;
+      cfg.folders.forEach(f => { if (f.parent === m.id) f.parent = m.parent || null; });
+      Object.keys(cfg.assign).forEach(k => { if (cfg.assign[k] === m.id) delete cfg.assign[k]; });
+      cfg.folders = cfg.folders.filter(f => f.id !== m.id);
+      if (state.filter === m.id) state.filter = m.parent || 'alle';
+      persist(); renderFilters(); done(); return;
+    }
+    if (e.target.id === 'e-ok') save();
   });
   $('#e-icon', o).addEventListener('input', upd);
+  if (isNew) $('#e-label', o).focus();
 }
 
 function refresh() {
@@ -285,30 +412,34 @@ function renderFilters() {
     ['text', 'Mit Text', R.filter(r => r.hasText).length],
     ['foto', 'Nur Fotos', R.filter(r => !r.hasText).length]
   ];
-  if (folders.length > 1) orderedFolders().forEach(f => items.push([f, f, R.filter(r => r.folder === f).length]));
+  kids(null).filter(f => f.show).forEach(f => items.push([f.id, f.name, countIn(f.id)]));
+  const act = FB[state.filter] ? rootOf(state.filter) : state.filter;
   filtersEl.innerHTML = items.map(([k, l, n]) =>
-    `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${state.filter === k}">${esc(l)}<small>${n}</small></button>`).join('');
+    `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}<small>${n}</small></button>`).join('');
 }
 
 function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
+  const inFolder = !state.q && FB[state.filter];
+  const head = inFolder ? `<nav class="crumbs"><a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '';
   countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
+  if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
   if (!res.length) {
-    view.innerHTML = `<div class="empty"><b>Nichts gefunden</b>${state.q ? 'Für „' + esc(state.q) + '“ gibt es keine Treffer.' : 'In dieser Auswahl ist noch nichts.'}
+    view.innerHTML = head + `<div class="empty"><b>Nichts gefunden</b>${state.q ? 'Für „' + esc(state.q) + '“ gibt es keine Treffer.' : 'In dieser Auswahl ist noch nichts.'}
       ${state.q && R.some(r => !r.hasText) ? '<br><small>Rezepte, die nur als Foto vorliegen, lassen sich nur über den Titel finden.</small>' : ''}</div>`;
     return;
   }
   const hint = state.q && state.filter !== 'text'
     ? `<p class="hint">Suche in Titel, Zutaten und Zubereitung. Reine Foto-Rezepte werden nur über den Titel gefunden.</p>` : '';
-  view.innerHTML = hint + '<div class="grid">' + res.map(({ r, hit }) => {
+  view.innerHTML = head + hint + '<div class="grid">' + res.map(({ r, hit }) => {
     const sn = snippet(r, hit, t);
     return `<a class="card" href="#/r/${r.id}">
       <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 480))}" alt="">` : ''}</div>
       <div class="body"><h3>${highlight(r.n, t)}</h3>
       ${sn ? `<div class="sn">${sn}</div>` : ''}
-      <div class="tags"><span class="tag">${esc(r.folder)}</span>${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
+      <div class="tags"><span class="tag">${esc(folderName(folderOf(r)))}</span>${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
   }).join('') + '</div>';
 }
 
@@ -390,7 +521,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><span class="tag">${esc(r.folder)}</span>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta"><label class="fsel">Ordner <select id="fsel">${flat().map(({ f, depth }) => `<option value="${esc(f.id)}" ${f.id === folderOf(r) ? 'selected' : ''}>${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -433,11 +564,20 @@ view.addEventListener('input', e => {
   const r = byId[decodeURIComponent(location.hash.slice(4))];
   setPort(r, t.id === 'pn' ? { n: v } : { b: v });
 });
+view.addEventListener('change', e => {
+  if (e.target.id !== 'fsel') return;
+  const r = byId[decodeURIComponent(location.hash.slice(4))]; if (!r) return;
+  if (e.target.value === r.folder) delete cfg.assign[r.id]; else cfg.assign[r.id] = e.target.value;
+  persist(); renderFilters();
+});
 view.addEventListener('click', e => {
   if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); return; }
-  if (e.target.closest('#hreset')) { if (confirm('Reihenfolge, Namen, Symbole und Farben der Ordner zurücksetzen?')) { home.order = []; home.meta = {}; saveHome(); renderFilters(); refresh(); } return; }
+  if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
+  const crumb = e.target.closest('[data-crumb]');
+  if (crumb) { e.preventDefault(); state.edit = false; if (crumb.dataset.crumb) state.filter = crumb.dataset.crumb; else { state.filter = 'alle'; state.browse = false; } renderFilters(); refresh(); window.scrollTo(0, 0); return; }
   const tile = e.target.closest('.tile');
   if (tile && state.edit) return;
+  if (tile && tile.classList.contains('add')) return;
   if (tile) { state.filter = tile.dataset.folder; state.browse = true; renderFilters(); refresh(); window.scrollTo(0, 0); return; }
   if (e.target.closest('#random')) { const r = R[Math.floor(Math.random() * R.length)]; location.hash = '#/r/' + r.id; return; }
   const back = e.target.closest('#back');
@@ -446,7 +586,7 @@ view.addEventListener('click', e => {
   if (star) {
     const r = byId[decodeURIComponent(location.hash.slice(4))];
     state.fav.has(r.id) ? state.fav.delete(r.id) : state.fav.add(r.id);
-    store.set('rb_fav', [...state.fav]);
+    persist();
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
   }
@@ -479,6 +619,15 @@ const settingsEl = $('#settings');
 $('#gear').addEventListener('click', e => { e.stopPropagation(); settingsEl.hidden = !settingsEl.hidden; });
 document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.closest('#settings')) settingsEl.hidden = true; });
 settingsEl.addEventListener('click', async e => {
+  const sz = e.target.closest('[data-size]');
+  if (sz) { cfg.size = sz.dataset.size; applySize(); persist(); return; }
+  if (e.target.closest('#toksave')) {
+    const v = $('#tok').value.trim();
+    if (v) localStorage.setItem('rb_token', v); else localStorage.removeItem('rb_token');
+    $('#tok').value = ''; updTok();
+    if (v) { sync.dirty = true; store.set('rb_pending', cfg); persist(); } else setSync('Nur lesen (kein Token eingetragen)', '');
+    return;
+  }
   const t = e.target.closest('[data-theme]');
   if (t) { state.theme = t.dataset.theme; store.set('rb_theme', state.theme); applyTheme(); return; }
   if (e.target.closest('#update')) {
@@ -491,10 +640,15 @@ settingsEl.addEventListener('click', async e => {
   }
 });
 applyTheme();
+function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; }
+updTok(); applySize(); setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
 
 /* ---------- Start ---------- */
 renderFilters();
 route();
+loadRemote();
+if (getToken() && sync.dirty) flush();
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !sync.dirty) loadRemote(true); });
 let reloaded = false;
 if ('serviceWorker' in navigator && navigator.serviceWorker.controller) navigator.serviceWorker.addEventListener('controllerchange', () => { if (!reloaded) { reloaded = true; location.reload(); } });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => {});

@@ -31,6 +31,17 @@
           <button type="button" data-theme="light">Hell</button>
           <button type="button" data-theme="dark">Dunkel</button>
         </div>
+        <h4>Ordner-Grösse</h4>
+        <div class="seg" id="sizeseg">
+          <button type="button" data-size="s">Klein</button>
+          <button type="button" data-size="m">Mittel</button>
+          <button type="button" data-size="l">Gross</button>
+        </div>
+        <h4>Speichern</h4>
+        <p class="note tiny">Ordner, Favoriten und Grösse werden in der Datei config.json im GitHub-Repo gespeichert und beim Start von dort geladen. Zum Schreiben braucht jedes Gerät einmalig ein GitHub-Token (nur dieses Repo, Recht «Contents: Read and write»).</p>
+        <div id="syncstat" class="syncstat"></div>
+        <div class="tokrow"><input id="tok" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="GitHub-Token einfügen"><button type="button" id="toksave" class="chip">OK</button></div>
+        <p class="note tiny" id="tokstate"></p>
         <h4>App</h4>
         <button type="button" id="update" class="chip">Neu laden &amp; Zwischenspeicher leeren</button>
       </div>
