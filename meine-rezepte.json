@@ -1,0 +1,42 @@
+{
+ "v": 2,
+ "recipes": [],
+ "overrides": {
+  "same-day-sauerteigbrot": {
+   "n": "Same-Day-Sauerteigbrot",
+   "tags": [],
+   "ing": [
+    "400 g Wasser, ca. 20-24 Grad warm",
+    "500 g Ruchmehl (Weizenmehl Type 1050)",
+    "14 g Salz",
+    "290 g Sauerteig",
+    "5 g Backmalz, aktiv (Alternativ: Honig auf 20 g erhöhen)",
+    "10 g Honig"
+   ],
+   "steps": [
+    "Zubereitung",
+    "Alle Zutaten in der Küchenmaschine auf kleiner Stufe 3-4 Min. ankneten.",
+    "Tipp: Ruchmehl bindet mehr Wasser als 1050er Mehl. Falls du unsicher bist, starte mit 320-350 g Wasser und taste dich heran.",
+    "Danach die Knetgeschwindigkeit erhöhen und den Teig etwa 10-12 Min. bei mittlerer Geschwindigkeit kneten.",
+    "Ziel-Teigtemperatur: 26-28 °C.",
+    "Anschliessend den Teig in eine Gärbox packen und ca. 4 Stunden bei Raumtemperatur ruhen lassen.",
+    "Nach 30 Min. das erste Mal Dehnen & Falten.",
+    "Nach weiteren 30 Min. das zweite Mal Dehnen & Falten.",
+    "Nochmal 30 Min. den Teig ein drittes und letztes Mal Dehnen & Falten, wieder zudecken und bei Raumtemperatur ruhen lassen.",
+    "Formen",
+    "Nach der Stockgare den Teig vorsichtig auf eine leicht bemehlte Arbeitsfläche geben.",
+    "Den Teig locker rund formen, indem die Teigränder von aussen nach innen gelegt werden und dabei schauen, dass die Luft im Teig bleibt.",
+    "Mit Schluss nach unten nochmals leicht rundwirken.",
+    "Anschliessend den Teigling mit dem Schluss nach unten in einen gut bemehlten runden Gärkorb legen, abdecken und nochmals 50-60 Min. bei Raumtemperatur ruhen lassen.",
+    "Währenddessen den Backofen zusammen mit einem Gusseisentopf in der unteren Ofenhälfte auf 250 °C Ober-/Unterhitze vorheizen.",
+    "Backen",
+    "Nach der Gare den Teigling vorsichtig mit dem Schluss nach oben in den heissen Gusseisentopf legen, den Deckel schliessen und den Topf zurück in den Ofen stellen.",
+    "Das Brot zunächst 40 Minuten mit geschlossenem Deckel backen. Anschliessend den Deckel entfernen, die Temperatur auf 210 °C reduzieren und das Brot weitere 10-15 Minuten knusprig fertigbacken.",
+    "G"
+   ],
+   "cover": "img/u/same-day-sauerteigbrot-mwjq012r-1.jpg",
+   "pages": []
+  }
+ },
+ "deleted": []
+}
