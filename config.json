@@ -37,6 +37,14 @@
    "show": true
   },
   {
+   "id": "Getränke",
+   "name": "Getränke",
+   "icon": "🍹",
+   "color": "#d98e04",
+   "parent": null,
+   "show": true
+  },
+  {
    "id": "Dips",
    "name": "Dips",
    "icon": "🥣",
@@ -81,14 +89,6 @@
    "name": "Gebäck",
    "icon": "🥐",
    "color": "#5f6b73",
-   "parent": null,
-   "show": true
-  },
-  {
-   "id": "Getränke",
-   "name": "Getränke",
-   "icon": "🍹",
-   "color": "#d98e04",
    "parent": null,
    "show": true
   },
