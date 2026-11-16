@@ -3056,11 +3056,21 @@ window.REZEPTE = [
 {
   n: "Salsa Petre", folder: "Dips", tags: ["Saucen"], src: "",
   ing: [
-    
+    "1 Bund Frühlingszwiebel",
+    "3 Knoblauchzehen",
+    "2 Fleischtomaten",
+    "1 Bund Koriander",
+    "1 TL getrockneter Cayennepfeffer",
+    "1 TL Fleur de sel",
+    "4 EL Olivenöl",
+    "1 dl Rotweinessig"
   ],
   steps: [
-    
+    "Sauce für 4 Personen.",
+    "Zwiebeln und Knoblauch fein hacken. Tomaten in kleine Würfel schneiden. Koriander grob hacken. Alles mit restlichen Zutaten in einem Schälchen verrühren.",
+    "Passt zu Brot, grober Bratwurst, Grillfleisch."
   ],
+  port: 4,
   cover: "G:w6mII5X_sW2Mdg3E7v3awOFuUhtXAi6puoEQSxp7yGuqT3W-qS-JFmoud01he7Iw30PZo_9cuTF0bzRJ2ebNuQ", pages: ["G:EOKl16i0Q6O-SuQm26WxSvpj6_TMqnVHJmn7IwT0wmouB90rid7Ehi-1Z5tAw6EPByX_PTQlsg2C93o5MTSV"]
 },
 // ---- Eierspeisen ----
@@ -3096,10 +3106,25 @@ window.REZEPTE = [
 {
   n: "Frittata mit Speck", folder: "Eierspeisen", src: "",
   ing: [
-    
+    "1 Zwiebel",
+    "1 Aubergine (ca. 300 g)",
+    "2 Zucchini (ca. 400 g)",
+    "2 EL Öl",
+    "1 TL Salz",
+    "80 g Bratspeck in Tranchen",
+    "250 g Cherry-Tomaten",
+    "6 frische Eier",
+    "1/2 TL Paprika",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "100 g Rucola",
+    "wenig Öl"
   ],
   steps: [
-    
+    "Zwiebel schälen, mit der Aubergine und den Zucchini in feine Scheiben schneiden. Öl in einer beschichteten Bratpfanne heiss werden lassen. Gemüse ca. 3 Min. rührbraten, herausnehmen, salzen.",
+    "Speck nebeneinander in dieselbe Pfanne legen, Tomaten halbieren, mit dem Gemüse auf dem Speck verteilen. Eier verklopfen, würzen, über das Gemüse giessen. Zugedeckt bei kleiner Hitze ca. 30 Min. backen, aber nicht trocken werden lassen.",
+    "Rucola grob zerzupfen, über die Frittata streuen, mit Öl beträufeln.",
+    "Pro Portion (1/4): 325 kcal, F 24 g, Kh 8 g, E 16 g (Werte am Fotorand teilweise abgeschnitten)."
   ],
   cover: "G:2LxVsK6psv_ZtEd-SfOLtJfQvh5lW5vqUL-WYDzK3ZjVTllmGBCURHgK577fnD0v1-wrPwQ3DlgWs-3FA62DPg", pages: ["G:0UJN7sd_9O4u_s3shmFKUNcZkH5VRuNZccGfXtow-zQi9lw14gie_RTRmDPVBOk1VAvFhxLHDKTOzRO5ovvvJw"]
 },
@@ -3148,11 +3173,27 @@ window.REZEPTE = [
 {
   n: "Mohn-Quark Kaiserschmarren mit Zwetschgen", folder: "Eierspeisen", src: "",
   ing: [
-    
+    "4 Eier",
+    "1 Prise Salz",
+    "1 Beutel Vanillezucker",
+    "1 EL Zucker",
+    "2 EL Mehl",
+    "1 EL Mohnsamen",
+    "120 g Magerquark",
+    "2 EL Butter",
+    "Puderzucker",
+    "Zwetschgenröster:",
+    "400 g tiefgekühlte Zwetschgen, aufgetaut",
+    "70 g Zucker",
+    "1 Orange",
+    "2 EL Pflaumenschnaps, zum Beispiel Vieille Prune"
   ],
   steps: [
-    
+    "Dessert für 4 Personen.",
+    "Für den Zwetschgenröster Früchte halbieren. Zucker in einer beschichteten Pfanne hellbraun caramelisieren. Zwetschgen dazugeben, andünsten. Orangenschale fein dazureiben. Zwetschgen ca. 5 Minuten zugedeckt kompottartig einköcheln lassen, mit Schnaps parfümieren.",
+    "Eier trennen. Eiweiss mit Salz steif schlagen. Eigelb mit Vanillezucker, Zucker, Mehl, Mohn und Quark verrühren. Eiweiss vorsichtig unterheben. Butter in einer grossen beschichteten Bratpfanne erhitzen. Masse zugedeckt bei kleiner Hitze braten. Schmarren mithilfe eines grossen Tellers wenden, weitere 5 Minuten braten. Mit dem Holzspachtel in grobe Stücke zerteilen. Mohn-Quark-Schmarren mit Zwetschgenröster anrichten und mit Puderzucker bestäuben."
   ],
+  port: 4,
   cover: "G:fKgQC2G9xRNwNp27-vG4jsozqvvPf27311bAeB_TGePR8DX13iU7vwlMGOlivgeMuGe8fRqiBqTRqV17tVo", pages: ["G:boRuzLaQ9KDXC0xbxgply9KIPLJiYtkDGIfU9JQ1hy1dx-358OfQApbOLvGUxGj-lIp1hHRPuHRB-QIPMiKU","G:Nv35UoTn8fhcVliAU3jZoDqmT0qinsUk00u5aWMbZoWnTdQA433Q-Wy38zAz5bdLmOh1HX4LHAhNgirCA2KuyA"]
 },
 {
@@ -3199,11 +3240,27 @@ window.REZEPTE = [
 {
   n: "Pikanter Kaiserschmarrn", folder: "Eierspeisen", src: "",
   ing: [
-    
+    "2 Rüebli",
+    "100 g Mehl",
+    "1 dl Milch",
+    "2 Eier",
+    "50 g Gruyère",
+    "1 Zwiebel, fein gehackt",
+    "150 g Mais aus der Dose, abgetropft",
+    "2 EL Butter",
+    "1 Bd. Schnittlauch",
+    "200 g Jogurt, nature",
+    "Salz, Pfeffer"
   ],
   steps: [
-    
+    "Rüebli schälen und fein reiben. Eier trennen. Mehl, Milch und Eigelbe zu einem glatten Teig verrühren. Gruyère beifügen und Masse mit Salz und Pfeffer abschmecken. Rüebli, Zwiebeln und Maiskörner untermischen.",
+    "Eiweisse steif schlagen und unter den Teig heben.",
+    "In einer Bratpfanne Butter schmelzen, Teig beigeben und auf mittlerer Stufe stocken lassen. Nach ca. 5-7 Min. mithilfe eines Tellers wenden.",
+    "Für die Sauce Schnittlauch fein schneiden und mit Jogurt vermischen. Mit Salz und Pfeffer abschmecken.",
+    "Zum Servieren den Kaiserschmarrn mit zwei Gabeln zerzupfen. Die Sauce dazu servieren.",
+    "Zubereitung: 30 Min."
   ],
+  port: 4,
   cover: "G:w5NRksc5nLLxuuqSv9ZLFLbozQAVFhNbmwsbITK0JcVRYuM54JUjJXuKE4I_yZg9zT_OLfXVsI13rPd0KhLK", pages: ["G:tlHyEGOsINlr1MUWcFtdZtrqPIYeqkSp3XtMk8rdAr2zb8P0IxYqUZ3kOwPE0WkMhincAdLiKIlRwyjJ8uW4LPc","G:13cgDyocEA3ASHlHUTGNUtd27fFOeUxOWXowMhLE_0FzC8vgaZKZKrTUm7jy-NCDhrjFTpigkeQqVKFXS9LeHw"]
 },
 {
@@ -3227,11 +3284,21 @@ window.REZEPTE = [
 {
   n: "Spargel-Pilz-Frittata", folder: "Eierspeisen", src: "",
   ing: [
-    
+    "200 g Champignons",
+    "250 g Mini-Spargeln",
+    "100 g Feta",
+    "8 frische Eier",
+    "1/2 Bund Schnittlauch",
+    "1/4 TL Salz",
+    "wenig Pfeffer"
   ],
   steps: [
-    
+    "Gemüse: Champignons in Scheibchen schneiden, Spargeln längs halbieren. Feta zerbröckeln.",
+    "Eiermischung: Eier in einem Messbecher verklopfen. Schnittlauch mit einer Schere fein schneiden, mit dem Salz und Pfeffer unter die Eier rühren.",
+    "Frittata: Öl in einer beschichteten Bratpfanne erhitzen. Pilze und Spargeln ca. 5 Min. rührbraten, salzen. Hitze reduzieren. Eiermischung dazugiessen. Feta darüberstreuen. Frittata zugedeckt ca. 15 Min. stocken lassen.",
+    "Hinweis: Die Ölmenge ist auf dem Foto nicht angegeben."
   ],
+  port: 4,
   cover: "G:FbG_WVBwQCSBA_5MyO4RMZOiZNAu7C1BC0CVK6ThOoQEYnP7zd-17nUZzixkOdFSg6D-CGqtf33h0Ujcf6pMllUw58vYuD_kT1w", pages: ["G:U3uuvsGMm9oVaBfaWKpRKbNZZZEAP7TwY2bxrZAKKpq3WWjI2rwBHqiazaQK1BgHN3yZLSQXMUb4pXfR2dBConax1peTr1Y_6qU","G:sD993_yBMXDYL2zQ-dSVsLRw8wBFbz19a5wwBEhUdXDFdqNhuMFX-H78tpoae4MB1k_A6cu2sdrxwWhDoz1jLjGOquutV44CjXA"]
 },
 // ---- Eintöpfe ----
