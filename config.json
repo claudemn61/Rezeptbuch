@@ -275,6 +275,14 @@
    "color": "#6b8f71",
    "parent": null,
    "show": true
+  },
+  {
+   "id": "cmwjf3g5ufcl",
+   "name": "Dessert",
+   "icon": "⭐",
+   "color": "#3f8f8a",
+   "parent": null,
+   "show": true
   }
  ]
 }
