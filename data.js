@@ -392,7 +392,22 @@ window.REZEPTE = [
 
 // ---------- Ordner «Reisgerichte» ----------
 {
-  n: "Bärlauchrisotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  n: "Bärlauchrisotto", folder: "Reisgerichte", src: "", ing: [
+    "1 Zwiebel",
+    "1 EL Öl",
+    "300 g Risottoreis (z. B. Carnaroli)",
+    "2 1/2 dl Weisswein",
+    "9 dl Gemüsebouillon, heiss",
+    "1 Bund Bärlauch (ca. 20 g)",
+    "50 g Butter",
+    "50 g geriebener Parmesan",
+    "Salz, Pfeffer, nach Bedarf"
+  ],
+  steps: [
+    "Zwiebel schälen, fein hacken. Öl in einer Pfanne warm werden lassen. Zwiebel andämpfen. Reis beigeben, unter Rühren dünsten, bis er glasig ist.",
+    "Die Hälfte des Weins dazugiessen, vollständig einkochen, restlichen Wein dazugiessen, vollständig einkochen. Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist. Ca. 20 Min. köcheln, bis der Reis cremig und al dente ist.",
+    "Bärlauch grob schneiden, mit Butter und Käse unter den Risotto mischen, würzen."
+  ],
   cover: "G:pZOu9k2NyGgJbFw_Eq5wg0Eg_pkruTO44Tokckz596HQaSVIR1g4nmCRstlKksUafEqRWrk7OwjwJsS9-G456rYXqCvlEcz9iv0",
   pages: ["G:gkOK541B7_8kU8sAneDz-4Yiy2qaS1W9ZVbZCIjV76d0ZOTIPx6W-ZyT8kEqIOKzZkOMFhhWgiPeu9f8Ube7AJp2_Wm2Y4vD354", "G:_le9IFSMuHR750Dcx-XB_2xi61il9L4Gpxuj82p2oX72BCSZE9KRtqOh9wAoJ1g2Lur2r8T2ndY3gwVSF0mT7IuYiCWjRi8ZspNd"]
 },
@@ -422,7 +437,26 @@ window.REZEPTE = [
   cover: "https://img.chefkoch-cdn.de/ck.de/rezepte/111/111540/119769-420x280-fix-meeresfruechte-risotto-mit-baerlauch.jpg", pages: []
 },
 {
-  n: "Morchel-Schaumwein-Risotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  n: "Morchel-Schaumwein-Risotto", folder: "Reisgerichte", src: "", ing: [
+    "1 EL Butter",
+    "1 Zwiebel, fein geschnitten",
+    "300 g Risottoreis, z. B. Volg Risotto San Andrea",
+    "15 g Morchel-Hüte, in 1 dl warmem Wasser eingeweicht, in Scheiben geschnitten, Wasser beiseitegestellt",
+    "1,5 dl Schaumwein, z. B. Volgaz Vin Mousseaux",
+    "1 l Gemüsebouillon, heiss",
+    "80 g Reibkäse, z. B. Grana Padano DOP",
+    "2 EL Butter",
+    "Salz, Pfeffer",
+    "1/4 Bund Peterli, gehackt"
+  ],
+  steps: [
+    "Für 4 Personen. Zubereiten ca. 35 Minuten.",
+    "Butter in einer Pfanne erwärmen. Zwiebeln darin andünsten, Reis und Morcheln hinzufügen und kurz mitdünsten.",
+    "Mit Schaumwein ablöschen. Morchelwasser absieben, hinzufügen, Hitze reduzieren und so viel Bouillon hinzugeben, bis der Reis bedeckt ist. Sobald der Reis die Flüssigkeit aufgesogen hat, nach und nach unter ständigem Rühren restliche Bouillon hinzugeben, bis der Reis al dente gekocht ist.",
+    "Pfanne von der Platte nehmen, Käse und Butter daruntermischen, würzen und 5 Minuten zugedeckt stehen lassen.",
+    "Risotto anrichten, mit Peterli garnieren.",
+    "Tipp: Schaumwein durch Weisswein ersetzen."
+  ],
   cover: "G:DhtudDuPMaFsL9BAT6BEgfsRcq4mE3aq4jhn5Hca7fr60oU-IqciTOpoOss6ZRpK0EJfH_90Gy-vY55isjBI11aFUt-Dto4s3Q",
   pages: ["G:tsvNEyyncVEXAndsTOCbZ6W9MPrzbeyFpYkuxQpP0GTbjvjDtlyJ9CvEsJwblTaDp5edgEyE5Qz_ZbcdqZEvTOp1renGM3ZnEcU", "G:9nn5yhevZ4MvJldf9bzc2BNmVeUaVESyHqPweHjjb5n6GkDnhAMYlwL-TwRfBEGTjkNtPUubquTO_7g-vPbPPZ9ZhjNr-nwbr6E"]
 },
@@ -460,7 +494,24 @@ window.REZEPTE = [
   cover: "https://img.chefkoch-cdn.de/rezepte/2158421346400554/bilder/1024750/crop-960x720/risotto-mit-getrockneten-steinpilzen.jpg", pages: []
 },
 {
-  n: "Risotto mit getrockneten Tomaten", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  n: "Risotto mit getrockneten Tomaten", folder: "Reisgerichte", src: "", ing: [
+    "1 Zwiebel",
+    "80 g getrocknete Tomaten (z. B. Fine Food Pomodori secchi)",
+    "1 EL Olivenöl",
+    "250 g Risottoreis (z. B. Carnaroli)",
+    "2 dl Weisswein",
+    "9 dl Wasser, heiss",
+    "40 g Butter",
+    "40 g geriebener Parmesan",
+    "Salz, Pfeffer, nach Bedarf",
+    "100 g Rucola"
+  ],
+  steps: [
+    "35 Min., vegetarisch, glutenfrei.",
+    "Zwiebel schälen, fein hacken. Tomaten in feine Streifen schneiden. Öl in einer Pfanne warm werden lassen. Zwiebel und Tomaten ca. 2 Min. andämpfen. Reis beigeben, unter Rühren dünsten, bis er glasig ist.",
+    "Wein dazugiessen, vollständig einkochen. Wasser unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist, ca. 25 Min. köcheln, bis der Reis cremig und al dente ist.",
+    "Butter und Käse unter den Risotto mischen, würzen. Risotto anrichten, Rucola darauf verteilen."
+  ],
   cover: "G:iDYUhedD6BM0Tg0zZeg-P_qF5zbnCu9L0Gjg4DjT1VBYGYM0BvuoQOS79BvmD7UxizuG_wMNTsYKi42SFGl1bBRQeapBeK_jUl73?uuid=f26c14aa-ed01-4048-a52f-b53c454c13ee",
   pages: ["G:QF83B-kdaQvIrQBm628cvzIb2Nw5r2_6_ZqS_gGbJkrPdc_Luyf6oSQ5CD3Q7nu-clNCWjvmCytv4EGrLPYYFy94B-miqoc4k4Ig?uuid=82ff19c0-89ae-4eb5-aad6-622a49772375"]
 },
@@ -479,7 +530,24 @@ window.REZEPTE = [
   cover: "https://recipecontent.fooby.ch/24385_3-2_1200-800.jpg", pages: []
 },
 {
-  n: "Spargel-Kräuter-Risotto", folder: "Reisgerichte", src: "", ing: [], steps: [],
+  n: "Spargel-Kräuter-Risotto", folder: "Reisgerichte", src: "", ing: [
+    "2 Schalotten",
+    "2 Knoblauchzehen",
+    "500 g grüne Spargeln",
+    "1 EL Butter",
+    "300 g Risottoreis (z. B. Carnaroli)",
+    "2 1/2 dl Prosecco",
+    "1 l Gemüsebouillon, heiss",
+    "1 Bund Schnittlauch",
+    "4 EL Crème fraîche",
+    "60 g geriebener Gruyère"
+  ],
+  steps: [
+    "35 Min., vegetarisch.",
+    "Schalotten und Knoblauch schälen, beides fein hacken. Unteren hölzernen Teil der Spargeln wegschneiden. Spargeln schräg in Stücke schneiden, Spargelspitzen etwas länger lassen. Butter in einer Pfanne warm werden lassen. Schalotten, Knoblauch und Spargeln ca. 5 Min. andämpfen. Spargeln herausnehmen, beiseite stellen. Reis beigeben, unter Rühren dünsten, bis er glasig ist.",
+    "Die Hälfte des Proseccos dazugiessen, vollständig einkochen, restlichen Prosecco dazugiessen, vollständig einkochen. Heisse Bouillon unter häufigem Rühren nach und nach dazugiessen, sodass der Reis immer knapp mit Flüssigkeit bedeckt ist. Ca. 20 Min. köcheln, bis der Reis cremig und al dente ist. Beiseite gestellte Spargeln daruntermischen.",
+    "Schnittlauch fein schneiden, mit der Crème fraîche und dem Käse unter den Risotto mischen."
+  ],
   cover: "G:PgPScUgi_KZYqBLLsDMTzPghExzZP1UaArwGRLrZ0L5wHmQgsRUYLj0AbW7vd4YcnFrcfjtGO49fcbyqwXDSGd5JpXeaCewHng",
   pages: ["G:khTF3NNZO54Qh5cibXZS3ONcEsDrYSPPl6ejCmrLI3tQYAO2R1nIQ_RVA0lFOr6UVwZy6Nu-ufLNZ3eLDG-U8Cj73hZZsfw-sw", "G:waft5l0hrF3VBv9Mfnd0TCWK1Xcda4uLrIBDY8q-tGbLkOwa_CGawn__e7IgkRMRjaPoM-hNZnLbPviSqrrB3hisMDc1B2mbHqM"]
 },
@@ -5304,41 +5372,86 @@ window.REZEPTE = [
 {
   n: "Gemüselasagne", folder: "Teigwaren", tags: ["Gemüse"], src: "",
   ing: [
-    
+    "Gemüsesauce:",
+    "3 EL Olivenöl",
+    "2 Bundzwiebeln mit dem Grün, in feinen Ringen",
+    "2 Knoblauchzehen, gepresst",
+    "1 roter Peperoncino, entkernt, fein gehackt",
+    "2 EL Tomatenpüree",
+    "2 rote Peperoni, in Stücken",
+    "300 g Auberginen, in Stücken",
+    "300 g Zucchetti, in Stücken",
+    "1 Dose Cherry-Tomate",
+    "1 Bund Basilikum, grob geschnitten",
+    "1/2 Bund Thymian, fein geschnitten",
+    "1/2 Bund Oregano, fein geschnitten",
+    "1 1/2 dl Wasser",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "Béchamelsauce:",
+    "25 g Butter (Béchamelsauce)",
+    "1 1/2 EL Weissmehl",
+    "4 dl Vollmilch",
+    "1/4 TL Salz",
+    "wenig Muskat",
+    "40 g geriebener Parmesan"
   ],
   steps: [
     "Lasagne Sauce, Lasagneblätter und Béchamelsauce lagenweise in die vorbereitete Form schichten. Mit Béchamelsauce abschliessen, Käse darüberstreuen. Backen Ca. 40 Min. in der Mitte des auf 200 °C vorgeheizten Ofens. Herausnehmen, ca. 5 Min. ruhen lassen."
   ],
-  cover: "G:IhoTIBm3Lw-8kWs4l-BNJi6O2xt_77OLtjzaegcX4_wYs8IkrJT22XWkWFdaN0TA8DRMiQ6oaMDa6OijX98ydQWKQLZv9EKzRuU", pages: ["G:F7xHy64QG9g8A48lyU9cPcgCSNiZTEnkapA_ZlaLX7vEOq8kyHfxPQzONlCaqX3ZEqpZPPSQJB7FTScvcBJFUQeYv0K6dtstUQk","G:Vs3wywgVPfd5X0CXoJMqW1dwOP5e7GkqdeiAkhiS_MFzlzRWyDD7DNHps17rWrWJCPvERQLApcmEujeeSYolk9_K9tFngKnlxg"]
-},
-{
-  n: "Gemüselasagne 1", folder: "Teigwaren", src: "",
-  ing: [
-    
-  ],
-  steps: [
-    
-  ],
-  cover: "G:Um-jSbwSU_asxKikXUO7p_auuC6ROSYtR_DaMIgo0KjQ4u9S5G7lu76sGtzWxCCkpTtyUH8ITCMbZPOBtGuvTXOZSZc0jmVlLek", pages: []
+  cover: "G:IhoTIBm3Lw-8kWs4l-BNJi6O2xt_77OLtjzaegcX4_wYs8IkrJT22XWkWFdaN0TA8DRMiQ6oaMDa6OijX98ydQWKQLZv9EKzRuU", pages: ["G:Um-jSbwSU_asxKikXUO7p_auuC6ROSYtR_DaMIgo0KjQ4u9S5G7lu76sGtzWxCCkpTtyUH8ITCMbZPOBtGuvTXOZSZc0jmVlLek","G:F7xHy64QG9g8A48lyU9cPcgCSNiZTEnkapA_ZlaLX7vEOq8kyHfxPQzONlCaqX3ZEqpZPPSQJB7FTScvcBJFUQeYv0K6dtstUQk","G:Vs3wywgVPfd5X0CXoJMqW1dwOP5e7GkqdeiAkhiS_MFzlzRWyDD7DNHps17rWrWJCPvERQLApcmEujeeSYolk9_K9tFngKnlxg"]
 },
 {
   n: "Herbst-Lasagne", folder: "Teigwaren", src: "",
   ing: [
-    
+    "1 Knoblauchzehe, fein gehackt",
+    "1 Zwiebel, fein gehackt",
+    "2 EL Olivenöl",
+    "250 g Champignons, halbiert",
+    "400 g Kürbis, in feinen Würfeln",
+    "1 EL Tomatenpüree",
+    "1 dl Rotwein",
+    "2 dl Gemüsebouillon",
+    "1 Dose gehackte Tomaten, ca. 230 g",
+    "Salz, Pfeffer, nach Bedarf",
+    "3 dl Milch",
+    "2 EL Maizena",
+    "Muskatnuss, Salz, Pfeffer",
+    "50 g Reibkäse, z. B. Grana Padano",
+    "180 g Lasagneblätter, ohne Vorkochen",
+    "50 g Reibkäse, z. B. Grana Padano"
   ],
   steps: [
-    
+    "Für eine Gratinform von ca. 3 Liter Inhalt.",
+    "Gemüsesauce: Knoblauch und Zwiebel im Öl andämpfen. Champignons und Kürbis beigeben, mitdämpfen. Tomatenpüree beigeben, ca. 3 Minuten andämpfen, bis es eine bräunliche Farbe hat. Mit Wein ablöschen, einkochen. Bouillon und Tomaten beigeben, würzen und ca. 20 Minuten köcheln lassen.",
+    "Schnelle Béchamel: Milch und Maizena kalt verrühren, aufkochen, würzen. Ca. 10 Minuten köcheln, dann mit Käse mischen.",
+    "Lasagne: Gemüsesauce, Lasagneblätter und Béchamel abwechslungsweise in die Gratinform schichten. Mit Reibkäse abschliessen.",
+    "Backen: In der Mitte des auf 180 °C vorgeheizten Ofens (Ober-/Unterhitze) ca. 40 Minuten backen. Herausnehmen, servieren."
   ],
   cover: "G:NuY6YR2GRCF2Y7n2zROuwm02KEg2lIyFNj_VUwh6SMpBTV_TBhLfcbU32MhirwqtrGNpu34_y3QtPbda0eyMsYIQbcmoKslUMsk", pages: ["G:fb9joyPU7NnN__cly1ahbdVZiqpDwmJKX5VfEK5hceEZyCpX9rUUy5m3VOQMMleW9WfYbUC_5Bystxf48sWMQMi4MMNLoeGaNVx9","G:-9Iy3cBF6ATql8d38HRVYWV5h0b3RwziZIRCKwYPw2Vq8-8UGZjyszHFmhYP3rvWZ122DhXMoWeCHwR1neOG0mIlbvFnwsvjuHgJ"]
 },
 {
   n: "Knöpflipfanne mit Schinken u. Gemüse", folder: "Teigwaren", src: "",
   ing: [
-    
+    "1 EL Bratbutter",
+    "500 g Knöpfli",
+    "2 Bundzwiebeln mit dem Grün, in Ringen",
+    "160 g Hinterschinken in Tranchen, in Streifen",
+    "200 g Zucchetti, in Scheiben",
+    "250 g Cherry-Tomaten",
+    "200 g saurer Halbrahm",
+    "1 dl Milch",
+    "1/2 TL Paprika",
+    "wenig Muskat",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "40 g mittelreifer Appenzeller, gerieben"
   ],
   steps: [
-    
+    "Knöpfli-Pfanne: Bratbutter in einer weiten Bratpfanne erhitzen, Knöpfli kurz anbraten. Bundzwiebeln und Schinken beigeben, kurz mitbraten (das Grün für die Garnitur beiseite stellen). Zucchetti beigeben, ca. 3 Min. dämpfen, am Schluss die Tomaten beigeben und kurz mitdämpfen.",
+    "Guss/Sauce: Sauren Halbrahm mit der Milch gut verrühren, würzen. Zusammen mit dem Käse in die Pfanne geben, unter Rühren heiss werden lassen, bis der Käse geschmolzen ist. Vor dem Servieren mit dem beiseite gestellten Bundzwiebelgrün bestreuen."
   ],
+  port: 4,
   cover: "G:azgfsiKXH6wMvwZKX9oqXkmKoPVnHrDdYw0tAIpIU2BjxeUF1wjvB39PIpd-C-x9P_fdXzZmlCD3CbsmT4dvsw", pages: ["G:4Xd8b5X18TFonJlgXibBAqbbeKkenJI0qUCIyRTnVrueySxNaa46kUvTqes6qLVE9mky2Os2AThSRkxN7UgJLtU","G:xKlmnMGBX-yne3KdUUBxZwpwGlFUlLrxw2gUjYETmFjFsyhyLq4Or0mm7DYmpnpvdfTXRm1DjIZg-ilME9LmHA"]
 },
 {
@@ -5428,37 +5541,88 @@ window.REZEPTE = [
     
   ],
   steps: [
-    
+    "Zutatenliste auf dem Foto nicht vorhanden.",
+    "Pouletbrüstchen in 1 cm breite Streifen schneiden. Kefen rüsten und schräg in 2 cm grosse Stücke schneiden. Zwiebel und Petersilie hacken.",
+    "Bratbutter erhitzen. Pouletstreifen würzen und portionenweise je ca. 1 Minute pro Seite anbraten. Mit Weisswein ablöschen, einkochen lassen.",
+    "Teigwarenwasser aufsetzen. Butter (1) erhitzen, Zwiebel und Kefen andämpfen. Bratenjus und Bouillon beigeben.",
+    "Rahm, Gorgonzola und die Hälfte der Petersilie beigeben, kurz köcheln.",
+    "Nudeln garen, abtropfen und mit Butter (2) und restlicher Petersilie mischen.",
+    "Pouletstreifen mit Jus und Rahmsauce zu den Kefen geben, mit den Nudeln anrichten.",
+    "Tipp: Für den Kleinhaushalt (2 Personen) Zutaten halbieren, jedoch 3/4 dl Rahm und 40 g Gorgonzola verwenden.",
+    "Pro Portion: 36 g Eiweiss, 20 g Fett, 63 g Kohlenhydrate, 600 kcal."
   ],
   cover: "G:Dk6Bh5ILfH8tV2bAIQ2RYqGKfpjB46JxSmw5HG4VCOArMZlcz8qOlUyFju-A98XdVyxMa4mc2eX1o-fPLi5C_60", pages: ["G:KDRcq0Ud-l4SxH3NX7KP3qbjF39Cpl6r3fmjmnTpSeoqIwTSiJZSH22wVRXv7cabHFjoP-RQ_elJ6-wn_NYZ","G:bOajQYNWZvIlw-A5qNO3yy-Z-Q398wYQ7kWjTYtxwzgbhGX2_9EkRL9apOR7gh345yplluldkHNGFlAzgC-j"]
 },
 {
   n: "Nudeln mit Spinat u. Dörrtomaten", folder: "Teigwaren", src: "",
   ing: [
-    
+    "4 Rollen Pastateig",
+    "Salzwasser, siedend",
+    "3 EL Olivenöl",
+    "1 Knoblauchzehe, in Scheibchen",
+    "1 rote Zwiebel, in Streifen",
+    "150 g Spinat",
+    "50 g getrocknete Tomaten in Öl, abgetropft, in Streifen",
+    "1/2 TL Salz",
+    "wenig Pfeffer (z.B. tasmanischer)"
   ],
   steps: [
-    
+    "Pastateig entrollen, in ca. 2 Zentimeter breite Streifen schneiden. Nudeln im Salzwasser knapp al dente kochen, abtropfen.",
+    "Öl erhitzen, Knoblauch und Zwiebel kurz anbraten, Spinat und Tomaten beigeben, ca. 1 Min. rührbraten. Pappardelle darin wenden, würzen.",
+    "Vorbereitungszeit: ca. 30 Min. Zubereitungszeit: ca. 10 Min.",
+    "Nährwert pro Person: 2051 kJ / 490 kcal."
   ],
+  port: 4,
   cover: "G:3zjdybgV3dEd8EwG5G0bPI-WsBn15uqooapfGhu4t8qQtIFiZAEU-TdyWEzlYoZIdmbKOSCwwzUxCawhVjuiow", pages: ["G:GAm436oMGuUCuVKADWLUNDnAqzHSuynlAOoAghZnV0IEHh0XzOP5m4PBZJUkkjiKTwgFC8p53N4JzPEl8q6xKrk"]
 },
 {
   n: "One Pot Pasta", folder: "Teigwaren", src: "",
   ing: [
-    
+    "500 g Auberginen",
+    "500 g Teigwaren (z. B. Penne)",
+    "500 g Cherry-Tomaten",
+    "8 dl Wasser",
+    "1 1/2 TL Salz",
+    "wenig Pfeffer",
+    "300 g Mozzarella",
+    "1 Bund Basilikum"
   ],
   steps: [
-    
+    "Auberginen in Würfeli schneiden.",
+    "Teigwaren, Auberginen, Tomaten, Wasser, Salz und Pfeffer in einer grossen Pfanne mischen, aufkochen. Zugedeckt unter gelegentlichem Rühren bei mittlerer Hitze ca. 12 Min. kochen, bis die Teigwaren al dente sind.",
+    "Mozzarella zerzupfen, Basilikum fein schneiden, beides unter die Teigwaren mischen.",
+    "Pro Portion (1/4): 691 kcal, F 26 g, Kh 99 g, E 32 g."
   ],
+  port: 4,
   cover: "G:MuX2-Xemy89PtBgwDeh1FcP5pmWogRA0DJa0Y_VMvBA8Zxb7r_oxKGrMaBOxrgeGVUOWCjghpu523X0Ln6lqRg", pages: ["G:jH0PzBAM9FG8ziQStrlgpQbuFhtht9d-5g1k3YItiP0wY1TPYuPtoxi3g-eauRSaKK9cHyv9ThwBTVqH1aLE"]
 },
 {
   n: "One-Pot-Pasta mit Tomaten und Pilzen", folder: "Teigwaren", tags: ["Eintöpfe","Vegetarisch"], src: "",
   ing: [
-    
+    "Für den Brattopf:",
+    "2 Schalotten",
+    "500 g Eierschwämme oder Kräuterseitlinge",
+    "1 EL Butter",
+    "1 TL Salz",
+    "wenig Pfeffer",
+    "1 dl trockener weisser Vermouth (z. B. Noilly Prat)",
+    "2 Zweiglein Rosmarin",
+    "2 1/2 dl Vollrahm",
+    "2 1/2 dl Wasser",
+    "400 g Teigwaren (z. B. Magronen, Pro Montagna)",
+    "Belag:",
+    "500 g Tomaten (z. B. Ochsenherz)",
+    "1/4 TL Salz",
+    "80 g geriebener Gruyère",
+    "250 g Cherry-Tomaten",
+    "2 Zweiglein Rosmarin"
   ],
   steps: [
-    
+    "Ofen auf 180 Grad vorheizen. Schalotten schälen, in Streifen schneiden. Pilze rüsten, je nach Grösse halbieren oder vierteln.",
+    "Butter im Brattopf warm werden lassen. Schalotten andämpfen, Pilze ca. 5 Min. mitdämpfen, würzen. Vermouth dazugiessen, etwas einkochen. Rosmarin fein schneiden, mit dem Rahm und dem Wasser beigeben, aufkochen. Hitze reduzieren, ca. 5 Min. köcheln. Teigwaren beigeben, mischen, Topf von der Platte nehmen.",
+    "Tomaten in ca. 1 cm dicke Scheiben schneiden, auf den Teigwaren verteilen, salzen. Käse darüberstreuen, Cherry-Tomaten halbieren, darauf verteilen, Rosmarin darauflegen.",
+    "Garen im Ofen: zugedeckt ca. 15 Min. in der Mitte des Ofens. Herausnehmen, Deckel entfernen.",
+    "Fertig garen: ca. 10 Min."
   ],
   cover: "G:t2-NLpbCrD_9QxIxR5GOnM8uBE-cNHaEIMy5ezDWSQ5_BEYs0UkryQj_Q0nZxiYiUE4QcmcTlUWKXrDSbXhMam8", pages: ["G:v2TC4hL3lNx4LYV3iRmNYBGpXPwQhywytbI-SxzOeWWI1FMBcm0UDMDuUHLqerBBmP6FWDkKamFH7HVMluKwqo4","G:P2ZI774t3rTs9WbwvEApwxt56CzK2isIsquUh_0xEIwqqDnxIQtxrvEAUfvburEh86g5genFYsLU48lqkChb"]
 },
@@ -5497,11 +5661,27 @@ window.REZEPTE = [
 {
   n: "Pappardelle mit Gemüse und Pouletstreifen", folder: "Teigwaren", src: "",
   ing: [
-    
+    "300 g Pappardelle (breite Nudeln)",
+    "1 Zwiebel, rot",
+    "1 Peperoni, gelb",
+    "1 Peperoni, rot",
+    "100 g Kefen, tiefgekühlt",
+    "300 g Pouletbrüstli",
+    "40 g Erdnüsse, ungesalzen",
+    "1 Peperoncino, klein",
+    "2 dl Gemüsebouillon",
+    "4 EL Olivenöl",
+    "60 g Parmesan",
+    "1 Bund Schnittlauch",
+    "Salz, Pfeffer aus der Mühle, Paprikapulver"
   ],
   steps: [
-    
+    "Zwiebel schälen, halbieren und in Streifen schneiden. Peperoni waschen, halbieren, entkernen und in 2 cm grosse Stücke schneiden. Die Kefen quer dritteln. Pouletbrüstli in feine Streifen schneiden und halbieren. Peperoncino entkernen und fein schneiden.",
+    "Das Fleisch mit Salz und Pfeffer würzen. Olivenöl erhitzen, Fleisch braten, herausnehmen und beiseitestellen. Im Bratensatz Nüsse, Kefen, Peperoni, Zwiebeln und Peperoncino anbraten. Heisse Gemüsebouillon dazugiessen, Pouletstreifen beifügen und 20 Minuten köcheln lassen.",
+    "Pappardelle in reichlich kochendem Salzwasser gemäss Packungsanweisung al dente garen. Den Schnittlauch fein schneiden und den Parmesan reiben.",
+    "Teigwaren abtropfen lassen und mit der Poulet-Gemüse-Sauce mischen. In heisse Pastateller anrichten, mit Schnittlauchröllchen und Parmesan bestreuen."
   ],
+  port: 4,
   cover: "G:V8PIbxYLFO9zQBZq8iUTA-CJLJJRbLy92psQMkwxO7LMbdgdXP8F7jnWV90L1bCQNZsyBjbzQaXd5iBR1PK2", pages: ["G:Y55uFhJnCH0kr77_cxdH9-XVyHskQ7G97H0x125POJgNn7Z4TvOl3Jyx9LkUmLmVFFU1j64gtPqStWFUO5UC","G:8MW09r2DIizIYJceqUTeIf56hZt_86S1QqeZAKAKufgjd83-CZIw9pPbgZGjZQsww2HWZkt5f1VUFhH0PmQXYQ"]
 },
 {
@@ -5538,21 +5718,48 @@ window.REZEPTE = [
 {
   n: "Pasta mit Morchelsauce", folder: "Teigwaren", src: "",
   ing: [
-    
+    "20 g getrocknete Morcheln",
+    "3 Bundzwiebeln mit dem Grün",
+    "350 g Teigwaren (z. B. Pappardelle)",
+    "Salzwasser, siedend",
+    "100 g Rucola",
+    "1 EL Olivenöl",
+    "1 dl Weisswein",
+    "1 EL Zitronensaft",
+    "2 dl Fleischbouillon",
+    "2 dl Saucen-Halbrahm",
+    "1/2 TL Paprika",
+    "Salz, Pfeffer, nach Bedarf"
   ],
   steps: [
-    
+    "Zeit: 30 Min.",
+    "Morcheln in eine kleine Schüssel geben, mit kaltem Wasser bedecken, ca. 15 Min. einweichen. Bundzwiebeln in feine Ringe schneiden.",
+    "Teigwaren im siedenden Salzwasser al dente kochen. Teigwaren abtropfen, zurück in die Pfanne geben, Rucola daruntermischen.",
+    "Öl in einer beschichteten Bratpfanne heiss werden lassen. Morcheln gut waschen, abtropfen, mit den Bundzwiebeln ca. 2 Min. rührbraten. Wein und Zitronensaft beigeben, Bouillon und Saucen-Halbrahm dazugiessen, aufkochen. Hitze reduzieren, ca. 10 Min. einkochen. Paprika daruntermischen, würzen, mit den Nudeln mischen, anrichten.",
+    "Pro Portion (1/4): 512 kcal, F 17 g, Kh 68 g, E 15 g."
   ],
+  port: 4,
   cover: "G:_zawCl3ZUbTHbwXUTC7AhZiMHhyCAkDw32g9LAuu_mK2roePogK6uFjGaZfdcaBSeKoqkCSH04Edft6ssOBzDBBnnUbfNAjF9ks", pages: ["G:yzmQl1z8LIuX7nn4OFZDWjbCHPtoy6FJB_NVLwBtK53ZCkXyNzQXf1xnzBMEjsjMbof4e-PCp-_8ZIWDCMwXQdoRSqHm_5ezKA"]
 },
 {
   n: "Pasta mit Poulet und Aprikosen", folder: "Teigwaren", src: "",
   ing: [
-    
+    "300 g Aprikosen",
+    "1 Zwiebel",
+    "2 EL Rapsöl",
+    "300 g Poulet-Minifilets",
+    "2 dl Halbrahm",
+    "200 g Spinat",
+    "Salz",
+    "Blumenpfeffer",
+    "300 g Orecchiette",
+    "4 EL Pinienkerne"
   ],
   steps: [
-    
+    "Aprikosen halbieren, Steine entfernen. Früchte in Würfel schneiden. Zwiebel grob hacken. Mit Aprikosen im Öl dünsten. Poulet-Minifilets je nach Grösse dritteln oder vierteln. Mit den Aprikosen ca. 3 Minuten mitbraten. Rahm dazugiessen, alles bei kleiner Hitze ca. 5 Minuten köcheln, bis die Sauce etwas eingedickt und das Poulet durchgegart ist. Spinat grob hacken und dazumischen. Mit Salz und Pfeffer abschmecken.",
+    "Inzwischen Orecchiette in viel Salzwasser al dente kochen. Abgiessen und abtropfen lassen. Mit dem Ragout, Pinienkernen und Blumenpfeffer servieren."
   ],
+  port: 4,
   cover: "G:ooeHCV3S1iYnAURJTHg6SqeUsdut889ywwwzaaWrFFb1GZsedkzq6hn28xnrWAuTLb75lBJfLu4GLsiFnyjP7ZQ", pages: ["G:o2wQY8AMmf9IlLgBEWs8YiDisJNXiCn6vkpiN1zaAiDEe01jr7KbLUth82zSBu-1PAu5dfAu9V-5839uZg329g","G:d9rR0hDhbzBKNNPR04KD0BN147i3kbIC375QjLTutl2f5OffBI5JbD3Rz83L2-UGRF8xH_Ja5jtRVD3PuMmM3MU"]
 },
 {
@@ -5580,21 +5787,49 @@ window.REZEPTE = [
 {
   n: "Pasta mit Spinat und Nüssen", folder: "Teigwaren", src: "",
   ing: [
-    
+    "50 g Bratspecktranchen, grob gehackt",
+    "1 Knoblauchzehe, fein gehackt",
+    "100 g Blattspinat, TK, aufgetaut, abgetropft",
+    "Salz, Pfeffer",
+    "4 EL Crème fraîche",
+    "50 g Baumnüsse, grob gehackt",
+    "500 g Teigwaren, z. B. Casarecce Kichererbsen",
+    "Salzwasser, siedend",
+    "50 g Parmigiano Reggiano, gehobelt"
   ],
   steps: [
-    
+    "Zubereiten: ca. 20 Minuten.",
+    "Speck in einer Pfanne anbraten, Knoblauch beigeben, mitbraten. Spinat dazugeben, aufkochen, würzen. Mit Crème fraîche und Baumnüssen mischen.",
+    "Casarecce im siedenden Salzwasser knapp al dente kochen, ca. 1 dl Kochwasser beiseitestellen, den Rest abgiessen. Kochwasser nach und nach unter die Sauce mischen, sodass eine cremige Konsistenz entsteht. Sauce mit Teigwaren mischen, mit Käse servieren."
   ],
+  port: 4,
   cover: "G:eDL_PguXEnkSbCkDOL2yr7BmUpy5QYA9j9nFcdL_7Eba9J6g-SGZ1Xv-i83jiw2X_bbFHFyRp7QIfoBKi0aj8y49pj0LUYuJgBRi", pages: ["G:PsdwDue3CEsYkoof6fil0J4dCbcOkB82hWiOSUIPaAbjr0R1_6M-vojx0waqKe-qf5tjl255EfIiwP4WTWqBnpLZrlh8SoW0QQ"]
 },
 {
   n: "Pastagratin", folder: "Teigwaren", tags: ["Gratin"], src: "",
   ing: [
-    
+    "500 g gemischte Teigwaren",
+    "Salzwasser, siedend",
+    "1 EL Olivenöl",
+    "80 g Bratspeck, in Streifen",
+    "400 g Lauch, in feinen Ringen",
+    "150 g tiefgekühlte Erbsli",
+    "4 dl Milch",
+    "2 dl saurer Halbrahm",
+    "1 Ei",
+    "100 g geriebener Gruyère",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "4 EL Pesto verde"
   ],
   steps: [
-    
+    "Aktive Zeit 25 Min., Gesamtzeit 55 Min., 950 kcal pro Person. Für eine ofenfeste Form von ca. 3 Litern, gefettet.",
+    "Teigwaren: Teigwaren im siedenden Salzwasser 5 Min. kochen, abtropfen, in die vorbereitete Form geben.",
+    "Auflauf: Öl in einer Bratpfanne erhitzen. Speck ca. 3 Min. knusprig braten, Lauch beigeben, ca. 3 Min. braten, Erbsli beigeben, ca. 1 Min. mitbraten. Gemüse auf den Teigwaren verteilen. Milch, sauren Halbrahm, Ei und Käse verrühren, würzen, darübergiessen. Pesto darauf verteilen.",
+    "Backen: Ca. 30 Min. in der unteren Hälfte des auf 200 °C vorgeheizten Ofens.",
+    "Tipp: Oft hat man zu Hause viele Teigwarenpäckli angebraucht. Diese kann man gut mischen und für diesen Auflauf verwenden."
   ],
+  port: 4,
   cover: "G:vKa0TmJeIlgiZ-F1eEwNojsQikswabEFPLCzOSy7sM_cl7mpgta3sHi4KhdjkPv1h6PlJP4UjaCMCEzk3pCq", pages: ["G:GER5bVFk8cYtF1WJjKA8uNgVoiVr82Gu8TVAPsB6HR3Jr3iz-z1O2C6aMONYpW1ebMEmfH2H4Hx49xpFx0pjgd4","G:rcgTdIJZ6eq_DbRun5GRQ0-SyV7L5N2ahgpiGvk92BhfoXF8X_pzNEZyfhNS4B2L2wRxZPRSaThQd0A4b5HNhA"]
 },
 {
@@ -5669,41 +5904,94 @@ window.REZEPTE = [
 {
   n: "Penne mit Geschnetzeltem", folder: "Teigwaren", tags: ["Fleisch"], src: "",
   ing: [
-    
+    "350 g Teigwaren (z. B. Penne)",
+    "Salzwasser, siedend",
+    "300 g Lauch",
+    "250 g Champignons",
+    "Öl zum Braten",
+    "500 g geschnetzeltes Rindfleisch (à la Minute)",
+    "1/2 TL Cayennepfeffer",
+    "1 TL Salz",
+    "50 g Butter",
+    "1 Bund Radiesli mit wenig Grün",
+    "1 Zitrone"
   ],
   steps: [
-    
+    "Teigwaren im siedenden Salzwasser al dente kochen, ca. 1 1/2 dl Kochwasser beiseite stellen, Teigwaren abtropfen, zurück in die Pfanne geben.",
+    "Lauch längs halbieren, waschen, in Streifen schneiden. Pilze vierteln. Wenig Öl in einer Bratpfanne heiss werden lassen. Fleisch portionenweise ca. 2 Min. anbraten, herausnehmen. Pilze in derselben Pfanne ca. 3 Min. rührbraten, Lauch beigeben, ca. 1 Min. fertig braten, Fleisch wieder beigeben, würzen.",
+    "Butter und beiseite gestelltes Kochwasser zum Fleisch geben. Radiesli in Scheibchen schneiden, Grün fein schneiden. Zitrone auspressen, mit den Radieslischeiben beigeben. Alles unter die Teigwaren mischen. Radiesligrün darüberstreuen."
   ],
   cover: "G:VVzmQon0aF1IEin-FAx3lbAky_hLF6qhq9FY0D2oJ-lOLuchxy7Ai6o3pTTlsxgyUIlhsvatcLRQhYQa40KEmInev6Q5Rtf_Zg", pages: ["G:qrC7JBZBpsGhyF_PQXuRslW7Ygl9ilcQIyHDEsVoRNfmbt5KM07gAlUDIgGyaWmtDElfhrwYmlvStn2bkBV838u08RRN89xccA"]
 },
 {
   n: "Pilz-Lasagne", folder: "Teigwaren", tags: ["Gemüse"], src: "",
   ing: [
-    
+    "Füllung:",
+    "1 Lauch (ca. 300 g)",
+    "250 g Champignons",
+    "250 g Austernpilze oder Herbsttrompeten",
+    "Öl zum Braten",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Sauce:",
+    "30 g Butter",
+    "30 g Mehl",
+    "6 dl Milch",
+    "1/4 TL Muskat",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Ausserdem:",
+    "12 Lasagne-Blätter",
+    "50 g geriebener Gruyère",
+    "15 g Butter"
   ],
   steps: [
-    
+    "Lauch längs halbieren, in ca. 1 cm breite Streifen schneiden. Champignons und Austernpilze vierteln. Öl in einer beschichteten Bratpfanne warm werden lassen. Lauch ca. 5 Min. dämpfen, herausnehmen. In derselben Pfanne wenig Öl heiss werden lassen. Pilze ca. 3 Min. braten, würzen. Die Hälfte der Pilze unter den Lauch mischen, Rest beiseite stellen.",
+    "Ofen auf 200 Grad vorheizen. Butter in einer Pfanne warm werden lassen. Mehl beigeben, unter Rühren mit dem Schwingbesen dünsten, das Mehl darf dabei keine Farbe annehmen. Pfanne von der Platte nehmen. Milch dazugiessen, unter Rühren aufkochen, Hitze reduzieren, würzen, unter gelegentlichem Rühren ca. 10 Min. köcheln, bis die Sauce sämig ist, würzen.",
+    "4 EL Sauce in der vorbereiteten Form verteilen. Lasagne-Blätter lagenweise mit Pilz-Lauch-Füllung und Sauce in die Form schichten, mit Sauce abschliessen. Restliche Pilze darauf verteilen. Käse darüberstreuen, Butter in Stücken darauf verteilen.",
+    "Backen: ca. 35 Min. in der Mitte des Ofens. Herausnehmen, ca. 5 Min. ruhen lassen, anrichten."
   ],
   cover: "G:CPHjGTAqiRSCrs3O8ovlBf_nPsgGjPyeiS74SWLVItvATZjSOzf_wyCSmBGYzR_6M9XzLXMpSn7wsSdVIMIrYg", pages: ["G:8-bpvZx3lIAXk0rVX-lwz8pHb68IbhIEUfn_8xpGsf8OBlRzW-oA9iAa69HFRUE_24zwKQaRhHLJrptoTUiVM2Y","G:qOtydWjDGs52N6IRDBMJ9mmawhzhgX1AQtdVez1KHLuck6EtieCfCrvQNd4uR5mWX782LFKuMB1TGnN6UOE_ZQ"]
 },
 {
   n: "Pilz-Peperoni-Spätzli", folder: "Teigwaren", tags: ["Vegetarisch"], src: "",
   ing: [
-    
+    "400 g gemischte Pilze, etwa Champignons und Kräuterseitlinge",
+    "2 Zwiebeln",
+    "300 g rote und gelbe Peperoni",
+    "50 g Greyerzer",
+    "1 Bund Schnittlauch",
+    "2 EL Bratbutter",
+    "500 g Spätzli",
+    "Salz",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Pilze putzen. Je nach Grösse halbieren oder in Scheiben schneiden. Zwiebeln halbieren und in Schnitze schneiden. Peperoni entkernen und in Streifen schneiden. Käse raffeln. Schnittlauch fein schneiden.",
+    "Die Hälfte der Butter in einer grossen Bratpfanne erhitzen. Spätzli rundum ca. 8 Minuten knusprig braten, auf eine Platte legen und warm halten. Restliche Butter erhitzen. Zwiebeln, Peperoni und Pilze anbraten. Mit Salz und Pfeffer würzen und auf die Spätzli verteilen. Mit Käse und Schnittlauch bestreuen und servieren."
   ],
+  port: 4,
   cover: "G:kAKYDxvHzoYBiK02JwH2s1tsekKNXfk3OIrL0plP9BmuQLk6Ss0ODnxR91RnOQ4e9R9Aplmr2IqSviUqZwQAGw", pages: ["G:nEdA5ikr1xEvHOLKzVfUo6uthnAMQEIdGemsBzc8rtFJrmcYFK42bO3zZYViHGFpmG6jCX3Sc4obXJb1DQwfAr0"]
 },
 {
   n: "Pilznudeln mit Spinat", folder: "Teigwaren", src: "",
   ing: [
-    
+    "200 g Pilze, z. B. Eierschwämmli",
+    "2 Knoblauchzehen",
+    "2 Schalotten",
+    "4 Zweige Thymian",
+    "4 EL Olivenöl",
+    "2,5 dl Halbrahm",
+    "Salz, Pfeffer",
+    "500 g Eiernudeln, z. B. Tagliatelle",
+    "100 g Jungspinat"
   ],
   steps: [
-    
+    "Pilze rüsten, Knoblauch und Schalotten hacken. Thymianblättchen abzupfen. Pilze, Knoblauch, Zwiebeln und Thymian im Öl ca. 5 Minuten dünsten. Rahm dazugiessen, ca. 5 Minuten bei mittlerer Hitze einkochen lassen, bis der Rahm etwas eindickt. Sauce mit Salz und Pfeffer abschmecken. Inzwischen Nudeln in Salzwasser ca. 5 Minuten al dente kochen. Abgiessen. Nudeln mit Pilzsauce und Spinat mischen.",
+    "Tipp: Passt zu gebratenem Fleisch und Wild.",
+    "Pro Person ca. 24 g Eiweiss, 29 g Fett, 85 g Kohlenhydrate, 3000 kJ / 720 kcal."
   ],
+  port: 4,
   cover: "G:TfqPVauZibdwMA81-IM3rFJ_5f5I7ApM9-Ol4lmvAxFD8Za6eCOvatd7azxNX7C9BgVcyy0rzBfPxCbMcXpUHkqlnyR7LrhAhoI", pages: ["G:KLxmgnfrLF7WwPlp8On422xvpuR_yS-qngmPDLe2JpbY2tmY0Z6aScxcAfPo_9xkxKdstOBUwzD2T8FX9FUuxjBF5Bt3VARbzQ"]
 },
 {
@@ -5731,11 +6019,32 @@ window.REZEPTE = [
 {
   n: "Pizzoccheri mit Eierschwämmli", folder: "Teigwaren", src: "",
   ing: [
-    
+    "Pizzoccheri:",
+    "300 g Buchweizenmehl",
+    "100 g Weissmehl",
+    "1 1/2 TL Salz",
+    "250 g Halbfettquark",
+    "1 dl Wasser",
+    "Pilz-Gemüse:",
+    "1 EL Öl",
+    "1 rote Zwiebel, in feinen Streifen",
+    "200 g Krautstiel, in feinen Streifen",
+    "350 g Eierschwämmli, halbiert",
+    "1/2 TL Salz",
+    "1/2 dl trockener weisser Vermouth (z. B. Noilly Prat)",
+    "Ausserdem:",
+    "Salzwasser, siedend",
+    "100 g Bündnerfleisch-Tranchen, in feinen Streifen",
+    "2 EL Salbeiblätter, fein geschnitten",
+    "100 g Bergkäse, fein gerieben"
   ],
   steps: [
-    
+    "Aktive Zeit: 1 Std., Gesamtzeit: 1 Std. 30 Min. Pro Portion 615 kcal.",
+    "Pizzoccheri: Mehle und Salz in einer Schüssel mischen. Quark und Wasser beigeben, mit der Kelle mischen, bis der Teig zusammenhält. Teig auf wenig Mehl ca. 10 Min. kneten, bis der Teig elastisch ist. Zugedeckt bei Raumtemperatur ca. 30 Min. ruhen lassen. Teig vierteln, portionenweise auf wenig Mehl ca. 2 mm dick rechteckig auswallen, in Streifen (ca. 1 x 6 cm) schneiden, auf einem leicht bemehlten Küchentuch oder Blech etwas antrocknen lassen.",
+    "Pilz-Gemüse: Öl in einer Pfanne erwärmen. Zwiebel andämpfen, Krautstiel und Pilze ca. 5 Min. mitdämpfen, (Text auf dem Foto hier abgeschnitten; vermutlich folgen Salz und Vermouth einkochen).",
+    "Servieren: Pizzoccheri ca. 3 Min. im knapp siedenden Salzwasser kochen, abgiessen, dabei ca. 1 dl Kochwasser beiseitestellen. Pizzoccheri, beiseitegestelltes Kochwasser, Bündnerfleisch und Salbei zum Pilz-Gemüse geben, mischen. Käse dazu servieren."
   ],
+  port: 4,
   cover: "G:VOg1QLt47FXzHm8o5ZaoZMrJkmerOngVCt0WlDKCHupyi7tgppAFwqI9jcIIeDCfDo9g3GfXJsU2P2HePkAs", pages: ["G:h0PECMeabLgMaIiWsxfpI2PRL7fEfSYQMmw50ySXgtF549pOUfpGfLUQejczW7enQKCIXEdjkBrWNYlCvDHI8w","G:A14SFLYLFm-rsNXkVFUQJYy2n7xHtS3m61Uw-CllF7TP8btJ-mXy3QhzyUNjisyC2ybu54vhyfeSr32tVmFCCg"]
 },
 {
@@ -5838,60 +6147,155 @@ window.REZEPTE = [
 {
   n: "Spargel-Cannelloni", folder: "Teigwaren", tags: ["Vegetarisch","Gemüse"], src: "",
   ing: [
-    
+    "Cannelloni:",
+    "12 Lasagneblätter",
+    "700 g grüne Spargeln, gerüstet",
+    "80 g Walliser Trockenspeck IGP, in Tranchen",
+    "Sauce:",
+    "2 dl Fleischbouillon, oder Gemüsebouillon",
+    "1,3 dl Saucenhalbrahm",
+    "2 EL trockener Sherry, nach Belieben",
+    "60 g Sbrinz AOP, gerieben",
+    "Salz, Pfeffer aus der Mühle",
+    "Sbrinz AOP, gerieben, zum Bestreuen"
   ],
   steps: [
-    
+    "Cannelloni",
+    "Lasagneblätter in siedendem Salzwasser 4-5 Minuten vorkochen, herausnehmen, kalt abschrecken. Auf einem Küchentuch auslegen. Spargeln im selben Wasser ca. 2 Minuten blanchieren, abgiessen, abtropfen lassen.",
+    "Sauce",
+    "Alle Zutaten bis und mit Sbrinz verrühren, würzen.",
+    "Fertigstellen",
+    "Je ca. 3 Spargeln in ein Lasagneblatt einwickeln. Je 2 Tranchen Rohessspeck darumwickeln. In die ausgebutterte Form legen. Sauce darübergiessen, mit Sbrinz bestreuen. In der Mitte des auf 220 °C vorgeheizten Ofens 25-30 Minuten gratinieren."
   ],
   cover: "G:vVZnMCi3LYaxM7ZlKQPV9zTeiMRJAGEUyKfq3b9XAIqNgoQaFcAd2V98Tu82PTVsV6LSHHiTdWMJIFf9murcFvu8qKj_Qcc9fvs", pages: ["G:t2qMtTH-uNto6EMLpcjqpZg0im70w4BC9n9zi6jbsHYUfPhBxLUQjKe_Ep48UsN1rxeQkWGPHk1JttWm_bqz8j3Xg5LcGCrtV3Q","G:wVQJiguWX56-jcFxT4Pmptpqf8yi0OBtvzOOUVaQGFhklyho_UGvE-ox4gN5jCdRCEZN3fYXtKWmPJIuSbpJNlgQDZTkHrZamsk"]
 },
 {
   n: "Spargellasagne", folder: "Teigwaren", tags: ["Gemüse"], src: "",
   ing: [
-    
+    "500 g grüne Spargeln",
+    "500 g Cherry-Tomaten",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "250 g Mascarpone",
+    "1 dl Gemüsebouillon",
+    "2 Eier",
+    "1/4 TL Salz",
+    "9 Lasagne-Blätter",
+    "80 g Reibkäse",
+    "1/2 Bund Petersilie"
   ],
   steps: [
-    
+    "Vor- und zubereiten: ca. 15 Min. Backen: ca. 30 Min.",
+    "1. Schritt: Unteren hölzernen Teil der Spargeln wegschneiden, schräg in Stücke schneiden. Tomaten vierteln, in einer Schüssel mischen, würzen.",
+    "2. Schritt: Mascarpone, Bouillon und Eier verrühren, salzen. Masse mit den Lasagne-Blättern, dem Gemüse und dem Käse lagenweise in eine ofenfeste gefettete Form von ca. 3 Litern schichten.",
+    "3. Schritt: Backen: ca. 30 Min. in der Mitte des auf 200 Grad vorgeheizten Ofens. Petersilie grob schneiden, über die Lasagne streuen.",
+    "Pro Portion: 594 kcal, F 39 g, Kh 34 g, E 22 g."
   ],
   cover: "G:akdvbK2j4k5O9Msnr6bFQLRpd_LN13WZUIrG-dOfLvSmuZDx5oVypNQs8Lu9xV7x1fLhA6mbSnTXYoZP1Yxpig", pages: ["G:XotDeVahzzki_FpHbYmafogAU2x_ygTuLlQEwB5GGuzPo79X7zPL_fy5nuLDD7vXMSB-IyWY8gTrke7V-xiy_Q","G:z8AZzJJapwHa5LlbtQ4IfGH0SXgtGJCBU2_qY-ilSDSQJaUIwySaI6LwPtHAWkY0kvkosgZ2_i-HG0XPw0BHcw"]
 },
 {
   n: "Spargellasagne", folder: "Teigwaren", tags: ["Gemüse"], src: "",
   ing: [
-    
+    "1 kg grüne Spargeln",
+    "1 TL Zucker, Salz",
+    "1 Zwiebel",
+    "1 EL Olivenöl",
+    "700 g Passato di pomodoro",
+    "150 g weisse Lasagneblätter",
+    "40 g Reibkäse, z. B. Parmesan",
+    "Béchamelsauce:",
+    "20 g Butter",
+    "30 g Mehl",
+    "5 dl Milch",
+    "Muskatnuss, Salz, Pfeffer"
   ],
   steps: [
-    
+    "Spargeln im unteren Drittel schälen. Harte Enden wegschneiden. Spargeln in reichlich Wasser mit Zucker und Salz 8-10 Minuten kochen. Aus dem Wasser heben. Gut abtropfen lassen. Einige Spargeln beiseitestellen. Rest in mundgerechte Stücke schneiden.",
+    "Für die Béchamelsauce Butter bei kleiner Hitze schmelzen. Mehl darunterrühren. Milch dazugeben. Unter Rühren aufkochen, unter gelegentlichem Rühren ca. 10 Minuten köcheln lassen. Mit Muskatnuss, Salz und Pfeffer abschmecken. Für die Tomatensauce Zwiebel fein hacken. In Öl dünsten. Passato dazugeben, ca. 5 Minuten kochen. Spargelstücke dazugeben.",
+    "Backofen auf 180 °C vorheizen. Lasagneblätter und Tomatensauce mit Spargeln abwechselnd in die Gratinform schichten. Mit Lasagneblättern abschliessen. Béchamelsauce darübergiessen. Mit Käse bestreuen. Beiseitegestellte Spargeln darauflegen. In der Ofenmitte ca. 40 Minuten gratinieren.",
+    "Zubereitungszeit: ca. 40 Minuten + ca. 40 Minuten gratinieren.",
+    "Pro Person ca. 14 g Eiweiss, 8 g Fett, 37 g Kohlenhydrate, 1150 kJ / 270 kcal."
   ],
+  port: 6,
   cover: "G:sjLlkc-X3Fkfklgr5HRWNrUbU6CoHmg0qxKLzezMKroVYt24yyYMqNxb9Leez0YDFxEXPxH6KOsT5oUuddyOjEk", pages: ["G:ec6Cw3JjONzG_cPluSLGz_GajLs9RG1yXy_N_XHowYRW_LYhiPapLWGyJddrVCBLj0fc3STXgqErWvmcoLEYSQ"]
 },
 {
   n: "Spargeltagliatelle mit Pinien-Minzepesto", folder: "Teigwaren", src: "",
   ing: [
-    
+    "100 g Pinienkerne",
+    "1/2 Zitrone",
+    "1/2 Bund Pfefferminze",
+    "1 Bund glatte Petersilie",
+    "2 EL Olivenöl",
+    "2 TL flüssiger Honig",
+    "1/2 TL Salz",
+    "wenig Pfeffer aus der Mühle",
+    "800 g grüne Spargeln",
+    "150 g Bratspeck",
+    "300 g Tagliatelle"
   ],
   steps: [
-    
+    "Pinienkerne ohne Fett in einer beschichteten Bratpfanne rösten, bis sie braun sind und duften, beiseite stellen. Pinienkerne grob hacken.",
+    "Zitronenschale abreiben, 1 EL Saft auspressen, zusammen in eine Schüssel geben. Pfefferminze und glatte Petersilie abzupfen und grob hacken. Restliche Zutaten bis und mit Pfeffer und Pinienkerne dazu geben, mischen, zugedeckt beiseite stellen.",
+    "Untere 2 cm der Spargeln abschneiden. Spargeln mit dem Sparschäler längs in dünne Streifen schälen. Spitzen abschneiden, beiseite stellen. Speck in Streifen schneiden.",
+    "Tagliatelle in einem grossen Topf mit siedendem Salzwasser al dente kochen. Ca. 3 Min. vor Ende der Kochzeit die Spargelspitzen beigeben, weiterkochen. Nach ca. 2 Min. die Spargelstreifen dazugeben, aufkochen lassen.",
+    "Speck in einer Bratpfanne kross braten, beiseite stellen. Spargeln und Tagliatelle abtropfen lassen. Zurück in die Pfanne geben, Pesto und Speck samt Öl dazu geben, mischen, servieren.",
+    "Vor- und Zubereitungszeit: ca. 35 Min."
   ],
+  port: 4,
   cover: "G:MOIMW9Vml1wKzgmF3u0tFMWFN5MGbuC1TmjnbgpVHYsNvkME4YosjGDkX_HPIKzvX2aP065vAXOUSt-ADZnLPeOPV7HTwh9qXrF9", pages: ["G:TlICFWOetByembztkjAJUMFieHPvIMAvTo1zfjpwZ0MrrH40MIvxHaYL_wySxgylC7NbiZ1zzXNyp0tH8maGtdw-1YOwm5Xg3UU5","G:WovZLVKdoaocHOyOCuEwTJk0FHstYqiXgOVQMBhaPJWV6DL4KEplZmciGbcNxdJY4ze_CxkqPaoml0L3TJHbggXn6fM3O-_CfGA"]
 },
 {
   n: "Spätzlipfanne mit Rosenkohl und Hirschsalsiz", folder: "Teigwaren", src: "",
   ing: [
-    
+    "300 g tiefgekühlter Rosenkohl",
+    "Salz",
+    "150 g Hirschsalsiz",
+    "1 Zwiebel",
+    "1 EL Butter",
+    "2 EL Quittengelee",
+    "Pfeffer",
+    "400 g fixfertige Eier-Spätzli"
   ],
   steps: [
-    
+    "Rosenkohl in reichlich Salzwasser 5 Minuten garen. Abgiessen und mit kaltem Wasser abschrecken. Röschen halbieren. Salsiz in dünne Streifen schneiden. Zwiebel fein hacken. In der Butter dünsten. Rosenkohl beigeben und mitdünsten. Gelee beigeben. Unter gelegentlichem Rühren braten, bis der Rosenkohl glänzt. Mit Salz und Pfeffer leicht würzen.",
+    "Salsiz und Spätzli beigeben und mitbraten. Mit Salz und Pfeffer abschmecken.",
+    "Zubereitung ca. 30 Min."
   ],
   cover: "G:k8CdBel3JSjmc-_OnhbACp5-UFlpZFq2Tm8lqQA2M0j8LwuXWKuRoVJ2GQOAqLln1XJBWYKibxWY78fBfYAT", pages: ["G:XI10lj1gYVsM0m-Skqf2pf_0aEzYVivbtdOtzHrj7p4McZsjoG00lkO8E8XrHJim3gw-Tds8RnA8kTKQQImviEQ","G:lMVTGdnqkstAnjfVgjMfcKTy8LmC75G3rwYunv-FcqJGer6a-61yvCD_Ti9bbjckOX3eBBzVY7Fksfbzghaz6g"]
 },
 {
   n: "Spinat-Lasagne mit grünem Pesto", folder: "Teigwaren", src: "",
   ing: [
-    
+    "Hackfleisch:",
+    "Öl zum Braten",
+    "600 g Hackfleisch (Poulet)",
+    "3/4 TL Salz",
+    "wenig Cayennepfeffer",
+    "Spinat:",
+    "1 Zwiebel",
+    "2 Knoblauchzehen",
+    "1 kg tiefgekühlter Blattspinat, aufgetaut",
+    "3/4 TL Salz",
+    "wenig Cayennepfeffer",
+    "Béchamelsauce:",
+    "40 g Butter",
+    "40 g Mehl",
+    "8 dl Milch",
+    "1/4 TL Muskat",
+    "3/4 TL Salz",
+    "wenig Pfeffer",
+    "Ausserdem:",
+    "2 Rollen Pastateig",
+    "60 g geriebener Sbrinz"
   ],
   steps: [
-    
+    "Wenig Öl in einer beschichteten Bratpfanne heiss werden lassen. Hackfleisch portionenweise je ca. 3 Min. anbraten, herausnehmen, würzen.",
+    "Zwiebel und Knoblauch schälen, beides fein hacken. Wenig Öl in derselben Pfanne warm werden lassen. Zwiebel und Knoblauch ca. 3 Min. andämpfen. Spinat ca. 5 Min. mitdämpfen, würzen. Hackfleisch wieder beigeben.",
+    "Ofen auf 200 Grad vorheizen. Butter in einer Pfanne warm werden lassen. Mehl beigeben, unter Rühren mit dem Schwingbesen dünsten, das Mehl darf dabei keine Farbe annehmen. Pfanne von der Platte nehmen. Milch auf einmal dazugiessen, unter Rühren aufkochen, Hitze reduzieren, würzen. Sauce unter gelegentlichem Rühren bei mittlerer Hitze ca. 10 Min. köcheln, bis sie sämig ist.",
+    "Pastateig entrollen, quer halbieren. 1/3 der Spinat-Hackfleisch-Masse in der vorbereiteten Form verteilen. Teige, Spinatmasse und Béchamelsauce lagenweise in die Form schichten, mit Béchamelsauce abschliessen. Käse darüberstreuen.",
+    "Backen: ca. 35 Min. in der Mitte des Ofens.",
+    "Spinat-Pesto: Spinat in einen Messbecher geben, Mandeln beigeben. Die Hälfte des Öls dazugiessen, nicht zu fein pürieren. Restliches Öl und Käse darunterrühren, würzen. Spinat-Pesto auf der Lasagne verteilen, anrichten. (Zutatenmengen für das Pesto fehlen auf dem Foto.)"
   ],
   cover: "G:DWD6kidv8preEmGQDxFnZJygIJbyYT7rWMXfjPlY_ianjEbjWqXSC1eFdkYbWaybFB2H_7QQohKbZaxMj1NEtY_aXnKKD90nj1Wr", pages: ["G:kSx1JeicMr0Nmez0rH-aB08MBL-w4unG1kFRI0ebJXwUiAtTy0diP0aw8zGwKoFz2mh4RjjZJ8Tq2s3riz1CsmsgZJDuh9DlZsg","G:9Mtmmc6QTxnaIcNGKq4VGZ-vDmmAnWUVQf1maUNOfxkLeatzzx082JlQQLhQYlaBcfdwCj3n4-7d4zGeoROnXDLEyloLCrMZxWA"]
 },
@@ -5921,51 +6325,132 @@ window.REZEPTE = [
 {
   n: "Spinatlasagne", folder: "Teigwaren", src: "",
   ing: [
-    
+    "Spinat:",
+    "1 kg tiefgekühlter Blattspinat",
+    "3 Knoblauchzehen",
+    "2 Schalotten",
+    "2 EL Olivenöl",
+    "1 EL Thymianblättchen",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "Bechamelsauce:",
+    "20 g Butter",
+    "20 g Weissmehl",
+    "8 dl Milch",
+    "1/4 TL Muskat",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "100 g geriebene Mozzarella",
+    "80 g geriebener Parmesan",
+    "Lasagne:",
+    "12 grüne Lasagne-Blätter",
+    "50 g geriebene Mozzarella",
+    "40 g geriebener Parmesan"
   ],
   steps: [
-    
+    "Spinat",
+    "Spinat in einem Sieb auftauen und abtropfen lassen. Knoblauch pressen, Schalotten fein hacken. Öl in einer beschichteten Bratpfanne erhitzen. Knoblauch, Schalotten und Thymian ca. 3 Min. andämpfen, Spinat ca. 5 Min. mitdämpfen, würzen, beiseite stellen.",
+    "Bechamelsauce",
+    "Butter in einer Pfanne erwärmen. Mehl beigeben, unter Rühren mit dem Schwingbesen dünsten, das Mehl darf dabei keine Farbe annehmen. Pfanne von der Platte nehmen. Milch dazugiessen, unter Rühren aufkochen, Hitze reduzieren, würzen, unter gelegentlichem Rühren ca. 10 Min. köcheln, bis die Sauce sämig ist. Mozzarella und Käse darunterrühren.",
+    "Lasagne",
+    "Spinat, Lasagneblätter und Bechamelsauce lagenweise in die vorbereitete Form schichten. Mit Bechamelsauce abschliessen, Mozzarella und Käse darüberstreuen.",
+    "Backen: Ca. 40 Min. in der Mitte des auf 200 °C vorgeheizten Ofens. Herausnehmen, ca. 5 Min. ruhen lassen."
   ],
   cover: "G:TwQTxOs8vFRXMBhOvb596bmWBksD1plInASzK_JRQRQtjd9LJbl6MA5kaSluv-OXI6f2wr6bjxtd4VGi5FKI0gFb7-VGCxNWfA", pages: ["G:o4coycuzHCaUtp50diSWxdKTnDP1VfuYPQt9F8s5PoHJSWH3zD0XrixDXxtURI6w25q5uLrN1WVzWcYjNSKUe6ykJdBLYGJDZw","G:nfuIYtouxgh0OUPdIinWWwGHNlbzzzWsgTB-f2jgJmj1T9IuC1Z78Tib6wom5A8KmvRqa7en0PWJ5k6wewfXK8Ulq-TX24fX3hs"]
 },
 {
   n: "Tagliatelle Carbonara mit Spargeln", folder: "Teigwaren", src: "",
   ing: [
-    
+    "140 g Pastamehl",
+    "60 g Weissmehl",
+    "2 Eier, verklopft",
+    "1/2 EL Wasser",
+    "130 g Bratspeck in Tranchen, in ca. 2 cm breiten Streifen",
+    "500 g grüne Spargeln, unteres Drittel geschält, längs in ca. 2 mm dicke Streifen gehobelt",
+    "3 frische Eier",
+    "80 g geriebener Parmesan",
+    "1/4 TL Salz",
+    "1/4 TL Pfeffer"
   ],
   steps: [
-    
+    "Pastateig: Mehle mischen, auf die Arbeitsfläche geben, in der Mitte eine Mulde eindrücken. Die Eier und das Wasser in die Mulde geben. Das Mehl vom Innenrand her nach und nach mit der Masse mischen, bis ein dickflüssiger Brei entsteht. Restliches Mehl daruntermischen. Teig ca. 10 Min. kneten, bis er glatt und geschmeidig ist und nicht mehr an den Händen klebt. Eine Kugel formen, zugedeckt bei Raumtemperatur ca. 1 Std. ruhen lassen.",
+    "Tagliatelle: Teig halbieren, portionenweise auf wenig Mehl hauchdünn auswallen, in ca. 5 mm breite Streifen schneiden.",
+    "Speck: Speck in einer beschichteten Bratpfanne ohne Fett langsam knusprig braten. Speck auf Haushaltpapier abtropfen.",
+    "Carbonara: Tagliatelle im siedenden Salzwasser ca. 3 Min. knapp al dente kochen. Spargeln beigeben, ca. 2 Min. fertig kochen. Tagliatelle mit den Spargeln abtropfen. Eier und Käse in einer grossen Schüssel verrühren, würzen. Heisse Tagliatelle mit den Spargeln sofort beigeben, mischen, Speck darauf verteilen."
   ],
+  port: 4,
   cover: "G:aX4mb69Ut64eBEXbvgc3b3deN0HO3uRSXEsDxI7J8NlkbXb4Pd5qcOerQIBev1Fq99apyNMDDd7Kj3F61scfc1BT5_gEryMzNd8", pages: ["G:jg_z-8j9jr7tZV6FMtVniwVfMCi-snfUQk0tSQRQrO55Jd4Bsym4NlveDTsfk-OhaW1IiSCZ5KgDuGcTrNcTY8cNSA4Pw6djto8n","G:mVYrp7Zpur-sIdTAsR4lC5t_wgpkXd2sDC403dBsKdItAhrVldG0RSEuWlGWH_ouz1M0zTvaqIoAbyPKtU4gwQFs7xGw1pwdL2ML"]
 },
 {
   n: "Zitronen-Mohn-Linguine", folder: "Teigwaren", src: "",
   ing: [
-    
+    "320 g Teigwaren (z. B. Linguine)",
+    "Salzwasser, siedend",
+    "1 EL Butter",
+    "3 Bundzwiebeln mit dem Grün, in Ringen, Grün beiseitegestellt",
+    "2 EL Blaumohnsamen",
+    "2 dl Saucen-Halbrahm",
+    "1 Bio-Zitrone, abgeriebene Schale und Saft",
+    "1/2 TL Salz",
+    "wenig Pfeffer",
+    "40 g geriebener Parmesan"
   ],
   steps: [
-    
+    "Linguine: Teigwaren im siedenden Salzwasser knapp al dente kochen. 1 dl Kochwasser beiseitestellen, Teigwaren abtropfen.",
+    "Sauce: Butter in derselben Pfanne erwärmen. Bundzwiebeln und Mohn kurz andämpfen. Saucen-Halbrahm, Zitronenschale und -saft beigeben, würzen, ca. 1 Min. köcheln. Teigwaren und beiseitegestelltes Kochwasser beigeben, mischen, nur noch heiss werden lassen. Beiseitegestelltes Bundzwiebelgrün darüberstreuen, Käse dazu servieren."
   ],
+  port: 4,
   cover: "G:1YpBirAjtMjyzRNyj7VN8feAJ15a-wjEPQlnUxY3dRKuhTI5n6TK_c51X9mg26GflzGAUeQ97LgEMdtKicm3pQ", pages: ["G:Zt7HCWK89zg_uoUcvdGB7aUqsu_iZnKphSfzaVgxkexQoXil9yRss0dpAdNNpfnoMlB7q4joHfVRsM7_nN0idsU","G:YNYPWntVSLg1f97Vgs--G0pq9-n4PSGMmsnP6WGgylqx9lPSOuyLt3CV_bzEBNOAU4xRJ0KteezN-3-x78kmJQ"]
 },
 {
   n: "Zucchetti-Pasta", folder: "Teigwaren", src: "",
   ing: [
-    
+    "300 g grüne Teigwaren, z. B. Tagliatelle",
+    "Salz",
+    "4 kleine Zucchetti à ca. 150 g",
+    "2 EL Olivenöl",
+    "1 Knoblauchzehe",
+    "4 dl Halbrahm",
+    "150 g entsteinte grüne Oliven",
+    "20 g Kresse",
+    "1/2 Bund gemischte Kräuter, z. B. Basilikum, glattblättrige Petersilie und Schnittlauch",
+    "2 Ziegenfrischkäse à ca. 80 g",
+    "Pfeffer"
   ],
   steps: [
-    
+    "Teigwaren in reichlich siedendem Salzwasser al dente kochen. Abgiessen und abtropfen lassen. Zucchetti mit dem Sparschäler in Zungen hobeln. Im Öl bei mittlerer Hitze anbraten. Knoblauch dazupressen und kurz mitbraten. Mit Rahm ablöschen, kurz einkochen lassen. Oliven, Kresse und Kräuter fein hacken. Käse darin wenden. Restliche Oliven-Kräuter-Mischung zu den Zucchetti geben. Teigwaren beigeben, mischen und mit Salz und Pfeffer abschmecken. Mit je einem halben Ziegenkäse servieren.",
+    "Zubereitungszeit: ca. 25 Minuten.",
+    "Pro Person ca. 18 g Eiweiss, 57 g Fett, 59 g Kohlenhydrate, 3450 kJ / 820 kcal."
   ],
+  port: 4,
   cover: "G:9Y98bb5c_2ksOz-Fyzc7i8RYyZzHJ_lnXZj5aDdUpG2yH8MZRUT2Ra_YamqBtwF36npZdV4lbU07fvkN27WUmg", pages: ["G:61vfBZtjO_oRJ-QXsgII9abtPJjpa4cT3cAZKy_eCxr6ubZdJ5KKwX5CSPlHdBLgHeliWxzB_F9ESn7zHGi8yA"]
 },
 {
   n: "Zucchini-Lasagne", folder: "Teigwaren", tags: ["Vegetarisch"], src: "",
   ing: [
-    
+    "2 EL Olivenöl",
+    "1 kg Zucchini, in Scheiben",
+    "3 Bund Kräuter z. B. Peterli, Rosmarin, Basilikum, fein gehackt",
+    "3 dl Gemüsebouillon",
+    "Salz, Pfeffer",
+    "Béchamelsauce:",
+    "100 g Butter",
+    "100 g Mehl",
+    "7,5 dl Vollmilch",
+    "1 Vanillestängel, ausgekratzte Samen",
+    "Salz, Pfeffer",
+    "Ausserdem:",
+    "12 Lasagneblätter",
+    "120 g Grana-Padano-Reibkäse"
   ],
   steps: [
-    
+    "Für 4-6 Personen. Zubereiten ca. 40 Minuten, backen ca. 40 Min. Für eine Gratinform von ca. 2 Litern, gefettet.",
+    "Öl in einer Pfanne erhitzen, Zucchini kurz andämpfen, mit Bouillon aufgiessen und etwa 10 Minuten köcheln. Die Zucchini sollten noch Biss haben. Kräuter daruntermischen, würzen.",
+    "Für die Béchamelsauce die Butter in einem Kochtopf zerlassen, Mehl beigeben, zusammenfügen. Milch dazugiessen, ca. 15 Minuten unter Rühren köcheln, Vanillesamen darunterrühren, würzen.",
+    "Gratinform abwechselnd mit Béchamelsauce, Lasagneblätter und Zucchini lagenweise einfüllen. Mit Béchamelsauce abschliessen und mit Reibkäse bestreuen.",
+    "In der Mitte des auf 200 °C vorgeheizten Ofens (Ober-/Unterhitze) ca. 40 Minuten backen."
   ],
+  port: 4,
   cover: "G:rOmhPSdxcAkv92mOb4FWHU1ikJ_B2EpAIFi4KkuvZExBu7KvW6pk1RZD9xWY97mWWTS16zR7PH9Ee9L1ZoXGB_VcfbRRJRrPvA", pages: ["G:BmUL-fLlAwvbgSJ2WhQV2x0XPxKQBiVWNO9gNvxXCNNI2caDoNo39IFaUseMhacY6bS3hsOukMAxZlzT7NDf9UC4h0wdA9lPSQ","G:JBkYljJm-xG7gM8IOjGYOgQXBB6psf5FIGUWRVL8PJmFhwCz-ti6B2BDwJaQXW-lzo5VkM5NgtlSKyM2XkWQlNGQmil6ptbMhEo"]
 },
 // ---- Vegetarisch ----
