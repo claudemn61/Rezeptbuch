@@ -1,7 +1,5 @@
 {
  "v": 1,
- "size": "l",
- "photos": true,
  "fav": [],
  "assign": {
   "gefulltes-thai-omelette": [
@@ -321,7 +319,7 @@
  "layouts": {
   "root": {
    "n": 9,
-   "id": "t9"
+   "id": "g9"
   }
  }
 }
