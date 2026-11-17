@@ -241,3 +241,10 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .searchrow .tbtn[hidden]{display:none}
 #q{padding-left:38px;font-size:16px}
 .crumbs .upbtn{padding:4px 12px;margin-right:8px}
+
+/* Detailansicht: Werkzeuge klein, nebeneinander, rechtsbündig */
+.dtools{display:inline-flex;align-items:center;gap:8px;margin-left:auto;order:99}
+.dtools .dbtn{height:36px;min-width:44px;box-sizing:border-box;padding:0 12px;font-size:17px;line-height:1;border-radius:999px;display:inline-flex;align-items:center;justify-content:center}
+.dtools .fsel select.dbtn{width:auto;max-width:none;appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center;padding:0 14px;cursor:pointer}
+.dtools .fsel{display:inline-flex;width:auto}
+.dtools .fsel select.dbtn{width:68px;min-width:0;flex:none;overflow:hidden;text-overflow:clip}
