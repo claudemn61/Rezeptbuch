@@ -262,3 +262,5 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .mtop .fchips{max-width:none;flex:1 1 auto}
 .mtop .dtools{margin-left:auto;order:0;flex:none;align-items:flex-start}
 .mtags{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:8px}
+
+.mtop .fchips{display:flex;flex-wrap:wrap;gap:6px 8px;align-content:flex-start;justify-content:flex-start;grid-template-rows:none;overflow:visible}

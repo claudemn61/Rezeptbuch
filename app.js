@@ -204,7 +204,13 @@ function subtree(id) {
   while (ch) { ch = false; cfg.folders.forEach(f => { if (f.parent && s.has(f.parent) && !s.has(f.id)) { s.add(f.id); ch = true; } }); }
   return s;
 }
-const foldersOf = r => { const a = (cfg.assign[r.id] || []).filter(x => FB[x]); return a.length ? a : [FB[r.folder] ? r.folder : (cfg.folders[0] || {}).id]; };
+const baseFolders = r => {
+  const ids = [FB[r.folder] ? r.folder : (cfg.folders[0] || {}).id];
+  (r.tags || []).forEach(t => { const f = cfg.folders.find(f => f.id === t || f.name.toLowerCase() === String(t).toLowerCase()); if (f && !ids.includes(f.id)) ids.push(f.id); });
+  return ids;
+};
+const isFolderTag = t => cfg.folders.some(f => f.id === t || f.name.toLowerCase() === String(t).toLowerCase());
+const foldersOf = r => { const a = (cfg.assign[r.id] || []).filter(x => FB[x]); return a.length ? a : baseFolders(r); };
 const folderName = id => (FB[id] || {}).name || id;
 const countIn = id => { const s = subtree(id); return R.filter(r => foldersOf(r).some(x => s.has(x))).length; };
 function pathOf(id) { const p = []; let f = FB[id], n = 0; while (f && n++ < 60) { p.unshift(f); f = f.parent && FB[f.parent]; } return p; }
@@ -966,7 +972,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><label class="fsel"><select id="fadd" class="dbtn" aria-label="Ordner hinzufügen" title="Ordner hinzufügen"><option value="">＋📁</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip dbtn" id="fphoto" aria-label="Als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>' : ''}<button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).length ? `<div class="mtags">${r.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
+    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><label class="fsel"><select id="fadd" class="dbtn" aria-label="Ordner hinzufügen" title="Ordner hinzufügen"><option value="">＋📁</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip dbtn" id="fphoto" aria-label="Als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>' : ''}<button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).filter(t => !isFolderTag(t)).length ? `<div class="mtags">${r.tags.filter(t => !isFolderTag(t)).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -1013,7 +1019,8 @@ view.addEventListener('input', e => {
 });
 function setFolders(r, list) {
   list = [...new Set(list)];
-  if (list.length === 1 && list[0] === r.folder) delete cfg.assign[r.id]; else cfg.assign[r.id] = list;
+  const bf = baseFolders(r);
+  if (list.length === bf.length && list.every(x => bf.includes(x))) delete cfg.assign[r.id]; else cfg.assign[r.id] = list;
   persist(); renderFilters(); renderDetail(r);
 }
 view.addEventListener('change', e => {
