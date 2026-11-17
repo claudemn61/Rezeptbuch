@@ -20,6 +20,13 @@ export default {
         redirect: 'follow',
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; Rezeptbuch)', 'Accept': 'text/html,application/xhtml+xml', 'Accept-Language': 'de-CH,de;q=0.9,en;q=0.6' }
       });
+      if (new URL(req.url).searchParams.get('img')) {
+        const ct = r.headers.get('Content-Type') || '';
+        if (!r.ok || !/^image\//i.test(ct)) return new Response('Kein Bild', { status: 415, headers: cors });
+        const buf = await r.arrayBuffer();
+        if (buf.byteLength > 8000000) return new Response('Bild zu gross', { status: 413, headers: cors });
+        return new Response(buf, { status: 200, headers: { ...cors, 'Content-Type': ct } });
+      }
       const text = (await r.text()).slice(0, 3000000);
       return new Response(text, { status: r.status, headers: { ...cors, 'Content-Type': 'text/html; charset=utf-8' } });
     } catch (e) {

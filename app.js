@@ -416,6 +416,24 @@ function recipeFromHtml(html) {
   }
   return null;
 }
+function imageUrlsFromHtml(html, base) {
+  const out = [];
+  const add = v => { if (!v) return; if (Array.isArray(v)) { v.forEach(add); return; } if (typeof v === 'object') { add(v.url || v.contentUrl); return; } try { const u = new URL(String(v), base).href; if (/^https?:/.test(u) && !out.includes(u)) out.push(u); } catch {} };
+  const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi; let m;
+  while ((m = re.exec(html))) { try { const r = findRecipeLd(JSON.parse(m[1].trim())); if (r) { add(r.image); break; } } catch {} }
+  const og = html.match(/<meta[^>]+property=["']og:image["'][^>]*content=["']([^"']+)["']/i) || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image["']/i);
+  if (og) add(plain(og[1]));
+  return out.slice(0, 2);
+}
+async function fetchImage(url) {
+  const w = lsGet('rb_worker'); if (!w) return null;
+  try {
+    const r = await fetch(w + (w.includes('?') ? '&' : '?') + 'img=1&url=' + encodeURIComponent(url));
+    if (!r.ok) return null;
+    const b = await r.blob(); if (!/^image\//.test(b.type)) return null;
+    return await shrink(b, 1600, 0.82);
+  } catch { return null; }
+}
 function pageText(html) {
   return plain(html.replace(/<(script|style|noscript|svg|header|footer|nav)[\s\S]*?<\/\1>/gi, ' ')).slice(0, 40000);
 }
@@ -519,7 +537,10 @@ function openImport() {
         rec = await askClaude([{ type: 'text', text: recipePrompt() + '\n\nSeitentext:\n' + pageText(html) }]);
         if (!(rec.ing || []).length && !(rec.steps || []).length) throw new Error('Auf der Seite wurde kein Rezept gefunden');
       }
-      review(rec, [], url);
+      busy('Foto wird geladen …');
+      const imgs = [];
+      for (const u of imageUrlsFromHtml(html, url).slice(0, 1)) { const d = await fetchImage(u); if (d) imgs.push(d); }
+      review(rec, imgs, url);
     } catch (e) { start('⚠ ' + e.message); }
   };
   o.addEventListener('click', e => {
