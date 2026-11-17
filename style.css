@@ -248,3 +248,4 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .dtools .fsel select.dbtn{width:auto;max-width:none;appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center;padding:0 14px;cursor:pointer}
 .dtools .fsel{display:inline-flex;width:auto}
 .dtools .fsel select.dbtn{width:68px;min-width:0;flex:none;overflow:hidden;text-overflow:clip}
+.abcbar{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}.abcbar .chip{min-width:44px;justify-content:center}

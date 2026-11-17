@@ -60,6 +60,7 @@ const folders = [...new Set(BASE.map(r => r.folder))].sort((a, b) => a.localeCom
 
 /* ---------- Zustand ---------- */
 const state = {
+  letter: '',
   q: '',
   filter: 'alle',   // alle | fav | text | foto | <Ordnername>
   browse: false,    // true = Liste statt Startbildschirm
@@ -72,6 +73,11 @@ const state = {
 /* ---------- Suche ---------- */
 function tokens(q) { return norm(q).split(/\s+/).filter(Boolean); }
 
+const letterOf = r => { const c = norm(r.n).charAt(0).toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
+function letterBar() {
+  const cnt = {}; R.forEach(r => { const l = letterOf(r); cnt[l] = (cnt[l] || 0) + 1; });
+  return '<div class="abcbar">' + Object.keys(cnt).sort((a, b) => a === '#' ? 1 : b === '#' ? -1 : a.localeCompare(b)).map(l => `<button type="button" class="chip" data-letter="${l}" aria-pressed="${state.letter === l}">${l}<small>${cnt[l]}</small></button>`).join('') + '</div>';
+}
 function search(q) {
   const t = tokens(q);
   // Ordner mit Unterordnern: ohne Suchbegriff nur die direkt zugeordneten Rezepte, den Rest zeigen die Unterordner
@@ -82,7 +88,7 @@ function search(q) {
       case 'text': return r.hasText;
       case 'foto': return !r.hasText;
       case 'alle': return true;
-      case 'ordner': return true;
+      case 'abc': return !!t.length || (!!state.letter && letterOf(r) === state.letter);
       default: return fset ? foldersOf(r).some(x => fset.has(x)) : true;
     }
   });
@@ -848,9 +854,9 @@ function applyTheme() {
 }
 
 function renderFilters() {
-  const items = [['home', 'Home'], ['ordner', 'Ordner'], ['alle', 'ABC'], ['fav', 'Favoriten']];
+  const items = [['home', 'Home'], ['abc', 'ABC'], ['fav', 'Favoriten']];
   const onHome = isHome() && !location.hash.startsWith('#/r/');
-  const act = onHome ? 'home' : (FB[state.filter] || state.filter === 'ordner') ? 'ordner' : state.filter;
+  const act = onHome ? 'home' : state.filter;
   filtersEl.innerHTML = items.map(([k, l]) =>
     `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}</button>`).join('');
 }
@@ -859,8 +865,9 @@ function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
   const inFolder = !state.q && FB[state.filter];
-  if (!state.q && state.filter === 'ordner') { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = `<section class="home${state.edit ? ' editing' : ''}">${barHtml()}${tilesBlock(null)}</section>`; setSync(sync.msg, sync.kind); return; }
-  const head = inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '';
+  if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
+  const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
+  const head = abcHead || (inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '');
   countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
@@ -987,16 +994,11 @@ qEl.addEventListener('input', () => { state.q = qEl.value.trim(); refresh(); });
 qEl.addEventListener('keydown', e => { if (e.key === 'Enter') qEl.blur(); if (e.key === 'Escape') { qEl.value = ''; state.q = ''; refresh(); } });
 clearEl.addEventListener('click', () => { qEl.value = ''; state.q = ''; refresh(); qEl.focus(); });
 $('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; state.scroll = 0; renderFilters(); if (location.hash) location.hash = ''; else route(); });
+view.addEventListener('click', e => { const lb = e.target.closest('[data-letter]'); if (!lb) return; state.letter = lb.dataset.letter; refresh(); window.scrollTo(0, 0); });
 filtersEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
   if (b.dataset.f === 'home') { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; if (location.hash) { location.hash = ''; return; } }
-  else if (b.dataset.f === 'ordner') {
-    const par = (FB[state.filter] || {}).parent;
-    state.filter = FB[state.filter] ? (par && FB[par] ? par : 'ordner') : 'ordner';
-    state.browse = true; state.edit = false;
-    if (location.hash.startsWith('#/r/')) { location.hash = ''; return; }
-  }
-  else { state.filter = b.dataset.f; state.browse = true; state.edit = false; }
+  else { state.filter = b.dataset.f; state.letter = ''; state.browse = true; state.edit = false; }
   renderFilters(); refresh(); window.scrollTo(0, 0);
 });
 document.addEventListener('keydown', e => {
