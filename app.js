@@ -23,8 +23,22 @@ const store = {
 };
 
 const ALLE_FOTO = 'img/alle-rezepte.jpg';
+/* Frisch gespeicherte Fotos kurz lokal zeigen, bis GitHub Pages sie ausliefert */
+function freshImg(ref) {
+  try { const j = JSON.parse(sessionStorage.getItem('rb_fresh') || '{}'); const e = j[ref]; if (e && Date.now() - e.t < 600000) return e.d; } catch {}
+  return '';
+}
+function rememberImg(path, b64) {
+  try {
+    const j = JSON.parse(sessionStorage.getItem('rb_fresh') || '{}');
+    Object.keys(j).forEach(k => { if (Date.now() - j[k].t > 600000) delete j[k]; });
+    j[path] = { t: Date.now(), d: 'data:image/jpeg;base64,' + b64 };
+    sessionStorage.setItem('rb_fresh', JSON.stringify(j));
+  } catch {}
+}
 function imgUrl(ref, w) {
   if (!ref) return '';
+  const fresh = freshImg(ref); if (fresh) return fresh;
   if (ref.startsWith('G:')) return 'https://lh3.googleusercontent.com/' + ref.slice(2).split('?')[0] + '=w' + w;
   return ref;
 }
@@ -301,8 +315,8 @@ async function loadUserRecipes() {
     if (!state.edit && !document.querySelector('.sheet-bg') && !location.hash.startsWith('#/r/')) refresh();
   } catch {}
 }
-const putFile = (path, b64, msg, sha) => fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
-  method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify({ message: msg, content: b64, branch: 'main', ...(sha ? { sha } : {}) }) });
+const putFile = (path, b64, msg, sha) => (/^img\/u\//.test(path) && rememberImg(path, b64), fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+  method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify({ message: msg, content: b64, branch: 'main', ...(sha ? { sha } : {}) }) }));
 // Datei meine-rezepte.json lesen, ändern, schreiben (bei Konflikt neu laden und wiederholen)
 async function modifyDoc(fn, msg) {
   if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen)');
