@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.0';
+const APP_VERSION = '1.8.1';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -724,6 +724,7 @@ function renderHome() {
 
 ($('#top') || document).addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
+  if (e.target.closest('#helpbtn')) { openHelp(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); }
 });
 
@@ -1147,6 +1148,40 @@ function openLightbox(src) { $('img', lb).src = src; lb.hidden = false; }
 lb.addEventListener('click', () => { lb.hidden = true; $('img', lb).removeAttribute('src'); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) lb.click(); });
 
+
+
+/* ---------- Hilfe ---------- */
+const HELP = [
+  ['Die Startseite', 'Oben stehen <b>Home</b> (Ordnerkacheln), <b>ABC</b> (alle Rezepte nach Anfangsbuchstaben) und <b>Favoriten</b> (Rezepte mit Stern). Das Suchfeld durchsucht Titel, Zutaten und Zubereitung.', [['Zu Home', 'home'], ['ABC öffnen', 'abc'], ['Favoriten öffnen', 'fav']]],
+  ['Ein Rezept ansehen', 'Rezept antippen. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
+  ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
+  ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
+  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen und mit «Mehrere wählen» Ordner unter einen anderen Ordner schieben. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
+  ['Rezept importieren', 'Mit <b>➕</b>: entweder Foto, Scan oder PDF wählen (Claude liest den Text) oder einen Link einfügen (z. B. von chefkoch.de). Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
+  ['Einstellungen', 'Das Zahnrad oben rechts: hell/dunkel, Grösse und Aussehen der Kacheln, «Neu laden» bei Problemen, GitHub-Token (zum Speichern) und die Import-Angaben.', [['Einstellungen öffnen', 'settings']]],
+  ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
+  ['Wenn etwas nicht stimmt', 'Zuerst in den Einstellungen <b>Neu laden &amp; Zwischenspeicher leeren</b> tippen. Hilft das nicht, die App ganz schliessen und neu öffnen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', [['Neu laden', 'reload']]]
+];
+function openHelp() {
+  const o = document.createElement('div'); o.className = 'sheet-bg';
+  o.innerHTML = `<div class="sheet imp help" role="dialog" aria-label="Hilfe"><h3>Hilfe</h3>
+    ${HELP.map(([t, body, acts], i) => `<details${i === 0 ? ' open' : ''}><summary>${t}</summary><p>${body}</p>${acts.length ? `<div class="hacts">${acts.map(([l, a]) => `<button type="button" class="chip" data-act="${a}">${l} ›</button>`).join('')}</div>` : ''}</details>`).join('')}
+    <div class="acts"><button type="button" class="chip on" id="h-close">Schliessen</button></div></div>`;
+  document.body.appendChild(o);
+  o.addEventListener('click', e => {
+    if (e.target === o || e.target.closest('#h-close')) { o.remove(); return; }
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    o.remove();
+    const a = b.dataset.act;
+    setTimeout(() => {
+      if (['home', 'abc', 'fav'].includes(a)) { const f = $(`#filters [data-f=${a}]`); if (f) f.click(); }
+      else if (a === 'edit') { if (state.edit !== true) $('#hedit').click(); }
+      else if (a === 'import') openImport();
+      else if (a === 'reload') { settingsEl.hidden = false; $('#update').scrollIntoView({ block: 'center' }); $('#update').classList.add('flash'); }
+      else { settingsEl.hidden = false; const el = a === 'settings' ? settingsEl : $('#' + a); if (el) { el.scrollIntoView({ block: 'center' }); if (a !== 'settings') { el.focus(); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 2500); } } }
+    }, 50);
+  });
+}
 
 /* ---------- Einstellungen ---------- */
 const settingsEl = $('#settings');
