@@ -3,7 +3,12 @@
  "size": "l",
  "photos": true,
  "fav": [],
- "assign": {},
+ "assign": {
+  "gefulltes-thai-omelette": [
+   "Asiatisch",
+   "Dips"
+  ]
+ },
  "folders": [
   {
    "id": "Asiatisch",
