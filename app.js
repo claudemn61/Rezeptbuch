@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.4';
+const APP_VERSION = '1.8.5';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -203,7 +203,7 @@ function devPhotos(c) {
 function normalize(c) {
   c = c || {};
   const out = { v: 1, size: devSize(c), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
-  Object.entries(c.layouts || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
+  Object.entries(store.get('rb_layouts', {}) || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
@@ -278,7 +278,7 @@ async function flush() {
   sync.saving = true;
   try {
     for (let i = 0; i < 3; i++) {
-      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify((({ size, photos, ...rest }) => rest)(cfg), null, 1) + '\n'), branch: 'main' };
+      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify((({ size, photos, layouts, ...rest }) => rest)(cfg), null, 1) + '\n'), branch: 'main' };
       if (sync.sha) body.sha = sync.sha;
       const r = await fetch(API, { method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify(body) });
       if (r.ok) { const j = await r.json(); sync.sha = j.content.sha; sync.dirty = false; localStorage.removeItem('rb_pending'); store.set('rb_cfgcache', cfg); setSync('✓ Gespeichert', 'ok'); break; }
@@ -746,7 +746,7 @@ function tilesBlock(parent) {
 function openGrid(parent) {
   const n = gridCount(parent), opts = layoutsFor(n);
   if (!opts.length) { alert('Für ' + n + (n === 1 ? ' Ordner gibt es kein Raster.' : ' Ordner gibt es kein Raster.')); return; }
-  const apply = id => { cfg.layouts[gridKey(parent)] = { n, id }; persist(); state.edit = false; sel = null; refresh(); window.scrollTo(0, 0); };
+  const apply = id => { cfg.layouts[gridKey(parent)] = { n, id }; store.set('rb_layouts', cfg.layouts); state.edit = false; sel = null; refresh(); window.scrollTo(0, 0); };
   if (opts.length === 1) { apply(opts[0].id); return; }
   const o = document.createElement('div'); o.className = 'sheet-bg';
   const prev = l => `<span class="gprev" style="grid-template-columns:repeat(${l.cols},1fr);grid-auto-rows:${Math.round(44 / Math.max(l.cols, l.rows) * (l.cols > 6 ? 1.6 : 1))}px">${l.cells.slice(0, n).map(([x, y, w, h]) => `<i style="grid-column:${x + 1} / span ${w};grid-row:${y + 1} / span ${h}"></i>`).join('')}</span>`;
@@ -1127,7 +1127,7 @@ view.addEventListener('click', e => {
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
   if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
   if (e.target.closest('#hgrid')) { openGrid(curParent()); return; }
-  if (e.target.closest('#hgridoff')) { delete cfg.layouts[gridKey(curParent())]; persist(); refresh(); return; }
+  if (e.target.closest('#hgridoff')) { delete cfg.layouts[gridKey(curParent())]; store.set('rb_layouts', cfg.layouts); refresh(); return; }
   if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
   if (e.target.closest('#selup') && sel && sel.size) {
     [...sel].forEach(id => { const f = FB[id]; if (f && f.parent && !sel.has(f.parent)) f.parent = (FB[f.parent] || {}).parent || null; });
