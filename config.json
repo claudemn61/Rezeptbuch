@@ -3,7 +3,12 @@
  "size": "l",
  "photos": true,
  "fav": [],
- "assign": {},
+ "assign": {
+  "advent-hot-drink": [
+   "Getränke",
+   "Snacks"
+  ]
+ },
  "folders": [
   {
    "id": "Asiatisch",
