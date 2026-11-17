@@ -249,3 +249,4 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .dtools .fsel{display:inline-flex;width:auto}
 .dtools .fsel select.dbtn{width:68px;min-width:0;flex:none;overflow:hidden;text-overflow:clip}
 .abcbar{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}.abcbar .chip{min-width:44px;justify-content:center}
+.backrow{display:flex;align-items:center;justify-content:space-between;gap:10px}.backrow .srcl{font-size:14px;color:var(--crust);text-decoration:none;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

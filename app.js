@@ -962,11 +962,11 @@ function renderDetail(r) {
   let host = '';
   if (r.src) { try { host = new URL(r.src).hostname.replace(/^(www|m)\./, ''); } catch {} }
   view.innerHTML = `
-    <button class="back" type="button" id="back">‹ Zurück</button>
+    <div class="backrow"><button class="back" type="button" id="back">‹ Zurück</button>${host ? `<a class="srcl" href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<span class="dtools"><label class="fsel"><select id="fadd" class="dbtn" aria-label="Ordner hinzufügen" title="Ordner hinzufügen"><option value="">＋📁</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip dbtn" id="fphoto" aria-label="Als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>' : ''}<button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}${host ? `<a href="${esc(r.src)}" target="_blank" rel="noopener">Quelle: ${esc(host)}</a>` : ''}</div>
+    <div class="meta">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}<span class="dtools"><label class="fsel"><select id="fadd" class="dbtn" aria-label="Ordner hinzufügen" title="Ordner hinzufügen"><option value="">＋📁</option>${flat().filter(({ f }) => !foldersOf(r).includes(f.id)).map(({ f, depth }) => `<option value="${esc(f.id)}">${'\u2003'.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('')}</select></label>${r.cover ? '<button type="button" class="chip dbtn" id="fphoto" aria-label="Als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>' : ''}<button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span>${(r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -1150,7 +1150,7 @@ settingsEl.addEventListener('click', async e => {
     // Zwischenspeicher des Browsers für die App-Dateien erzwungen erneuern
     try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js', 'sw.js', 'manifest.webmanifest'].map(f => fetch(f + '?r=' + Date.now(), { cache: 'reload' }).catch(() => {}))); } catch {}
     try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js'].map(f => fetch(f, { cache: 'reload' }).catch(() => {}))); } catch {}
-    setTimeout(() => { location.href = location.href.split('#')[0].split('?')[0] + '?r=' + Date.now() + location.hash; }, 300);
+    setTimeout(() => { location.replace(location.href.split('#')[0].split('?')[0] + '?r=' + Date.now() + location.hash); }, 300);
   }
 });
 applyTheme();

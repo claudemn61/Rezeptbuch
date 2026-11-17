@@ -11,7 +11,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <script>try{var t=JSON.parse(localStorage.getItem("rb_theme"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="style.css">
+<script>var RQ=(location.search.match(/[?&]r=(\d+)/)||[])[1];RQ=RQ?"?r="+RQ:"";document.write('<link rel="stylesheet" href="style.css'+RQ+'">')</script>
 <title>Rezeptbuch</title>
 </head>
 <body>
@@ -80,7 +80,6 @@
   <img alt="">
 </div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script>document.write('<script src="data.js'+RQ+'"><\/script><script src="app.js'+RQ+'"><\/script>')</script>
 </body>
 </html>
