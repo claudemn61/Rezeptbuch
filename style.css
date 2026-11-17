@@ -256,3 +256,9 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .dtools{gap:6px}
 .dtools .dbtn{height:22px;min-width:32px;padding:0 7px;font-size:13px}
 .dtools .fsel select.dbtn{width:46px;padding:0 6px}
+
+.meta{display:block}
+.mtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.mtop .fchips{max-width:none;flex:1 1 auto}
+.mtop .dtools{margin-left:auto;order:0;flex:none;align-items:flex-start}
+.mtags{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:8px}
