@@ -33,6 +33,34 @@
    "cover": "img/u/pierogi-1.jpg",
    "pages": [],
    "added": "2026-11-17"
+  },
+  {
+   "id": "zitronen-spaghetti",
+   "n": "Zitronen-Spaghetti",
+   "folder": "Asiatisch",
+   "src": "https://www.bettybossi.ch/de/ul/recipe/10011993",
+   "tags": [],
+   "ing": [
+    "350 g Spaghetti",
+    "Salzwasser , siedend",
+    "2 Zwiebeln",
+    "1 Knoblauchzehe",
+    "1 EL Olivenöl",
+    "2 Bio-Zitronen",
+    "2 dl Saucen-Halbrahm",
+    "0.5 TL Salz",
+    "wenig Pfeffer",
+    "65 g Kapern",
+    "1 Päckli Burrata Piccola (4 Stück, je ca. 50 g)"
+   ],
+   "steps": [
+    "Spaghetti im siedenden Salzwasser knapp al dente kochen. Ca. 2 dl Kochwasser beiseite stellen, Spaghetti abtropfen.",
+    "Zwiebeln schälen, in Schnitze schneiden. Knoblauch schälen, in Scheibchen schneiden. Öl in derselben Pfanne warm werden lassen. Zwiebeln und Knoblauch ca. 2 Min. andämpfen. Von beiden Zitronen die Schale abreiben, beiseite stellen, ganzen Saft auspressen. Zitronensaft und Saucen-Halbrahm mit dem beiseite gestellten Kochwasser in die Pfanne giessen, aufkochen. Hitze reduzieren, ca. 5 Min. kochen, würzen. Kapern abtropfen, beigeben, Spaghetti wieder beigeben, mischen, heiss werden lassen.",
+    "Spaghetti mit der Burrata anrichten, beiseite gestellte Zitronenschale darüberstreuen."
+   ],
+   "cover": "img/u/zitronen-spaghetti-1.jpg",
+   "pages": [],
+   "added": "2026-11-17"
   }
  ],
  "overrides": {
