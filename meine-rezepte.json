@@ -33,6 +33,40 @@
    "cover": "img/u/pierogi-1.jpg",
    "pages": [],
    "added": "2026-11-17"
+  },
+  {
+   "id": "buddha-bowl-mit-quinoa-und-suskartoffeln-von-fennjax",
+   "n": "Buddha Bowl mit Quinoa und Süßkartoffeln von Fennjax",
+   "folder": "Asiatisch",
+   "src": "https://www.chefkoch.de/rezepte/3600381541347962/Buddha-Bowl-mit-Quinoa-und-Suesskartoffeln.html?utm_source=com.apple.UIKit.activity.CopyToPasteboard&utm_medium=Social%20Sharing%20CTA&utm_campaign=Sharing-iOS",
+   "tags": [],
+   "ing": [
+    "30 g Feldsalat",
+    "80 g Quinoa",
+    "100 g Süßkartoffel(n)",
+    "80 g Brokkoli",
+    "30 g Rotkohl",
+    "60 g Gurke(n)",
+    "60 g Tomate(n) (kleine)",
+    "Salz und Pfeffer",
+    "1 EL Ahornsirup",
+    "1 EL Wasser",
+    "1 TL, gestr. Senf",
+    "1 EL Rapsöl",
+    "1.5 EL Himbeeressig",
+    "1 Prise(n) Salz"
+   ],
+   "steps": [
+    "Zubereitung",
+    "Die Quinoa in einem Sieb waschen und mit der zweifachen Menge Wasser ca. 15 min. kochen. Den Brokkoli ca. 8 min. in etwas gesalzenem Wasser kochen.",
+    "Inzwischen Feldsalat, Tomaten und Gurke waschen. Die Tomaten halbieren und die Gurke in Scheiben schneiden. Den Rotkohl fein hobeln.",
+    "Die Süßkartoffel schälen und in kleine Würfel schneiden. Die Süßkartoffelwürfel ca. 5 min. in gesalzenem Wasser kochen.",
+    "Für das Himbeer-Senf-Dressing Ahornsirup, Wasser, Senf und Rapsöl verrühren. Den Himbeeressig und das Salz unterrühren.",
+    "Das Gemüse mit dem Dressing in einer Schüssel servieren."
+   ],
+   "cover": "img/u/buddha-bowl-mit-quinoa-und-suskartoffeln-von-fennjax-1.jpg",
+   "pages": [],
+   "added": "2026-11-17"
   }
  ],
  "overrides": {
