@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.7';
+const APP_VERSION = '1.8.8';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -1002,8 +1002,9 @@ function renderList() {
   countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
+  if (!res.length && !state.q && inFolder && kids(state.filter).some(f => f.show)) { view.innerHTML = head; return; }
   if (!res.length) {
-    view.innerHTML = head + `<div class="empty"><b>Nichts gefunden</b>${state.q ? 'Für „' + esc(state.q) + '“ gibt es keine Treffer.' : 'In dieser Auswahl ist noch nichts.'}
+    view.innerHTML = head + `<div class="empty"><b>${state.q ? 'Nichts gefunden' : state.filter === 'fav' ? 'Noch keine Favoriten' : 'Hier ist noch nichts'}</b>${state.q ? 'Für „' + esc(state.q) + '“ gibt es keine Treffer.' : state.filter === 'fav' ? 'Tippe im Rezept auf den Stern, dann erscheint es hier.' : 'In diesem Ordner liegen noch keine Rezepte.'}
       ${state.q && R.some(r => !r.hasText) ? '<br><small>Rezepte, die nur als Foto vorliegen, lassen sich nur über den Titel finden.</small>' : ''}</div>`;
     return;
   }
