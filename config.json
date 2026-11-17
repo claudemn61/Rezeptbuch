@@ -316,5 +316,10 @@
    "show": true
   }
  ],
- "layouts": {}
+ "layouts": {
+  "root": {
+   "n": 9,
+   "id": "g9"
+  }
+ }
 }
