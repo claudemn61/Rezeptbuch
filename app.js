@@ -82,6 +82,7 @@ function search(q) {
       case 'text': return r.hasText;
       case 'foto': return !r.hasText;
       case 'alle': return true;
+      case 'ordner': return true;
       default: return fset ? foldersOf(r).some(x => fset.has(x)) : true;
     }
   });
@@ -834,7 +835,8 @@ function syncTopBtns() {
 function refresh() {
   syncTopBtns();
   const home = isHome() && !location.hash.startsWith('#/r/');
-  filtersEl.style.display = home ? 'none' : '';
+  filtersEl.style.display = '';
+  renderFilters();
   home ? renderHome() : renderList();
 }
 
@@ -846,23 +848,18 @@ function applyTheme() {
 }
 
 function renderFilters() {
-  const nFav = R.filter(r => state.fav.has(r.id)).length;
-  const items = [
-    ['alle', 'Alle', R.length],
-    ['fav', '★ Favoriten', nFav],
-    ['text', 'Mit Text', R.filter(r => r.hasText).length],
-    ['foto', 'Nur Fotos', R.filter(r => !r.hasText).length]
-  ];
-  kids(null).filter(f => f.show).forEach(f => items.push([f.id, f.name, countIn(f.id)]));
-  const act = FB[state.filter] ? rootOf(state.filter) : state.filter;
-  filtersEl.innerHTML = items.map(([k, l, n]) =>
-    `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}<small>${n}</small></button>`).join('');
+  const items = [['home', 'Home'], ['ordner', 'Ordner'], ['alle', 'ABC'], ['fav', 'Favoriten']];
+  const onHome = isHome() && !location.hash.startsWith('#/r/');
+  const act = onHome ? 'home' : (FB[state.filter] || state.filter === 'ordner') ? 'ordner' : state.filter;
+  filtersEl.innerHTML = items.map(([k, l]) =>
+    `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}</button>`).join('');
 }
 
 function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
   const inFolder = !state.q && FB[state.filter];
+  if (!state.q && state.filter === 'ordner') { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = `<section class="home${state.edit ? ' editing' : ''}">${barHtml()}${tilesBlock(null)}</section>`; setSync(sync.msg, sync.kind); return; }
   const head = inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '';
   countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
   clearEl.hidden = !state.q;
@@ -992,7 +989,8 @@ clearEl.addEventListener('click', () => { qEl.value = ''; state.q = ''; refresh(
 $('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; state.scroll = 0; renderFilters(); if (location.hash) location.hash = ''; else route(); });
 filtersEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
-  state.filter = b.dataset.f; state.browse = true;
+  if (b.dataset.f === 'home') { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; if (location.hash) { location.hash = ''; return; } }
+  else { state.filter = b.dataset.f; state.browse = true; state.edit = false; }
   renderFilters(); refresh(); window.scrollTo(0, 0);
 });
 document.addEventListener('keydown', e => {
