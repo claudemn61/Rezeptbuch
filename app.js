@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.6';
+const APP_VERSION = '1.8.7';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -443,6 +443,13 @@ function recipeFromHtml(html) {
   }
   return null;
 }
+/* Aus eingefügtem Text (z. B. «Probier mal das Rezept … https://…») den Link holen und Tracking-Zusätze entfernen */
+function linkFromText(t) {
+  const m = String(t || '').match(/https?:\/\/[^\s<>"'«»]+/i); if (!m) return '';
+  let s = m[0].replace(/[.,;:!?)\]]+$/, '');
+  try { const u = new URL(s); [...u.searchParams.keys()].forEach(k => { if (/^(utm_|fbclid|gclid|mc_|igshid)/i.test(k)) u.searchParams.delete(k); }); u.hash = ''; s = u.href; } catch { return ''; }
+  return s;
+}
 function imageUrlsFromHtml(html, base) {
   const out = [];
   const add = v => { if (!v) return; if (Array.isArray(v)) { v.forEach(add); return; } if (typeof v === 'object') { add(v.url || v.contentUrl); return; } try { const u = new URL(String(v), base).href; if (/^https?:/.test(u) && !out.includes(u)) out.push(u); } catch {} };
@@ -477,7 +484,7 @@ function openImport() {
       <button class="chip big" type="button" id="i-photo">📷 Foto, Scan oder PDF wählen</button>
       <input id="i-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif,application/pdf,.pdf" multiple hidden>
       <p class="note tiny">Mehrere Dateien = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge. Möglich: JPG, PNG, iPhone-Format HEIC und PDF.</p>
-      <label>Oder Link zu einem Rezept<input id="i-url" type="url" inputmode="url" autocapitalize="off" placeholder="https://…"></label>
+      <label>Oder Link zu einem Rezept<input id="i-url" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Link einfügen (auch mit Text davor)"></label>
       <button class="chip on" type="button" id="i-go">🔗 Link importieren</button>
       <p class="note tiny err" id="i-msg">${esc(msg)}</p>
       <div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
@@ -575,8 +582,9 @@ function openImport() {
     if (e.target.closest('#i-cancel')) { o.remove(); return; }
     if (e.target.closest('#i-photo')) { $('#i-file', o).click(); return; }
     if (e.target.closest('#i-go')) {
-      const u = $('#i-url', o).value.trim();
-      if (!/^https?:\/\//i.test(u)) { $('#i-msg', o).textContent = 'Bitte einen Link mit https:// eingeben.'; return; }
+      const u = linkFromText($('#i-url', o).value);
+      if (!u) { $('#i-msg', o).textContent = 'Keinen Link gefunden. Bitte einen Link mit https:// einfügen.'; return; }
+      $('#i-url', o).value = u;
       fromLink(u);
     }
   });
