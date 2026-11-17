@@ -490,18 +490,35 @@ function openImport() {
       <div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
   };
   const busy = t => { busyOn = true; sheet(`<h3>Rezept importieren</h3><p class="note">⏳ ${esc(t)}</p>`); };
+  /* Zum Abschluss aktiv fragen: in welche(n) Ordner kommt das Rezept? */
+  const pickFolders = sugg => new Promise(res => {
+    const p = document.createElement('div'); p.className = 'sheet-bg'; p.style.zIndex = '80';
+    p.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Ordner wählen"><h3>In welchen Ordner?</h3>
+      <p class="note tiny">Du kannst einen oder mehrere Ordner wählen.${sugg ? ' Der Vorschlag der App ist schon angekreuzt, bitte prüfen.' : ''}</p>
+      <div class="fpick">${flat().map(({ f, depth }) => `<label class="chk" style="padding-left:${depth * 18}px"><input type="checkbox" value="${esc(f.id)}"${f.id === sugg ? ' checked' : ''}> ${esc(f.icon)} ${esc(f.name)}</label>`).join('')}</div>
+      <p class="note tiny err" id="p-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="p-cancel">Zurück</button><button type="button" class="chip on" id="p-ok">Speichern</button></div></div>`;
+    document.body.appendChild(p);
+    p.addEventListener('click', e => {
+      if (e.target === p || e.target.closest('#p-cancel')) { p.remove(); res(null); return; }
+      if (e.target.closest('#p-ok')) {
+        const ids = [...p.querySelectorAll('.fpick input:checked')].map(x => x.value);
+        if (!ids.length) { $('#p-msg', p).textContent = 'Bitte mindestens einen Ordner wählen.'; return; }
+        p.remove(); res(ids);
+      }
+    });
+  });
   const review = (rec, images, srcUrl) => {
     busyOn = false;
-    const fid = (cfg.folders.find(f => f.name.toLowerCase() === String(rec.folder || '').toLowerCase()) || {}).id || (cfg.folders[0] || {}).id;
+    const sugg = (cfg.folders.find(f => f.name.toLowerCase() === String(rec.folder || '').toLowerCase()) || {}).id || '';
     sheet(`<h3>Prüfen und speichern</h3>
       ${rec.notes ? `<p class="note tiny warn">Hinweis: ${esc(rec.notes)}</p>` : ''}
       ${images.length ? `<div class="pics">${images.map((u, i) => `<div class="pic"><img src="${u}" alt="">
           <label class="chk"><input type="radio" name="r-cov" value="${i}"${i === 0 ? ' checked' : ''}> Titelbild</label>
           <label class="chk"><input type="checkbox" data-keep="${i}" checked> behalten</label></div>`).join('')}</div>
         <div class="acts" style="justify-content:flex-start"><button type="button" class="chip" id="r-only">Nur Titelbild behalten</button><button type="button" class="chip" id="r-none">Keine Bilder</button></div>
-        <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den gewählten Ordner verwenden</label>` : ''}
+        <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den (ersten) gewählten Ordner verwenden</label>` : ''}
       <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
-      <label>Ordner<select id="r-f">${folderOpts(fid)}</select></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value="${esc((rec.tags || []).join(', '))}"></label>
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="r-i" rows="8">${esc((rec.ing || []).join('\n'))}</textarea></label>
       <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="r-s" rows="10">${esc((rec.steps || []).join('\n'))}</textarea></label>
@@ -512,6 +529,8 @@ function openImport() {
       const n = $('#r-n', o).value.trim();
       const msg = $('#i-msg', o);
       if (!n) { msg.textContent = 'Bitte einen Namen eingeben.'; return; }
+      const chosen = await pickFolders(sugg);
+      if (!chosen) return;
       const btn = $('#r-save', o); btn.disabled = true; btn.textContent = 'Speichere …'; msg.textContent = '';
       let id = slug(n) || 'rezept'; if (byId[id]) id += '-' + Date.now().toString(36).slice(-4);
       const covI = Number((o.querySelector('input[name=r-cov]:checked') || { value: 0 }).value);
@@ -519,13 +538,14 @@ function openImport() {
       const order = kept.includes(covI) ? [covI, ...kept.filter(i => i !== covI)] : kept;
       const files = order.map((i, n) => ({ path: `img/u/${id}-${n + 1}.jpg`, b64: images[i].split(',')[1] }));
       const out = {
-        id, n, folder: $('#r-f', o).value, src: srcUrl || '',
+        id, n, folder: chosen[0], src: srcUrl || '',
         tags: $('#r-t', o).value.split(',').map(x => x.trim()).filter(Boolean),
         ing: lines('#r-i'), steps: lines('#r-s'),
         cover: files[0] ? files[0].path : '', pages: files.slice(1).map(f => f.path), added: new Date().toISOString().slice(0, 10)
       };
       try {
         await saveUserRecipe(out, files);
+        cfg.assign[id] = chosen; persist();
         if (files.length && $('#r-fp', o) && $('#r-fp', o).checked && FB[out.folder]) { FB[out.folder].photo = id; persist(); renderFilters(); }
         o.remove(); location.hash = '#/r/' + id;
       }

@@ -289,3 +289,5 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .gopt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 8px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
 .gprev{display:grid;gap:3px;width:86px}
 .gprev i{background:var(--crust);opacity:.75;border-radius:4px}
+
+.fpick{max-height:46vh;overflow:auto;margin:6px 0}.fpick .chk{display:flex;align-items:center;gap:8px;padding-top:7px;padding-bottom:7px}
