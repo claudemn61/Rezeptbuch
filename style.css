@@ -250,3 +250,9 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .dtools .fsel select.dbtn{width:68px;min-width:0;flex:none;overflow:hidden;text-overflow:clip}
 .abcbar{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}.abcbar .chip{min-width:44px;justify-content:center}
 .backrow{display:flex;align-items:center;justify-content:space-between;gap:10px}.backrow .srcl{font-size:14px;color:var(--crust);text-decoration:none;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.fchips{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);gap:6px 8px;justify-items:start;align-content:start;min-width:0;max-width:calc(100% - 150px);overflow-x:auto;scrollbar-width:none}
+.fchips:empty{display:none}
+.dtools{gap:6px}
+.dtools .dbtn{height:22px;min-width:32px;padding:0 7px;font-size:13px}
+.dtools .fsel select.dbtn{width:46px;padding:0 6px}
