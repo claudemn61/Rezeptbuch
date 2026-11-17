@@ -101,6 +101,34 @@
     "G:boRuzLaQ9KDXC0xbxgply9KIPLJiYtkDGIfU9JQ1hy1dx-358OfQApbOLvGUxGj-lIp1hHRPuHRB-QIPMiKU",
     "G:Nv35UoTn8fhcVliAU3jZoDqmT0qinsUk00u5aWMbZoWnTdQA433Q-Wy38zAz5bdLmOh1HX4LHAhNgirCA2KuyA"
    ]
+  },
+  "mediterrane-hausmischung": {
+   "n": "Mediterrane Hausmischung",
+   "tags": [],
+   "ing": [
+    "Meersalz",
+    "Oregano",
+    "Knoblauch",
+    "Zwiebeln",
+    "Paprika",
+    "Thymian",
+    "Pfeffer schwarz",
+    "Basilikum",
+    "Rosmarin",
+    "Majoran",
+    "(Rapsöl)",
+    "Bohnenkraut",
+    "Salbei"
+   ],
+   "steps": [
+    "Alle Zutaten in gleichem Volumen-Verhältnis zusammen mischen.",
+    "z.B. kleiner Cocktail-Massbecher 2 ml.",
+    "Ergibt ca. 200-250 ml."
+   ],
+   "cover": "img/u/mediterrane-hausmischung-mwkxbhp0-1.jpg",
+   "pages": [
+    "G:BFEqQq1zLLp7qm1ePlMpd7FMi6LOSigTCbIznVPUZacgtB5VltsAyJ3uacZLhuMuW8Sgb6mhOogE8lNwuQU80Q67SlI7yHSmM28"
+   ]
   }
  },
  "deleted": []
