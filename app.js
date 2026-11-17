@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.2';
+const APP_VERSION = '1.8.3';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -705,8 +705,7 @@ function layoutsFor(n) {
   if (n === 5) t.push(L('r5', '5 nebeneinander', 5, 1, lrow(5)), L('t5', '1 hohe + 4', 3, 2, [[0, 0, 1, 2], ...lgrid(2, 4, 0, 1)]));
   if (n === 6) t.push(L('g6a', '3 × 2', 3, 2, lgrid(3, 6)), L('g6b', '2 × 3', 2, 3, lgrid(2, 6)));
   if (n === 7) t.push(L('b7', '1 breite oben + 6', 3, 3, [[0, 0, 3, 1], ...lgrid(3, 6, 1)]), L('h7', '1 hohe links + 6 (2 Spalten)', 3, 3, [[0, 0, 1, 3], ...lgrid(2, 6, 0, 1)]), L('t7', '1 hohe links + 6 (3 Spalten)', 4, 2, [[0, 0, 1, 2], ...lgrid(3, 6, 0, 1)]));
-  if (n === 8) t.push(L('g8', '4 × 2', 4, 2, lgrid(4, 8)), L('r8', '8 nebeneinander', 8, 1, lrow(8)),
-    L('m8', '2 gross + 6', 6, 6, [[0, 0, 3, 2], [3, 0, 3, 2], ...Array.from({ length: 6 }, (_, i) => [(i % 3) * 2, 2 + Math.floor(i / 3) * 2, 2, 2])]));
+  if (n === 8) t.push(L('g8', '4 × 2', 4, 2, lgrid(4, 8)), L('m8', '2 gross + 6', 6, 6, [[0, 0, 3, 2], [3, 0, 3, 2], ...Array.from({ length: 6 }, (_, i) => [(i % 3) * 2, 2 + Math.floor(i / 3) * 2, 2, 2])]));
   if (n === 9) t.push(L('g9', '3 × 3', 3, 3, lgrid(3, 9)), L('t9', '1 hohe + 8', 5, 2, [[0, 0, 1, 2], ...lgrid(4, 8, 0, 1)]));
   if (n >= 10) [3, 4, 5].forEach(c => t.push(L('c' + c, c + ' Spalten', c, Math.ceil(n / c), lgrid(c, n))));
   return t;
