@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.8';
+const APP_VERSION = '1.8.9';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -397,14 +397,14 @@ async function askClaude(content) {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-    body: JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 4096, tools: [RECIPE_TOOL], tool_choice: { type: 'tool', name: 'rezept' }, messages: [{ role: 'user', content }] })
+    body: JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 8192, system: 'Du liest Rezepte aus Fotos, Scans, PDF oder Webseiten. Antworte ausschliesslich, indem du das Tool «rezept» genau einmal aufrufst. Schreibe keinen weiteren Text.', tools: [RECIPE_TOOL], tool_choice: { type: 'auto' }, messages: [{ role: 'user', content }] })
   });
   if (!r.ok) {
     let m = ''; try { m = (await r.json()).error.message; } catch {}
     throw new Error(r.status === 401 ? 'Claude-API-Schlüssel ungültig' : 'Claude-API: ' + r.status + (m ? ' – ' + m : ''));
   }
   const j = await r.json(); const t = (j.content || []).find(c => c.type === 'tool_use');
-  if (!t) throw new Error('Claude hat kein Rezept geliefert');
+  if (!t) throw new Error('Claude hat kein Rezept geliefert' + (j.stop_reason === 'max_tokens' ? ' (Antwort zu lang)' : ''));
   return t.input;
 }
 
