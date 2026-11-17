@@ -316,10 +316,5 @@
    "show": true
   }
  ],
- "layouts": {
-  "root": {
-   "n": 9,
-   "id": "t9"
-  }
- }
+ "layouts": {}
 }
