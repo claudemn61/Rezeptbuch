@@ -1205,7 +1205,20 @@ view.addEventListener('input', e => {
   const v = parseInt(t.value, 10); if (!(v >= 1)) return;
   const r = byId[decodeURIComponent(location.hash.slice(4))];
   setPort(r, t.id === 'pn' ? { n: v } : { b: v });
+  if (t.id === 'pbase') { clearTimeout(baseTimer); baseTimer = setTimeout(() => saveBase(r.id, v), 900); }
 });
+/* «Rezept für» gehört zum Rezept: mit Token wird es gespeichert und gilt auf allen Geräten, sonst nur lokal */
+let baseTimer = 0;
+async function saveBase(id, b) {
+  const r = byId[id]; if (!r || !getToken() || (r.port || 4) === b) return;
+  try {
+    await modifyDoc(d => r.u
+      ? { ...d, recipes: d.recipes.map(x => x.id === id ? { ...x, port: b } : x) }
+      : { ...d, overrides: { ...d.overrides, [id]: { ...(d.overrides[id] || {}), port: b } } }, 'App: Rezept «' + r.n + '» – Personenzahl');
+    const p = portState(id);
+    if (p.n === p.b) localStorage.removeItem('rb_port_' + id); else store.set('rb_port_' + id, { n: p.n });
+  } catch (e) { /* bleibt lokal gespeichert */ }
+}
 function setFolders(r, list) {
   list = [...new Set(list)];
   const bf = baseFolders(r);
