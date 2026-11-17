@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.1';
+const APP_VERSION = '1.8.2';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -193,7 +193,8 @@ const defFolder = id => ({ id, name: id, icon: ICONS[id] || '🍽️', color: de
 
 function normalize(c) {
   c = c || {};
-  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', photos: c.photos === true, fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [] };
+  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', photos: c.photos === true, fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
+  Object.entries(c.layouts || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
@@ -692,16 +693,65 @@ function tileHtml(f) {
   return `<button class="tile${f.show ? '' : ' off'}${ph ? ' hasphoto' : ''}${sel && sel.has(f.id) ? ' sel' : ''}" type="button" data-folder="${esc(f.id)}" style="--c:${esc(f.color)}">
     ${ph ? `<span class="ic photo" style="background-image:url('${esc(ph)}')"></span>` : `<span class="ic">${esc(f.icon)}</span>`}<b>${esc(f.name)}</b><small>${countIn(f.id)}${sub ? ' · ' + sub + '📁' : ''}</small>${sel ? '<i class="pen chk">✓</i>' : state.edit ? '<i class="pen">✎</i>' : ''}</button>`;
 }
+/* ---------- Raster (Kachel-Muster) ---------- */
+const lrow = n => Array.from({ length: n }, (_, i) => [i, 0, 1, 1]);
+const lgrid = (c, n, y0 = 0, x0 = 0) => Array.from({ length: n }, (_, i) => [x0 + i % c, y0 + Math.floor(i / c), 1, 1]);
+function layoutsFor(n) {
+  const L = (id, name, cols, rows, cells) => ({ id, name, cols, rows, cells });
+  const t = [];
+  if (n === 2) t.push(L('r2', '2 nebeneinander', 2, 1, lrow(2)));
+  if (n === 3) t.push(L('r3', '3 nebeneinander', 3, 1, lrow(3)), L('t3', 'Gross links, 2 rechts', 2, 2, [[0, 0, 1, 2], [1, 0, 1, 1], [1, 1, 1, 1]]));
+  if (n === 4) t.push(L('r4', '4 nebeneinander', 4, 1, lrow(4)), L('g4', '2 × 2', 2, 2, lgrid(2, 4)));
+  if (n === 5) t.push(L('r5', '5 nebeneinander', 5, 1, lrow(5)), L('t5', '1 hohe + 4', 3, 2, [[0, 0, 1, 2], ...lgrid(2, 4, 0, 1)]));
+  if (n === 6) t.push(L('g6a', '3 × 2', 3, 2, lgrid(3, 6)), L('g6b', '2 × 3', 2, 3, lgrid(2, 6)));
+  if (n === 7) t.push(L('b7', '1 breite oben + 6', 3, 3, [[0, 0, 3, 1], ...lgrid(3, 6, 1)]), L('h7', '1 hohe links + 6 (2 Spalten)', 3, 3, [[0, 0, 1, 3], ...lgrid(2, 6, 0, 1)]), L('t7', '1 hohe links + 6 (3 Spalten)', 4, 2, [[0, 0, 1, 2], ...lgrid(3, 6, 0, 1)]));
+  if (n === 8) t.push(L('g8', '4 × 2', 4, 2, lgrid(4, 8)), L('r8', '8 nebeneinander', 8, 1, lrow(8)),
+    L('m8', '2 gross + 6', 6, 6, [[0, 0, 3, 2], [3, 0, 3, 2], ...Array.from({ length: 6 }, (_, i) => [(i % 3) * 2, 2 + Math.floor(i / 3) * 2, 2, 2])]));
+  if (n === 9) t.push(L('g9', '3 × 3', 3, 3, lgrid(3, 9)), L('t9', '1 hohe + 8', 5, 2, [[0, 0, 1, 2], ...lgrid(4, 8, 0, 1)]));
+  if (n >= 10) [3, 4, 5].forEach(c => t.push(L('c' + c, c + ' Spalten', c, Math.ceil(n / c), lgrid(c, n))));
+  return t;
+}
+const gridKey = p => p || 'root';
+const shownKids = parent => kids(parent).filter(f => f.show);
+const gridCount = parent => shownKids(parent).length + (parent ? 0 : 1);
+const activeLayout = parent => { const s = cfg.layouts[gridKey(parent)]; if (!s || s.n !== gridCount(parent)) return null; return layoutsFor(s.n).find(l => l.id === s.id) || null; };
+function fitLayout() {
+  const t = $('#tiles.lay'); if (!t) return;
+  const cols = Number(t.dataset.cols), gap = 8, u = (t.clientWidth - gap * (cols - 1)) / cols;
+  if (!(u > 0)) return;
+  t.style.gridAutoRows = u * 1.02 + 'px';
+  $$('.tile[data-w]', t).forEach(b => b.classList.toggle('compact', u * Number(b.dataset.w) + gap * (Number(b.dataset.w) - 1) < 78));
+}
+new MutationObserver(fitLayout).observe($('#view'), { childList: true, subtree: true });
+window.addEventListener('resize', fitLayout);
 function tilesBlock(parent) {
   const list = kids(parent).filter(f => state.edit || f.show);
-  const all = !parent && !state.edit ? '' : '';
   const allTile = parent ? '' : `<button class="tile all fixed${cfg.photos ? ' hasphoto' : ''}" type="button" data-folder="alle" style="--c:#46604b">${cfg.photos ? `<span class="ic photo" style="background-image:url('${ALLE_FOTO}')"></span>` : '<span class="ic">📖</span>'}<b>Alle Rezepte</b><small>${R.length}</small></button>`;
   if (!list.length && !state.edit && parent) return '';
-  return `<div class="tiles" id="tiles" data-parent="${esc(parent || '')}">${allTile}${list.map(tileHtml).join('')}${state.edit ? `<button class="tile add fixed" type="button" id="hadd"><span class="ic">＋</span><b>Neuer Ordner</b></button>` : ''}</div>`;
+  const lay = state.edit ? null : activeLayout(parent);
+  let tiles = [allTile, ...list.map(tileHtml)].filter(Boolean);
+  if (lay) {
+    tiles = tiles.map((h, i) => { const [x, y, w, hh] = lay.cells[i] || [0, 0, 1, 1]; return h.replace('style="--c:', `data-w="${w}" style="grid-column:${x + 1} / span ${w};grid-row:${y + 1} / span ${hh};--c:`); });
+  }
+  return `<div class="tiles${lay ? ' lay' : ''}" id="tiles" data-parent="${esc(parent || '')}"${lay ? ` data-cols="${lay.cols}" style="grid-template-columns:repeat(${lay.cols},minmax(0,1fr))"` : ''}>${tiles.join('')}${state.edit ? `<button class="tile add fixed" type="button" id="hadd"><span class="ic">＋</span><b>Neuer Ordner</b></button>` : ''}</div>`;
 }
+function openGrid(parent) {
+  const n = gridCount(parent), opts = layoutsFor(n);
+  if (!opts.length) { alert('Für ' + n + (n === 1 ? ' Ordner gibt es kein Raster.' : ' Ordner gibt es kein Raster.')); return; }
+  const apply = id => { cfg.layouts[gridKey(parent)] = { n, id }; persist(); state.edit = false; sel = null; refresh(); window.scrollTo(0, 0); };
+  if (opts.length === 1) { apply(opts[0].id); return; }
+  const o = document.createElement('div'); o.className = 'sheet-bg';
+  const prev = l => `<span class="gprev" style="grid-template-columns:repeat(${l.cols},1fr);grid-auto-rows:${Math.round(44 / Math.max(l.cols, l.rows) * (l.cols > 6 ? 1.6 : 1))}px">${l.cells.slice(0, n).map(([x, y, w, h]) => `<i style="grid-column:${x + 1} / span ${w};grid-row:${y + 1} / span ${h}"></i>`).join('')}</span>`;
+  o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Raster wählen"><h3>Raster für ${n} Kacheln</h3><p class="note tiny">Welche Anordnung soll es sein? Die erste Kachel ist jeweils die grosse, und du kannst die Reihenfolge danach durch Ziehen ändern.</p>
+    <div class="gopts">${opts.map(l => `<button type="button" class="gopt" data-g="${l.id}">${prev(l)}<span>${esc(l.name)}</span></button>`).join('')}</div>
+    <div class="acts"><button type="button" class="chip" id="g-cancel">Abbrechen</button></div></div>`;
+  document.body.appendChild(o);
+  o.addEventListener('click', e => { if (e.target === o || e.target.closest('#g-cancel')) { o.remove(); return; } const b = e.target.closest('[data-g]'); if (b) { o.remove(); apply(b.dataset.g); } });
+}
+const curParent = () => (!state.q && FB[state.filter]) ? state.filter : null;
 function barHtml() {
   return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
-    ${state.edit && !sel ? '<button class="chip" type="button" id="hsel">☑ Mehrere wählen</button>' : ''}
+    ${state.edit && !sel ? `<span class="hbtns"><button class="chip" type="button" id="hsel">☑ Mehrere wählen</button><button class="chip" type="button" id="hgrid">▦ Raster</button>${cfg.layouts[gridKey(curParent())] ? '<button class="chip" type="button" id="hgridoff">Raster aus</button>' : ''}</span>` : ''}
     </div>
     ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
@@ -1068,6 +1118,8 @@ view.addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
   if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
+  if (e.target.closest('#hgrid')) { openGrid(curParent()); return; }
+  if (e.target.closest('#hgridoff')) { delete cfg.layouts[gridKey(curParent())]; persist(); refresh(); return; }
   if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
   if (e.target.closest('#selup') && sel && sel.size) {
     [...sel].forEach(id => { const f = FB[id]; if (f && f.parent && !sel.has(f.parent)) f.parent = (FB[f.parent] || {}).parent || null; });
