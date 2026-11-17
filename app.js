@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.3';
+const APP_VERSION = '1.8.4';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -191,9 +191,18 @@ const BUILTIN = new Set(folders);
 const defColor = id => COLORS[Math.max(0, folders.indexOf(id)) % COLORS.length];
 const defFolder = id => ({ id, name: id, icon: ICONS[id] || '🍽️', color: defColor(id), parent: null, show: true });
 
+/* Darstellung (Grösse, Fotos/Icons) gilt nur für dieses Gerät und wird nicht über GitHub abgeglichen */
+function devSize(c) {
+  const v = store.get('rb_size', null); if (['s', 'm', 'l'].includes(v)) return v;
+  const r = ['s', 'm', 'l'].includes(c.size) ? c.size : 'm'; if (['s', 'm', 'l'].includes(c.size)) store.set('rb_size', r); return r;
+}
+function devPhotos(c) {
+  const v = store.get('rb_photos', null); if (typeof v === 'boolean') return v;
+  if (typeof c.photos === 'boolean') store.set('rb_photos', c.photos); return c.photos === true;
+}
 function normalize(c) {
   c = c || {};
-  const out = { v: 1, size: ['s', 'm', 'l'].includes(c.size) ? c.size : 'm', photos: c.photos === true, fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
+  const out = { v: 1, size: devSize(c), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
   Object.entries(c.layouts || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
   const seen = new Set();
   (c.folders || []).forEach(f => {
@@ -269,7 +278,7 @@ async function flush() {
   sync.saving = true;
   try {
     for (let i = 0; i < 3; i++) {
-      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify(cfg, null, 1) + '\n'), branch: 'main' };
+      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify((({ size, photos, ...rest }) => rest)(cfg), null, 1) + '\n'), branch: 'main' };
       if (sync.sha) body.sha = sync.sha;
       const r = await fetch(API, { method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify(body) });
       if (r.ok) { const j = await r.json(); sync.sha = j.content.sha; sync.dirty = false; localStorage.removeItem('rb_pending'); store.set('rb_cfgcache', cfg); setSync('✓ Gespeichert', 'ok'); break; }
@@ -1240,9 +1249,9 @@ $('#gear').addEventListener('click', e => { e.stopPropagation(); settingsEl.hidd
 document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.closest('#settings')) settingsEl.hidden = true; });
 settingsEl.addEventListener('click', async e => {
   const sz = e.target.closest('#sizeseg [data-size]');
-  if (sz) { cfg.size = sz.dataset.size; applySize(); persist(); return; }
+  if (sz) { cfg.size = sz.dataset.size; store.set('rb_size', cfg.size); applySize(); return; }
   const ph = e.target.closest('#photoseg [data-photos]');
-  if (ph) { cfg.photos = ph.dataset.photos === '1'; applySize(); persist(); refresh(); return; }
+  if (ph) { cfg.photos = ph.dataset.photos === '1'; store.set('rb_photos', cfg.photos); applySize(); refresh(); return; }
   if (e.target.closest('#tokpaste')) {
     try { $('#tok').value = (await navigator.clipboard.readText()).trim(); setSync($('#tok').value ? 'Token eingefügt, jetzt «OK» tippen' : 'Zwischenablage ist leer', ''); }
     catch { setSync('Zugriff auf die Zwischenablage nicht erlaubt: ins Feld tippen und lange drücken → Einfügen', 'err'); }
