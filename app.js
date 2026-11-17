@@ -990,6 +990,12 @@ $('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; stat
 filtersEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
   if (b.dataset.f === 'home') { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; if (location.hash) { location.hash = ''; return; } }
+  else if (b.dataset.f === 'ordner') {
+    const par = (FB[state.filter] || {}).parent;
+    state.filter = FB[state.filter] ? (par && FB[par] ? par : 'ordner') : 'ordner';
+    state.browse = true; state.edit = false;
+    if (location.hash.startsWith('#/r/')) { location.hash = ''; return; }
+  }
   else { state.filter = b.dataset.f; state.browse = true; state.edit = false; }
   renderFilters(); refresh(); window.scrollTo(0, 0);
 });
