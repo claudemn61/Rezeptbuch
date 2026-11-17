@@ -291,3 +291,7 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .gprev i{background:var(--crust);opacity:.75;border-radius:4px}
 
 .fpick{max-height:46vh;overflow:auto;margin:6px 0}.fpick .chk{display:flex;align-items:center;gap:8px;padding-top:7px;padding-bottom:7px}
+
+.cropbox{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;border-radius:14px;background:#000;touch-action:none;user-select:none;-webkit-user-select:none}
+.cropbox img{position:absolute;max-width:none;pointer-events:none}
+.zoomrow{display:flex;align-items:center;gap:12px;margin:10px 0}.zoomrow input{flex:1}

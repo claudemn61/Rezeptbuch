@@ -361,6 +361,54 @@ function readImage(file) {
     im.src = u;
   });
 }
+/* Bildausschnitt: verschieben, zoomen, beschneiden (Format wie das Titelbild, 3:2) */
+function openCrop(src) {
+  return new Promise(res => {
+    const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
+    o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Ausschnitt wählen"><h3>Ausschnitt wählen</h3>
+      <p class="note tiny">Mit dem Finger verschieben, mit zwei Fingern oder dem Regler vergrössern. Was ausserhalb des Rahmens liegt, wird abgeschnitten.</p>
+      <div class="cropbox" id="c-box"><img id="c-img" alt="" draggable="false"></div>
+      <label class="zoomrow">Zoom <input id="c-zoom" type="range" min="1" max="4" step="0.01" value="1"></label>
+      <p class="note tiny err" id="c-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="c-cancel">Abbrechen</button><button type="button" class="chip on" id="c-ok" disabled>Übernehmen</button></div></div>`;
+    document.body.appendChild(o);
+    const box = $('#c-box', o), img = $('#c-img', o), zoomEl = $('#c-zoom', o), ok = $('#c-ok', o);
+    let nw = 0, nh = 0, W = 0, H = 0, s0 = 1, zoom = 1, x = 0, y = 0;
+    const clamp = () => { const sc = s0 * zoom; x = Math.min(0, Math.max(W - nw * sc, x)); y = Math.min(0, Math.max(H - nh * sc, y)); };
+    const apply = () => { clamp(); const sc = s0 * zoom; img.style.width = nw * sc + 'px'; img.style.height = nh * sc + 'px'; img.style.left = x + 'px'; img.style.top = y + 'px'; };
+    const setZoom = (z, cx = W / 2, cy = H / 2) => { const old = s0 * zoom; zoom = Math.min(4, Math.max(1, z)); const k = s0 * zoom / old; x = cx - (cx - x) * k; y = cy - (cy - y) * k; zoomEl.value = zoom; apply(); };
+    const done = v => { o.remove(); res(v); };
+    const im = new Image(); if (/^https?:/.test(src)) im.crossOrigin = 'anonymous';
+    im.onload = () => {
+      nw = im.naturalWidth; nh = im.naturalHeight; W = box.clientWidth; H = box.clientHeight;
+      s0 = Math.max(W / nw, H / nh); x = (W - nw * s0) / 2; y = (H - nh * s0) / 2; img.src = im.src; apply(); ok.disabled = false;
+    };
+    im.onerror = () => { $('#c-msg', o).textContent = 'Dieses Bild lässt sich hier nicht zuschneiden. Lade es neu hoch (＋ Bilder hinzufügen).'; };
+    im.src = src;
+    const pts = new Map(); let d0 = 0, z0 = 1;
+    box.addEventListener('pointerdown', e => { box.setPointerCapture(e.pointerId); pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pts.size === 2) { const [p, q] = [...pts.values()]; d0 = Math.hypot(p.x - q.x, p.y - q.y); z0 = zoom; } });
+    box.addEventListener('pointermove', e => {
+      const p = pts.get(e.pointerId); if (!p) return;
+      if (pts.size === 1) { x += e.clientX - p.x; y += e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; apply(); }
+      else { p.x = e.clientX; p.y = e.clientY; const [a, b] = [...pts.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); if (d0 > 0) setZoom(z0 * d / d0); }
+    });
+    const up = e => { pts.delete(e.pointerId); };
+    box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up);
+    box.addEventListener('wheel', e => { e.preventDefault(); setZoom(zoom * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+    zoomEl.addEventListener('input', () => setZoom(Number(zoomEl.value)));
+    $('#c-cancel', o).onclick = () => done(null);
+    ok.onclick = () => {
+      try {
+        const sc = s0 * zoom, cw = 1600, ch = Math.round(1600 * H / W);
+        const c = document.createElement('canvas'); c.width = cw; c.height = ch;
+        const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, cw, ch);
+        g.drawImage(im, -x / sc, -y / sc, W / sc, H / sc, 0, 0, cw, ch);
+        done(c.toDataURL('image/jpeg', 0.85));
+      } catch { $('#c-msg', o).textContent = 'Zuschneiden nicht möglich (Bild gesperrt). Lade das Bild neu hoch.'; }
+    };
+  });
+}
+
 async function shrink(file, max, q) {
   const im = await readImage(file);
   const k = Math.min(1, max / Math.max(im.naturalWidth, im.naturalHeight));
@@ -515,7 +563,8 @@ function openImport() {
       ${rec.notes ? `<p class="note tiny warn">Hinweis: ${esc(rec.notes)}</p>` : ''}
       ${images.length ? `<div class="pics">${images.map((u, i) => `<div class="pic"><img src="${u}" alt="">
           <label class="chk"><input type="radio" name="r-cov" value="${i}"${i === 0 ? ' checked' : ''}> Titelbild</label>
-          <label class="chk"><input type="checkbox" data-keep="${i}" checked> behalten</label></div>`).join('')}</div>
+          <label class="chk"><input type="checkbox" data-keep="${i}" checked> behalten</label>
+          <button type="button" class="chip" data-crop="${i}">✂ Ausschnitt</button></div>`).join('')}</div>
         <div class="acts" style="justify-content:flex-start"><button type="button" class="chip" id="r-only">Nur Titelbild behalten</button><button type="button" class="chip" id="r-none">Keine Bilder</button></div>
         <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den (ersten) gewählten Ordner verwenden</label>` : ''}
       <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
@@ -556,6 +605,7 @@ function openImport() {
       const c = Number((o.querySelector('input[name=r-cov]:checked') || { value: 0 }).value);
       o.querySelectorAll('[data-keep]').forEach(k => { if (Number(k.dataset.keep) === c) { k.checked = true; k.disabled = true; } else k.disabled = false; });
     };
+    o.querySelectorAll('[data-crop]').forEach(b => { b.onclick = async () => { const i = Number(b.dataset.crop); const d = await openCrop(images[i]); if (d) { images[i] = d; b.closest('.pic').querySelector('img').src = d; } }; });
     o.querySelectorAll('input[name=r-cov]').forEach(x => x.addEventListener('change', syncPics));
     if ($('#r-only', o)) $('#r-only', o).onclick = () => { o.querySelectorAll('[data-keep]').forEach(k => { k.checked = k.disabled; }); };
     if ($('#r-none', o)) $('#r-none', o).onclick = () => { o.querySelectorAll('[data-keep]').forEach(k => { k.disabled = false; k.checked = false; }); o.querySelectorAll('input[name=r-cov]').forEach(x => { x.disabled = true; }); };
@@ -637,6 +687,7 @@ function openEditSheet(r) {
       <label>Bilder</label>
       <div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
         <label class="chk"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
+        <button type="button" class="chip" data-crop="${i}">✂ Ausschnitt</button>
         <button type="button" class="chip" data-del="${i}">Entfernen</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
       <button class="chip big" type="button" id="p-add">＋ Bilder hinzufügen</button>
       <input id="p-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden>
@@ -665,6 +716,8 @@ function openEditSheet(r) {
     if (e.target === o) { if (!busyOn) o.remove(); return; }
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
+    const cr = e.target.closest('[data-crop]');
+    if (cr) { keepText(); const i = Number(cr.dataset.crop), it = items[i]; const d = await openCrop(it.dataUrl || imgUrl(it.path, 1600)); if (d) items[i] = { dataUrl: d, src: d }; draw(); return; }
     const del = e.target.closest('[data-del]');
     if (del) { keepText(); const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
     if (e.target.id === 'p-save') {
