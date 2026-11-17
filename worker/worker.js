@@ -1,6 +1,7 @@
+const ERLAUBT = ['https://claudemn61.github.io', 'http://localhost:8765'];
+
 // Cloudflare Worker: holt eine Rezeptseite für die Rezeptbuch-App (CORS-Zwischendienst).
 // Aufruf: https://<dein-worker>.workers.dev/?url=https://beispiel.ch/rezept
-const ERLAUBT = ['https://claudemn61.github.io', 'http://localhost:8765'];
 
 export default {
   async fetch(req) {
