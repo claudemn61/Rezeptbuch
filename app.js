@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.5';
+const APP_VERSION = '1.8.6';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -56,7 +56,10 @@ const mkRecipe = r => {
   return o;
 };
 const byAlpha = (a, b) => a.n.localeCompare(b.n, 'de');
-const BASE = window.REZEPTE.map(r => ({ ...r, id: slug(r.n) }));
+/* Gleiche Titel bekommen verschiedene IDs (die zuletzt aufgeführte behält die bisherige ID, damit Favoriten/Ordner erhalten bleiben) */
+const _tot = {}, _seen = {};
+window.REZEPTE.forEach(r => { const s = slug(r.n); _tot[s] = (_tot[s] || 0) + 1; });
+const BASE = window.REZEPTE.map(r => { const s = slug(r.n); _seen[s] = (_seen[s] || 0) + 1; return { ...r, id: _seen[s] < _tot[s] ? s + '-' + _seen[s] : s }; });
 const asDoc = d => Array.isArray(d) ? { recipes: d, overrides: {}, deleted: [] } : { recipes: (d && d.recipes) || [], overrides: (d && d.overrides) || {}, deleted: (d && d.deleted) || [] };
 let DOC = asDoc(null);
 const R = [], byId = {};
