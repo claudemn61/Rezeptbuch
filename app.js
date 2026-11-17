@@ -426,6 +426,7 @@ const RECIPE_TOOL = {
     ing: { type: 'array', items: { type: 'string' }, description: 'Zutaten, eine pro Eintrag' },
     steps: { type: 'array', items: { type: 'string' }, description: 'Zubereitung, ein Absatz pro Eintrag' },
     tags: { type: 'array', items: { type: 'string' } },
+    port: { type: 'integer', description: 'Für wie viele Personen/Portionen das Rezept gedacht ist, nur wenn angegeben, sonst weglassen' },
     folder: { type: 'string', description: 'Passender Ordnername aus der Liste oder leer' },
     notes: { type: 'string', description: 'Unsicheres oder Unleserliches, sonst leer' }
   }, required: ['n', 'ing', 'steps'] }
@@ -437,6 +438,7 @@ Regeln:
 - Zubereitung: ein Eintrag pro Absatz bzw. Schritt. Zwischenüberschriften (z. B. «Backen») als eigener kurzer Eintrag ohne Satzzeichen.
 - Mehrere Bilder sind Seiten desselben Rezepts in der richtigen Reihenfolge.
 - Unleserliches mit [?] markieren und in notes kurz nennen.
+- port: Anzahl Personen bzw. Portionen laut Rezept (z. B. «für 4 Personen»), nur wenn angegeben.
 - tags: höchstens 3 passende Schlagwörter (z. B. vegetarisch, Apéro).
 - folder: bester Ordner aus dieser Liste, sonst leer: ${cfg.folders.map(f => f.name).join(', ')}.`;
 async function askClaude(content) {
@@ -487,7 +489,8 @@ function recipeFromHtml(html) {
     const steps = []; stepsFromLd(r.recipeInstructions, steps);
     const ing = [].concat(r.recipeIngredient || r.ingredients || []).map(plain).filter(Boolean);
     if (!ing.length && !steps.length) continue;
-    return { n: plain(r.name), ing, steps, tags: [], folder: '', notes: '' };
+    const ym = [].concat(r.recipeYield || []).map(String).join(' ').match(/\d+/);
+    return { n: plain(r.name), ing, steps, tags: [], folder: '', notes: '', port: ym ? Math.min(99, +ym[0]) : 0 };
   }
   return null;
 }
@@ -568,6 +571,7 @@ function openImport() {
         <div class="acts" style="justify-content:flex-start"><button type="button" class="chip" id="r-only">Nur Titelbild behalten</button><button type="button" class="chip" id="r-none">Keine Bilder</button></div>
         <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den (ersten) gewählten Ordner verwenden</label>` : ''}
       <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
+      <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="r-p" type="number" inputmode="numeric" min="1" max="99" value="${rec.port > 0 ? rec.port : ''}" placeholder="z. B. 4"></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value="${esc((rec.tags || []).join(', '))}"></label>
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="r-i" rows="8">${esc((rec.ing || []).join('\n'))}</textarea></label>
       <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="r-s" rows="10">${esc((rec.steps || []).join('\n'))}</textarea></label>
@@ -588,7 +592,7 @@ function openImport() {
       const files = order.map((i, n) => ({ path: `img/u/${id}-${n + 1}.jpg`, b64: images[i].split(',')[1] }));
       const out = {
         id, n, folder: chosen[0], src: srcUrl || '',
-        tags: $('#r-t', o).value.split(',').map(x => x.trim()).filter(Boolean),
+        tags: $('#r-t', o).value.split(',').map(x => x.trim()).filter(Boolean), port: Math.min(99, Math.max(0, parseInt($('#r-p', o).value, 10) || 0)) || undefined,
         ing: lines('#r-i'), steps: lines('#r-s'),
         cover: files[0] ? files[0].path : '', pages: files.slice(1).map(f => f.path), added: new Date().toISOString().slice(0, 10)
       };
@@ -675,12 +679,14 @@ async function delFile(path) {
 }
 function openEditSheet(r) {
   const o = document.createElement('div'); o.className = 'sheet-bg'; document.body.appendChild(o);
+  const port0 = r.port || 4;
   const orig = [r.cover, ...(r.pages || [])].filter(Boolean);
   let items = orig.map(p => ({ path: p, src: imgUrl(p, 300) })), cov = 0, busyOn = false;
   const hasOv = !!DOC.overrides[r.id];
   const draw = (msg = '') => {
     o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
       <label>Name<input id="e-n" type="text" value="${esc(r.n)}"></label>
+      <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="e-p" type="number" inputmode="numeric" min="1" max="99" value="${r.port || 4}"></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="e-t" type="text" value="${esc((r.tags || []).join(', '))}"></label>
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="e-i" rows="8">${esc(r.ing.join('\n'))}</textarea></label>
       <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="e-s" rows="10">${esc(r.steps.join('\n'))}</textarea></label>
@@ -695,7 +701,7 @@ function openEditSheet(r) {
       <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
   };
   // Eingaben beim Neuzeichnen (Bild hinzufügen/entfernen) behalten
-  const keepText = () => { const g = id => { const e = $(id, o); return e ? e.value : null; }; r = { ...r, n: g('#e-n') ?? r.n, tags: (g('#e-t') ?? (r.tags || []).join(',')).split(',').map(x => x.trim()).filter(Boolean), ing: (g('#e-i') ?? r.ing.join('\n')).split('\n').map(x => x.trim()).filter(Boolean), steps: (g('#e-s') ?? r.steps.join('\n')).split('\n').map(x => x.trim()).filter(Boolean) }; };
+  const keepText = () => { const g = id => { const e = $(id, o); return e ? e.value : null; }; r = { ...r, port: Math.min(99, Math.max(1, parseInt(g('#e-p'), 10) || r.port || 4)), n: g('#e-n') ?? r.n, tags: (g('#e-t') ?? (r.tags || []).join(',')).split(',').map(x => x.trim()).filter(Boolean), ing: (g('#e-i') ?? r.ing.join('\n')).split('\n').map(x => x.trim()).filter(Boolean), steps: (g('#e-s') ?? r.steps.join('\n')).split('\n').map(x => x.trim()).filter(Boolean) }; };
   const lock = on => { busyOn = on; o.querySelectorAll('button').forEach(b => { b.disabled = on; }); };
   const cleanup = () => {
     let ch = false;
@@ -730,10 +736,11 @@ function openEditSheet(r) {
         const files = [];
         ordered.forEach((it, n) => { if (it.dataUrl) { it.path = `img/u/${r.id}-${stamp}-${n + 1}.jpg`; files.push({ path: it.path, b64: it.dataUrl.split(',')[1] }); } });
         for (const f of files) { const x = await putFile(f.path, f.b64, 'App: Rezeptfoto'); if (!x.ok) throw new Error('Foto speichern fehlgeschlagen (' + x.status + ')'); }
-        const nv = { n: r.n.trim(), tags: r.tags, ing: r.ing, steps: r.steps, cover: ordered[0] ? ordered[0].path : '', pages: ordered.slice(1).map(p => p.path) };
+        const nv = { n: r.n.trim(), port: r.port, tags: r.tags, ing: r.ing, steps: r.steps, cover: ordered[0] ? ordered[0].path : '', pages: ordered.slice(1).map(p => p.path) };
         await modifyDoc(d => r.u
           ? { ...d, recipes: d.recipes.map(x => x.id === r.id ? { ...x, ...nv } : x) }
           : { ...d, overrides: { ...d.overrides, [r.id]: nv } }, 'App: Rezept «' + nv.n + '» geändert');
+        if ((nv.port || 4) !== port0) localStorage.removeItem('rb_port_' + r.id);
         const keep = new Set(ordered.map(p => p.path));
         for (const p of orig) if (!keep.has(p)) { try { await delFile(p); } catch {} }
         o.remove(); renderFilters(); route();
@@ -1123,7 +1130,10 @@ function portBarHtml(r) {
     <p class="note" id="pnote" ${p.n === p.b ? 'hidden' : ''}>Mengen in der Zubereitung werden nicht umgerechnet.</p>`;
 }
 function setPort(r, patch) {
-  const p = { ...portState(r.id), ...patch };
+  const old = portState(r.id);
+  // «Rezept für» (b) ist nur eine Angabe zum Rezept: die angezeigten Mengen bleiben gleich (Faktor n/b bleibt)
+  if (patch.b != null && patch.n == null) patch = { ...patch, n: old.n === old.b ? patch.b : Math.round(old.n / old.b * patch.b) };
+  const p = { ...old, ...patch };
   p.b = Math.max(1, Math.min(99, Math.round(p.b) || 4)); p.n = Math.max(1, Math.min(99, Math.round(p.n) || p.b));
   const def = r.port || 4;
   if (p.b === def && p.n === def) localStorage.removeItem('rb_port_' + r.id); else store.set('rb_port_' + r.id, p);
