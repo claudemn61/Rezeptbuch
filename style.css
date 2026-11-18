@@ -295,3 +295,7 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .cropbox{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;border-radius:14px;background:#000;touch-action:none;user-select:none;-webkit-user-select:none}
 .cropbox img{position:absolute;max-width:none;pointer-events:none}
 .zoomrow{display:flex;align-items:center;gap:12px;margin:10px 0}.zoomrow input{flex:1}
+
+.sheet.imp.full{width:100%;height:100%;max-height:none;border-radius:0;display:flex;flex-direction:column;box-sizing:border-box}
+.sheet.imp.full label.grow{flex:1;display:flex;flex-direction:column}
+.sheet.imp.full label.grow textarea{flex:1;min-height:0;resize:none}

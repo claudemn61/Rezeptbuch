@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.9';
+const APP_VERSION = '1.8.10';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -530,17 +530,29 @@ function openImport() {
   const sheet = inner => { o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept importieren">${inner}</div>`; };
   const folderOpts = sel => flat().map(({ f, depth }) => `<option value="${esc(f.id)}"${f.id === sel ? ' selected' : ''}>${' '.repeat(depth)}${esc(f.icon)} ${esc(f.name)}</option>`).join('');
   let busyOn = false;
+  let mode = '';
   const start = (msg = '') => {
-    sheet(`<h3>Rezept importieren</h3>
-      <button class="chip big" type="button" id="i-photo">📷 Foto, Scan oder PDF wählen</button>
-      <input id="i-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif,application/pdf,.pdf" multiple hidden>
-      <p class="note tiny">Mehrere Dateien = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge. Möglich: JPG, PNG, iPhone-Format HEIC und PDF.</p>
-      <label>Oder Link zu einem Rezept<input id="i-url" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Link einfügen (auch mit Text davor)"></label>
-      <button class="chip on" type="button" id="i-go">🔗 Link importieren</button>
-      <label>Oder Rezepttext einfügen (Copy/Paste)<textarea id="i-text" rows="5" placeholder="Rezept hier einfügen: Titel, Zutaten, Zubereitung"></textarea></label>
-      <button class="chip on" type="button" id="i-textgo">📋 Text importieren</button>
-      <p class="note tiny err" id="i-msg">${esc(msg)}</p>
-      <div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
+    const err = `<p class="note tiny err" id="i-msg">${esc(msg)}</p>`;
+    if (mode === 'text') {
+      sheet(`<h3>Rezepttext einfügen</h3>
+        <label class="grow">Rezept hier einfügen (Titel, Zutaten, Zubereitung)<textarea id="i-text" placeholder="Text einfügen …"></textarea></label>
+        ${err}<div class="acts"><button type="button" class="chip" id="i-back0">Zurück</button><button class="chip on" type="button" id="i-textgo">📋 Text importieren</button></div>`);
+      o.firstChild.classList.add('full');
+    } else if (mode === 'link') {
+      sheet(`<h3>Link importieren</h3>
+        <label>Link zu einem Rezept<input id="i-url" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Link einfügen (auch mit Text davor)"></label>
+        ${err}<div class="acts"><button type="button" class="chip" id="i-back0">Zurück</button><button class="chip on" type="button" id="i-go">🔗 Link importieren</button></div>`);
+      o.firstChild.classList.add('full');
+    } else {
+      sheet(`<h3>Rezept importieren</h3>
+        <p class="note tiny">Woher kommt das Rezept?</p>
+        <button class="chip big" type="button" id="i-photo">📷 Foto, Scan oder PDF</button>
+        <input id="i-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif,application/pdf,.pdf" multiple hidden>
+        <p class="note tiny">Mehrere Dateien = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge. Möglich: JPG, PNG, iPhone-Format HEIC und PDF.</p>
+        <button class="chip big" type="button" id="i-mtext">📋 Text einfügen (Copy/Paste)</button>
+        <button class="chip big" type="button" id="i-mlink">🔗 Link zu einer Webseite</button>
+        ${err}<div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
+    }
   };
   const busy = t => { busyOn = true; sheet(`<h3>Rezept importieren</h3><p class="note">⏳ ${esc(t)}</p>`); };
   /* Zum Abschluss aktiv fragen: in welche(n) Ordner kommt das Rezept? */
@@ -672,6 +684,9 @@ function openImport() {
       return;
     }
     if (e.target.closest('#i-photo')) { $('#i-file', o).click(); return; }
+    if (e.target.closest('#i-mtext')) { mode = 'text'; start(); const t = $('#i-text', o); if (t) t.focus(); return; }
+    if (e.target.closest('#i-mlink')) { mode = 'link'; start(); const t = $('#i-url', o); if (t) t.focus(); return; }
+    if (e.target.closest('#i-back0')) { mode = ''; start(); return; }
     if (e.target.closest('#i-go')) {
       const u = linkFromText($('#i-url', o).value);
       if (!u) { $('#i-msg', o).textContent = 'Keinen Link gefunden. Bitte einen Link mit https:// einfügen.'; return; }
@@ -1342,7 +1357,7 @@ const HELP = [
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen und mit «Mehrere wählen» Ordner unter einen anderen Ordner schieben. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
-  ['Rezept importieren', 'Mit <b>➕</b>: Foto, Scan oder PDF wählen (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
+  ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts: hell/dunkel, Grösse und Aussehen der Kacheln, «Neu laden» bei Problemen, GitHub-Token (zum Speichern) und die Import-Angaben.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Zuerst in den Einstellungen <b>Neu laden &amp; Zwischenspeicher leeren</b> tippen. Hilft das nicht, die App ganz schliessen und neu öffnen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', [['Neu laden', 'reload']]]
