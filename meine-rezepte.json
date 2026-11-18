@@ -77,6 +77,62 @@
    "cover": "img/u/knuspriges-sauerteig-knackebrot-aus-dinkelmehl-mwmglb0j-1.jpg",
    "pages": [],
    "added": "2026-11-18"
+  },
+  {
+   "id": "schuttelbrot",
+   "n": "Schüttelbrot",
+   "folder": "Brote",
+   "src": "",
+   "tags": [
+    "Brot",
+    "Südtirol",
+    "Sauerteig"
+   ],
+   "port": 12,
+   "ing": [
+    "Vorteig",
+    "300 g Wasser ca. 30 Grad warm",
+    "40 g Sauerteig (alternativ: 10 g Frischhefe)",
+    "200 g Roggenmehl hell (Roggenmehl, Type 815)",
+    "100 g Weissmehl (Weizenmehl Type 550)",
+    "Hauptteig",
+    "Vorteig",
+    "700 g Wasser ca. 30 Grad warm",
+    "500 g Roggenmehl hell (Roggenmehl, Type 815)",
+    "60 g Roggen Vollkornmehl",
+    "140 g Halbweissmehl (Weizenmehl Type 812)",
+    "20 g Salz",
+    "20 g Frischhefe",
+    "4 g Kümmelpulver",
+    "4 g Fenchelsamen",
+    "2 g Schabzigerklee"
+   ],
+   "steps": [
+    "Vorteig",
+    "Den Sauerteig zum Wasser in eine Schüssel geben und aufschlämmen. D.h. zusammen vermischen.",
+    "Das Mehl zum Sauerteigwasser geben und alles klumpenfrei verrühren.",
+    "Danach den Vorteig zudecken und für 12 Std. bei Raumtemperatur gären lassen.",
+    "Hauptteig",
+    "Vorteig, Wasser, Mehl, Salz und Hefe in die Küchenmaschine geben.",
+    "Dann Kümmelpulver und Fenchelsamen mörsern/reiben und mit dem Schabzigerklee zu den restlichen Zutaten in die Küchenmaschine geben.",
+    "Alle Zutaten in der Küchenmaschine auf kleiner Stufe 5-8 Min. mischen.",
+    "Anschliessend den Teig mit einer Gärfolie zudecken und für 50-60 Min. bei Raumtemperatur gären lassen.",
+    "Formen",
+    "Ein Teigtuch grosszügig mit Roggenmehl bestauben.",
+    "Nach der Gärzeit auf den Teig mit nassen Händen sechs gleich grosse Stücke abdrücken.",
+    "Jedes Teigstück mit sehr nassen Händen leicht rund formen und auf das bemehlte Teigtuch absetzen.",
+    "Anschliessend die Kugel grosszügig mit Roggenmehl bestauben und dann ca. 20 Min. bei Raumtemperatur gären lassen.",
+    "In der Zwischenzeit den Backofen mit einer Backplatte in der unteren Ofenhälfte auf 250°C Ober/Unterhitze vorheizen.",
+    "Die Teiglinge nacheinander auf eine grosse flache und runde, bemehlte Platte (Tortenrette) geben und unter ständigem Drehen der Platte schütteln. Dabei sollte sich die Fläche der Teiglinge ungefähr verdoppeln.",
+    "Jeden Teigling auf ein zurecht geschnittenes Backpapier legen.",
+    "Backen",
+    "Die Teiglinge mit Hilfe einer Brotschaufel auf die Backplatte im Ofen abschieben, den Backofen bedampfen.",
+    "Die Temperatur auf 220°C reduzieren und die Brote für etwa 20 Min. backen.",
+    "Danach die Brote bei 50°C im Ofen über Nacht gut trocknen lassen."
+   ],
+   "cover": "",
+   "pages": [],
+   "added": "2026-11-18"
   }
  ],
  "overrides": {
