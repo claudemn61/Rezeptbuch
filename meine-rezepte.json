@@ -212,6 +212,37 @@
    ],
    "cover": "https://img.chefkoch-cdn.de/ck.de/rezepte/176/176553/1174519-420x280-fix-haehnchengeschnetzeltes-mit-orangen-estragon-sauce.jpg",
    "pages": []
+  },
+  "pouletbrust-im-teig-mediterran-gefullt": {
+   "n": "Pouletbrust im Teig mediterran gefüllt",
+   "port": 4,
+   "tags": [],
+   "ing": [
+    "Füllung:",
+    "30 g Kapern, grob gehackt",
+    "50 g getrocknete, in Öl eingelegte Tomaten, fein geschnitten",
+    "30 g schwarze Oliven, entsteint, grob gehackt",
+    "2 EL geschälte Mandeln, fein gehackt",
+    "200 g Frischkäse nature",
+    "1 Prise Zucker",
+    "Salz, Pfeffer",
+    "Poulet:",
+    "4 Pouletbrüste, je ca. 150 g",
+    "Salz",
+    "2 EL Rapsöl",
+    "1 eckig ausgewallter Blätterteig",
+    "1 Ei, verquirlt"
+   ],
+   "steps": [
+    "1. Füllung: Kapern bis und mit Frischkäse mischen, würzen, beiseitestellen.",
+    "2. Poulet: Pouletbrüste salzen, in einer beschichteten Bratpfanne im heissen Öl beidseitig je 1 Minute anbraten, herausnehmen, beiseitestellen.",
+    "3. Blätterteig entrollen, längs und quer halbieren. Teig etwas dünner auswallen. Mit einem Teigrad/Messer an einer Längsseite je 1 Streifen von 1 cm Breite abschneiden, kühl stellen. Teigstücke mit der Füllung bestreichen, dabei rundum einen Rand von 1 cm frei lassen, diesen mit Ei bestreichen. Poulet mittig auf der Füllung platzieren. Teigecken übers Kreuz einschlagen, gut andrücken. Päckli mit dem Verschluss nach unten auf das vorbereitete Blech legen, mit Teigstreifen verzieren. Mit Ei bestreichen und mit einer Gabel einstechen.",
+    "4. Backen: Im unteren Teil des auf 220°C (Ober-/Unterhitze) vorgeheizten Ofens 25-30 Minuten."
+   ],
+   "cover": "G:N68V9BuvNP0WKW7DnAaUHMk1NHlDSrdm2iyvLak5Ou8oEqVrMIwK-ZByI28CnVIgOSVedttX8g6TIaBulAVWmzxL0R76ZCrTQv4S",
+   "pages": [
+    "G:P6cIE2IhvGL36IqV8-vmIqvzjYqW56Yq5YH0B_yyUfCOba5EQ8VlrHUApRPglAfklBbeS-Uy8ANl2k4VrJTI8VIgxaE6egCbd0c"
+   ]
   }
  },
  "deleted": []
