@@ -323,14 +323,6 @@
    "parent": null,
    "show": true,
    "photo": "weise-sangria"
-  },
-  {
-   "id": "cmwmoasbmtxe",
-   "name": "Test",
-   "icon": "📁",
-   "color": "#a0527c",
-   "parent": "Sauerteig",
-   "show": true
   }
  ]
 }
