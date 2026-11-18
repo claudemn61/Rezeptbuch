@@ -33,46 +33,6 @@
    "cover": "img/u/pierogi-1.jpg",
    "pages": [],
    "added": "2026-11-17"
-  },
-  {
-   "id": "wirsing-hackfleisch-auflauf-mit-speck",
-   "n": "Wirsing-Hackfleisch-Auflauf mit Speck",
-   "folder": "Fleisch",
-   "src": "",
-   "tags": [
-    "Auflauf",
-    "Hackfleisch"
-   ],
-   "ing": [
-    "400 g Gehacktes",
-    "3 Schalotten",
-    "1 kl. Kopf Wirsing",
-    "1 Pck. Kräuterschmelzkäse",
-    "500 g Kartoffeln",
-    "Butter",
-    "Milch",
-    "Salz und Pfeffer",
-    "Paprikapulver",
-    "500 ml Gemüsebrühe",
-    "4 Scheiben Bacon (dünne Scheiben)",
-    "Butterschmalz oder Öl"
-   ],
-   "steps": [
-    "Das Gehackte in Butterschmalz oder Öl anbraten und mit Salz, Pfeffer und Paprikapulver würzen, dann herausnehmen.",
-    "Die klein geschnittenen Schalotten im Bratfett anbraten. Den gewaschenen, klein geschnittenen Wirsing dazugeben und ebenfalls anbraten. Mit Salz und Pfeffer würzen und mit Gemüsebrühe ablöschen. Ein paar Minuten köcheln lassen, dann den Kräuterschmelzkäse dazugeben, so dass das Gemüse schön cremig wird (wer mag, kann auch noch etwas Sahne hinzugeben).",
-    "Die Kartoffeln als Salzkartoffeln kochen und mit warmer Milch und Butter daraus ein Püree zubereiten.",
-    "In eine ofenfeste Form zunächst das Hack schichten, dann Gemüse, dann Püree, mehrmals wiederholen und mit Gemüse abschliessen.",
-    "Im heissen Backofen ca. 15 Minuten bei 220 °C Ober-/Unterhitze backen, dann die Speckscheiben darauf legen und nochmals für ca. 5 Minuten in den Ofen geben, bis der Speck leicht knusprig geworden ist.",
-    "Dazu schmeckt ein kühles Helles."
-   ],
-   "cover": "img/u/wirsing-hackfleisch-auflauf-mit-speck-mwl76u7j-1.jpg",
-   "pages": [
-    "img/u/wirsing-hackfleisch-auflauf-mit-speck-2.jpg",
-    "img/u/wirsing-hackfleisch-auflauf-mit-speck-3.jpg",
-    "img/u/wirsing-hackfleisch-auflauf-mit-speck-4.jpg"
-   ],
-   "added": "2026-11-17",
-   "port": 2
   }
  ],
  "overrides": {
