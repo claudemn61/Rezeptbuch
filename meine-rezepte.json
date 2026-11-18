@@ -33,6 +33,50 @@
    "cover": "img/u/pierogi-1.jpg",
    "pages": [],
    "added": "2026-11-17"
+  },
+  {
+   "id": "knuspriges-sauerteig-knackebrot-aus-dinkelmehl",
+   "n": "Knuspriges Sauerteig Knäckebrot aus Dinkelmehl",
+   "folder": "Sauerteig",
+   "src": "",
+   "tags": [
+    "Sauerteig",
+    "Knäckebrot",
+    "Snacks"
+   ],
+   "port": 16,
+   "ing": [
+    "80 g Saaten (zum Beispiel Leinsamen, Sesam und Sonnenblumenkerne)",
+    "160 g Wasser (heiss)",
+    "160 g altes Anstellgut",
+    "60 g Olivenöl",
+    "200-250 g Dinkelmehl 630",
+    "1/2 TL Salz",
+    "Toppings nach Wahl (zum Beispiel Sesam, Mohn, Sonnenblumenkerne, Kürbiskerne, grobes Salz und geriebener Käse)"
+   ],
+   "steps": [
+    "Brühstück ansetzen",
+    "Die Saatenmischung in eine Schüssel geben und mit kochendem Wasser übergiessen. Gut umrühren und vollständig abkühlen lassen. Das kann 1–2 Stunden dauern.",
+    "Ofen vorheizen",
+    "Den Backofen auf 180°C Umluft vorheizen. Ein Backblech mit Backpapier auslegen.",
+    "Teig zubereiten",
+    "Das ausgekühlte Brühstück mit allen weiteren Zutaten in eine Schüssel geben und zu einem weichen Teig vermengen. Der Teig sollte sich leicht formen lassen, aber nicht an feuchten Händen kleben.",
+    "Hinweis zur Konsistenz: Je nach Saatenmischung kann der Teig unterschiedlich fest sein. Leinsamen saugen viel Wasser, also wird der Teig fester. Sonnenblumenkerne nehmen weniger Flüssigkeit auf, deshalb müsst ihr eventuell etwas Mehl ergänzen.",
+    "Teig auf dem Blech verteilen",
+    "Mit leicht angefeuchteten Händen den Teig gleichmässig und flach auf dem Backpapier ausstreichen, etwa in der Grösse des Backblechs.",
+    "In Portionen teilen",
+    "Mit einer Teigkarte oder einem Messer den Teig in 16 gleich grosse Stücke vorschneiden. So lassen sich die Cracker nach dem Backen leichter brechen.",
+    "Toppings aufstreuen",
+    "Nach Belieben Toppings wie Sesam, Mohn oder Kürbiskerne auf dem Teig verteilen und leicht andrücken.",
+    "Backen",
+    "Das Knäckebrot für ca. 30 Minuten backen, bis die Ränder goldbraun sind und die gesamte Fläche knusprig und trocken wirkt.",
+    "Auskühlen lassen und brechen",
+    "Das Knäckebrot vollständig abkühlen lassen und anschliessend entlang der Schnittlinien in Stücke brechen.",
+    "Teig zu weich: Abhängig davon, welche Saaten ihr in eurem Brühstück verwendet, kann es sein, dass ihr die Menge an Mehl anpassen müsst. Leinsamen saugen mehr Wasser auf, als zum Beispiel Sonnenblumenkerne. Ein Teig mit vielen Leinsamen im Brühstück wird deshalb fester (und braucht weniger zusätzliches Mehl) als ein Teig mit vielen Sonnenblumenkernen."
+   ],
+   "cover": "",
+   "pages": [],
+   "added": "2026-11-18"
   }
  ],
  "overrides": {
