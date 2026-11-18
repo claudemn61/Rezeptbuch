@@ -537,6 +537,8 @@ function openImport() {
       <p class="note tiny">Mehrere Dateien = mehrere Seiten desselben Rezepts, in der richtigen Reihenfolge. Möglich: JPG, PNG, iPhone-Format HEIC und PDF.</p>
       <label>Oder Link zu einem Rezept<input id="i-url" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Link einfügen (auch mit Text davor)"></label>
       <button class="chip on" type="button" id="i-go">🔗 Link importieren</button>
+      <label>Oder Rezepttext einfügen (Copy/Paste)<textarea id="i-text" rows="5" placeholder="Rezept hier einfügen: Titel, Zutaten, Zubereitung"></textarea></label>
+      <button class="chip on" type="button" id="i-textgo">📋 Text importieren</button>
       <p class="note tiny err" id="i-msg">${esc(msg)}</p>
       <div class="acts"><button type="button" class="chip" id="i-cancel">Schliessen</button></div>`);
   };
@@ -651,9 +653,24 @@ function openImport() {
       review(rec, imgs, url);
     } catch (e) { start('⚠ ' + e.message); }
   };
+  const fromText = async txt => {
+    try {
+      busy('Claude liest den Text …');
+      const rec = await askClaude([{ type: 'text', text: recipePrompt() + '\n\nRezepttext:\n' + txt.slice(0, 30000) }]);
+      if (!(rec.ing || []).length && !(rec.steps || []).length) throw new Error('Im Text wurde kein Rezept gefunden');
+      review(rec, [], '');
+    } catch (e) { start('⚠ ' + e.message); }
+  };
   o.addEventListener('click', e => {
     if (e.target === o) { if (!busyOn) o.remove(); return; }
     if (e.target.closest('#i-cancel')) { o.remove(); return; }
+    if (e.target.closest('#i-textgo')) {
+      const t = $('#i-text', o).value.trim();
+      if (t.length < 20) { $('#i-msg', o).textContent = 'Bitte zuerst den Rezepttext einfügen.'; return; }
+      const u = /^\s*(https?:\/\/\S+)\s*$/i.test(t) ? linkFromText(t) : '';
+      if (u) fromLink(u); else fromText(t);
+      return;
+    }
     if (e.target.closest('#i-photo')) { $('#i-file', o).click(); return; }
     if (e.target.closest('#i-go')) {
       const u = linkFromText($('#i-url', o).value);
@@ -1325,7 +1342,7 @@ const HELP = [
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen und mit «Mehrere wählen» Ordner unter einen anderen Ordner schieben. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
-  ['Rezept importieren', 'Mit <b>➕</b>: entweder Foto, Scan oder PDF wählen (Claude liest den Text) oder einen Link einfügen (z. B. von chefkoch.de). Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
+  ['Rezept importieren', 'Mit <b>➕</b>: Foto, Scan oder PDF wählen (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts: hell/dunkel, Grösse und Aussehen der Kacheln, «Neu laden» bei Problemen, GitHub-Token (zum Speichern) und die Import-Angaben.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Zuerst in den Einstellungen <b>Neu laden &amp; Zwischenspeicher leeren</b> tippen. Hilft das nicht, die App ganz schliessen und neu öffnen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', [['Neu laden', 'reload']]]
