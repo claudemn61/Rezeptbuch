@@ -59,7 +59,7 @@
    "name": "Brote, Backen",
    "icon": "🥖",
    "color": "#d98e04",
-   "parent": null,
+   "parent": "cmwjel1i8u3t",
    "show": true
   },
   {
@@ -132,7 +132,7 @@
    "name": "Snacks, Gebäck",
    "icon": "🥨",
    "color": "#d98e04",
-   "parent": null,
+   "parent": "cmwjel1i8u3t",
    "show": true
   },
   {
