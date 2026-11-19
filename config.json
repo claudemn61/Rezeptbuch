@@ -1,6 +1,18 @@
 {
  "v": 1,
- "fav": [],
+ "fav": [
+  "wienerschnitzel-basiswissen",
+  "basilikum-bowle",
+  "moscow-mule",
+  "fregola-sarda-mit-tomaten",
+  "nusslisalat-mit-mozzarella-u-feigen",
+  "kochs-salatsauce",
+  "salat-sauce",
+  "salsa-verde-fur-fondue",
+  "sauerteig-knusperli",
+  "pesto-zopfbrot",
+  "spaghetti-all-amatriciana"
+ ],
  "assign": {
   "gefulltes-thai-omelette": [
    "Asiatisch",
