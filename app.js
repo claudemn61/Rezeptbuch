@@ -1066,7 +1066,7 @@ function renderFilters() {
     `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}</button>`).join('');
 }
 
-const rviewBtn = () => `<button type="button" class="chip vbtn" id="rview" aria-label="${state.rview === 'list' ? 'Als Symbole anzeigen' : 'Als Liste anzeigen'}" title="${state.rview === 'list' ? 'Symbole' : 'Liste'}">${state.rview === 'list' ? '▦' : '☰'}</button>`;
+const rviewBtn = () => `<button type="button" class="chip vbtn ${state.rview === 'list' ? 'sym' : 'lst'}" id="rview" aria-label="${state.rview === 'list' ? 'Als Symbole anzeigen' : 'Als Liste anzeigen'}">${state.rview === 'list' ? 'Symbole' : 'Liste'}</button>`;
 function renderList() {
   state.rview = store.get('rb_rview', 'grid');
   const t = tokens(state.q);

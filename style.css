@@ -351,3 +351,10 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 #import svg{display:block}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) #import{color:#6fc07d;border-color:#3d5a42}}
 :root[data-theme=dark] #import{color:#6fc07d;border-color:#3d5a42}
+
+.vbtn{font-size:12px!important;padding:2px 10px!important;font-weight:600}
+.vbtn.lst{color:#3f8a4c;border-color:#b9d6bd}
+.vbtn.sym{color:#2f6db5;border-color:#b3c9e6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .vbtn.lst{color:#6fc07d;border-color:#3d5a42}:root:not([data-theme=light]) .vbtn.sym{color:#7fb0ee;border-color:#3a4e6b}}
+:root[data-theme=dark] .vbtn.lst{color:#6fc07d;border-color:#3d5a42}
+:root[data-theme=dark] .vbtn.sym{color:#7fb0ee;border-color:#3a4e6b}
