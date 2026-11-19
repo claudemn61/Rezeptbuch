@@ -995,6 +995,32 @@ function renderHome() {
   if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); }
 });
 
+/* Favoriten bearbeiten: Reihenfolge per Ziehen, Rezept bearbeiten, entfernen */
+view.addEventListener('click', e => {
+  const ed = e.target.closest('[data-fedit]'), rm = e.target.closest('[data-frm]');
+  if (ed && byId[ed.dataset.fedit]) { openEditSheet(byId[ed.dataset.fedit]); return; }
+  if (rm) { state.fav.delete(rm.dataset.frm); persist(); refresh(); }
+});
+let fdrag = null;
+view.addEventListener('pointerdown', e => {
+  const h = e.target.closest('.fh'); if (!h) return;
+  const row = h.closest('.frow'); fdrag = { row }; row.classList.add('dragging');
+  try { h.setPointerCapture(e.pointerId); } catch {}
+  e.preventDefault();
+});
+window.addEventListener('pointermove', e => {
+  if (!fdrag) return;
+  const el = document.elementFromPoint(e.clientX, e.clientY), over = el && el.closest && el.closest('.frow');
+  if (over && over !== fdrag.row) { const b = over.getBoundingClientRect(); over.parentNode.insertBefore(fdrag.row, e.clientY > b.top + b.height / 2 ? over.nextSibling : over); }
+});
+const endFav = () => {
+  if (!fdrag) return;
+  fdrag.row.classList.remove('dragging');
+  const ids = $$('.frow', view).map(r => r.dataset.id); fdrag = null;
+  state.fav = new Set([...ids, ...[...state.fav].filter(x => !ids.includes(x))]); persist();
+};
+window.addEventListener('pointerup', endFav); window.addEventListener('pointercancel', endFav);
+
 /* Bearbeiten: Sortieren per Ziehen */
 let drag = null;
 view.addEventListener('pointerdown', e => {
@@ -1154,6 +1180,7 @@ function renderList() {
   state.rview = store.get('rb_rview', 'grid');
   const t = tokens(state.q);
   const res = search(state.q);
+  if (!state.q && state.filter === 'fav') { const ord = [...state.fav]; res.sort((a, b) => ord.indexOf(a.r.id) - ord.indexOf(b.r.id)); }
   state.nav = res.map(x => x.r.id);
   const inFolder = !state.q && FB[state.filter];
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
@@ -1170,6 +1197,10 @@ function renderList() {
   }
   const hint = state.q && state.filter !== 'text'
     ? `<p class="hint">Suche in Titel, Zutaten und Zubereitung. Reine Foto-Rezepte werden nur über den Titel gefunden.</p>` : '';
+  if (state.edit && !state.q && state.filter === 'fav') {
+    view.innerHTML = `<p class="hint2 fhint">Am ⠿ ziehen = Reihenfolge ändern · ✏️ = Rezept bearbeiten · ✕ = aus Favoriten entfernen</p><div class="rlist" id="frlist">${res.map(({ r }) => `<div class="rrow frow" data-id="${esc(r.id)}"><span class="fh" aria-label="Verschieben">⠿</span><span class="rph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 160))}" alt="">` : ''}</span><span class="rt"><b>${esc(r.n)}</b></span><button type="button" class="chip fb" data-fedit="${esc(r.id)}" aria-label="Rezept bearbeiten">✏️</button><button type="button" class="chip fb" data-frm="${esc(r.id)}" aria-label="Aus Favoriten entfernen">✕</button></div>`).join('')}</div>`;
+    return;
+  }
   if (state.rview === 'list') {
     view.innerHTML = head + hint + '<div class="rlist">' + res.map(({ r }) => `<a class="rrow" href="#/r/${r.id}"><span class="rph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 160))}" alt="">` : ''}</span><span class="rt"><b>${highlight(r.n, t)}</b><small>${foldersOf(r).map(x => esc(folderName(x))).join(' · ')}${r.hasText ? '' : ' · Foto'}${state.fav.has(r.id) ? ' · ★' : ''}</small></span></a>`).join('') + '</div>';
     return;
