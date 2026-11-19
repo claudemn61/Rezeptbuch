@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.1';
+const APP_VERSION = '1.9.2';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -194,6 +194,7 @@ const BUILTIN = new Set(folders);
 const defColor = id => COLORS[Math.max(0, folders.indexOf(id)) % COLORS.length];
 const defFolder = id => ({ id, name: id, icon: ICONS[id] || '🍽️', color: defColor(id), parent: null, show: true });
 
+function devRsize() { const v = store.get('rb_rsize', null); return ['s', 'm', 'l'].includes(v) ? v : 'm'; }
 /* Darstellung (Grösse, Fotos/Icons) gilt nur für dieses Gerät und wird nicht über GitHub abgeglichen */
 function devSize(c) {
   const v = store.get('rb_size', null); if (['s', 'm', 'l'].includes(v)) return v;
@@ -205,7 +206,7 @@ function devPhotos(c) {
 }
 function normalize(c) {
   c = c || {};
-  const out = { v: 1, size: devSize(c), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
+  const out = { v: 1, size: devSize(c), rsize: devRsize(), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
   Object.entries(store.get('rb_layouts', {}) || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
   const seen = new Set();
   (c.folders || []).forEach(f => {
@@ -281,7 +282,7 @@ async function flush() {
   sync.saving = true;
   try {
     for (let i = 0; i < 3; i++) {
-      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify((({ size, photos, layouts, ...rest }) => rest)(cfg), null, 1) + '\n'), branch: 'main' };
+      const body = { message: 'App: Ordner/Einstellungen aktualisiert', content: b64enc(JSON.stringify((({ size, rsize, photos, layouts, ...rest }) => rest)(cfg), null, 1) + '\n'), branch: 'main' };
       if (sync.sha) body.sha = sync.sha;
       const r = await fetch(API, { method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify(body) });
       if (r.ok) { const j = await r.json(); sync.sha = j.content.sha; sync.dirty = false; localStorage.removeItem('rb_pending'); store.set('rb_cfgcache', cfg); setSync('✓ Gespeichert', 'ok'); break; }
@@ -813,7 +814,9 @@ function folderPhoto(id) {
 }
 function applySize() {
   $$('#photoseg [data-photos]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.photos === '1') === !!cfg.photos));
-  document.documentElement.dataset.size = cfg.size;
+  document.documentElement.dataset.size = cfg.size; document.documentElement.dataset.rsize = cfg.rsize || 'm';
+  $$('#rsizeseg [data-rsize]').forEach(b => b.setAttribute('aria-pressed', b.dataset.rsize === (cfg.rsize || 'm')));
+  updGrid();
   $$('#sizeseg [data-size]').forEach(b => b.setAttribute('aria-pressed', b.dataset.size === cfg.size));
 }
 
@@ -869,9 +872,9 @@ function tilesBlock(parent) {
 function openGrid(parent) {
   const n = gridCount(parent), opts = layoutsFor(n);
   if (!opts.length) { alert('Für ' + n + (n === 1 ? ' Ordner gibt es kein Raster.' : ' Ordner gibt es kein Raster.')); return; }
-  const apply = id => { cfg.layouts[gridKey(parent)] = { n, id }; store.set('rb_layouts', cfg.layouts); state.edit = false; refresh(); window.scrollTo(0, 0); };
+  const apply = id => { cfg.layouts[gridKey(parent)] = { n, id }; store.set('rb_layouts', cfg.layouts); state.edit = false; refresh(); updGrid(); };
   if (opts.length === 1) { apply(opts[0].id); return; }
-  const o = document.createElement('div'); o.className = 'sheet-bg';
+  const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '120';
   const prev = l => `<span class="gprev" style="grid-template-columns:repeat(${l.cols},1fr);grid-auto-rows:${Math.round(44 / Math.max(l.cols, l.rows) * (l.cols > 6 ? 1.6 : 1))}px">${l.cells.slice(0, n).map(([x, y, w, h]) => `<i style="grid-column:${x + 1} / span ${w};grid-row:${y + 1} / span ${h}"></i>`).join('')}</span>`;
   o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Raster wählen"><h3>Raster für ${n} Kacheln</h3><p class="note tiny">Welche Anordnung soll es sein? Die erste Kachel ist jeweils die grosse, und du kannst die Reihenfolge danach durch Ziehen ändern.</p>
     <div class="gopts">${opts.map(l => `<button type="button" class="gopt" data-g="${l.id}">${prev(l)}<span>${esc(l.name)}</span></button>`).join('')}</div>
@@ -882,11 +885,12 @@ function openGrid(parent) {
 const curParent = () => (!state.q && FB[state.filter]) ? state.filter : null;
 function barHtml() {
   return `<div class="hbar">${state.edit ? '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>' : '<span></span>'}
-    ${state.edit && !curParent() ? `<span class="hbtns">${cfg.layouts[gridKey(curParent())] ? '<button class="chip ib" type="button" id="hgridoff" aria-label="Raster aus" title="Raster aus">⊘</button>' : ''}<button class="chip ib${cfg.layouts[gridKey(curParent())] ? ' on' : ''}" type="button" id="hgrid" aria-label="Raster ein: Vorschläge" title="Raster ein: Vorschläge">▦</button></span>` : ''}
+    
     </div>
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
 function renderHome() {
+  state.nav = null;
   countEl.textContent = R.length;
   clearEl.hidden = true;
   const rec = recent().slice(0, 6);
@@ -1065,6 +1069,7 @@ function renderFilters() {
 function renderList() {
   const t = tokens(state.q);
   const res = search(state.q);
+  state.nav = res.map(x => x.r.id);
   const inFolder = !state.q && FB[state.filter];
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
   const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
@@ -1192,6 +1197,28 @@ function route() {
   }
 }
 window.addEventListener('hashchange', route);
+/* Wischen im Rezept: zum vorherigen/nächsten Rezept der Liste */
+let sw = null;
+function neighbor(dir) {
+  const cur = decodeURIComponent(location.hash.slice(4));
+  let list = state.nav && state.nav.includes(cur) ? state.nav : null;
+  if (!list) list = R.slice().sort((a, b) => a.n.localeCompare(b.n, 'de')).map(r => r.id);
+  const i = list.indexOf(cur), nx = list[i + dir];
+  if (i < 0 || !nx) return;
+  location.replace('#/r/' + nx); window.scrollTo(0, 0);
+}
+document.addEventListener('touchstart', e => {
+  sw = null;
+  if (!/^#\/r\//.test(location.hash) || e.touches.length !== 1 || (e.target.closest && e.target.closest('input,textarea,select,.sheet-bg,.fullpage,#lightbox'))) return;
+  const lb = $('#lightbox'); if (lb && !lb.hidden) return;
+  sw = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+}, { passive: true });
+document.addEventListener('touchend', e => {
+  if (!sw) return;
+  const t = e.changedTouches[0], dx = t.clientX - sw.x, dy = t.clientY - sw.y, dt = Date.now() - sw.t; sw = null;
+  if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.8 || dt > 700) return;
+  neighbor(dx < 0 ? 1 : -1);
+}, { passive: true });
 window.addEventListener('scroll', () => { if (!location.hash.startsWith('#/r/')) state.scroll = window.scrollY; }, { passive: true });
 
 /* ---------- Ereignisse ---------- */
@@ -1243,8 +1270,6 @@ view.addEventListener('change', e => {
 view.addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); return; }
-  if (e.target.closest('#hgrid')) { openGrid(curParent()); return; }
-  if (e.target.closest('#hgridoff')) { delete cfg.layouts[gridKey(curParent())]; store.set('rb_layouts', cfg.layouts); refresh(); return; }
   if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
   if (e.target.closest('[data-up]')) {
     const par = (FB[state.filter] || {}).parent;
@@ -1305,10 +1330,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden
 /* ---------- Hilfe ---------- */
 const HELP = [
   ['Die Startseite', 'Oben stehen <b>Home</b> (Ordnerkacheln), <b>ABC</b> (alle Rezepte nach Anfangsbuchstaben) und <b>Favoriten</b> (Rezepte mit Stern). Das Suchfeld durchsucht Titel, Zutaten und Zubereitung.', [['Zu Home', 'home'], ['ABC öffnen', 'abc'], ['Favoriten öffnen', 'fav']]],
-  ['Ein Rezept ansehen', 'Rezept antippen. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
+  ['Ein Rezept ansehen', 'Rezept antippen. <b>Nach links oder rechts wischen</b> wechselt zum nächsten bzw. vorherigen Rezept der Liste. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
-  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und auf Home mit <b>▦</b> ein Raster einschalten (<b>⊘</b> schaltet es aus). Unterordner und Rezepte richten sich nach der Grösse in den Einstellungen. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
+  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und «Neu laden» bei Problemen. Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
@@ -1347,6 +1372,10 @@ const onSet = async e => {
   if (e.target.closest('#tokclose')) { tokensEl.hidden = true; lockPage(); return; }
   if (e.target.closest('#opentok')) { tokensEl.hidden = false; lockPage(); return; }
   const sz = e.target.closest('#sizeseg [data-size]');
+  const rz = e.target.closest('#rsizeseg [data-rsize]');
+  if (rz) { cfg.rsize = rz.dataset.rsize; store.set('rb_rsize', cfg.rsize); applySize(); return; }
+  const gb = e.target.closest('#gridseg [data-grid]');
+  if (gb) { if (gb.dataset.grid === 'off') { delete cfg.layouts[gridKey(null)]; store.set('rb_layouts', cfg.layouts); refresh(); updGrid(); } else openGrid(null); return; }
   if (sz) { cfg.size = sz.dataset.size; store.set('rb_size', cfg.size); applySize(); return; }
   const ph = e.target.closest('#photoseg [data-photos]');
   if (ph) { cfg.photos = ph.dataset.photos === '1'; store.set('rb_photos', cfg.photos); applySize(); refresh(); return; }
@@ -1395,6 +1424,11 @@ function updImp() {
   if (a) a.textContent = lsGet('rb_akey') ? 'Claude-Schlüssel ist auf diesem Gerät hinterlegt.' : 'Kein Claude-Schlüssel hinterlegt.';
   updHint();
   if (w) w.textContent = lsGet('rb_worker') ? 'Link-Dienst: ' + lsGet('rb_worker').replace(/^https?:\/\//, '') : 'Kein Link-Dienst hinterlegt.';
+}
+function updGrid() {
+  const on = !!activeLayout(null), n = gridCount(null);
+  $$('#gridseg [data-grid]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.grid === 'on') === on));
+  const el = $('#gridnote'); if (el) el.textContent = on ? 'Raster ist aktiv (' + n + ' Kacheln auf Home). «Ein» tippen für eine andere Anordnung.' : 'Aus. «Ein» tippen: die App schlägt passende Anordnungen für die ' + n + ' Kacheln auf Home vor.';
 }
 function updHint() { const el = $('#tokhint'); if (el) el.textContent = 'GitHub-Token ' + (getToken() ? '✓' : '✗') + ' · Claude-Schlüssel ' + (lsGet('rb_akey') ? '✓' : '✗') + ' · Link-Dienst ' + (lsGet('rb_worker') ? '✓' : '✗'); }
 function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; updHint(); }
