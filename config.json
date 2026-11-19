@@ -55,9 +55,9 @@
    "show": true
   },
   {
-   "id": "cmwjf4tqdh9t",
-   "name": "Brote, Backen",
-   "icon": "🥖",
+   "id": "cmwjf6buvj4j",
+   "name": "Snacks, Gebäck",
+   "icon": "🥨",
    "color": "#d98e04",
    "parent": null,
    "show": true
@@ -128,9 +128,9 @@
    "show": true
   },
   {
-   "id": "cmwjf6buvj4j",
-   "name": "Snacks, Gebäck",
-   "icon": "🥨",
+   "id": "cmwjf4tqdh9t",
+   "name": "Brote, Backen",
+   "icon": "🥖",
    "color": "#d98e04",
    "parent": null,
    "show": true
