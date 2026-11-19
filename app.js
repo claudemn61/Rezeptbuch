@@ -1342,9 +1342,9 @@ const HELP = [
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
-  ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und «Neu laden» bei Problemen. Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
+  ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
-  ['Wenn etwas nicht stimmt', 'Zuerst in den Einstellungen <b>Neu laden &amp; Zwischenspeicher leeren</b> tippen. Hilft das nicht, die App ganz schliessen und neu öffnen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', [['Neu laden', 'reload']]]
+  ['Wenn etwas nicht stimmt', 'Die App ganz schliessen (auf dem iPhone im App-Wechsler nach oben wischen) und neu öffnen. Hilft das nicht, die App vom Home-Bildschirm löschen und neu hinzufügen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', []]
 ];
 function openHelp() {
   const o = document.createElement('div'); o.className = 'sheet-bg';
@@ -1361,7 +1361,6 @@ function openHelp() {
       if (['home', 'abc', 'fav'].includes(a)) { const f = $(`#filters [data-f=${a}]`); if (f) f.click(); }
       else if (a === 'edit') { if (state.edit !== true) $('#hedit').click(); }
       else if (a === 'import') openImport();
-      else if (a === 'reload') { openSet(); $('#update').scrollIntoView({ block: 'center' }); $('#update').classList.add('flash'); }
       else if (a === 'settings') openSet();
       else { openTok(); const el = $('#' + a); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 2500); } }
     }, 50);
@@ -1412,17 +1411,6 @@ const onSet = async e => {
   }
   const t = e.target.closest('[data-theme]');
   if (t) { state.theme = t.dataset.theme; store.set('rb_theme', state.theme); applyTheme(); return; }
-  if (e.target.closest('#update')) {
-    e.target.textContent = 'Aktualisiere …';
-    try {
-      (await navigator.serviceWorker.getRegistrations()).forEach(r => r.unregister());
-      (await caches.keys()).forEach(k => caches.delete(k));
-    } catch {}
-    // Zwischenspeicher des Browsers für die App-Dateien erzwungen erneuern
-    try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js', 'sw.js', 'manifest.webmanifest'].map(f => fetch(f + '?r=' + Date.now(), { cache: 'reload' }).catch(() => {}))); } catch {}
-    try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js'].map(f => fetch(f, { cache: 'reload' }).catch(() => {}))); } catch {}
-    setTimeout(() => { location.replace(location.href.split('#')[0].split('?')[0] + '?r=' + Date.now() + location.hash); }, 300);
-  }
 };
 settingsEl.addEventListener('click', onSet); tokensEl.addEventListener('click', onSet);
 applyTheme();
