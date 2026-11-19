@@ -393,6 +393,27 @@
    ],
    "cover": "G:B9wWjRNbE9bBzBML4yyukY_fc9xnFAfeK4C32u-ejKWlEdNDCO3gOQu4wM8i2t5R5--GoqulRS8w45Zpi_4Nryg_Pzm-KhpaJR4",
    "pages": []
+  },
+  "moscow-mule": {
+   "n": "Moscow Mule",
+   "port": 4,
+   "tags": [],
+   "ing": [
+    "6 cl Wodka",
+    "12 cl Ginger Beer",
+    "Saft von 1/2 Limette",
+    "3 Gurkenschnitze (optional)",
+    "Minze (optional, empfohlen)",
+    "Eiswürfel"
+   ],
+   "steps": [
+    "Limettensaft, Wodka und Ginger Beer mit den Eiswürfeln ins Glas geben. Umrühren, Gurkenschnitze oder Minze als Garnitur ins Glas packen. Trinken.",
+    "Unverändert: Limettensaft, Wodka und Ginger Beer mit den Eiswürfeln ins Glas geben. Umrühren, Gurkenschnitze oder Minze als Garnitur ins Glas packen. Trinken."
+   ],
+   "cover": "img/u/moscow-mule-mwo286bs-1.jpg",
+   "pages": [
+    "img/u/moscow-mule-mwo286bs-2.jpg"
+   ]
   }
  },
  "deleted": [
