@@ -321,9 +321,17 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .home.editing .tile{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 .hbtns .ib.on{background:var(--crust);color:#fff;border-color:var(--crust)}
 
-/* Rezeptkarten folgen der Grösse klein/mittel/gross */
-:root[data-rsize=s] .grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
-:root[data-rsize=l] .grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-:root[data-rsize=s] .card h3{font-size:14px}
-:root[data-rsize=l] .card h3{font-size:19px}
-@media (min-width:640px){:root[data-rsize=s] .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}:root[data-rsize=l] .grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}}
+/* Spalten pro Zeile (iPhone und iPad gleich): klein = 4, mittel = 3, gross = 2 */
+:root{--cols:3;--rcols:3;--ic:50px;--icf:28px}
+:root[data-size=s]{--cols:4;--ic:38px;--icf:22px}
+:root[data-size=l]{--cols:2;--ic:72px;--icf:40px}
+:root[data-rsize=s]{--rcols:4}
+:root[data-rsize=l]{--rcols:2}
+.tiles:not(.lay){grid-template-columns:repeat(var(--cols),minmax(0,1fr))}
+.grid{grid-template-columns:repeat(var(--rcols),minmax(0,1fr))}
+@media (min-width:640px){.grid{grid-template-columns:repeat(var(--rcols),minmax(0,1fr))}}
+:root[data-rsize=s] .card h3{font-size:12px}
+:root[data-rsize=s] .card .sn,:root[data-rsize=s] .card .tags{display:none}
+:root[data-rsize=s] .card .body{padding:6px 7px 8px}
+:root[data-rsize=l] .card h3{font-size:18px}
+.card h3{overflow-wrap:anywhere;hyphens:auto;min-width:0}
