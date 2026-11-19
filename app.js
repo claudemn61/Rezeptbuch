@@ -1075,7 +1075,7 @@ function renderList() {
   const inFolder = !state.q && FB[state.filter];
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
   const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
-  const head = (inFolder ? '' : `<div class="vrow">${rviewBtn()}</div>`) + (abcHead || (inFolder ? `<nav class="crumbs">${rviewBtn()}${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : ''));
+  const head = (inFolder || !res.length ? '' : `<div class="vrow">${rviewBtn()}</div>`) + (abcHead || (inFolder ? `<nav class="crumbs">${res.length ? rviewBtn() : ''}${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : ''));
   countEl.textContent = res.length === R.length ? R.length : res.length + '/' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
