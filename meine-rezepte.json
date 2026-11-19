@@ -439,8 +439,33 @@
    "n": "Omas Quarkkuchen",
    "port": 4,
    "tags": [],
-   "ing": [],
-   "steps": [],
+   "ing": [
+    "Teig",
+    "250 g Mehl",
+    "125 g Zucker",
+    "125 g Butter",
+    "1 Eigelb",
+    "1 Pk. Vanillezucker",
+    "1 Zitrone, Saft",
+    "Füllung",
+    "250 g Zucker",
+    "125 g Butter",
+    "4-5 Eigelb",
+    "1 Pk. Vanillezucker",
+    "1 Zitrone, Saft",
+    "1 EL Gries",
+    "750 g Magerquark",
+    "alle Eiweisse"
+   ],
+   "steps": [
+    "Alles miteinander verrühren",
+    "1/2 des Teiges auf dem Springformboden verstreichen",
+    "Alles miteinander verrühren",
+    "Alle Eiweisse schlagen, unter die Masse ziehen und auf dem Teigboden geben",
+    "Streusel darüber verteilen",
+    "Backen",
+    "180 Grad, unterste Schiene 60-65 Minuten"
+   ],
    "cover": "G:mCQJ4_gzYVGvKKbr1MZBURuv1R3rCbCxBVodO_ahPSushfS78NaxE-IYtZnlm92NjHyKhk_wVghINQoyepDV5Uz1u2PvD0TtRiE",
    "pages": [
     "img/u/omas-quarkkuchen-mwo2qv94-2.jpg"
