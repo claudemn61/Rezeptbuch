@@ -346,3 +346,8 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .rt{min-width:0;display:flex;flex-direction:column;gap:2px}
 .rt b{font-size:16px;overflow-wrap:anywhere}
 .rt small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+#import{color:#3f8a4c;border-color:#b9d6bd}
+#import svg{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) #import{color:#6fc07d;border-color:#3d5a42}}
+:root[data-theme=dark] #import{color:#6fc07d;border-color:#3d5a42}
