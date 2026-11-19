@@ -317,3 +317,6 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .gear svg{width:28px;height:28px}
 .searchrow .count{flex:none;margin:0;font-size:14px;font-weight:600;color:var(--muted);white-space:nowrap;min-width:3.4em;text-align:right}
 .hbtns .ib{width:42px;height:38px;padding:0;font-size:19px;line-height:1;display:grid;place-items:center;border-radius:12px}
+
+.home.editing .tile{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.hbtns .ib.on{background:var(--crust);color:#fff;border-color:var(--crust)}
