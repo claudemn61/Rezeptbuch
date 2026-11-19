@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.4';
+const APP_VERSION = '1.9.5';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -544,6 +544,22 @@ async function extractFromFiles(files, status) {
   content.push({ type: 'text', text: recipePrompt() });
   return { rec: await askClaude(content), images };
 }
+/* Bereits gespeicherte Fotos (Pfad/Google-Bild) für Claude laden */
+async function loadImageData(ref) {
+  const url = imgUrl(ref, 1800);
+  try { const r = await fetch(url, { cache: 'no-store' }); if (r.ok) { const b = await r.blob(); if (/^image\//.test(b.type)) return await shrink(b, 1600, 0.82); } } catch {}
+  const d = await fetchImage(url.startsWith('http') ? url : new URL(url, location.href).href);
+  if (!d) throw new Error('Ein Foto lässt sich nicht laden (Internet oder Link-Dienst prüfen)');
+  return d;
+}
+async function extractFromDataUrls(urls, status) {
+  status('Claude liest die Fotos …');
+  const content = urls.map(u => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } }));
+  content.push({ type: 'text', text: recipePrompt() });
+  const rec = await askClaude(content);
+  if (!(rec.ing || []).length && !(rec.steps || []).length) throw new Error('Auf den Fotos wurde kein Rezepttext gefunden');
+  return rec;
+}
 async function extractFromText(txt, status) {
   const u = /^\s*(https?:\/\/\S+)\s*$/i.test(txt) ? linkFromText(txt) : '';
   let rec;
@@ -750,6 +766,7 @@ function openEditSheet(r) {
         <label class="chk"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip" data-crop="${i}">✂ Ausschnitt</button>
         <button type="button" class="chip" data-del="${i}">Entfernen</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
+      ${items.length ? '<button class="chip big" type="button" id="p-ocr">🔍 Text aus den vorhandenen Fotos lesen</button>' : ''}
       <button class="chip big" type="button" id="p-add">＋ Bilder hinzufügen</button>
       <input id="p-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden>
       <p class="note tiny err" id="p-msg">${esc(msg)}</p>
@@ -815,6 +832,21 @@ function openEditSheet(r) {
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
     if (e.target.id === 'p-imp') { keepText(); readInto(); return; }
+    if (e.target.id === 'p-ocr') {
+      keepText();
+      if ((r.ing.length || r.steps.length) && !confirm('Die vorhandenen Zutaten und Schritte durch den Text aus den Fotos ersetzen?')) return;
+      const msg = $('#p-msg', o); lock(true);
+      try {
+        const urls = []; let k = 0;
+        for (const it of items.slice(0, 8)) { msg.textContent = 'Foto ' + (++k) + ' wird geladen …'; urls.push(it.dataUrl || await loadImageData(it.path)); }
+        const rec = await extractFromDataUrls(urls, t => { msg.textContent = t; });
+        const hadNone = !r.ing.length && !r.steps.length;
+        r = { ...r, ing: (rec.ing || []).map(x => String(x).trim()).filter(Boolean), steps: (rec.steps || []).map(x => String(x).trim()).filter(Boolean) };
+        if (rec.port > 0 && hadNone) r.port = Math.min(99, +rec.port);
+        lock(false); draw('Gelesen. Bitte prüfen (Mengen, Schritte) und speichern.');
+      } catch (err) { lock(false); msg.textContent = '⚠ ' + err.message; }
+      return;
+    }
     const cr = e.target.closest('[data-crop]');
     if (cr) { keepText(); const i = Number(cr.dataset.crop), it = items[i]; const d = await openCrop(it.dataUrl || imgUrl(it.path, 1600)); if (d) items[i] = { dataUrl: d, src: d }; draw(); return; }
     const del = e.target.closest('[data-del]');
