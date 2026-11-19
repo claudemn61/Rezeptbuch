@@ -859,7 +859,7 @@ function tilesBlock(parent) {
   const list = kids(parent).filter(f => state.edit || f.show);
   const allTile = parent ? '' : `<button class="tile all fixed${cfg.photos ? ' hasphoto' : ''}" type="button" data-folder="alle" style="--c:#46604b">${cfg.photos ? `<span class="ic photo" style="background-image:url('${ALLE_FOTO}')"></span>` : '<span class="ic">📖</span>'}<b>Alle Rezepte</b><small>${R.length}</small></button>`;
   if (!list.length && !state.edit && parent) return '';
-  const lay = state.edit ? null : activeLayout(parent);
+  const lay = state.edit || parent ? null : activeLayout(parent); /* Raster nur auf Home */
   let tiles = [allTile, ...list.map(tileHtml)].filter(Boolean);
   if (lay) {
     tiles = tiles.map((h, i) => { const [x, y, w, hh] = lay.cells[i] || [0, 0, 1, 1]; return h.replace('style="--c:', `data-w="${w}" style="grid-column:${x + 1} / span ${w};grid-row:${y + 1} / span ${hh};--c:`); });
@@ -882,7 +882,7 @@ function openGrid(parent) {
 const curParent = () => (!state.q && FB[state.filter]) ? state.filter : null;
 function barHtml() {
   return `<div class="hbar">${state.edit ? '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>' : '<span></span>'}
-    ${state.edit ? `<span class="hbtns">${cfg.layouts[gridKey(curParent())] ? '<button class="chip ib" type="button" id="hgridoff" aria-label="Raster aus" title="Raster aus">⊘</button>' : ''}<button class="chip ib${cfg.layouts[gridKey(curParent())] ? ' on' : ''}" type="button" id="hgrid" aria-label="Raster ein: Vorschläge" title="Raster ein: Vorschläge">▦</button></span>` : ''}
+    ${state.edit && !curParent() ? `<span class="hbtns">${cfg.layouts[gridKey(curParent())] ? '<button class="chip ib" type="button" id="hgridoff" aria-label="Raster aus" title="Raster aus">⊘</button>' : ''}<button class="chip ib${cfg.layouts[gridKey(curParent())] ? ' on' : ''}" type="button" id="hgrid" aria-label="Raster ein: Vorschläge" title="Raster ein: Vorschläge">▦</button></span>` : ''}
     </div>
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
@@ -1308,7 +1308,7 @@ const HELP = [
   ['Ein Rezept ansehen', 'Rezept antippen. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
-  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und mit <b>▦</b> ein Raster einschalten (<b>⊘</b> schaltet es aus). Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
+  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und auf Home mit <b>▦</b> ein Raster einschalten (<b>⊘</b> schaltet es aus). Unterordner und Rezepte richten sich nach der Grösse in den Einstellungen. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und «Neu laden» bei Problemen. Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
