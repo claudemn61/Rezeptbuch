@@ -873,9 +873,10 @@ function tilesBlock(parent) {
 function openRandom() {
   const o = document.createElement('div'); o.className = 'sheet-bg';
   const rows = flat().filter(({ f }) => f.show && countIn(f.id));
+  const last = store.get('rb_rand', []);
   o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Was koche ich heute?"><h3>🎲 Was koche ich heute?</h3>
     <p class="note tiny">Aus welchen Ordnern soll ich ein Rezept vorschlagen? Ein Ordner schliesst seine Unterordner ein. Ohne Auswahl wird aus allen Rezepten gewürfelt.</p>
-    <div class="fpick">${rows.map(({ f, depth }) => `<label class="chk" style="padding-left:${depth * 18}px"><input type="checkbox" value="${esc(f.id)}"> ${esc(f.icon)} ${esc(f.name)} <small>(${countIn(f.id)})</small></label>`).join('')}</div>
+    <div class="fpick">${rows.map(({ f, depth }) => `<label class="chk" style="padding-left:${depth * 18}px"><input type="checkbox" value="${esc(f.id)}"${last.includes(f.id) ? ' checked' : ''}> ${esc(f.icon)} ${esc(f.name)} <small>(${countIn(f.id)})</small></label>`).join('')}</div>
     <p class="note tiny err" id="rd-msg"></p>
     <div class="acts"><button type="button" class="chip" id="rd-cancel">Abbrechen</button><button type="button" class="chip on" id="rd-go">🎲 Würfeln</button></div></div>`;
   document.body.appendChild(o);
@@ -883,6 +884,7 @@ function openRandom() {
     if (e.target === o || e.target.closest('#rd-cancel')) { o.remove(); return; }
     if (!e.target.closest('#rd-go')) return;
     const ids = [...o.querySelectorAll('.fpick input:checked')].map(x => x.value);
+    store.set('rb_rand', ids);
     const set = new Set(); ids.forEach(id => subtree(id).forEach(x => set.add(x)));
     const pool = ids.length ? R.filter(r => foldersOf(r).some(x => set.has(x))) : R;
     if (!pool.length) { $('#rd-msg', o).textContent = 'In dieser Auswahl gibt es keine Rezepte.'; return; }
