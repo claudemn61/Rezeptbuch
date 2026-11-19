@@ -525,6 +525,41 @@ function pageText(html) {
 }
 
 /* Dialog */
+/* Rezept aus Dateien (Foto/PDF) bzw. Text/Link lesen: gemeinsam für Import und «Bearbeiten» */
+async function extractFromFiles(files, status) {
+  const isPdf = f => f.type === 'application/pdf' || /\.pdf$/i.test(f.name || '');
+  const images = [], content = [];
+  status('Dateien werden vorbereitet …');
+  for (const f of files) {
+    if (isPdf(f)) {
+      if (f.size > 20 * 1024 * 1024) throw new Error('PDF «' + f.name + '» ist zu gross (über 20 MB)');
+      const data = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('PDF lässt sich nicht lesen')); fr.readAsDataURL(f); });
+      content.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } });
+    } else {
+      const u = await shrink(f, 1600, 0.82); images.push(u);
+      content.push({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } });
+    }
+  }
+  status('Claude liest das Rezept …');
+  content.push({ type: 'text', text: recipePrompt() });
+  return { rec: await askClaude(content), images };
+}
+async function extractFromText(txt, status) {
+  const u = /^\s*(https?:\/\/\S+)\s*$/i.test(txt) ? linkFromText(txt) : '';
+  let rec;
+  if (u) {
+    status('Seite wird geladen …');
+    const html = await fetchPage(u);
+    rec = recipeFromHtml(html);
+    if (!rec) { status('Claude liest die Seite …'); rec = await askClaude([{ type: 'text', text: recipePrompt() + '\n\nSeitentext:\n' + pageText(html) }]); }
+  } else {
+    status('Claude liest den Text …');
+    rec = await askClaude([{ type: 'text', text: recipePrompt() + '\n\nRezepttext:\n' + txt.slice(0, 30000) }]);
+  }
+  if (!(rec.ing || []).length && !(rec.steps || []).length) throw new Error('Es wurde kein Rezept gefunden');
+  return rec;
+}
+
 function openImport() {
   const o = document.createElement('div'); o.className = 'sheet-bg';
   document.body.appendChild(o);
@@ -632,22 +667,8 @@ function openImport() {
   };
   const fromPhotos = async files => {
     try {
-      busy('Dateien werden vorbereitet …');
-      const isPdf = f => f.type === 'application/pdf' || /\.pdf$/i.test(f.name || '');
-      const images = [], content = [];
-      for (const f of files) {
-        if (isPdf(f)) {
-          if (f.size > 20 * 1024 * 1024) throw new Error('PDF «' + f.name + '» ist zu gross (über 20 MB)');
-          const data = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('PDF lässt sich nicht lesen')); fr.readAsDataURL(f); });
-          content.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } });
-        } else {
-          const u = await shrink(f, 1600, 0.82); images.push(u);
-          content.push({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: u.split(',')[1] } });
-        }
-      }
-      busy('Claude liest das Rezept …');
-      content.push({ type: 'text', text: recipePrompt() });
-      review(await askClaude(content), images, '');
+      const x = await extractFromFiles(files, busy);
+      review(x.rec, x.images, '');
     } catch (e) { start('⚠ ' + e.message); }
   };
   const fromLink = async url => {
@@ -718,6 +739,7 @@ function openEditSheet(r) {
   const hasOv = !!DOC.overrides[r.id];
   const draw = (msg = '') => {
     o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
+      <button class="chip big" type="button" id="p-imp">📥 Aus Text, Foto, PDF oder Link einlesen</button>
       <label>Name<input id="e-n" type="text" value="${esc(r.n)}"></label>
       <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="e-p" type="number" inputmode="numeric" min="1" max="99" value="${r.port || 4}"></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="e-t" type="text" value="${esc((r.tags || []).join(', '))}"></label>
@@ -743,6 +765,43 @@ function openEditSheet(r) {
     if (state.fav.has(r.id)) { state.fav.delete(r.id); ch = true; }
     if (ch) persist();
   };
+  /* Text/Link/Foto/PDF einlesen und in dieses Rezept übernehmen (Prüfen, dann Speichern) */
+  const readInto = () => {
+    const q = document.createElement('div'); q.className = 'sheet-bg'; q.style.zIndex = '90';
+    q.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Einlesen"><h3>In dieses Rezept einlesen</h3>
+      <p class="note tiny">Text oder Link einfügen, oder Foto/PDF wählen. Danach prüfst du das Ergebnis im Bearbeiten-Fenster und speicherst.</p>
+      <label class="grow">Rezepttext oder Link<textarea id="q-text" placeholder="Hier einfügen …"></textarea></label>
+      <button class="chip on" type="button" id="q-textgo">📋 Text / Link einlesen</button>
+      <button class="chip big" type="button" id="q-photo">📷 Foto, Scan oder PDF wählen</button>
+      <input id="q-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif,application/pdf,.pdf" multiple hidden>
+      <div class="seg"><label class="chk"><input type="radio" name="q-mode" value="add" checked> Zutaten und Schritte anfügen</label><label class="chk"><input type="radio" name="q-mode" value="rep"> Ersetzen</label></div>
+      <p class="note tiny err" id="q-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="q-cancel">Abbrechen</button></div></div>`;
+    document.body.appendChild(q);
+    let qb = false;
+    const st = t => { $('#q-msg', q).textContent = t; };
+    const lockQ = on => { qb = on; q.querySelectorAll('button').forEach(b => { b.disabled = on; }); };
+    const apply = (rec, imgs) => {
+      const rep = (q.querySelector('input[name=q-mode]:checked') || {}).value === 'rep';
+      const ing = (rec.ing || []).map(x => String(x).trim()).filter(Boolean), steps = (rec.steps || []).map(x => String(x).trim()).filter(Boolean);
+      r = { ...r, ing: rep ? ing : [...r.ing, ...ing], steps: rep ? steps : [...r.steps, ...steps] };
+      if (rec.port > 0 && (rep || !r.port)) r.port = Math.min(99, +rec.port);
+      imgs.forEach(d => items.push({ dataUrl: d, src: d }));
+      q.remove(); draw(imgs.length ? 'Gelesen. Bitte prüfen und speichern. Die Fotos wurden bei «Bilder» hinzugefügt.' : 'Gelesen. Bitte prüfen und speichern.');
+    };
+    const run = async fn => { lockQ(true); try { const x = await fn(); apply(x.rec, x.images || []); } catch (err) { lockQ(false); st('⚠ ' + err.message); } };
+    q.addEventListener('click', e => {
+      if (qb) return;
+      if (e.target === q || e.target.closest('#q-cancel')) { q.remove(); return; }
+      if (e.target.closest('#q-photo')) { $('#q-file', q).click(); return; }
+      if (e.target.closest('#q-textgo')) {
+        const t = $('#q-text', q).value.trim();
+        if (t.length < 20) { st('Bitte zuerst Text oder einen Link einfügen.'); return; }
+        run(async () => ({ rec: await extractFromText(t, st) }));
+      }
+    });
+    q.addEventListener('change', e => { if (e.target.id === 'q-file' && e.target.files.length) run(() => extractFromFiles([...e.target.files], st)); });
+  };
   draw();
   o.addEventListener('change', async e => {
     if (e.target.name === 'p-cov') { cov = Number(e.target.value); return; }
@@ -755,6 +814,7 @@ function openEditSheet(r) {
     if (e.target === o) { if (!busyOn) o.remove(); return; }
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
+    if (e.target.id === 'p-imp') { keepText(); readInto(); return; }
     const cr = e.target.closest('[data-crop]');
     if (cr) { keepText(); const i = Number(cr.dataset.crop), it = items[i]; const d = await openCrop(it.dataUrl || imgUrl(it.path, 1600)); if (d) items[i] = { dataUrl: d, src: d }; draw(); return; }
     const del = e.target.closest('[data-del]');
