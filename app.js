@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.2';
+const APP_VERSION = '1.9.3';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -1066,14 +1066,16 @@ function renderFilters() {
     `<button class="chip" type="button" data-f="${esc(k)}" aria-pressed="${act === k}">${esc(l)}</button>`).join('');
 }
 
+const rviewBtn = () => `<button type="button" class="chip vbtn" id="rview" aria-label="${state.rview === 'list' ? 'Als Symbole anzeigen' : 'Als Liste anzeigen'}" title="${state.rview === 'list' ? 'Symbole' : 'Liste'}">${state.rview === 'list' ? '▦' : '☰'}</button>`;
 function renderList() {
+  state.rview = store.get('rb_rview', 'grid');
   const t = tokens(state.q);
   const res = search(state.q);
   state.nav = res.map(x => x.r.id);
   const inFolder = !state.q && FB[state.filter];
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
   const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
-  const head = abcHead || (inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '');
+  const head = (inFolder ? '' : `<div class="vrow">${rviewBtn()}</div>`) + (abcHead || (inFolder ? `<nav class="crumbs">${rviewBtn()}${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : ''));
   countEl.textContent = res.length === R.length ? R.length : res.length + '/' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
@@ -1085,6 +1087,10 @@ function renderList() {
   }
   const hint = state.q && state.filter !== 'text'
     ? `<p class="hint">Suche in Titel, Zutaten und Zubereitung. Reine Foto-Rezepte werden nur über den Titel gefunden.</p>` : '';
+  if (state.rview === 'list') {
+    view.innerHTML = head + hint + '<div class="rlist">' + res.map(({ r }) => `<a class="rrow" href="#/r/${r.id}"><span class="rph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 160))}" alt="">` : ''}</span><span class="rt"><b>${highlight(r.n, t)}</b><small>${foldersOf(r).map(x => esc(folderName(x))).join(' · ')}${r.hasText ? '' : ' · Foto'}${state.fav.has(r.id) ? ' · ★' : ''}</small></span></a>`).join('') + '</div>';
+    return;
+  }
   view.innerHTML = head + hint + '<div class="grid">' + res.map(({ r, hit }) => {
     const sn = snippet(r, hit, t);
     return `<a class="card" href="#/r/${r.id}">
@@ -1270,6 +1276,7 @@ view.addEventListener('change', e => {
 view.addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; refresh(); window.scrollTo(0, 0); return; }
+  if (e.target.closest('#rview')) { store.set('rb_rview', (store.get('rb_rview', 'grid') === 'list') ? 'grid' : 'list'); refresh(); return; }
   if (e.target.closest('#hadd')) { openTileEditor(null, ($('#tiles') || {}).dataset ? $('#tiles').dataset.parent || null : null); return; }
   if (e.target.closest('[data-up]')) {
     const par = (FB[state.filter] || {}).parent;
