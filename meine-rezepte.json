@@ -414,6 +414,26 @@
    "pages": [
     "img/u/moscow-mule-mwo286bs-2.jpg"
    ]
+  },
+  "rhabarber-ingwer-fizz": {
+   "n": "Rhabarber-Ingwer-Fizz",
+   "port": 1,
+   "tags": [],
+   "ing": [
+    "25 ml Edinburgh Gin's Rhubarb & Ginger Likör",
+    "100 ml Prosecco",
+    "Garnitur: frische Zitronenschale"
+   ],
+   "steps": [
+    "Der klassische Fizz neu interpretiert mit einem belebenden Ingwer-Kick.",
+    "Den Rhabarber-Ingwer-Likör in einen gekühlten Sektkelch geben. Mit dem Prosecco auffüllen und einer Zitronenspirale garnieren.",
+    "Hinweis: Die Personenzahl ist nicht angegeben (Mengen entsprechen einem Glas)."
+   ],
+   "cover": "img/u/rhabarber-ingwer-fizz-mwo2bww6-1.jpg",
+   "pages": [
+    "G:FF9DVxTmuXjdXajkvqceqTe0iYWq5Q8rhYsZbQF8m0qCUborW1upXk-aWBhPURQA-mABDpNcX0BIRoNTudqsMBHN0Q44iMRLwx8",
+    "G:AKDpMsfOe_Bo1yU7-IWt_aEof4lN6fX7iBT4g9ybborlujUXVJ4fxvVyuD59gkAqKdQH407HmA9pOFflXopBEp40rnTmN_e_cI0"
+   ]
   }
  },
  "deleted": [
