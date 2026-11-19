@@ -21,11 +21,34 @@
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 11a8 8 0 0 1 16 0v1H4zM5 14h14l-1 5a2 2 0 0 1-2 1.6H8A2 2 0 0 1 6 19z" fill="currentColor"/></svg>
       <h1>Rezeptbuch</h1>
       <span class="ver" id="vertag"></span>
-      <span class="count" id="count"></span>
       <button id="gear" class="gear" type="button" aria-label="Einstellungen">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M19.4 13a7.9 7.9 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4L10.7 6a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.9 7.9 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.6 7.6 0 0 0 1.7 1l.3 2.7h4l.3-2.7a7.6 7.6 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" fill="currentColor" transform="translate(-1 0)"/></svg>
       </button>
-      <div id="settings" class="settings" hidden>
+    </div>
+    <div class="searchrow" id="searchrow">
+    <div class="searchbox">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.3 4.3-1.4 1.4-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/></svg>
+      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+             placeholder="Suchen: Name, Zutat …" aria-label="Rezepte durchsuchen">
+      <button id="clear" class="clear" type="button" aria-label="Suche löschen" hidden>×</button>
+    </div>
+    <span class="count" id="count"></span>
+    </div>
+    <div class="filterrow">
+    <div class="filters" id="filters" role="group" aria-label="Filter"></div>
+      <span class="ftools" id="ftools">
+        <button type="button" class="chip tbtn" id="hedit" aria-pressed="false" aria-label="Ordner bearbeiten" title="Ordner bearbeiten">✏️</button>
+        <button type="button" class="chip tbtn" id="import" aria-label="Rezept importieren" title="Rezept importieren">➕</button>
+        <button type="button" class="chip tbtn" id="helpbtn" aria-label="Hilfe" title="Hilfe">?</button>
+      </span>
+    </div>
+  </div>
+</header>
+
+<div id="settings" class="settings fullpage" hidden role="dialog" aria-label="Einstellungen">
+  <div class="fp-head"><h2>Einstellungen</h2><button type="button" class="fp-x" id="setclose" aria-label="Schliessen">×</button></div>
+  <div class="fp-body">
+
         <h4>App</h4>
         <button type="button" id="update" class="chip">Neu laden &amp; Zwischenspeicher leeren</button>
         <p class="note tiny" id="ver"></p>
@@ -46,6 +69,14 @@
           <button type="button" data-photos="0">Icons</button>
           <button type="button" data-photos="1">Fotos</button>
         </div>
+        <h4>Zugang</h4>
+        <button type="button" id="opentok" class="chip badge">🔑 Tokens</button>
+        <p class="note tiny" id="tokhint"></p>
+  </div>
+</div>
+<div id="tokens" class="settings fullpage tokpage" hidden role="dialog" aria-label="Tokens">
+  <div class="fp-head"><h2>🔑 Tokens</h2><button type="button" class="fp-x" id="tokclose" aria-label="Schliessen">×</button></div>
+  <div class="fp-body">
         <h4>Speichern</h4>
         <p class="note tiny">Ordner und Favoriten werden in der Datei config.json im GitHub-Repo gespeichert und beim Start von dort geladen. Darstellung (hell/dunkel, Grösse, Icons/Fotos, Raster) gilt nur für dieses Gerät. Zum Schreiben braucht jedes Gerät einmalig ein GitHub-Token (nur dieses Repo, Recht «Contents: Read and write»).</p>
         <div id="syncstat" class="syncstat"></div>
@@ -58,25 +89,8 @@
         <div class="tokrow"><input id="wurl" type="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://….workers.dev"><button type="button" class="chip" data-paste="wurl">Einfügen</button><button type="button" class="chip" data-save="wurl">OK</button></div>
         <p class="note tiny" id="wurlstate"></p>
       </div>
-    </div>
-    <div class="searchrow" id="searchrow">
-    <div class="searchbox">
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.3 4.3-1.4 1.4-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/></svg>
-      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
-             placeholder="Suchen: Name, Zutat, Zubereitung …" aria-label="Rezepte durchsuchen">
-      <button id="clear" class="clear" type="button" aria-label="Suche löschen" hidden>×</button>
-    </div>
-    </div>
-    <div class="filterrow">
-    <div class="filters" id="filters" role="group" aria-label="Filter"></div>
-      <span class="ftools" id="ftools">
-        <button type="button" class="chip tbtn" id="hedit" aria-pressed="false" aria-label="Ordner bearbeiten" title="Ordner bearbeiten">✏️</button>
-        <button type="button" class="chip tbtn" id="import" aria-label="Rezept importieren" title="Rezept importieren">➕</button>
-        <button type="button" class="chip tbtn" id="helpbtn" aria-label="Hilfe" title="Hilfe">?</button>
-      </span>
-    </div>
-  </div>
-</header>
+      </div>
+</div>
 
 <main id="view"></main>
 

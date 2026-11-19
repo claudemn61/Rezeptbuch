@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.8.10';
+const APP_VERSION = '1.9.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -425,7 +425,6 @@ const RECIPE_TOOL = {
     n: { type: 'string', description: 'Rezepttitel' },
     ing: { type: 'array', items: { type: 'string' }, description: 'Zutaten, eine pro Eintrag' },
     steps: { type: 'array', items: { type: 'string' }, description: 'Zubereitung, ein Absatz pro Eintrag' },
-    tags: { type: 'array', items: { type: 'string' } },
     port: { type: 'integer', description: 'Für wie viele Personen/Portionen das Rezept gedacht ist, nur wenn angegeben, sonst weglassen' },
     folder: { type: 'string', description: 'Passender Ordnername aus der Liste oder leer' },
     notes: { type: 'string', description: 'Unsicheres oder Unleserliches, sonst leer' }
@@ -439,7 +438,6 @@ Regeln:
 - Mehrere Bilder sind Seiten desselben Rezepts in der richtigen Reihenfolge.
 - Unleserliches mit [?] markieren und in notes kurz nennen.
 - port: Anzahl Personen bzw. Portionen laut Rezept (z. B. «für 4 Personen»), nur wenn angegeben.
-- tags: höchstens 3 passende Schlagwörter (z. B. vegetarisch, Apéro).
 - folder: bester Ordner aus dieser Liste, sonst leer: ${cfg.folders.map(f => f.name).join(', ')}.`;
 async function askClaude(content) {
   const key = lsGet('rb_akey');
@@ -490,7 +488,9 @@ function recipeFromHtml(html) {
     const ing = [].concat(r.recipeIngredient || r.ingredients || []).map(plain).filter(Boolean);
     if (!ing.length && !steps.length) continue;
     const ym = [].concat(r.recipeYield || []).map(String).join(' ').match(/\d+/);
-    return { n: plain(r.name), ing, steps, tags: [], folder: '', notes: '', port: ym ? Math.min(99, +ym[0]) : 0 };
+    const cand = [].concat(r.recipeCategory || [], r.recipeCuisine || [], String(r.keywords || '').split(',')).map(x => plain(String(x)).toLowerCase()).filter(Boolean);
+    const hit = cfg.folders.find(f => cand.some(c => c === f.name.toLowerCase() || (f.name.length > 3 && c.includes(f.name.toLowerCase()))));
+    return { n: plain(r.name), ing, steps, tags: [], folder: hit ? hit.name : '', notes: '', port: ym ? Math.min(99, +ym[0]) : 0 };
   }
   return null;
 }
@@ -586,7 +586,7 @@ function openImport() {
         <label class="chk"><input id="r-fp" type="checkbox"> Titelbild auch als Foto für den (ersten) gewählten Ordner verwenden</label>` : ''}
       <label>Name<input id="r-n" type="text" value="${esc(rec.n || '')}"></label>
       <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="r-p" type="number" inputmode="numeric" min="1" max="99" value="${rec.port > 0 ? rec.port : ''}" placeholder="z. B. 4"></label>
-      <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value="${esc((rec.tags || []).join(', '))}"></label>
+      <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="r-t" type="text" value=""></label>
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="r-i" rows="8">${esc((rec.ing || []).join('\n'))}</textarea></label>
       <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="r-s" rows="10">${esc((rec.steps || []).join('\n'))}</textarea></label>
       <p class="note tiny err" id="i-msg"></p>
@@ -819,6 +819,7 @@ function applySize() {
 
 /* ---------- Startbildschirm & Ordnerseiten ---------- */
 let sel = null; // Auswahl-Modus: Set von Ordner-IDs
+let selDel = false; // Auswahl dient zum Löschen
 function tileHtml(f) {
   const sub = kids(f.id).length;
   const ph = cfg.photos ? folderPhoto(f.id) : '';
@@ -881,10 +882,10 @@ function openGrid(parent) {
 }
 const curParent = () => (!state.q && FB[state.filter]) ? state.filter : null;
 function barHtml() {
-  return `<div class="hbar">${state.edit ? (sel ? '<span class="hint2">Ordner antippen zum Auswählen</span>' : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
-    ${state.edit && !sel ? `<span class="hbtns"><button class="chip" type="button" id="hsel">☑ Mehrere wählen</button><button class="chip" type="button" id="hgrid">▦ Raster</button>${cfg.layouts[gridKey(curParent())] ? '<button class="chip" type="button" id="hgridoff">Raster aus</button>' : ''}</span>` : ''}
+  return `<div class="hbar">${state.edit ? (sel ? `<span class="hint2">${selDel ? 'Ordner zum Löschen antippen' : 'Ordner antippen zum Auswählen'}</span>` : '<span class="hint2">Ziehen = sortieren · antippen = bearbeiten</span>') : '<span></span>'}
+    ${state.edit && !sel ? `<span class="hbtns"><button class="chip ib" type="button" id="hsel" aria-label="Mehrere wählen" title="Mehrere wählen">☐</button><button class="chip ib" type="button" id="hgrid" aria-label="Raster" title="Raster">▦</button><button class="chip ib" type="button" id="hnew" aria-label="Neuer Ordner" title="Neuer Ordner">＋</button><button class="chip ib" type="button" id="hdel" aria-label="Ordner löschen" title="Ordner löschen">−</button>${cfg.layouts[gridKey(curParent())] ? '<button class="chip" type="button" id="hgridoff">Raster aus</button>' : ''}</span>` : ''}
     </div>
-    ${sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
+    ${sel && selDel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip danger" type="button" id="seldelgo" ${sel.size ? '' : 'disabled'}>Löschen</button></div>` : sel ? `<div class="selbar"><span id="selcount">${sel.size} gewählt</span><button class="chip" type="button" id="selcancel">Abbrechen</button><button class="chip" type="button" id="selup" ${sel.size ? '' : 'disabled'}>← Ebene hoch</button><button class="chip" type="button" id="seldown" ${sel.size ? '' : 'disabled'}>→ Ebene tiefer</button><button class="chip on" type="button" id="selmove" ${sel.size ? '' : 'disabled'}>Verschieben nach …</button></div>` : ''}
     ${state.edit ? '<div id="savebar" class="savebar"></div>' : ''}`;
 }
 function renderHome() {
@@ -1091,7 +1092,7 @@ function renderList() {
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
   const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
   const head = abcHead || (inFolder ? `<nav class="crumbs">${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : '');
-  countEl.textContent = res.length === R.length ? R.length : res.length + ' von ' + R.length;
+  countEl.textContent = res.length === R.length ? R.length : res.length + '/' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
   if (!res.length && !state.q && inFolder && kids(state.filter).some(f => f.show)) { view.innerHTML = head; return; }
@@ -1265,10 +1266,26 @@ view.addEventListener('change', e => {
 view.addEventListener('click', e => {
   if (e.target.closest('#import')) { openImport(); return; }
   if (e.target.closest('#hedit')) { state.edit = !state.edit; sel = null; refresh(); window.scrollTo(0, 0); return; }
-  if (e.target.closest('#hsel')) { sel = new Set(); refresh(); return; }
+  if (e.target.closest('#hsel')) { sel = new Set(); selDel = false; refresh(); return; }
+  if (e.target.closest('#hdel')) { sel = new Set(); selDel = true; refresh(); return; }
+  if (e.target.closest('#hnew')) { openTileEditor(null, curParent()); return; }
+  if (e.target.closest('#seldelgo') && sel && sel.size) {
+    const ids = [...sel].filter(id => FB[id]), std = ids.filter(id => BUILTIN.has(id)), own = ids.filter(id => !BUILTIN.has(id));
+    const names = ids.map(id => '«' + FB[id].name + '»').join(', ');
+    if (!confirm(`${ids.length === 1 ? 'Ordner' : ids.length + ' Ordner'} ${names} löschen?${std.length ? ' Standard-Ordner werden nur ausgeblendet.' : ''} Unterordner rücken eine Ebene hoch, Rezepte kehren in ihren ursprünglichen Ordner zurück.`)) return;
+    std.forEach(id => { FB[id].show = false; });
+    own.forEach(id => {
+      const m = FB[id]; if (!m) return;
+      cfg.folders.forEach(f => { if (f.parent === id) f.parent = m.parent || null; });
+      Object.keys(cfg.assign).forEach(k => { cfg.assign[k] = cfg.assign[k].filter(x => x !== id); if (!cfg.assign[k].length) delete cfg.assign[k]; });
+      cfg.folders = cfg.folders.filter(f => f.id !== id);
+      if (state.filter === id) state.filter = m.parent || 'alle';
+    });
+    sel = null; selDel = false; persist(); renderFilters(); refresh(); return;
+  }
   if (e.target.closest('#hgrid')) { openGrid(curParent()); return; }
   if (e.target.closest('#hgridoff')) { delete cfg.layouts[gridKey(curParent())]; store.set('rb_layouts', cfg.layouts); refresh(); return; }
-  if (e.target.closest('#selcancel')) { sel = null; refresh(); return; }
+  if (e.target.closest('#selcancel')) { sel = null; selDel = false; refresh(); return; }
   if (e.target.closest('#selup') && sel && sel.size) {
     [...sel].forEach(id => { const f = FB[id]; if (f && f.parent && !sel.has(f.parent)) f.parent = (FB[f.parent] || {}).parent || null; });
     sel = null; persist(); renderFilters(); refresh(); return;
@@ -1299,7 +1316,7 @@ view.addEventListener('click', e => {
     sel.has(id) ? sel.delete(id) : sel.add(id);
     tile.classList.toggle('sel', sel.has(id));
     const c = $('#selcount'); if (c) c.textContent = sel.size + ' gewählt';
-    ['#selmove', '#selup', '#seldown'].forEach(q => { const b = $(q); if (b) b.disabled = !sel.size; });
+    ['#selmove', '#selup', '#seldown', '#seldelgo'].forEach(q => { const b = $(q); if (b) b.disabled = !sel.size; });
     return;
   }
   if (tile && state.edit) return;
@@ -1356,9 +1373,9 @@ const HELP = [
   ['Ein Rezept ansehen', 'Rezept antippen. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
   ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>＋📁</b> fügst du einen Ordner hinzu. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
-  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen und mit «Mehrere wählen» Ordner unter einen anderen Ordner schieben. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
+  ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen (<b>＋</b>), löschen (<b>−</b>, dann Ordner antippen) und mit dem Kästchen <b>☐</b> Ordner unter einen anderen Ordner schieben. <b>▦</b> schlägt Raster-Anordnungen vor. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
-  ['Einstellungen', 'Das Zahnrad oben rechts: hell/dunkel, Grösse und Aussehen der Kacheln, «Neu laden» bei Problemen, GitHub-Token (zum Speichern) und die Import-Angaben.', [['Einstellungen öffnen', 'settings']]],
+  ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und «Neu laden» bei Problemen. Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Zuerst in den Einstellungen <b>Neu laden &amp; Zwischenspeicher leeren</b> tippen. Hilft das nicht, die App ganz schliessen und neu öffnen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', [['Neu laden', 'reload']]]
 ];
@@ -1377,17 +1394,23 @@ function openHelp() {
       if (['home', 'abc', 'fav'].includes(a)) { const f = $(`#filters [data-f=${a}]`); if (f) f.click(); }
       else if (a === 'edit') { if (state.edit !== true) $('#hedit').click(); }
       else if (a === 'import') openImport();
-      else if (a === 'reload') { settingsEl.hidden = false; $('#update').scrollIntoView({ block: 'center' }); $('#update').classList.add('flash'); }
-      else { settingsEl.hidden = false; const el = a === 'settings' ? settingsEl : $('#' + a); if (el) { el.scrollIntoView({ block: 'center' }); if (a !== 'settings') { el.focus(); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 2500); } } }
+      else if (a === 'reload') { openSet(); $('#update').scrollIntoView({ block: 'center' }); $('#update').classList.add('flash'); }
+      else if (a === 'settings') openSet();
+      else { openTok(); const el = $('#' + a); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 2500); } }
     }, 50);
   });
 }
 
 /* ---------- Einstellungen ---------- */
-const settingsEl = $('#settings');
-$('#gear').addEventListener('click', e => { e.stopPropagation(); settingsEl.hidden = !settingsEl.hidden; });
-document.addEventListener('click', e => { if (!settingsEl.hidden && !e.target.closest('#settings')) settingsEl.hidden = true; });
-settingsEl.addEventListener('click', async e => {
+const settingsEl = $('#settings'), tokensEl = $('#tokens');
+const lockPage = () => { document.body.style.overflow = (settingsEl.hidden && tokensEl.hidden) ? '' : 'hidden'; };
+const openSet = () => { settingsEl.hidden = false; lockPage(); };
+const openTok = () => { settingsEl.hidden = false; tokensEl.hidden = false; lockPage(); };
+$('#gear').addEventListener('click', e => { e.stopPropagation(); openSet(); });
+const onSet = async e => {
+  if (e.target.closest('#setclose')) { tokensEl.hidden = true; settingsEl.hidden = true; lockPage(); return; }
+  if (e.target.closest('#tokclose')) { tokensEl.hidden = true; lockPage(); return; }
+  if (e.target.closest('#opentok')) { tokensEl.hidden = false; lockPage(); return; }
   const sz = e.target.closest('#sizeseg [data-size]');
   if (sz) { cfg.size = sz.dataset.size; store.set('rb_size', cfg.size); applySize(); return; }
   const ph = e.target.closest('#photoseg [data-photos]');
@@ -1429,14 +1452,17 @@ settingsEl.addEventListener('click', async e => {
     try { await Promise.all(['index.html', 'style.css', 'app.js', 'data.js'].map(f => fetch(f, { cache: 'reload' }).catch(() => {}))); } catch {}
     setTimeout(() => { location.replace(location.href.split('#')[0].split('?')[0] + '?r=' + Date.now() + location.hash); }, 300);
   }
-});
+};
+settingsEl.addEventListener('click', onSet); tokensEl.addEventListener('click', onSet);
 applyTheme();
 function updImp() {
   const a = $('#akeystate'), w = $('#wurlstate');
   if (a) a.textContent = lsGet('rb_akey') ? 'Claude-Schlüssel ist auf diesem Gerät hinterlegt.' : 'Kein Claude-Schlüssel hinterlegt.';
+  updHint();
   if (w) w.textContent = lsGet('rb_worker') ? 'Link-Dienst: ' + lsGet('rb_worker').replace(/^https?:\/\//, '') : 'Kein Link-Dienst hinterlegt.';
 }
-function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; }
+function updHint() { const el = $('#tokhint'); if (el) el.textContent = 'GitHub-Token ' + (getToken() ? '✓' : '✗') + ' · Claude-Schlüssel ' + (lsGet('rb_akey') ? '✓' : '✗') + ' · Link-Dienst ' + (lsGet('rb_worker') ? '✓' : '✗'); }
+function updTok() { const el = $('#tokstate'); if (el) el.textContent = getToken() ? 'Token ist auf diesem Gerät hinterlegt.' : 'Kein Token hinterlegt.'; updHint(); }
 updTok(); updImp(); applySize(); $('#tok').addEventListener('keydown', e => { if (e.key === 'Enter') $('#toksave').click(); }); $('#vertag').textContent = 'v' + APP_VERSION; $('#ver').textContent = 'Version ' + APP_VERSION + ' · ' + R.length + ' Rezepte'; setSync(getToken() ? '' : 'Nur lesen (kein Token eingetragen)', '');
 
 /* ---------- Start ---------- */
