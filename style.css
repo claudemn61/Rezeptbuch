@@ -383,3 +383,9 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .picblock{margin:6px 0 4px}
 .picbtns{display:flex;flex-direction:row;flex-wrap:nowrap;gap:8px;margin-left:auto}
 .picblock .pics .pic{flex-direction:row!important;flex-wrap:nowrap!important}
+
+.zh .pn.small{width:46px;height:28px;font-size:16px;font-weight:600;text-align:center;border:1px solid var(--line);border-radius:8px;background:var(--card,#fff);color:inherit;vertical-align:middle;margin-left:2px}
+.picblock .pics .pic{gap:4px}
+.picblock .pics .pic img{width:52px;height:40px}
+.picblock .pics .pic .ib2{min-width:34px;width:34px;height:34px;padding:0;font-size:16px}
+.picblock .pics .pic .tcov{font-size:11px;gap:2px}

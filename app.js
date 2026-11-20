@@ -756,11 +756,13 @@ function openEditSheet(r) {
   const draw = (msg = '') => {
     o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
       <button class="secbar" type="button" id="p-imp">📥 Import Text, jpg, pdf, Link</button>
-      <div class="picblock"><div class="pichead secbar"><span>🖼 Bild</span><span class="picbtns">${items.length ? '<button class="chip ib2" type="button" id="p-ocr" aria-label="Text aus den vorhandenen Fotos lesen" title="Text aus den vorhandenen Fotos lesen">🔍</button>' : ''}${orig.length ? '<button class="chip ib2" type="button" id="p-photo" aria-label="Titelbild als Ordnerfoto verwenden" title="Titelbild als Ordnerfoto verwenden">🖼️</button>' : ''}<button class="chip ib2" type="button" id="p-add" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></span></div>
-      <div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
+      <div class="picblock"><div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
         <label class="chk tcov"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip ib2" data-crop="${i}" aria-label="Ausschnitt" title="Ausschnitt">✂</button>
-        <button type="button" class="chip ib2" data-del="${i}" aria-label="Bild entfernen" title="Bild entfernen">−</button></div>`).join('') || '<p class="note tiny">Keine Bilder.</p>'}</div>
+        <button type="button" class="chip ib2" data-del="${i}" aria-label="Bild entfernen" title="Bild entfernen">−</button>
+        <button type="button" class="chip ib2" data-ocr="${i}" aria-label="Text aus diesem Foto lesen" title="Text aus diesem Foto lesen">🔍</button>
+        <button type="button" class="chip ib2" id="${i === 0 ? 'p-photo' : 'p-photo' + i}" data-pphoto="${i}" aria-label="Titelbild als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>
+        <button type="button" class="chip ib2" data-padd="1" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></div>`).join('') || '<div class="pic"><span class="note tiny" style="flex:1">Keine Bilder.</span><button type="button" class="chip ib2" data-padd="1" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></div>'}</div>
       <input id="p-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden></div>
       <label>Name<input id="e-n" type="text" value="${esc(r.n)}"></label>
       <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="e-p" type="number" inputmode="numeric" min="1" max="99" value="${r.port || 4}"></label>
@@ -828,16 +830,18 @@ function openEditSheet(r) {
   o.addEventListener('click', async e => {
     if (e.target === o) { if (!busyOn) o.remove(); return; }
     if (e.target.id === 'p-cancel') { o.remove(); return; }
-    if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
+    if (e.target.id === 'p-add' || e.target.closest('[data-padd]')) { $('#p-file', o).click(); return; }
     if (e.target.id === 'p-imp') { keepText(); readInto(); return; }
-    if (e.target.id === 'p-photo') { openPhotoSheet(r); return; }
-    if (e.target.id === 'p-ocr') {
+    if (e.target.closest('[data-pphoto]')) { openPhotoSheet(r); return; }
+    const ocr = e.target.closest('[data-ocr]');
+    if (ocr) {
+      const only = items[+ocr.dataset.ocr];
       keepText();
       if ((r.ing.length || r.steps.length) && !confirm('Die vorhandenen Zutaten und Schritte durch den Text aus den Fotos ersetzen?')) return;
       const msg = $('#p-msg', o); lock(true);
       try {
         const urls = []; let k = 0;
-        for (const it of items.slice(0, 8)) { msg.textContent = 'Foto ' + (++k) + ' wird geladen …'; urls.push(it.dataUrl || await loadImageData(it.path)); }
+        for (const it of [only]) { msg.textContent = 'Foto ' + (++k) + ' wird geladen …'; urls.push(it.dataUrl || await loadImageData(it.path)); }
         const rec = await extractFromDataUrls(urls, t => { msg.textContent = t; });
         const hadNone = !r.ing.length && !r.steps.length;
         r = { ...r, ing: (rec.ing || []).map(x => String(x).trim()).filter(Boolean), steps: (rec.steps || []).map(x => String(x).trim()).filter(Boolean) };
@@ -1288,7 +1292,7 @@ function ingListHtml(r) {
 }
 function portBaseHtml(r) {
   const p = portState(r.id);
-  return `<span class="pb">Rezept für <input class="pn small" id="pbase" type="number" inputmode="numeric" min="1" max="99" value="${p.b}" aria-label="Rezept ist gedacht für"></span>`;
+  return `<input class="pn small" id="pbase" type="number" inputmode="numeric" min="1" max="99" value="${p.b}" aria-label="Rezept ist gedacht für">`;
 }
 function portBarHtml(r) {
   const p = portState(r.id);
@@ -1316,7 +1320,7 @@ function setPort(r, patch) {
 
 function renderDetail(r) {
   const done = new Set(store.get('rb_done_' + r.id, []));
-  const ing = r.ing.length ? `<section class="panel"><h3 class="hrow"><span>Zutaten</span>${portBaseHtml(r)}</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
+  const ing = r.ing.length ? `<section class="panel"><h3 class="zh">Zutaten, für ${portBaseHtml(r)}</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
   const steps = r.steps.length ? `<section class="panel"><h3>Zubereitung</h3><ol class="steps">${
     r.steps.map(s => isHeading(s) ? `<li class="h"><b>${esc(s)}</b></li>` : `<li>${esc(s)}</li>`).join('')}</ol></section>` : '';
   const pagesTitle = r.hasText ? 'Fotos' : 'Rezeptseiten (Fotos)';
