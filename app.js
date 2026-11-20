@@ -1211,6 +1211,7 @@ function renderFilters() {
 }
 
 const rviewBtn = () => `<button type="button" class="chip vbtn ${state.rview === 'list' ? 'sym' : 'lst'}" id="rview" aria-label="${state.rview === 'list' ? 'Als Symbole anzeigen' : 'Als Liste anzeigen'}">${state.rview === 'list' ? 'Symbole' : 'Liste'}</button>`;
+const favBtn = r => `<button type="button" class="fstar" data-fstar="${esc(r.id)}" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button>`;
 function renderList() {
   state.rview = store.get('rb_rview', 'grid');
   const t = tokens(state.q);
@@ -1237,7 +1238,7 @@ function renderList() {
     return;
   }
   if (state.rview === 'list') {
-    view.innerHTML = head + hint + '<div class="rlist">' + res.map(({ r }) => `<a class="rrow" href="#/r/${r.id}"><span class="rph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 160))}" alt="">` : ''}</span><span class="rt"><b>${highlight(r.n, t)}</b><small>${foldersOf(r).map(x => esc(folderName(x))).join(' · ')}${r.hasText ? '' : ' · Foto'}${state.fav.has(r.id) ? ' · ★' : ''}</small></span></a>`).join('') + '</div>';
+    view.innerHTML = head + hint + '<div class="rlist">' + res.map(({ r }) => `<a class="rrow" href="#/r/${r.id}"><span class="rph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 160))}" alt="">` : ''}</span><span class="rt"><b>${highlight(r.n, t)}</b><small>${foldersOf(r).map(x => esc(folderName(x))).join(' · ')}${r.hasText ? '' : ' · Foto'}</small></span>${favBtn(r)}</a>`).join('') + '</div>';
     return;
   }
   view.innerHTML = head + hint + '<div class="grid">' + res.map(({ r, hit }) => {
@@ -1246,7 +1247,7 @@ function renderList() {
       <div class="ph">${r.cover ? `<img loading="lazy" decoding="async" src="${esc(imgUrl(r.cover, 480))}" alt="">` : ''}</div>
       <div class="body"><h3>${highlight(r.n, t)}</h3>
       ${sn ? `<div class="sn">${sn}</div>` : ''}
-      <div class="tags">${foldersOf(r).map(x => `<span class="tag">${esc(folderName(x))}</span>`).join('')}${r.hasText ? '' : '<span class="tag photo">Foto</span>'}${state.fav.has(r.id) ? '<span class="tag fav">★</span>' : ''}</div></div></a>`;
+      <div class="tags">${foldersOf(r).map(x => `<span class="tag">${esc(folderName(x))}</span>`).join('')}${r.hasText ? '' : '<span class="tag photo">Foto</span>'}</div></div>${favBtn(r)}</a>`;
   }).join('') + '</div>';
 }
 
@@ -1457,6 +1458,15 @@ view.addEventListener('click', e => {
   if (e.target.closest('#random')) { openRandom(); return; }
   const back = e.target.closest('#back');
   if (back) { history.length > 1 ? history.back() : (location.hash = ''); return; }
+  const fs = e.target.closest('[data-fstar]');
+  if (fs) {
+    e.preventDefault();
+    const id = fs.dataset.fstar;
+    state.fav.has(id) ? state.fav.delete(id) : state.fav.add(id);
+    persist();
+    fs.setAttribute('aria-pressed', state.fav.has(id)); fs.textContent = state.fav.has(id) ? '★' : '☆';
+    renderFilters(); return;
+  }
   const star = e.target.closest('#star');
   if (star) {
     const r = byId[decodeURIComponent(location.hash.slice(4))];
