@@ -567,6 +567,32 @@
     "img/u/nusslisalat-mit-mozzarella-u-feigen-mwo4up1u-3.jpg",
     "img/u/nusslisalat-mit-mozzarella-u-feigen-mwo4up1u-4.jpg"
    ]
+  },
+  "hercules-brot": {
+   "n": "Hercules Brot",
+   "port": 4,
+   "tags": [],
+   "ing": [
+    "Zutaten:",
+    "500g Halbweissmehl (oder Weizenmehl 550)",
+    "100g Roggenmehl",
+    "400-450ml Wasser (lauwarm)",
+    "10-15g Salz",
+    "100g Roggen Sauerteig",
+    "Brühstück: 50g Ruchmehl mit 100ml",
+    "kochendem Wasser überbrühen, abkühlen lassen"
+   ],
+   "steps": [
+    "Zubereitung",
+    "1. Alle Zutaten (inklusive Brühstück) zu einem geschmeidigen Teig verkneten.",
+    "2. Den Teig abgedeckt für 24 Stunden im Kühlschrank reifen lassen (Stockgare).",
+    "3. Teig formen, langliche Form, und weitere 1-2 Stunden bei Zimmertemperatur gehen lassen.",
+    "4. Backofen auf 250°C (Ober-/Unterhitze) vorheizen.",
+    "5. Brot einschneiden, mit Mehl bestäuben und bei fallender Hitze (nach 10 Min auf 200°C- 210°C) ca. 45-60 Minuten backen, bis es dunkelbraun ist.",
+    "Das Brot erhält durch das Brühstück eine leichte Säure und bleibt lange knusprig."
+   ],
+   "cover": "G:ZS4FGXYabSTeML4i2eo84-47Mse7O9QkfoKStrJDtB6FbjpSD4FqRhxfv032o_M_g_EttUL743WoobhHAf34sBI0dMb4b0Q_Lto",
+   "pages": []
   }
  },
  "deleted": [
