@@ -755,8 +755,8 @@ function openEditSheet(r) {
   const hasOv = !!DOC.overrides[r.id];
   const draw = (msg = '') => {
     o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
-      <button class="chip big" type="button" id="p-imp">📥 Import Text, jpg, pdf, Link</button>
-      <div class="picblock"><div class="pichead"><span>Bild</span><span class="picbtns">${items.length ? '<button class="chip ib2" type="button" id="p-ocr" aria-label="Text aus den vorhandenen Fotos lesen" title="Text aus den vorhandenen Fotos lesen">🔍</button>' : ''}<button class="chip ib2" type="button" id="p-add" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></span></div>
+      <button class="secbar" type="button" id="p-imp">📥 Import Text, jpg, pdf, Link</button>
+      <div class="picblock"><div class="pichead secbar"><span>🖼 Bild</span><span class="picbtns">${items.length ? '<button class="chip ib2" type="button" id="p-ocr" aria-label="Text aus den vorhandenen Fotos lesen" title="Text aus den vorhandenen Fotos lesen">🔍</button>' : ''}${orig.length ? '<button class="chip ib2" type="button" id="p-photo" aria-label="Titelbild als Ordnerfoto verwenden" title="Titelbild als Ordnerfoto verwenden">🖼️</button>' : ''}<button class="chip ib2" type="button" id="p-add" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></span></div>
       <div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
         <label class="chk tcov"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip ib2" data-crop="${i}" aria-label="Ausschnitt" title="Ausschnitt">✂</button>
@@ -830,6 +830,7 @@ function openEditSheet(r) {
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add') { $('#p-file', o).click(); return; }
     if (e.target.id === 'p-imp') { keepText(); readInto(); return; }
+    if (e.target.id === 'p-photo') { openPhotoSheet(r); return; }
     if (e.target.id === 'p-ocr') {
       keepText();
       if ((r.ing.length || r.steps.length) && !confirm('Die vorhandenen Zutaten und Schritte durch den Text aus den Fotos ersetzen?')) return;
@@ -1285,13 +1286,17 @@ function ingListHtml(r) {
   const p = portState(r.id), f = p.n / p.b;
   return r.ing.map((l, i) => `<li data-i="${i}" class="${done.has(i) ? 'done' : ''}"><span class="box"></span><span>${esc(scaleLine(l, f))}</span></li>`).join('');
 }
+function portBaseHtml(r) {
+  const p = portState(r.id);
+  return `<span class="pb">Rezept für <input class="pn small" id="pbase" type="number" inputmode="numeric" min="1" max="99" value="${p.b}" aria-label="Rezept ist gedacht für"></span>`;
+}
 function portBarHtml(r) {
   const p = portState(r.id);
   return `<div class="port" id="port"><span class="pl">Portionen</span>
     <button type="button" class="pbtn" data-act="dec" aria-label="Weniger">−</button>
     <input class="pn" id="pn" type="number" inputmode="numeric" min="1" max="99" value="${p.n}" aria-label="Portionen">
     <button type="button" class="pbtn" data-act="inc" aria-label="Mehr">+</button>
-    <span class="pb">Rezept für <input class="pn small" id="pbase" type="number" inputmode="numeric" min="1" max="99" value="${p.b}" aria-label="Rezept ist gedacht für"></span></div>
+</div>
     <p class="note" id="pnote" ${p.n === p.b ? 'hidden' : ''}>Mengen in der Zubereitung werden nicht umgerechnet.</p>`;
 }
 function setPort(r, patch) {
@@ -1311,7 +1316,7 @@ function setPort(r, patch) {
 
 function renderDetail(r) {
   const done = new Set(store.get('rb_done_' + r.id, []));
-  const ing = r.ing.length ? `<section class="panel"><h3>Zutaten</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
+  const ing = r.ing.length ? `<section class="panel"><h3 class="hrow"><span>Zutaten</span>${portBaseHtml(r)}</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
   const steps = r.steps.length ? `<section class="panel"><h3>Zubereitung</h3><ol class="steps">${
     r.steps.map(s => isHeading(s) ? `<li class="h"><b>${esc(s)}</b></li>` : `<li>${esc(s)}</li>`).join('')}</ol></section>` : '';
   const pagesTitle = r.hasText ? 'Fotos' : 'Rezeptseiten (Fotos)';
@@ -1326,7 +1331,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><button type="button" class="chip dbtn" id="fmulti" aria-label="Ordner wählen" title="Ordner wählen">📁</button>${r.cover ? '<button type="button" class="chip dbtn" id="fphoto" aria-label="Als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>' : ''}<button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).filter(t => !isFolderTag(t)).length ? `<div class="mtags">${r.tags.filter(t => !isFolderTag(t)).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
+    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><button type="button" class="chip dbtn" id="fmulti" aria-label="Ordner wählen" title="Ordner wählen">📁</button><button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).filter(t => !isFolderTag(t)).length ? `<div class="mtags">${r.tags.filter(t => !isFolderTag(t)).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -1458,7 +1463,6 @@ view.addEventListener('click', e => {
   }
   if (e.target.closest('#rmgr')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openEditSheet(r); return; }
   if (e.target.closest('#fmulti')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openFolderMulti(r); return; }
-  if (e.target.closest('#fphoto')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openPhotoSheet(r); return; }
   const rmf = e.target.closest('[data-rmf]');
   if (rmf) {
     const r = byId[decodeURIComponent(location.hash.slice(4))];
@@ -1496,7 +1500,7 @@ const HELP = [
   ['Die Startseite', 'Oben stehen <b>Home</b> (Ordnerkacheln), <b>ABC</b> (alle Rezepte nach Anfangsbuchstaben) und <b>Favoriten</b> (Rezepte mit Stern). Das Suchfeld durchsucht Titel, Zutaten und Zubereitung.', [['Zu Home', 'home'], ['ABC öffnen', 'abc'], ['Favoriten öffnen', 'fav']]],
   ['Ein Rezept ansehen', 'Rezept antippen. <b>Nach links oder rechts wischen</b> wechselt zum nächsten bzw. vorherigen Rezept der Liste. Mit dem <b>Stern</b> machst du es zum Favoriten. Bei <b>Portionen</b> rechnest du die Mengen um. Die Kästchen bei den Zutaten kannst du beim Einkaufen oder Kochen abhaken. Ein Tipp aufs Bild vergrössert es.', []],
   ['Rezept bearbeiten oder löschen', 'Im Rezept auf <b>✏️</b> tippen: Titel, Zutaten, Zubereitung und Bilder ändern, das Rezept auf den Originalzustand zurücksetzen oder löschen. Das gilt für alle Rezepte, auch die alten.', []],
-  ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>📁</b> wählst du mehrere Ordner auf einmal an. Mit <b>🖼️</b> wird das Titelbild zum Foto des Ordners.', []],
+  ['Ordner eines Rezepts ändern', 'Im Rezept zeigen die Chips oben die Ordner. Mit <b>×</b> nimmst du das Rezept aus einem Ordner, mit <b>📁</b> wählst du mehrere Ordner auf einmal an. Das Titelbild als Foto eines Ordners verwendest du im Bearbeiten-Fenster unter «Bild» mit <b>🖼️</b>.', []],
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
