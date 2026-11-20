@@ -770,7 +770,7 @@ function openEditSheet(r) {
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="e-i" rows="8">${esc(r.ing.join('\n'))}</textarea></label>
       <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="e-s" rows="10">${esc(r.steps.join('\n'))}</textarea></label>
       <p class="note tiny err" id="p-msg">${esc(msg)}</p>
-      <div class="acts"><button type="button" class="chip danger" id="p-delrec">Rezept löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
+      <div class="acts"><button type="button" class="chip danger" id="p-delrec">Löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
   };
   // Eingaben beim Neuzeichnen (Bild hinzufügen/entfernen) behalten
   const keepText = () => { const g = id => { const e = $(id, o); return e ? e.value : null; }; r = { ...r, port: Math.min(99, Math.max(1, parseInt(g('#e-p'), 10) || r.port || 4)), n: g('#e-n') ?? r.n, tags: (g('#e-t') ?? (r.tags || []).join(',')).split(',').map(x => x.trim()).filter(Boolean), ing: (g('#e-i') ?? r.ing.join('\n')).split('\n').map(x => x.trim()).filter(Boolean), steps: (g('#e-s') ?? r.steps.join('\n')).split('\n').map(x => x.trim()).filter(Boolean) }; };
