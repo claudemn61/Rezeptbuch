@@ -188,6 +188,49 @@
    "cover": "img/u/same-day-sauerteigbrotchen-1.jpg",
    "pages": [],
    "added": "2026-11-20"
+  },
+  {
+   "id": "same-day-kurbiskernbrotchen",
+   "n": "Same Day Kürbiskernbrötchen",
+   "folder": "Brote",
+   "src": "",
+   "tags": [],
+   "ing": [
+    "Semmelteig",
+    "100-120 g Sauerteig",
+    "350 g Wasser kalt",
+    "440 g Weissmehl (Weizenmehl Type 550)",
+    "60 g Weizen Vollkornmehl",
+    "12 g Salz",
+    "1-2 g Backmalz, aktiv",
+    "Bassinage",
+    "10-30 g Wasser",
+    "Zum Bestreuen",
+    "Kürbiskerne"
+   ],
+   "steps": [
+    "ANLEITUNGEN",
+    "WICHTIG: Der Sauerteig sollte spätestens am Vortag aufgefrischt werden, damit er am Verwendungstag seine volle Kraft entfalten kann!",
+    "Hauptteig",
+    "Alle Zutaten in der Küchenmaschine auf kleiner Stufe 2-3 Min. ankneten.",
+    "Danach die Knetgeschwindigkeit erhöhen und den Teig etwa 11 Min. kneten.",
+    "Das Wasser der Bassinage nach und nach unter den Teig kneten, bis es vollständig aufgenommen wurde.",
+    "Den Teig in ein leicht gefettetes Becken legen, mit einer Gärfolie zudecken und für 6 Std. bei Raumtemperatur aufgehen lassen.",
+    "In der Zwischenzeit die Kürbiskerne haken/vorbereiten.",
+    "Formen",
+    "Die vorbereiten Kürbiskerne auf die Arbeitsfläche geben.",
+    "Nach der Gärzeit die Teigoberfläche leicht befeuchten, an den Seiten etwas vom Beckenrand lösen und aus dem Becken auf die Kürbiskerne stürzen.",
+    "Anschliessend aus dem Teig 12 gleich grosse Stücke abstechen,",
+    "Die Teiglinge mit der Kürbiskernseite nach oben auf ein mit Backpapier belegtes Blech absetzen und 30 Min. ruhen lassen.",
+    "In der Zwischenzeit den Backofen auf 250 Grad Ober/-Unterhitze vorheizen.",
+    "Backen",
+    "Nach der Stückgare die Brötchen in die mittlere Schiene des vorgeheizten Backofens schieben.",
+    "Den Ofen bedampfen, die Backtemperatur auf 230 Grad reduzieren und die Brötchen etwa 20-25 Min. goldbraun ausbacken.",
+    "Nach 10 Min. die Ofentür kurz öffnen, damit der Dampf entweichen kann."
+   ],
+   "cover": "img/u/same-day-kurbiskernbrotchen-1.jpg",
+   "pages": [],
+   "added": "2026-11-20"
   }
  ],
  "overrides": {
