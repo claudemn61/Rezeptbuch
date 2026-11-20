@@ -364,3 +364,14 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .frow .fb{flex:none;padding:6px 10px}
 .frow.dragging{opacity:.7;box-shadow:0 6px 20px rgba(59,42,32,.25)}
 .frow .rt{flex:1}
+
+.picblock{margin:10px 0 4px}
+.pichead{display:flex;align-items:center;justify-content:space-between;font-weight:600;margin-bottom:6px}
+.picbtns{display:flex;gap:8px}
+.ib2{min-width:40px;height:36px;padding:0 10px;font-size:18px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.picblock .pics .pic{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.picblock .pics .pic img{width:64px;height:48px;object-fit:cover;border-radius:8px;flex:none}
+.picblock .pics .pic .tcov{flex:1;min-width:0;white-space:nowrap;font-size:13px}
+.picblock .pics .pic .ib2{flex:none}
+.picblock .pics{display:flex;flex-direction:column;gap:8px}
+.picblock .pics .pic{width:100%;box-sizing:border-box}
