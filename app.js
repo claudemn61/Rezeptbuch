@@ -755,7 +755,7 @@ function openEditSheet(r) {
   const hasOv = !!DOC.overrides[r.id];
   const draw = (msg = '') => {
     o.innerHTML = `<div class="sheet imp" role="dialog" aria-label="Rezept bearbeiten"><h3>Rezept bearbeiten</h3>
-      <button class="secbar" type="button" id="p-imp">📥 Import Text, jpg, pdf, Link</button>
+      <div class="impline"><span class="impic" aria-hidden="true">📥</span><button class="secbar" type="button" id="p-imp">Text, jpg, pdf, Link</button></div>
       <div class="picblock"><div class="pics">${items.map((it, i) => `<div class="pic"><img src="${esc(it.src)}" alt="">
         <label class="chk tcov"><input type="radio" name="p-cov" value="${i}"${i === cov ? ' checked' : ''}> Titelbild</label>
         <button type="button" class="chip ib2" data-crop="${i}" aria-label="Ausschnitt" title="Ausschnitt">✂</button>
