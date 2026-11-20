@@ -853,7 +853,7 @@ function openEditSheet(r) {
     const cr = e.target.closest('[data-crop]');
     if (cr) { keepText(); const i = Number(cr.dataset.crop), it = items[i]; const d = await openCrop(it.dataUrl || imgUrl(it.path, 1600)); if (d) items[i] = { dataUrl: d, src: d }; draw(); return; }
     const del = e.target.closest('[data-del]');
-    if (del) { keepText(); const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
+    if (del) { if (!confirm('Dieses Bild wirklich entfernen?')) return; keepText(); const i = Number(del.dataset.del); items.splice(i, 1); if (cov === i) cov = 0; else if (cov > i) cov--; draw(); return; }
     if (e.target.id === 'p-save') {
       keepText();
       if (!r.n.trim()) { $('#p-msg', o).textContent = 'Bitte einen Namen eingeben.'; return; }
