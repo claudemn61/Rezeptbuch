@@ -236,6 +236,7 @@
  "overrides": {
   "same-day-sauerteigbrot": {
    "n": "Same-Day-Sauerteigbrot",
+   "port": 4,
    "tags": [],
    "ing": [
     "400 g Wasser, ca. 20-24 Grad warm",
