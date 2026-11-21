@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.6';
+const APP_VERSION = '1.9.7';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -211,7 +211,7 @@ function normalize(c) {
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
-    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false, ...(byId[f.photo] ? { photo: f.photo } : {}) });
+    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false, ...(byId[f.photo] ? { photo: f.photo } : {}), ...(/^img\/f\//.test(f.img || '') ? { img: f.img } : {}) });
   });
   folders.forEach(b => { if (!seen.has(b)) out.folders.push(defFolder(b)); });
   const ids = new Set(out.folders.map(f => f.id));
@@ -329,7 +329,7 @@ async function loadUserRecipes() {
     if (!state.edit && !document.querySelector('.sheet-bg') && !location.hash.startsWith('#/r/')) refresh();
   } catch {}
 }
-const putFile = (path, b64, msg, sha) => (/^img\/u\//.test(path) && rememberImg(path, b64), fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+const putFile = (path, b64, msg, sha) => (/^img\/[uf]\//.test(path) && rememberImg(path, b64), fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
   method: 'PUT', headers: hdr(getToken(), true), body: JSON.stringify({ message: msg, content: b64, branch: 'main', ...(sha ? { sha } : {}) }) }));
 // Datei meine-rezepte.json lesen, ändern, schreiben (bei Konflikt neu laden und wiederholen)
 async function modifyDoc(fn, msg) {
@@ -900,6 +900,7 @@ function openEditSheet(r) {
 }
 
 function folderPhoto(id) {
+  if ((FB[id] || {}).img) return imgUrl(FB[id].img, 240);
   const pr = byId[(FB[id] || {}).photo];
   if (pr && pr.cover) return imgUrl(pr.cover, 240);
   const sub = subtree(id);
@@ -1141,6 +1142,9 @@ function openTileEditor(id, parentForNew) {
     <label>Symbol <small>(eigenes Emoji eintippen oder wählen)</small><input id="e-icon" type="text" maxlength="8" value="${esc(m.icon)}"></label>
     <div class="emojis">${EMOJI_PICK.map(x => `<button type="button" data-e="${x}">${x}</button>`).join('')}</div>
     <div class="swatches">${COLORS.map(c => `<button type="button" data-c="${c}" style="background:${c}" aria-pressed="${c === m.color}" aria-label="Farbe"></button>`).join('')}<label class="cpick" title="Eigene Farbe"><input id="e-color" type="color" value="${/^#[0-9a-f]{6}$/i.test(m.color) ? esc(m.color) : '#888888'}"><span>Eigene Farbe</span></label></div>
+    <div class="fimgrow"><span class="fthumb" id="e-fthumb"></span><span class="fimgbtns"><button type="button" class="chip" id="e-fpick">📷 Eigenes Foto wählen</button><button type="button" class="chip ib2" id="e-frm" aria-label="Foto entfernen" title="Foto entfernen">−</button></span><input id="e-ffile" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" hidden></div>
+    <p class="note tiny">Ein Foto für diesen Ordner, auch wenn es in keinem Rezept vorkommt. Es erscheint auf der Kachel, wenn in den Einstellungen «Fotos» gewählt ist.</p>
+    <p class="note tiny err" id="e-msg"></p>
     <label>Liegt in<select id="e-parent">${opts}</select></label>
     <label class="chk"><input id="e-show" type="checkbox" ${m.show ? 'checked' : ''}> Anzeigen</label>
     <div class="acts">
@@ -1152,19 +1156,45 @@ function openTileEditor(id, parentForNew) {
   let color = m.color;
   const upd = () => { $('#e-prev', o).textContent = $('#e-icon', o).value || '📁'; $('#e-prev', o).style.setProperty('--c', color); };
   const done = () => { o.remove(); refresh(); };
-  const save = () => {
-    const f = {
-      id: m.id, name: $('#e-label', o).value.trim() || (isNew ? 'Neuer Ordner' : m.name),
-      icon: $('#e-icon', o).value.trim() || '📁', color, parent: $('#e-parent', o).value || null, show: $('#e-show', o).checked
-    };
-    if (isNew) cfg.folders.push(f); else cfg.folders[cfg.folders.findIndex(x => x.id === m.id)] = f;
-    persist(); renderFilters(); done();
+  let img = m.img || '', newData = '';
+  const drawThumb = () => { const t = $('#e-fthumb', o), u = newData || imgUrl(img, 160); t.innerHTML = u ? `<img src="${esc(u)}" alt="">` : '<span>🖼</span>'; $('#e-frm', o).hidden = !u; };
+  drawThumb();
+  let saving = false;
+  const save = async () => {
+    if (saving) return; saving = true;
+    const msg = $('#e-msg', o);
+    try {
+      const f = {
+        ...m, id: m.id, name: $('#e-label', o).value.trim() || (isNew ? 'Neuer Ordner' : m.name),
+        icon: $('#e-icon', o).value.trim() || '📁', color, parent: $('#e-parent', o).value || null, show: $('#e-show', o).checked
+      };
+      const old = m.img || '';
+      if (newData) {
+        if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen → Tokens)');
+        msg.textContent = 'Foto wird gespeichert …';
+        const path = `img/f/${m.id}-${Date.now().toString(36)}.jpg`;
+        const x = await putFile(path, newData.split(',')[1], 'App: Ordnerfoto');
+        if (!x.ok) throw new Error('Foto speichern fehlgeschlagen (' + x.status + ')');
+        f.img = path;
+      } else if (!img) delete f.img;
+      if (isNew) cfg.folders.push(f); else cfg.folders[cfg.folders.findIndex(x => x.id === m.id)] = f;
+      persist(); renderFilters(); done();
+      if (old && old !== f.img) { try { await delFile(old); } catch {} }
+    } catch (err) { saving = false; msg.textContent = '⚠ ' + err.message; }
   };
+  o.addEventListener('change', async e => {
+    if (e.target.id !== 'e-ffile' || !e.target.files.length) return;
+    try { newData = await shrink(e.target.files[0], 800, 0.82); drawThumb(); $('#e-msg', o).textContent = ''; }
+    catch (err) { $('#e-msg', o).textContent = '⚠ ' + (err.message || 'Foto nicht lesbar'); }
+    e.target.value = '';
+  });
   o.addEventListener('click', e => {
     if (e.target === o) return isNew ? o.remove() : save();
     const em = e.target.closest('[data-e]'); if (em) { $('#e-icon', o).value = em.dataset.e; upd(); return; }
     if (e.target.closest('.cpick')) return;
     const c = e.target.closest('[data-c]'); if (c) { color = c.dataset.c; $$('.swatches button', o).forEach(b => b.setAttribute('aria-pressed', b === c)); upd(); return; }
+    if (e.target.id === 'e-fpick') { $('#e-ffile', o).click(); return; }
+    if (e.target.id === 'e-frm') { img = ''; newData = ''; drawThumb(); return; }
     if (e.target.id === 'e-cancel') { o.remove(); return; }
     if (e.target.id === 'e-reset') { const d = defFolder(m.id); Object.assign(FB[m.id], { name: d.name, icon: d.icon, color: d.color, show: true }); persist(); renderFilters(); done(); return; }
     if (e.target.id === 'e-del') {
