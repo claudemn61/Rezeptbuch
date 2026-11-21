@@ -868,6 +868,32 @@
     "G:OH_VCYHBabA7e6rYuHYivibR3y-t0n2aApIcghUYXdgjhrBR8bjz0TCUBtg5giZKVIuIgLU8nCoBvM6HasMiBQ2iCak5Bmu0tzs",
     "G:YPGFNcbNMVWgym6sHLXG2-NYtdPwBIY6sOvOZHjCIQe4QnTIJksFCQdLcIvehuP_1ZLpH97JXB9SwhLyic4ZfS5eKCo_FQfvez0"
    ]
+  },
+  "walliser-roggenbrot": {
+   "n": "Walliser Roggenbrot",
+   "port": 4,
+   "tags": [],
+   "ing": [
+    "Vorteig",
+    "10 g Hefe, zerbröckelt",
+    "5 dl Wasser, lauwarm",
+    "250 g Roggenmehl",
+    "Hauptteig",
+    "10 g Hefe",
+    "500 g Roggenmehl",
+    "2-3 TL Salz"
+   ],
+   "steps": [
+    "Hefe, Wasser und Roggenmehl (250 g) mischen. 12 Std. ruhen bei Raumtemperatur.",
+    "Hefe (10 g) im Vorteig auflösen. Roggenmehl (500 g) und Salz beigeben.",
+    "Zu einem geschmeidigen Teig kneten.",
+    "1-2 Std. aufgehen lassen.",
+    "Runde Brote formen, mit wenig Roggenmehl bestäuben.",
+    "30 Min. aufgehen lassen.",
+    "Bei 220° 40-45 Min. backen."
+   ],
+   "cover": "G:oc1i5afNGHx9sRurPkN2zaMgaeiitA8VQE1QV1yp_5cwpyu2ColTNW8ech0UBYzD2G2q6ZAVPkCELs1p6CYPoPJ3L8qCTuLEsA",
+   "pages": []
   }
  },
  "deleted": [
