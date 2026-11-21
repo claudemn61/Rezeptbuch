@@ -868,44 +868,11 @@
     "G:OH_VCYHBabA7e6rYuHYivibR3y-t0n2aApIcghUYXdgjhrBR8bjz0TCUBtg5giZKVIuIgLU8nCoBvM6HasMiBQ2iCak5Bmu0tzs",
     "G:YPGFNcbNMVWgym6sHLXG2-NYtdPwBIY6sOvOZHjCIQe4QnTIJksFCQdLcIvehuP_1ZLpH97JXB9SwhLyic4ZfS5eKCo_FQfvez0"
    ]
-  },
-  "sauerteigbrot": {
-   "n": "Sauerteigbrot",
-   "port": 4,
-   "tags": [],
-   "ing": [
-    "Sauerteig:",
-    "30 g Anstellgut (sehr aktiv)",
-    "30 g Weizenmehl Type 1050",
-    "30 g Wasser (35 °C)",
-    "Fermentolyseteig:",
-    "400 g Weizenmehl Type 1050 (11 °C)",
-    "80 g vom Sauerteig",
-    "240 g Wasser (12 °C)",
-    "Hauptteig:",
-    "Fermentolyseteig",
-    "40 g Wasser (12 °C)",
-    "9 g Salz"
-   ],
-   "steps": [
-    "Das Anstellgut muss sehr aktiv sein. Bei Bedarf vorher 2–3 Mal auffrischen.",
-    "Alle Zutaten für den Sauerteig mischen und bei 28–29 °C 4 Stunden oder bis kurz vor dem Peak (die Vollreife) reifen lassen.",
-    "Alle Zutaten für den Fermentolyseteig grob mischen, dann 60 Minuten ruhen lassen (Teigtemperatur 21 °C).",
-    "Für den Hauptteig Wasser und Salz zum Fermentolyseteig geben und 8–10 Minuten kneten (Teigtemperatur 23 °C). 6 Stunden bei Raumtemperatur (22 °C) reifen lassen, bis sich das Volumen verdoppelt hat. Nach 30, 60 und 90 Minuten jeweils D&F (Dehnen und Falten, siehe Seiten 15–16).",
-    "Den Teig formen, mit Schluss nach oben im Gärkorb 10–14 Stunden oder über Nacht im Kühlschrank (5–6 °C) ruhen lassen.",
-    "Den Ofen auf 250 °C (Ober-/Unterhitze) vorheizen.",
-    "Im Ofen mit Topf (oder Dampf und Hitzeschild) 15 Minuten backen. Den Deckel abnehmen bzw. den Dampf entweichen lassen, die Ofentemperatur auf 220 °C reduzieren und das Brot 30 Minuten fertig backen.",
-    "Dehnen u. Falten des Teigs verleiht ihm mehr Struktur und Volumen und macht ihn besser formbar. Einfach den Teig in der Schüssel liegen lassen und die Hand kurz in Wasser tauchen, damit der Teig nicht anklebt. Anschließend nimmt man den Rand des Teiges und zieht ihn nach oben, um ihn zu dehnen. Danach legt man den Teig zur Teigmitte hin und drückt ihn leicht an."
-   ],
-   "cover": "G:ZCjBR4yRTqlxcIhF6_vwLjgZUHnmNLERZf9ii_S3-YXpOmE1b_BRhUe41MBZAaD3jy8tydNhqGL3Ea1lf_USEjEn4uCDxKaoIVQ",
-   "pages": [
-    "G:8RJreIDBZuq1FFlC8fgqu5CvNI9VgslzBlIib2HEOymJVZl6MlNNP0Vp4K2-BXNlO9p6RVnsjoE4H4Y_u18y5rIFDs62M7VDofE",
-    "G:mTZzb1R00vPzos6DjZ1QFjjlHRXP3A_vidoDKshQhsJbeOj69rgp5dfhvnxl40GR0sSTlomlPVfPp7PTxZ03Xja7Bkn8bk-XD5SY"
-   ]
   }
  },
  "deleted": [
   "sauerteig-knusperli",
-  "kurbiskernenbrot"
+  "kurbiskernenbrot",
+  "sauerteigbrot"
  ]
 }
