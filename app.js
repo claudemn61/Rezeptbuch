@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.7';
+const APP_VERSION = '1.9.8';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -43,7 +43,8 @@ function imgUrl(ref, w) {
   return ref;
 }
 
-const isHeading = t => t.length <= 24 && !/[.!?]/.test(t);
+const isHeading = t => /^#\s/.test(t) || (t.length <= 24 && !/[.!?]/.test(t));
+const headText = t => t.replace(/^#\s+/, '');
 
 /* ---------- Daten ---------- */
 const mkRecipe = r => {
@@ -768,7 +769,7 @@ function openEditSheet(r) {
       <label>Rezept für <small>(Personen; die Zutatenmengen im Text gelten für diese Zahl)</small><input id="e-p" type="number" inputmode="numeric" min="1" max="99" value="${r.port || 4}"></label>
       <label>Schlagwörter <small>(mit Komma getrennt)</small><input id="e-t" type="text" value="${esc((r.tags || []).join(', '))}"></label>
       <label>Zutaten <small>(eine pro Zeile)</small><textarea id="e-i" rows="8">${esc(r.ing.join('\n'))}</textarea></label>
-      <label>Zubereitung <small>(ein Schritt pro Zeile; kurze Zeile ohne Punkt = Überschrift)</small><textarea id="e-s" rows="10">${esc(r.steps.join('\n'))}</textarea></label>
+      <label>Zubereitung <small>(ein Schritt pro Zeile; Text markieren, dann ▲ = Titel, ▼ = Text)</small> <span class="hlv"><button type="button" class="chip" data-lvl="up" aria-label="Als Abschnittstitel" title="Als Abschnittstitel">▲</button><button type="button" class="chip" data-lvl="down" aria-label="Als normalen Text" title="Als normalen Text">▼</button></span><textarea id="e-s" rows="10">${esc(r.steps.join('\n'))}</textarea></label>
       <p class="note tiny err" id="p-msg">${esc(msg)}</p>
       <div class="acts"><button type="button" class="chip danger" id="p-delrec">Löschen</button>${hasOv ? '<button type="button" class="chip" id="p-reset">Original</button>' : ''}<button type="button" class="chip" id="p-cancel">Abbrechen</button><button type="button" class="chip on" id="p-save">Speichern</button></div></div>`;
   };
@@ -826,6 +827,21 @@ function openEditSheet(r) {
       try { keepText(); for (const f of [...e.target.files]) { const d = await shrink(f, 1600, 0.82); items.push({ dataUrl: d, src: d }); } draw(); }
       catch (err) { draw('⚠ ' + err.message); }
     }
+  });
+  o.addEventListener('pointerdown', e => { if (e.target.closest('[data-lvl]')) e.preventDefault(); });
+  o.addEventListener('click', e => {
+    const lb = e.target.closest('[data-lvl]'); if (!lb) return;
+    const ta = $('#e-s', o); if (!ta) return;
+    const v = ta.value; let a = ta.selectionStart, b = ta.selectionEnd;
+    const ls = v.lastIndexOf('\n', a - 1) + 1; let le = v.indexOf('\n', b > a ? b - 1 : b); if (le < 0) le = v.length;
+    const up = lb.dataset.lvl === 'up';
+    const out = v.slice(ls, le).split('\n').map(l => {
+      const t = l.trim(); if (!t) return l;
+      if (up) return /^#\s/.test(t) ? t : '# ' + t.replace(/[.!?:]+$/, '');
+      const x = headText(t); return (x.length <= 24 && !/[.!?]/.test(x)) ? x + '.' : x;
+    }).join('\n');
+    ta.value = v.slice(0, ls) + out + v.slice(le);
+    ta.focus(); ta.setSelectionRange(ls, ls + out.length);
   });
   o.addEventListener('click', async e => {
     if (e.target === o) { if (!busyOn) o.remove(); return; }
@@ -1353,7 +1369,7 @@ function renderDetail(r) {
   const done = new Set(store.get('rb_done_' + r.id, []));
   const ing = r.ing.length ? `<section class="panel"><h3 class="zh">Zutaten, für ${portBaseHtml(r)}</h3>${portBarHtml(r)}<ul class="ing">${ingListHtml(r)}</ul></section>` : '';
   const steps = r.steps.length ? `<section class="panel"><h3>Zubereitung</h3><ol class="steps">${
-    r.steps.map(s => isHeading(s) ? `<li class="h"><b>${esc(s)}</b></li>` : `<li>${esc(s)}</li>`).join('')}</ol></section>` : '';
+    r.steps.map(s => isHeading(s) ? `<li class="h"><b>${esc(headText(s))}</b></li>` : `<li>${esc(s)}</li>`).join('')}</ol></section>` : '';
   const pagesTitle = r.hasText ? 'Fotos' : 'Rezeptseiten (Fotos)';
   const pages = r.pages.length ? `<section class="panel"><h3>${pagesTitle}</h3>${
     r.hasText ? '' : '<p class="note">Dieses Rezept liegt nur als Foto vor. Zum Vergrössern antippen.</p>'}
