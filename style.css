@@ -411,3 +411,7 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .fimgbtns{display:flex;gap:8px;align-items:center}
 .hlv{display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle}
 .hlv .chip{padding:0 8px;min-height:26px;font-size:12px;line-height:1}
+.hlv{gap:12px}
+.hlv .chip{padding:0 16px;min-height:30px;border-radius:50%/50%;font-size:13px;font-weight:700;background:var(--card)}
+.hlv .chip[data-lvl=up]{color:#1f9d43;border-color:#1f9d43}
+.hlv .chip[data-lvl=down]{color:#d33a2c;border-color:#d33a2c}
