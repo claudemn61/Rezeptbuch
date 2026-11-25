@@ -166,8 +166,8 @@
     "Den reifen Sauerteig (+ optional die Hefe) und Honig zugeben, 10 Min. langsam kneten.",
     "150 g reifer Weizensauerteig, 10 g Honig , Optional 0,5 g frische Hefe",
     "Danach 3–5 Min. schneller auskneten, bis der Fenstertest gelingt. Dabei das Salz, die Butter und je nach Teiggefühl bis zu 20 g Wasser schluckweise einarbeiten. (Ziel-Teigtemperatur: 24–26 °C)",
+    "10 g Butter, 12 g Salz, 20 g Wasser, nach Bedarf.",
     "Anschließend in eine leicht geölte Schüssel oder Teigwanne geben.",
-    "10 g Butter, 12 g Salz, 20 g Wasser, nach Bedarf",
     "Stockgare (1. Teigruhe)",
     "Den Teig abgedeckt ca. 4 Stunden bei 24–26 °C reifen lassen, bis er sichtbar an Volumen dazugewonnen und gelockert wirkt.",
     "Dabei 2–3 x nach jeweils 60 Minuten sanft dehnen & falten.",
@@ -187,7 +187,8 @@
    ],
    "cover": "img/u/same-day-sauerteigbrotchen-1.jpg",
    "pages": [],
-   "added": "2026-11-20"
+   "added": "2026-11-20",
+   "port": 4
   },
   {
    "id": "same-day-kurbiskernbrotchen",
