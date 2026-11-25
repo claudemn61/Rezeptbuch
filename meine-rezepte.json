@@ -833,42 +833,6 @@
    "cover": "G:eTpOq042HNjJ1RFSUpkVaNN7v86BmV3HIzHn1lWZCPEduALipTJCiNvUfU3-ipjPvb3Ntkw0y3XQMluGXs2G5Q",
    "pages": []
   },
-  "kartoffel-sauerteigbrot": {
-   "n": "Kartoffel-Sauerteigbrot",
-   "port": 4,
-   "tags": [],
-   "ing": [
-    "400 g mehligkochende Kartoffeln",
-    "200 g Milch",
-    "30 g Butter",
-    "5 g Salz",
-    "30 g Anstellgut (sehr aktiv)",
-    "30 g Weizenmehl Type 1050",
-    "30 g Wasser (35 °C)",
-    "400 g Weizenmehl Type 1050 (11 °C)",
-    "80 g vom Sauerteig",
-    "580 g feines Kartoffelpüree",
-    "Salz für den Hauptteig (Menge fehlt auf dem Foto)"
-   ],
-   "steps": [
-    "Kartoffelpüree",
-    "Für das Püree die Kartoffeln in Salzwasser garen. Leicht abkühlen lassen und pellen. Dann stampfen oder durch die Kartoffelpresse drücken, mit Milch, Butter und Salz verrühren und vollständig abkühlen lassen.",
-    "Sauerteig",
-    "Für den Sauerteig alle Zutaten mischen und bei 28-29 °C 4 Stunden oder bis kurz vor dem Peak (die Vollreife) reifen lassen.",
-    "Fermentolyseteig",
-    "Alle Zutaten für den Fermentolyseteig grob mischen, dann 60 Minuten ruhen lassen (Teigtemperatur 21 °C).",
-    "Hauptteig",
-    "Für den Hauptteig das Salz zum Fermentolyseteig geben und 8-10 Minuten kneten (Teigtemperatur 23 °C). 6 Stunden bei Raumtemperatur (22 °C) reifen lassen, bis das Volumen sich verdoppelt hat. Nach 30, 60 und 90 Minuten jeweils D&F (siehe Seiten 15-16).",
-    "Einen Laib formen, mit Schluss nach oben im Gärkörbchen 2 Stunden ruhen lassen, anschliessend 30 Minuten im Tiefkühler aussteifen und verhauten lassen.",
-    "Den Ofen auf 250 °C (Ober-/Unterhitze) vorheizen.",
-    "Im Ofen mit Topf (oder Dampf und Hitzeschild) 15 Minuten backen. Den Deckel abnehmen bzw. den Dampf entweichen lassen. Die Ofentemperatur auf 220 °C reduzieren und das Brot 20-30 Minuten bis zur gewünschten Bräune fertig backen."
-   ],
-   "cover": "G:MmGs1nJ2acGnwmyNV9W21hNRIHKTZK1H0TGgFxBMoWxFUpQampEMMs-8YGlNs4sHeUjZZahbLoznwx02QJ_e9xNKiZYgGsloWKY",
-   "pages": [
-    "G:OH_VCYHBabA7e6rYuHYivibR3y-t0n2aApIcghUYXdgjhrBR8bjz0TCUBtg5giZKVIuIgLU8nCoBvM6HasMiBQ2iCak5Bmu0tzs",
-    "G:YPGFNcbNMVWgym6sHLXG2-NYtdPwBIY6sOvOZHjCIQe4QnTIJksFCQdLcIvehuP_1ZLpH97JXB9SwhLyic4ZfS5eKCo_FQfvez0"
-   ]
-  },
   "walliser-roggenbrot": {
    "n": "Walliser Roggenbrot",
    "port": 4,
@@ -901,6 +865,7 @@
   "kurbiskernenbrot",
   "sauerteigbrot",
   "roggen-sauerteigbrot",
-  "sauerteig-ciabatta"
+  "sauerteig-ciabatta",
+  "kartoffel-sauerteigbrot"
  ]
 }
