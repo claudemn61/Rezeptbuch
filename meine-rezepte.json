@@ -905,17 +905,17 @@
   },
   "nudelauflauf-bea": {
    "n": "Nudelauflauf Bea",
-   "port": 5,
+   "port": 2,
    "tags": [],
    "ing": [
-    "Teigwaren",
-    "Speck- oder Schinkenwürfel",
-    "Kaffeerahm",
-    "Eier",
-    "Milch",
-    "Geriebener Käse",
+    "250 g Teigwaren",
+    "100 g Speck- oder Schinkenwürfel",
+    "2 dl Kaffeerahm",
+    "3 Eier",
+    "1 dl Milch",
+    "50g Geriebener Käse",
     "Gemüse Reste",
-    "Boullion",
+    "1 dl Boullion",
     "Pfeffer"
    ],
    "steps": [
