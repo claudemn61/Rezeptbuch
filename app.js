@@ -738,6 +738,33 @@ function openImport() {
   start();
 }
 
+/* Grösstes eingebettetes JPEG-Foto aus einem PDF holen (ohne PDF-Bibliothek: DCT-Streams direkt auslesen) */
+async function pdfPhoto(file) {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const str = new TextDecoder('latin1').decode(bytes);
+  const cands = []; const re = /stream\r?\n/g; let m;
+  while ((m = re.exec(str))) {
+    const st = m.index + m[0].length;
+    if (bytes[st] !== 0xFF || bytes[st + 1] !== 0xD8 || bytes[st + 2] !== 0xFF) continue;
+    let en = str.indexOf('endstream', st); if (en < 0) en = bytes.length;
+    while (en > st && bytes[en - 1] <= 32) en--;
+    if (en - st > 8000) cands.push(bytes.subarray(st, en));
+  }
+  cands.sort((a, b) => b.length - a.length);
+  for (const c of cands.slice(0, 6)) {
+    try {
+      const url = URL.createObjectURL(new Blob([c], { type: 'image/jpeg' }));
+      const im = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => rej(new Error('x')); i.src = url; });
+      URL.revokeObjectURL(url);
+      if (im.naturalWidth < 240 || im.naturalHeight < 240) continue;
+      const k = Math.min(1, 1600 / Math.max(im.naturalWidth, im.naturalHeight));
+      const cv = document.createElement('canvas'); cv.width = Math.round(im.naturalWidth * k); cv.height = Math.round(im.naturalHeight * k);
+      const g = cv.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height); g.drawImage(im, 0, 0, cv.width, cv.height);
+      return cv.toDataURL('image/jpeg', 0.82);
+    } catch {}
+  }
+  return null;
+}
 /* PDF in eine Basiswissen-Seite (Titel + Freitext) umwandeln */
 async function pdfToPage(file) {
   const key = lsGet('rb_akey');
@@ -808,7 +835,7 @@ function openLib(fid) {
   });
   $('#l-file', o).addEventListener('change', async e => {
     const files = [...e.target.files]; e.target.value = ''; if (!files.length) return;
-    busy = true; o.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    busy = true; o.querySelectorAll('button').forEach(b => { b.disabled = true; }); let fileNote = '';
     try {
       if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen → Tokens)');
       for (const file of files) {
@@ -816,10 +843,19 @@ function openLib(fid) {
         if (file.size > 20 * 1024 * 1024) throw new Error('«' + file.name + '» ist zu gross (über 20 MB)');
         msg('«' + file.name + '» wird gelesen und umgewandelt …');
         const pg = await pdfToPage(file);
-        (cfg.docs[fid] = cfg.docs[fid] || []).push({ id: docNewId(), n: pg.n, t: pg.t });
-        persist(); draw();
+        const id = docNewId(); let im = '', note = '';
+        try {
+          const ph = await pdfPhoto(file);
+          if (ph) {
+            const path = `doc/${fid}/${id}-${Date.now().toString(36)}.jpg`;
+            const x = await putFile(path, ph.split(',')[1], 'App: Basiswissen-Foto');
+            if (x.ok) { libImg[path] = ph; im = path; } else note = ' Das Foto liess sich nicht speichern (' + x.status + ').';
+          } else note = ' Im PDF wurde kein Foto gefunden.';
+        } catch { note = ' Das Foto liess sich nicht auslesen.'; }
+        (cfg.docs[fid] = cfg.docs[fid] || []).push({ id, n: pg.n, t: pg.t, ...(im ? { im } : {}) });
+        persist(); draw(); if (note) fileNote = note;
       }
-      msg('Als Seite übernommen. Bitte mit ✏️ prüfen und bei Bedarf korrigieren.');
+      msg('Als Seite übernommen.' + fileNote + ' Bitte mit ✏️ prüfen und bei Bedarf korrigieren.');
     } catch (err) { msg('⚠ ' + err.message); }
     busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; });
   });
