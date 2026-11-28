@@ -429,3 +429,6 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
  #printarea .st{margin:3pt 0}
  #printarea .pa-pics img{display:block;max-width:100%;max-height:12cm;margin:8pt auto;break-inside:avoid}
 }
+.xl{font-size:13px;color:var(--muted);margin:8px 2px 4px}
+.sheet .seg button{padding:11px 6px;font-size:15px}
+.seg button:disabled{opacity:.4}

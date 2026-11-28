@@ -1206,8 +1206,8 @@ function recipeExport(r) {
   let fmt = 'pdf', ph = pics.length > 0;
   const draw = () => {
     o.innerHTML = `<div class="sheet" role="dialog" aria-label="Exportieren"><h3>Rezept exportieren</h3>
-      <div class="seg"><span class="note tiny">Format</span> <button type="button" class="chip" data-fmt="pdf" aria-pressed="${fmt === 'pdf'}">PDF</button><button type="button" class="chip" data-fmt="txt" aria-pressed="${fmt === 'txt'}">Text</button></div>
-      <div class="seg"><span class="note tiny">Fotos</span> <button type="button" class="chip" data-ph="1" aria-pressed="${ph}" ${pics.length ? '' : 'disabled'}>mit Fotos</button><button type="button" class="chip" data-ph="0" aria-pressed="${!ph}">ohne Fotos</button></div>
+      <div class="xl">Format</div><div class="seg"><button type="button" data-fmt="pdf" aria-pressed="${fmt === 'pdf'}">PDF</button><button type="button" data-fmt="txt" aria-pressed="${fmt === 'txt'}">Text</button></div>
+      <div class="xl">Fotos</div><div class="seg"><button type="button" data-ph="1" aria-pressed="${ph}" ${pics.length ? '' : 'disabled'}>mit Fotos</button><button type="button" data-ph="0" aria-pressed="${!ph}">ohne Fotos</button></div>
       <p class="note tiny">${fmt === 'pdf' ? 'Es öffnet sich der Druckdialog. Dort kannst du auf dem iPhone über Teilen «In Dateien sichern» wählen (PDF).' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'} Zutatenmengen für ${p.n} Portionen.</p>
       <p class="note tiny err" id="x-msg"></p>
       <div class="acts"><button type="button" class="chip" id="x-cancel">Abbrechen</button>${fmt === 'txt' ? '<button type="button" class="chip" id="x-copy">Kopieren</button>' : ''}<button type="button" class="chip on" id="x-go">Exportieren</button></div></div>`;
