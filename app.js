@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.9';
+const APP_VERSION = '1.9.10';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -207,7 +207,7 @@ function devPhotos(c) {
 }
 function normalize(c) {
   c = c || {};
-  const out = { v: 1, size: devSize(c), rsize: devRsize(), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {} };
+  const out = { v: 1, size: devSize(c), rsize: devRsize(), photos: devPhotos(c), fav: (Array.isArray(c.fav) ? c.fav : []).filter(x => byId[x]), assign: {}, folders: [], layouts: {}, docs: {} };
   Object.entries(store.get('rb_layouts', {}) || {}).forEach(([k, v]) => { if (v && typeof v.id === 'string' && v.n > 0) out.layouts[k] = { n: v.n | 0, id: v.id }; });
   const seen = new Set();
   (c.folders || []).forEach(f => {
@@ -218,6 +218,7 @@ function normalize(c) {
   const ids = new Set(out.folders.map(f => f.id));
   out.folders.forEach(f => { if (f.parent && (!ids.has(f.parent) || f.parent === f.id)) f.parent = null; });
   out.folders.forEach(f => { let p = f, n = 0; while (p && p.parent && n++ < 60) p = out.folders.find(x => x.id === p.parent); if (n >= 60) f.parent = null; });
+  Object.entries(c.docs || {}).forEach(([fid, l]) => { const a = (Array.isArray(l) ? l : []).filter(d => d && typeof d.n === 'string' && /^doc\/[^\s]+\.pdf$/i.test(d.p || '')).map(d => ({ n: d.n, p: d.p })); if (ids.has(fid) && a.length) out.docs[fid] = a; });
   Object.entries(c.assign || {}).forEach(([rid, fid]) => { const l = [].concat(fid).filter(x => ids.has(x)); if (byId[rid] && l.length) out.assign[rid] = [...new Set(l)]; });
   return out;
 }
@@ -737,9 +738,66 @@ function openImport() {
   start();
 }
 
+/* Basiswissen: PDF-Bibliothek je Hauptordner (Dateien unter doc/<ordner>/ im Repo, Liste in config.json) */
+const libBlob = {};
+function openLib(fid) {
+  const f = FB[fid]; if (!f) return;
+  const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
+  o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen: ${esc(f.name)}</h3>
+    <p class="note tiny">PDFs zu diesem Ordner, zum Beispiel Grundrezepte oder Tabellen. Zum Öffnen antippen.</p>
+    <div class="rlist grow" id="l-list" style="overflow:auto"></div>
+    <button class="chip big on" type="button" id="l-add">＋ PDF hinzufügen</button>
+    <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
+    <p class="note tiny err" id="l-msg"></p>
+    <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
+  document.body.appendChild(o);
+  let busy = false;
+  const list = () => (cfg.docs && cfg.docs[fid]) || [];
+  const draw = () => {
+    const l = list();
+    $('#l-list', o).innerHTML = l.length ? l.map((d, i) => `<div class="rrow"><a class="rt" href="${esc(libBlob[d.p] || encodeURI(d.p))}" target="_blank" rel="noopener"><b>📄 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="PDF entfernen">✕</button></div>`).join('') : '<p class="note">Noch keine PDFs in diesem Ordner.</p>';
+  };
+  draw();
+  const msg = t => { $('#l-msg', o).textContent = t; };
+  o.addEventListener('click', async e => {
+    if (e.target === o || e.target.closest('#l-close')) { if (!busy) o.remove(); return; }
+    if (busy) return;
+    if (e.target.closest('#l-add')) { $('#l-file', o).click(); return; }
+    const del = e.target.closest('[data-ldel]');
+    if (del) {
+      const i = +del.dataset.ldel, d = list()[i]; if (!d) return;
+      if (!confirm('«' + d.n + '» wirklich entfernen?')) return;
+      cfg.docs[fid] = list().filter((_, k) => k !== i); if (!cfg.docs[fid].length) delete cfg.docs[fid];
+      persist(); draw(); msg('');
+      try { await delFile(d.p); } catch {}
+    }
+  });
+  $('#l-file', o).addEventListener('change', async e => {
+    const files = [...e.target.files]; e.target.value = ''; if (!files.length) return;
+    busy = true; o.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    try {
+      if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen → Tokens)');
+      for (const file of files) {
+        if (!/\.pdf$/i.test(file.name) && file.type !== 'application/pdf') throw new Error('«' + file.name + '» ist keine PDF-Datei');
+        if (file.size > 20 * 1024 * 1024) throw new Error('«' + file.name + '» ist zu gross (über 20 MB)');
+        msg('«' + file.name + '» wird gespeichert …');
+        const b64 = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('Datei lässt sich nicht lesen')); fr.readAsDataURL(file); });
+        const base = file.name.replace(/\.pdf$/i, '');
+        const path = `doc/${fid}/${slug(base) || 'datei'}-${Date.now().toString(36)}.pdf`;
+        const x = await putFile(path, b64, 'App: Basiswissen');
+        if (!x.ok) throw new Error('PDF speichern fehlgeschlagen (' + x.status + ')');
+        libBlob[path] = URL.createObjectURL(file);
+        (cfg.docs[fid] = cfg.docs[fid] || []).push({ n: base, p: path });
+        persist(); draw();
+      }
+      msg('Gespeichert. Auf anderen Geräten ist die PDF nach etwa einer Minute abrufbar.');
+    } catch (err) { msg('⚠ ' + err.message); }
+    busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; });
+  });
+}
 /* Alle Rezepte: bearbeiten, Bilder nachladen/entfernen, löschen */
 async function delFile(path) {
-  if (!/^img\/u\//.test(path)) return;
+  if (!/^(img\/u|doc)\//.test(path)) return;
   const u = `https://api.github.com/repos/${REPO}/contents/${path}`;
   const g = await fetch(`${u}?ref=main&_=${Date.now()}`, { headers: hdr(getToken()), cache: 'no-store' });
   if (g.status === 404) return;
@@ -1269,7 +1327,7 @@ function renderList() {
   const inFolder = !state.q && FB[state.filter];
   if (!state.q && state.filter === 'abc' && !state.letter) { countEl.textContent = R.length; clearEl.hidden = true; view.innerHTML = letterBar(); return; }
   const abcHead = !state.q && state.filter === 'abc' ? letterBar() : '';
-  const head = (inFolder || !res.length ? '' : `<div class="vrow">${rviewBtn()}</div>`) + (abcHead || (inFolder ? `<nav class="crumbs">${res.length ? rviewBtn() : ''}${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : ''));
+  const head = (inFolder || !res.length ? '' : `<div class="vrow">${rviewBtn()}</div>`) + (abcHead || (inFolder ? `<nav class="crumbs">${FB[state.filter] && !FB[state.filter].parent ? `<button type="button" class="chip libbtn" data-lib="${esc(state.filter)}" aria-label="Basiswissen" title="Basiswissen">📚</button>` : ''}${res.length ? rviewBtn() : ''}${state.edit ? '<button type="button" class="chip upbtn" data-up aria-label="Zurück">‹ Zurück</button>' : ''}<a href="#" data-crumb="">Start</a>${pathOf(state.filter).map((f, i, a) => ' › ' + (i < a.length - 1 ? `<a href="#" data-crumb="${esc(f.id)}">${esc(f.name)}</a>` : `<b>${esc(f.name)}</b>`)).join('')}</nav>${barHtml()}${tilesBlock(state.filter)}` : ''));
   countEl.textContent = res.length === R.length ? R.length : res.length + '/' + R.length;
   clearEl.hidden = !state.q;
   if (state.edit && inFolder) { view.innerHTML = `<section class="home editing">${head}</section>`; setSync(sync.msg, sync.kind); return; }
@@ -1434,6 +1492,7 @@ qEl.addEventListener('input', () => { state.q = qEl.value.trim(); refresh(); });
 qEl.addEventListener('keydown', e => { if (e.key === 'Enter') qEl.blur(); if (e.key === 'Escape') { qEl.value = ''; state.q = ''; refresh(); } });
 clearEl.addEventListener('click', () => { qEl.value = ''; state.q = ''; refresh(); qEl.focus(); });
 $('#brand').addEventListener('click', () => { qEl.value = ''; state.q = ''; state.filter = 'alle'; state.browse = false; state.edit = false; state.scroll = 0; renderFilters(); if (location.hash) location.hash = ''; else route(); });
+view.addEventListener('click', e => { const lib = e.target.closest('[data-lib]'); if (lib) { e.preventDefault(); openLib(lib.dataset.lib); return; } });
 view.addEventListener('click', e => { const lb = e.target.closest('[data-letter]'); if (!lb) return; state.letter = lb.dataset.letter; refresh(); window.scrollTo(0, 0); });
 filtersEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
@@ -1566,6 +1625,7 @@ const HELP = [
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
+  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort liegen PDFs zu diesem Ordner, zum Beispiel Grundrezepte oder Tabellen. Mit <b>＋ PDF hinzufügen</b> lädst du eine PDF hoch (bis 20 MB), mit <b>✕</b> entfernst du sie. Dafür braucht es den GitHub-Token.'],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Die App ganz schliessen (auf dem iPhone im App-Wechsler nach oben wischen) und neu öffnen. Hilft das nicht, die App vom Home-Bildschirm löschen und neu hinzufügen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', []]
 ];

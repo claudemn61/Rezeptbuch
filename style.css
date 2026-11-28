@@ -415,3 +415,4 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .hlv .chip{padding:0 16px;min-height:30px;border-radius:50%/50%;font-size:13px;font-weight:700;background:var(--card)}
 .hlv .chip[data-lvl=up]{color:#1f9d43;border-color:#1f9d43}
 .hlv .chip[data-lvl=down]{color:#d33a2c;border-color:#d33a2c}
+.crumbs .libbtn{float:right;padding:2px 10px;font-size:16px;line-height:1.5;margin-left:8px}
