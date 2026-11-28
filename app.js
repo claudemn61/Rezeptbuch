@@ -794,11 +794,9 @@ const docNewId = () => 'p' + Date.now().toString(36) + Math.random().toString(36
 function openLib(fid) {
   const f = FB[fid]; if (!f) return;
   const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
-  o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen: ${esc(f.name)}</h3>
-    <p class="note tiny">Eigene Seiten mit Foto und Text sowie PDFs zu diesem Ordner. Zum Öffnen antippen.</p>
+  o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><div style="display:flex;align-items:center;gap:8px"><h3 style="flex:1;margin:0">📚 Basiswissen: ${esc(f.name)}</h3><span class="dtools"><button class="chip dbtn" type="button" id="l-new" aria-label="Neue Seite (Foto und Text)" title="Neue Seite (Foto und Text)">＋📝</button><button class="chip dbtn" type="button" id="l-add" aria-label="PDF einlesen (wird zur Seite)" title="PDF einlesen (wird zur Seite)">＋📄</button></span></div>
+    <p class="note tiny">📝 neue Seite mit Foto und Text · 📄 PDF einlesen (wird zur Seite). Zum Öffnen antippen.</p>
     <div class="rlist grow" id="l-list" style="overflow:auto"></div>
-    <button class="chip big on" type="button" id="l-new">＋ Seite (Foto und Text)</button>
-    <button class="chip big" type="button" id="l-add">＋ PDF einlesen (wird zur Seite)</button>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
     <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
