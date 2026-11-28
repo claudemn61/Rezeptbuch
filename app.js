@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.10';
+const APP_VERSION = '1.10.0';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -218,7 +218,7 @@ function normalize(c) {
   const ids = new Set(out.folders.map(f => f.id));
   out.folders.forEach(f => { if (f.parent && (!ids.has(f.parent) || f.parent === f.id)) f.parent = null; });
   out.folders.forEach(f => { let p = f, n = 0; while (p && p.parent && n++ < 60) p = out.folders.find(x => x.id === p.parent); if (n >= 60) f.parent = null; });
-  Object.entries(c.docs || {}).forEach(([fid, l]) => { const a = (Array.isArray(l) ? l : []).filter(d => d && typeof d.n === 'string' && (/^doc\/[^\s]+\.pdf$/i.test(d.p || '') || (typeof d.id === 'string' && d.id))).map(d => d.p ? { n: d.n, p: d.p } : { id: d.id, n: d.n, t: String(d.t || '').slice(0, 30000), ...(/^doc\/[^\s]+\.jpg$/i.test(d.im || '') ? { im: d.im } : {}) }); if (ids.has(fid) && a.length) out.docs[fid] = a; });
+  Object.entries(c.docs || {}).forEach(([fid, l]) => { const a = (Array.isArray(l) ? l : []).filter(d => d && typeof d.n === 'string' && (/^doc\/[^\s]+\.pdf$/i.test(d.p || '') || (typeof d.id === 'string' && d.id))).map(d => d.p ? { n: d.n, p: d.p } : { id: d.id, n: d.n, t: String(d.t || '').slice(0, 30000), ...(/^doc\/[^\s]+\.jpg$/i.test(d.im || '') ? { im: d.im } : {}) }); if ((ids.has(fid) || fid === '_all') && a.length) out.docs[fid] = a; });
   Object.entries(c.assign || {}).forEach(([rid, fid]) => { const l = [].concat(fid).filter(x => ids.has(x)); if (byId[rid] && l.length) out.assign[rid] = [...new Set(l)]; });
   return out;
 }
@@ -791,42 +791,55 @@ const libBlob = {}, libImg = {};
 let libRedraw = null;
 const docSrc = p => libImg[p] || libBlob[p] || encodeURI(p);
 const docNewId = () => 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+const libName = k => k === '_all' ? 'Allgemein' : ((FB[k] || {}).name || '');
 function openLib(fid) {
-  const f = FB[fid]; if (!f) return;
+  const isAll = fid === '_all';
+  if (!isAll && !FB[fid]) return;
+  const tops = () => cfg.folders.filter(x => !x.parent);
+  const keys = () => isAll ? ['_all', ...tops().map(x => x.id)] : [fid];
+  const entries = () => keys().flatMap(k => ((cfg.docs && cfg.docs[k]) || []).map((d, i) => ({ k, i, d })));
+  let target = isAll ? (store.get('rb_libtarget', '_all')) : fid;
+  if (isAll && target !== '_all' && !FB[target]) target = '_all';
   const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
-  o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen</h3>
-    <div style="display:flex;gap:10px;margin:2px 0 12px"><button class="chip" type="button" id="l-new" style="flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px" aria-label="Neue Seite mit Text und Foto">📝 Text, Foto</button><button class="chip" type="button" id="l-add" style="flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px" aria-label="PDF einlesen (wird zur Seite)">📄 PDF</button></div>
-    <div class="rlist grow" id="l-list" style="overflow:auto"></div>
+  const tgtOpts = () => ['_all', ...tops().map(x => x.id)].map(k => `<option value="${esc(k)}" ${k === target ? 'selected' : ''}>${esc(k === '_all' ? '📚 Allgemein' : ((FB[k].icon || '') + ' ' + FB[k].name))}</option>`).join('');
+  const btn = 'flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px';
+  o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen${isAll ? '' : ': ' + esc(libName(fid))}</h3>
+    <div style="display:flex;gap:10px;margin:2px 0 6px"><button class="chip" type="button" id="l-new" style="${btn}" aria-label="Neue Seite mit Text und Foto">📝 Text, Foto</button><button class="chip" type="button" id="l-add" style="${btn}" aria-label="PDF einlesen (wird zur Seite)">📄 PDF</button></div>
+    <label class="xl" style="display:block">Neue Einträge ablegen in <select id="l-tgt" style="width:100%;margin-top:4px;font:inherit;font-size:15px;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">${tgtOpts()}</select></label>
+    <div class="rlist grow" id="l-list" style="overflow:auto;margin-top:10px"></div>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
     <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
   document.body.appendChild(o);
   let busy = false;
-  const list = () => (cfg.docs && cfg.docs[fid]) || [];
+  const get = (k, i) => ((cfg.docs && cfg.docs[k]) || [])[i];
   const draw = () => {
-    const l = list();
-    const sub = `Basiswissen · ${esc(f.name)}`;
-    const xb = (i, t) => `<button type="button" class="fstar" data-ldel="${i}" aria-label="${t}">✕</button>`;
+    const l = entries();
+    const xb = (k, i, t) => `<button type="button" class="fstar" data-ldel="${esc(k)}|${i}" aria-label="${t}">✕</button>`;
     const ctr = ' style="display:flex;align-items:center;justify-content:center;font-size:28px"';
-    $('#l-list', o).innerHTML = l.length ? l.map((d, i) => d.p
-      ? `<a class="rrow" href="${esc(docSrc(d.p))}" target="_blank" rel="noopener"><span class="rph"${ctr}>📄</span><span class="rt"><b>${esc(d.n)}</b><small>PDF · ${sub}</small></span>${xb(i, 'PDF entfernen')}</a>`
-      : `<a class="rrow" href="#" data-lpage="${i}"><span class="rph"${d.im ? '' : ctr}>${d.im ? `<img loading="lazy" decoding="async" src="${esc(docSrc(d.im))}" alt="">` : '📝'}</span><span class="rt"><b>${esc(d.n)}</b><small>${sub}</small></span>${xb(i, 'Seite entfernen')}</a>`).join('') : '<p class="note">Noch nichts in diesem Ordner.</p>';
+    $('#l-list', o).innerHTML = l.length ? l.map(({ k, i, d }) => {
+      const sub = `Basiswissen · ${esc(libName(k))}`;
+      return d.p
+        ? `<a class="rrow" href="${esc(docSrc(d.p))}" target="_blank" rel="noopener"><span class="rph"${ctr}>📄</span><span class="rt"><b>${esc(d.n)}</b><small>PDF · ${sub}</small></span>${xb(k, i, 'PDF entfernen')}</a>`
+        : `<a class="rrow" href="#" data-lpage="${esc(k)}|${i}"><span class="rph"${d.im ? '' : ctr}>${d.im ? `<img loading="lazy" decoding="async" src="${esc(docSrc(d.im))}" alt="">` : '📝'}</span><span class="rt"><b>${esc(d.n)}</b><small>${sub}</small></span>${xb(k, i, 'Seite entfernen')}</a>`;
+    }).join('') : '<p class="note">Noch nichts hier.</p>';
   };
   draw(); libRedraw = draw;
   const msg = t => { $('#l-msg', o).textContent = t; };
   const close = () => { libRedraw = null; o.remove(); };
+  o.addEventListener('change', e => { if (e.target.id === 'l-tgt') { target = e.target.value; if (isAll) store.set('rb_libtarget', target); } });
   o.addEventListener('click', async e => {
     if (e.target === o || e.target.closest('#l-close')) { if (!busy) close(); return; }
     if (busy) return;
     if (e.target.closest('#l-add')) { $('#l-file', o).click(); return; }
-    if (e.target.closest('#l-new')) { openDocEdit(fid, null); return; }
+    if (e.target.closest('#l-new')) { openDocEdit(target, null); return; }
     const del = e.target.closest('[data-ldel]');
-    if (!del) { const pg = e.target.closest('[data-lpage]'); if (pg) { e.preventDefault(); openDocPage(fid, list()[+pg.dataset.lpage].id); return; } }
+    if (!del) { const pg = e.target.closest('[data-lpage]'); if (pg) { e.preventDefault(); const [k, i] = pg.dataset.lpage.split('|'); const d = get(k, +i); if (d) openDocPage(k, d.id); return; } }
     if (del) {
       e.preventDefault();
-      const i = +del.dataset.ldel, d = list()[i]; if (!d) return;
+      const [k, i] = del.dataset.ldel.split('|'), d = get(k, +i); if (!d) return;
       if (!confirm('«' + d.n + '» wirklich entfernen?')) return;
-      cfg.docs[fid] = list().filter((_, k) => k !== i); if (!cfg.docs[fid].length) delete cfg.docs[fid];
+      cfg.docs[k] = cfg.docs[k].filter((_, n) => n !== +i); if (!cfg.docs[k].length) delete cfg.docs[k];
       persist(); draw(); msg('');
       try { if (d.p) await delFile(d.p); else if (d.im) await delFile(d.im); } catch {}
     }
@@ -834,6 +847,7 @@ function openLib(fid) {
   $('#l-file', o).addEventListener('change', async e => {
     const files = [...e.target.files]; e.target.value = ''; if (!files.length) return;
     busy = true; o.querySelectorAll('button').forEach(b => { b.disabled = true; }); let fileNote = '';
+    const tk = target;
     try {
       if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen → Tokens)');
       for (const file of files) {
@@ -845,15 +859,15 @@ function openLib(fid) {
         try {
           const ph = await pdfPhoto(file);
           if (ph) {
-            const path = `doc/${fid}/${id}-${Date.now().toString(36)}.jpg`;
+            const path = `doc/${tk}/${id}-${Date.now().toString(36)}.jpg`;
             const x = await putFile(path, ph.split(',')[1], 'App: Basiswissen-Foto');
             if (x.ok) { libImg[path] = ph; im = path; } else note = ' Das Foto liess sich nicht speichern (' + x.status + ').';
           } else note = ' Im PDF wurde kein Foto gefunden.';
         } catch { note = ' Das Foto liess sich nicht auslesen.'; }
-        (cfg.docs[fid] = cfg.docs[fid] || []).push({ id, n: pg.n, t: pg.t, ...(im ? { im } : {}) });
+        (cfg.docs[tk] = cfg.docs[tk] || []).push({ id, n: pg.n, t: pg.t, ...(im ? { im } : {}) });
         persist(); draw(); if (note) fileNote = note;
       }
-      msg('Als Seite übernommen.' + fileNote + ' Bitte mit ✏️ prüfen und bei Bedarf korrigieren.');
+      msg('Abgelegt in «' + libName(tk) + '».' + fileNote + ' Bitte mit ✏️ prüfen und bei Bedarf korrigieren.');
     } catch (err) { msg('⚠ ' + err.message); }
     busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; });
   });
@@ -868,7 +882,7 @@ function openDocPage(fid, id) {
     o.innerHTML = `<main><div class="backrow dback"><button class="back" type="button" id="d-back">‹ Zurück</button></div>
       ${x.im ? `<div class="hero"><img src="${esc(docSrc(x.im))}" alt="${esc(x.n)}"></div>` : ''}
       <div class="head"><h2>${esc(x.n)}</h2></div>
-      <div class="meta"><div class="mtop"><span class="fchips"><span class="tag fchip">📚 ${esc((FB[fid] || {}).name || '')}</span></span><span class="dtools"><button type="button" class="chip dbtn" id="d-exp" aria-label="Exportieren" title="Exportieren">📤</button><button type="button" class="chip dbtn" id="d-edit" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div></div>
+      <div class="meta"><div class="mtop"><span class="fchips"><span class="tag fchip">📚 ${esc(libName(fid))}</span></span><span class="dtools"><button type="button" class="chip dbtn" id="d-exp" aria-label="Exportieren" title="Exportieren">📤</button><button type="button" class="chip dbtn" id="d-edit" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div></div>
       <div class="cols"><section class="panel">${body(x.t) || '<p class="note">Noch kein Text.</p>'}</section></div>
       <p style="text-align:center;margin:18px 0 0"><button type="button" class="chip" id="d-back2">Schliessen</button></p></main>`;
   };
@@ -878,7 +892,7 @@ function openDocPage(fid, id) {
     if (e.target.closest('#d-back') || e.target.closest('#d-back2')) { o.remove(); return; }
     if (e.target.closest('#d-edit')) { openDocEdit(fid, id, draw); return; }
     if (e.target.closest('#d-exp')) {
-      recipeExport({ id: 'doc-' + id, n: x.n, ing: [], steps: (x.t || '').split('\n').map(l => l.trim()).filter(Boolean), cover: x.im ? docSrc(x.im) : '', pages: [], free: true, where: '📚 Basiswissen · ' + ((FB[fid] || {}).name || '') });
+      recipeExport({ id: 'doc-' + id, n: x.n, ing: [], steps: (x.t || '').split('\n').map(l => l.trim()).filter(Boolean), cover: x.im ? docSrc(x.im) : '', pages: [], free: true, where: '📚 Basiswissen · ' + libName(fid) });
     }
   });
 }
@@ -1235,7 +1249,8 @@ function renderHome() {
     <section class="home${state.edit ? ' editing' : ''}">
       ${barHtml()}
       ${tilesBlock(null)}
-      ${state.edit ? '' : `<button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
+      ${state.edit ? '' : `<button class="chip big" type="button" id="libhome">📚 Basiswissen</button>
+      <button class="chip big" type="button" id="random">🎲 Was koche ich heute?</button>
       ${rec.length ? `<h3 class="sec">Zuletzt angesehen</h3><div class="strip">${rec.map(miniCard).join('')}</div>` : ''}
       ${fav.length ? `<h3 class="sec">Favoriten</h3><div class="strip">${fav.map(miniCard).join('')}</div>` : ''}`}
     </section>`;
@@ -1835,6 +1850,7 @@ view.addEventListener('click', e => {
   if (tile && state.edit) return;
   if (tile && tile.classList.contains('add')) return;
   if (tile) { state.filter = tile.dataset.folder; state.browse = true; renderFilters(); refresh(); window.scrollTo(0, 0); return; }
+  if (e.target.closest('#libhome')) { openLib('_all'); return; }
   if (e.target.closest('#random')) { openRandom(); return; }
   const back = e.target.closest('#back');
   if (back) { history.length > 1 ? history.back() : (location.hash = ''); return; }
@@ -1899,7 +1915,7 @@ const HELP = [
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
-  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort sammelst du Wissen zu diesem Ordner: mit <b>＋ Seite</b> eine eigene Seite mit Foto und frei editierbarem Text (✏️ bearbeiten, 📤 exportieren), mit <b>＋ PDF einlesen</b> ein PDF (bis 20 MB), das Claude in eine solche Seite umwandelt. Dafür braucht es den Claude-Schlüssel. Mit <b>✕</b> entfernst du einen Eintrag. Dafür braucht es den GitHub-Token.'],
+  ['Basiswissen (📚)', 'Auf der Startseite öffnet die Kachel <b>📚 Basiswissen</b> alle Einträge zusammen (Allgemein und alle Hauptordner). In jedem Hauptordner steht ausserdem oben rechts ein <b>📚</b> mit den Einträgen dieses Ordners. Beim Anlegen oder Einlesen wählst du unter «Neue Einträge ablegen in» den Ordner. Dort sammelst du Wissen zu diesem Ordner: mit <b>＋ Seite</b> eine eigene Seite mit Foto und frei editierbarem Text (✏️ bearbeiten, 📤 exportieren), mit <b>＋ PDF einlesen</b> ein PDF (bis 20 MB), das Claude in eine solche Seite umwandelt. Dafür braucht es den Claude-Schlüssel. Mit <b>✕</b> entfernst du einen Eintrag. Dafür braucht es den GitHub-Token.'],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Die App ganz schliessen (auf dem iPhone im App-Wechsler nach oben wischen) und neu öffnen. Hilft das nicht, die App vom Home-Bildschirm löschen und neu hinzufügen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', []]
 ];

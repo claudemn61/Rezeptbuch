@@ -1,4 +1,4 @@
-const VERSION = '1.9.10';
+const VERSION = '1.10.0';
 const SHELL = `rezeptbuch-shell-${VERSION}`;
 const IMGS = 'rezeptbuch-images';
 const FILES = ['./', 'index.html', 'style.css', 'app.js', 'data.js', 'manifest.webmanifest',
