@@ -780,9 +780,12 @@ function openLib(fid) {
   const list = () => (cfg.docs && cfg.docs[fid]) || [];
   const draw = () => {
     const l = list();
+    const sub = `Basiswissen · ${esc(f.name)}`;
+    const xb = (i, t) => `<button type="button" class="fstar" data-ldel="${i}" aria-label="${t}">✕</button>`;
+    const ctr = ' style="display:flex;align-items:center;justify-content:center;font-size:28px"';
     $('#l-list', o).innerHTML = l.length ? l.map((d, i) => d.p
-      ? `<div class="rrow"><a class="rt" href="${esc(docSrc(d.p))}" target="_blank" rel="noopener"><b>📄 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="PDF entfernen">✕</button></div>`
-      : `<div class="rrow"><a class="rt" href="#" data-lpage="${i}"><b>📝 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="Seite entfernen">✕</button></div>`).join('') : '<p class="note">Noch nichts in diesem Ordner.</p>';
+      ? `<a class="rrow" href="${esc(docSrc(d.p))}" target="_blank" rel="noopener"><span class="rph"${ctr}>📄</span><span class="rt"><b>${esc(d.n)}</b><small>PDF · ${sub}</small></span>${xb(i, 'PDF entfernen')}</a>`
+      : `<a class="rrow" href="#" data-lpage="${i}"><span class="rph"${d.im ? '' : ctr}>${d.im ? `<img loading="lazy" decoding="async" src="${esc(docSrc(d.im))}" alt="">` : '📝'}</span><span class="rt"><b>${esc(d.n)}</b><small>${sub}</small></span>${xb(i, 'Seite entfernen')}</a>`).join('') : '<p class="note">Noch nichts in diesem Ordner.</p>';
   };
   draw(); libRedraw = draw;
   const msg = t => { $('#l-msg', o).textContent = t; };
@@ -792,10 +795,10 @@ function openLib(fid) {
     if (busy) return;
     if (e.target.closest('#l-add')) { $('#l-file', o).click(); return; }
     if (e.target.closest('#l-new')) { openDocEdit(fid, null); return; }
-    const pg = e.target.closest('[data-lpage]');
-    if (pg) { e.preventDefault(); openDocPage(fid, list()[+pg.dataset.lpage].id); return; }
     const del = e.target.closest('[data-ldel]');
+    if (!del) { const pg = e.target.closest('[data-lpage]'); if (pg) { e.preventDefault(); openDocPage(fid, list()[+pg.dataset.lpage].id); return; } }
     if (del) {
+      e.preventDefault();
       const i = +del.dataset.ldel, d = list()[i]; if (!d) return;
       if (!confirm('«' + d.n + '» wirklich entfernen?')) return;
       cfg.docs[fid] = list().filter((_, k) => k !== i); if (!cfg.docs[fid].length) delete cfg.docs[fid];
