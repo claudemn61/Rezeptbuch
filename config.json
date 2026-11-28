@@ -51,7 +51,8 @@
    "icon": "🥔",
    "color": "#c0504d",
    "parent": "cmwjf03u2ve2",
-   "show": true
+   "show": true,
+   "photo": "artischocken-kartoffel-gemuse"
   },
   {
    "id": "Brote",
@@ -344,5 +345,6 @@
    "show": true,
    "photo": "christmas-old-fashioned"
   }
- ]
+ ],
+ "docs": {}
 }
