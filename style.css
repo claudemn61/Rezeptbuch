@@ -432,3 +432,7 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .xl{font-size:13px;color:var(--muted);margin:8px 2px 4px}
 .sheet .seg button{padding:11px 6px;font-size:15px}
 .seg button:disabled{opacity:.4}
+.docpage .dp{margin:0 0 8px;white-space:pre-wrap;line-height:1.5}
+.docpage .dp.sp{margin:0;height:6px}
+.docpage .dh{font-size:17px;color:var(--crust-d);margin:12px 0 4px}
+.docpage main{padding-bottom:40px}

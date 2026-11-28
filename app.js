@@ -218,7 +218,7 @@ function normalize(c) {
   const ids = new Set(out.folders.map(f => f.id));
   out.folders.forEach(f => { if (f.parent && (!ids.has(f.parent) || f.parent === f.id)) f.parent = null; });
   out.folders.forEach(f => { let p = f, n = 0; while (p && p.parent && n++ < 60) p = out.folders.find(x => x.id === p.parent); if (n >= 60) f.parent = null; });
-  Object.entries(c.docs || {}).forEach(([fid, l]) => { const a = (Array.isArray(l) ? l : []).filter(d => d && typeof d.n === 'string' && /^doc\/[^\s]+\.pdf$/i.test(d.p || '')).map(d => ({ n: d.n, p: d.p })); if (ids.has(fid) && a.length) out.docs[fid] = a; });
+  Object.entries(c.docs || {}).forEach(([fid, l]) => { const a = (Array.isArray(l) ? l : []).filter(d => d && typeof d.n === 'string' && (/^doc\/[^\s]+\.pdf$/i.test(d.p || '') || (typeof d.id === 'string' && d.id))).map(d => d.p ? { n: d.n, p: d.p } : { id: d.id, n: d.n, t: String(d.t || '').slice(0, 30000), ...(/^doc\/[^\s]+\.jpg$/i.test(d.im || '') ? { im: d.im } : {}) }); if (ids.has(fid) && a.length) out.docs[fid] = a; });
   Object.entries(c.assign || {}).forEach(([rid, fid]) => { const l = [].concat(fid).filter(x => ids.has(x)); if (byId[rid] && l.length) out.assign[rid] = [...new Set(l)]; });
   return out;
 }
@@ -738,15 +738,19 @@ function openImport() {
   start();
 }
 
-/* Basiswissen: PDF-Bibliothek je Hauptordner (Dateien unter doc/<ordner>/ im Repo, Liste in config.json) */
-const libBlob = {};
+/* Basiswissen: je Hauptordner PDFs und eigene Seiten (Foto + Freitext). Dateien unter doc/<ordner>/, Liste in config.json */
+const libBlob = {}, libImg = {};
+let libRedraw = null;
+const docSrc = p => libImg[p] || libBlob[p] || encodeURI(p);
+const docNewId = () => 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
 function openLib(fid) {
   const f = FB[fid]; if (!f) return;
   const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
   o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen: ${esc(f.name)}</h3>
-    <p class="note tiny">PDFs zu diesem Ordner, zum Beispiel Grundrezepte oder Tabellen. Zum Öffnen antippen.</p>
+    <p class="note tiny">Eigene Seiten mit Foto und Text sowie PDFs zu diesem Ordner. Zum Öffnen antippen.</p>
     <div class="rlist grow" id="l-list" style="overflow:auto"></div>
-    <button class="chip big on" type="button" id="l-add">＋ PDF hinzufügen</button>
+    <button class="chip big on" type="button" id="l-new">＋ Seite (Foto und Text)</button>
+    <button class="chip big" type="button" id="l-add">＋ PDF hinzufügen</button>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
     <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
@@ -755,21 +759,27 @@ function openLib(fid) {
   const list = () => (cfg.docs && cfg.docs[fid]) || [];
   const draw = () => {
     const l = list();
-    $('#l-list', o).innerHTML = l.length ? l.map((d, i) => `<div class="rrow"><a class="rt" href="${esc(libBlob[d.p] || encodeURI(d.p))}" target="_blank" rel="noopener"><b>📄 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="PDF entfernen">✕</button></div>`).join('') : '<p class="note">Noch keine PDFs in diesem Ordner.</p>';
+    $('#l-list', o).innerHTML = l.length ? l.map((d, i) => d.p
+      ? `<div class="rrow"><a class="rt" href="${esc(docSrc(d.p))}" target="_blank" rel="noopener"><b>📄 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="PDF entfernen">✕</button></div>`
+      : `<div class="rrow"><a class="rt" href="#" data-lpage="${i}"><b>📝 ${esc(d.n)}</b></a><button type="button" class="chip fb" data-ldel="${i}" aria-label="Seite entfernen">✕</button></div>`).join('') : '<p class="note">Noch nichts in diesem Ordner.</p>';
   };
-  draw();
+  draw(); libRedraw = draw;
   const msg = t => { $('#l-msg', o).textContent = t; };
+  const close = () => { libRedraw = null; o.remove(); };
   o.addEventListener('click', async e => {
-    if (e.target === o || e.target.closest('#l-close')) { if (!busy) o.remove(); return; }
+    if (e.target === o || e.target.closest('#l-close')) { if (!busy) close(); return; }
     if (busy) return;
     if (e.target.closest('#l-add')) { $('#l-file', o).click(); return; }
+    if (e.target.closest('#l-new')) { openDocEdit(fid, null); return; }
+    const pg = e.target.closest('[data-lpage]');
+    if (pg) { e.preventDefault(); openDocPage(fid, list()[+pg.dataset.lpage].id); return; }
     const del = e.target.closest('[data-ldel]');
     if (del) {
       const i = +del.dataset.ldel, d = list()[i]; if (!d) return;
       if (!confirm('«' + d.n + '» wirklich entfernen?')) return;
       cfg.docs[fid] = list().filter((_, k) => k !== i); if (!cfg.docs[fid].length) delete cfg.docs[fid];
       persist(); draw(); msg('');
-      try { await delFile(d.p); } catch {}
+      try { if (d.p) await delFile(d.p); else if (d.im) await delFile(d.im); } catch {}
     }
   });
   $('#l-file', o).addEventListener('change', async e => {
@@ -793,6 +803,82 @@ function openLib(fid) {
       msg('Gespeichert. Auf anderen Geräten ist die PDF nach etwa einer Minute abrufbar.');
     } catch (err) { msg('⚠ ' + err.message); }
     busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; });
+  });
+}
+/* Eigene Basiswissen-Seite anzeigen: wie ein Rezept, aber Freitext; nur ✏️ und 📤 */
+function openDocPage(fid, id) {
+  const d = ((cfg.docs && cfg.docs[fid]) || []).find(x => x.id === id); if (!d) return;
+  const o = document.createElement('div'); o.className = 'docpage'; o.style.cssText = 'position:fixed;inset:0;z-index:95;overflow:auto;background:var(--bg)';
+  const body = t => (t || '').split('\n').map(l => /^#\s/.test(l) ? `<h4 class="dh">${esc(l.replace(/^#\s+/, ''))}</h4>` : l.trim() ? `<p class="dp">${esc(l)}</p>` : '<p class="dp sp"></p>').join('');
+  const draw = () => {
+    const x = ((cfg.docs && cfg.docs[fid]) || []).find(y => y.id === id); if (!x) { o.remove(); return; }
+    o.innerHTML = `<main><div class="backrow"><button class="back" type="button" id="d-back">‹ Zurück</button></div>
+      ${x.im ? `<div class="hero"><img src="${esc(docSrc(x.im))}" alt="${esc(x.n)}"></div>` : ''}
+      <div class="head"><h2>${esc(x.n)}</h2></div>
+      <div class="meta"><div class="mtop"><span class="fchips"><span class="tag fchip">📚 ${esc((FB[fid] || {}).name || '')}</span></span><span class="dtools"><button type="button" class="chip dbtn" id="d-exp" aria-label="Exportieren" title="Exportieren">📤</button><button type="button" class="chip dbtn" id="d-edit" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div></div>
+      <div class="cols"><section class="panel">${body(x.t) || '<p class="note">Noch kein Text.</p>'}</section></div></main>`;
+  };
+  draw(); document.body.appendChild(o);
+  o.addEventListener('click', e => {
+    const x = ((cfg.docs && cfg.docs[fid]) || []).find(y => y.id === id); if (!x) return;
+    if (e.target.closest('#d-back')) { o.remove(); return; }
+    if (e.target.closest('#d-edit')) { openDocEdit(fid, id, draw); return; }
+    if (e.target.closest('#d-exp')) {
+      recipeExport({ id: 'doc-' + id, n: x.n, ing: [], steps: (x.t || '').split('\n').map(l => l.trim()).filter(Boolean), cover: x.im ? docSrc(x.im) : '', pages: [], free: true, where: '📚 Basiswissen · ' + ((FB[fid] || {}).name || '') });
+    }
+  });
+}
+/* Seite anlegen / bearbeiten */
+function openDocEdit(fid, id, after) {
+  const cur = id ? ((cfg.docs && cfg.docs[fid]) || []).find(x => x.id === id) : null;
+  let d = cur ? { ...cur } : { id: docNewId(), n: '', t: '' }, newData = null, rm = false;
+  const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '100';
+  const thumb = () => newData || (!rm && d.im ? docSrc(d.im) : '');
+  const draw = () => {
+    const keepN = $('#x-n', o) ? $('#x-n', o).value : d.n, keepT = $('#x-t', o) ? $('#x-t', o).value : d.t; d.n = keepN; d.t = keepT;
+    const u = thumb();
+    o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Seite bearbeiten"><h3>${cur ? 'Seite bearbeiten' : 'Neue Seite'}</h3>
+      <div class="impline"><span class="pic" style="width:64px;height:64px;flex:none">${u ? `<img src="${esc(u)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px">` : ''}</span><button type="button" class="chip" id="x-ph">📷 Foto wählen</button>${u ? '<button type="button" class="chip" id="x-rm" aria-label="Foto entfernen">−</button>' : ''}</div>
+      <input id="x-file" type="file" accept="image/*,.heic,.heif" hidden>
+      <label>Titel<input id="x-n" type="text" value="${esc(d.n)}"></label>
+      <label class="grow">Text <small>(frei; Zeile mit «# » am Anfang = Zwischentitel)</small><textarea id="x-t">${esc(d.t)}</textarea></label>
+      <p class="note tiny err" id="x-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="x-cancel">Abbrechen</button><button type="button" class="chip on" id="x-save">Speichern</button></div></div>`;
+  };
+  draw(); document.body.appendChild(o);
+  const msg = t => { $('#x-msg', o).textContent = t; };
+  let busy = false;
+  o.addEventListener('click', async e => {
+    if (busy) return;
+    if (e.target === o || e.target.closest('#x-cancel')) { o.remove(); return; }
+    if (e.target.closest('#x-ph')) { $('#x-file', o).click(); return; }
+    if (e.target.closest('#x-rm')) { if (confirm('Foto wirklich entfernen?')) { newData = null; rm = true; draw(); } return; }
+    if (e.target.closest('#x-save')) {
+      const n = $('#x-n', o).value.trim(), t = $('#x-t', o).value.replace(/\s+$/, '');
+      if (!n) { msg('Bitte einen Titel eingeben.'); return; }
+      busy = true; o.querySelectorAll('button').forEach(b => { b.disabled = true; });
+      try {
+        if (!getToken()) throw new Error('GitHub-Token fehlt (Einstellungen → Tokens)');
+        const old = cur && cur.im; let im = rm ? '' : (cur && cur.im) || '';
+        if (newData) {
+          msg('Foto wird gespeichert …');
+          const path = `doc/${fid}/${d.id}-${Date.now().toString(36)}.jpg`;
+          const x = await putFile(path, newData.split(',')[1], 'App: Basiswissen-Foto');
+          if (!x.ok) throw new Error('Foto speichern fehlgeschlagen (' + x.status + ')');
+          libImg[path] = newData; im = path;
+        }
+        const item = { id: d.id, n, t, ...(im ? { im } : {}) };
+        const l = cfg.docs[fid] = cfg.docs[fid] || [];
+        const k = l.findIndex(x => x.id === d.id); if (k >= 0) l[k] = item; else l.push(item);
+        persist(); if (libRedraw) libRedraw();
+        o.remove(); if (after) after();
+        if (old && old !== im) { try { await delFile(old); } catch {} }
+      } catch (err) { busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; }); msg('⚠ ' + err.message); }
+    }
+  });
+  $('#x-file', o).addEventListener('change', async e => {
+    const file = e.target.files[0]; e.target.value = ''; if (!file) return;
+    try { newData = await shrink(file, 1600, 0.82); rm = false; draw(); } catch (err) { msg('⚠ ' + err.message); }
   });
 }
 /* Alle Rezepte: bearbeiten, Bilder nachladen/entfernen, löschen */
@@ -1186,20 +1272,21 @@ function recipeExport(r) {
   const p = portState(r.id), fac = p.n / p.b;
   const ings = r.ing.map(l => scaleLine(l, fac));
   const pics = [r.cover, ...(r.pages || [])].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
-  const where = foldersOf(r).map(x => folderName(x)).join(' · ');
+  const where = r.where != null ? r.where : foldersOf(r).map(x => folderName(x)).join(' · ');
+  const hd = t => r.free ? /^#\s/.test(t) : isHeading(t);
   const asText = () => {
     let k = 0;
     const L = [r.n, '='.repeat(Math.min(40, r.n.length)), where ? where : '', ''];
     if (ings.length) L.push('ZUTATEN (für ' + p.n + ')', ...ings.map(x => '- ' + x), '');
-    if (r.steps.length) { L.push('ZUBEREITUNG'); r.steps.forEach(t => { if (isHeading(t)) { L.push('', headText(t).toUpperCase()); k = 0; } else L.push(++k + '. ' + t); }); }
+    if (r.steps.length) { if (!r.free) L.push('ZUBEREITUNG'); r.steps.forEach(t => { if (hd(t)) { L.push('', headText(t).toUpperCase()); k = 0; } else L.push(r.free ? t : ++k + '. ' + t); }); }
     return L.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
   };
   const asHtml = withPics => {
     let k = 0;
-    const steps = r.steps.map(t => isHeading(t) ? (k = 0, `<h3>${esc(headText(t))}</h3>`) : `<p class="st"><b>${++k}.</b> ${esc(t)}</p>`).join('');
+    const steps = r.steps.map(t => hd(t) ? (k = 0, `<h3>${esc(headText(t))}</h3>`) : r.free ? `<p class="st">${esc(t)}</p>` : `<p class="st"><b>${++k}.</b> ${esc(t)}</p>`).join('');
     return `<h1>${esc(r.n)}</h1>${where ? `<p class="pm">${esc(where)}</p>` : ''}
       ${ings.length ? `<h2>Zutaten, für ${p.n}</h2><ul>${ings.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-      ${r.steps.length ? `<h2>Zubereitung</h2>${steps}` : ''}
+      ${r.steps.length ? `${r.free ? '' : '<h2>Zubereitung</h2>'}${steps}` : ''}
       ${withPics && pics.length ? `<div class="pa-pics">${pics.map(x => `<img src="${esc(imgUrl(x, 1400))}" alt="">`).join('')}</div>` : ''}`;
   };
   /* Einfaches PDF direkt im Browser erzeugen (A4, Helvetica, Fotos als JPEG) */
@@ -1236,8 +1323,8 @@ function recipeExport(r) {
     if (withPics && r.cover) await addPic(r.cover, 280);
     if (ings.length) { y -= 6; para('Zutaten, für ' + p.n, { sz: 13, b: true, gap: 4 }); ings.forEach(x => para(x, { pre: '•', ind: 12, gap: 1.5 })); }
     if (r.steps.length) {
-      y -= 10; para('Zubereitung', { sz: 13, b: true, gap: 4 }); let k = 0;
-      r.steps.forEach(t => { if (isHeading(t)) { k = 0; y -= 4; para(headText(t), { b: true, sz: 11.5, gap: 2 }); } else para(t, { pre: ++k + '.', ind: 16, gap: 3 }); });
+      y -= 10; if (!r.free) para('Zubereitung', { sz: 13, b: true, gap: 4 }); let k = 0;
+      r.steps.forEach(t => { if (hd(t)) { k = 0; y -= 4; para(headText(t), { b: true, sz: 11.5, gap: 2 }); } else if (r.free) para(t, { gap: 4 }); else para(t, { pre: ++k + '.', ind: 16, gap: 3 }); });
     }
     if (withPics) { for (const ref of pics.filter(x => x !== r.cover)) await addPic(ref, 420); }
     const parts = [], off = []; let len = 0;
@@ -1260,13 +1347,13 @@ function recipeExport(r) {
     put('xref\n0 ' + N + '\n0000000000 65535 f \n' + Array.from({ length: N - 1 }, (_, i) => String(off[i + 1]).padStart(10, '0') + ' 00000 n \n').join('') + 'trailer\n<< /Size ' + N + ' /Root 1 0 R >>\nstartxref\n' + xr + '\n%%EOF');
     return { blob: new Blob(parts, { type: 'application/pdf' }), skipped };
   };
-  const o = document.createElement('div'); o.className = 'sheet-bg';
+  const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '110';
   let fmt = 'pdf', ph = pics.length > 0;
   const draw = () => {
     o.innerHTML = `<div class="sheet" role="dialog" aria-label="Exportieren"><h3>Rezept exportieren</h3>
       <div class="xl">Format</div><div class="seg"><button type="button" data-fmt="pdf" aria-pressed="${fmt === 'pdf'}">PDF</button><button type="button" data-fmt="txt" aria-pressed="${fmt === 'txt'}">Text</button></div>
       <div class="xl">Fotos</div><div class="seg"><button type="button" data-ph="1" aria-pressed="${ph}" ${pics.length ? '' : 'disabled'}>mit Fotos</button><button type="button" data-ph="0" aria-pressed="${!ph}">ohne Fotos</button></div>
-      <p class="note tiny">${fmt === 'pdf' ? 'Die PDF wird in der App erstellt. Danach öffnet sich das Teilen-Menü, dort wählst du zum Beispiel «In Dateien sichern».' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'} Zutatenmengen für ${p.n} Portionen.</p>
+      <p class="note tiny">${fmt === 'pdf' ? 'Die PDF wird in der App erstellt. Danach öffnet sich das Teilen-Menü, dort wählst du zum Beispiel «In Dateien sichern».' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'}${ings.length ? ' Zutatenmengen für ' + p.n + ' Portionen.' : ''}</p>
       <p class="note tiny err" id="x-msg"></p>
       <div class="acts"><button type="button" class="chip" id="x-cancel">Abbrechen</button>${fmt === 'txt' ? '<button type="button" class="chip" id="x-copy">Kopieren</button>' : ''}<button type="button" class="chip on" id="x-go">Exportieren</button></div></div>`;
   };
@@ -1758,7 +1845,7 @@ const HELP = [
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
-  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort liegen PDFs zu diesem Ordner, zum Beispiel Grundrezepte oder Tabellen. Mit <b>＋ PDF hinzufügen</b> lädst du eine PDF hoch (bis 20 MB), mit <b>✕</b> entfernst du sie. Dafür braucht es den GitHub-Token.'],
+  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort sammelst du Wissen zu diesem Ordner: mit <b>＋ Seite</b> eine eigene Seite mit Foto und frei editierbarem Text (✏️ bearbeiten, 📤 exportieren), mit <b>＋ PDF hinzufügen</b> eine PDF (bis 20 MB). Mit <b>✕</b> entfernst du einen Eintrag. Dafür braucht es den GitHub-Token.'],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Die App ganz schliessen (auf dem iPhone im App-Wechsler nach oben wischen) und neu öffnen. Hilft das nicht, die App vom Home-Bildschirm löschen und neu hinzufügen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', []]
 ];
