@@ -1132,6 +1132,24 @@
    "pages": [
     "G:-FD5C9qX2E7mBGKXq8Uw8I5q5YpMQu4H5dRCwditNcvCvAsEjF7irRiEeu9uvt8jmK0pELIWGXDHThzmZ5qo"
    ]
+  },
+  "mandelknusperli": {
+   "n": "Mandelknusperli",
+   "port": 4,
+   "tags": [],
+   "ing": [
+    "125 g Zucker",
+    "125 g Rahm",
+    "200 g Mandelplättchen"
+   ],
+   "steps": [
+    "Zucker und Rahm zusammen erwärmen bis der Zucker geschmolzen ist",
+    "darunter rühren",
+    "Auf Backpapier ausstreichen",
+    "Backen: 180 Grad 12 - 15 Minuten"
+   ],
+   "cover": "G:X4i-pkSHAMMTy62_y4F3nUEPaF8CJq3pi_Mr02FrZrRrjYZx8y1mWvFkpcgnFZES80UG-pSmSp7nrElDgtYObfjzReT3XRNU8LI",
+   "pages": []
   }
  },
  "deleted": [
