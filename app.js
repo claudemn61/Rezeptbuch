@@ -1181,6 +1181,73 @@ function endDrag(e) {
 window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
 
+/* Rezept exportieren: Text oder PDF (über den Druckdialog), mit oder ohne Fotos */
+function recipeExport(r) {
+  const p = portState(r.id), fac = p.n / p.b;
+  const ings = r.ing.map(l => scaleLine(l, fac));
+  const pics = [r.cover, ...(r.pages || [])].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
+  const where = foldersOf(r).map(x => folderName(x)).join(' · ');
+  const asText = () => {
+    let k = 0;
+    const L = [r.n, '='.repeat(Math.min(40, r.n.length)), where ? where : '', ''];
+    if (ings.length) L.push('ZUTATEN (für ' + p.n + ')', ...ings.map(x => '- ' + x), '');
+    if (r.steps.length) { L.push('ZUBEREITUNG'); r.steps.forEach(t => { if (isHeading(t)) { L.push('', headText(t).toUpperCase()); k = 0; } else L.push(++k + '. ' + t); }); }
+    return L.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
+  };
+  const asHtml = withPics => {
+    let k = 0;
+    const steps = r.steps.map(t => isHeading(t) ? (k = 0, `<h3>${esc(headText(t))}</h3>`) : `<p class="st"><b>${++k}.</b> ${esc(t)}</p>`).join('');
+    return `<h1>${esc(r.n)}</h1>${where ? `<p class="pm">${esc(where)}</p>` : ''}
+      ${ings.length ? `<h2>Zutaten, für ${p.n}</h2><ul>${ings.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${r.steps.length ? `<h2>Zubereitung</h2>${steps}` : ''}
+      ${withPics && pics.length ? `<div class="pa-pics">${pics.map(x => `<img src="${esc(imgUrl(x, 1400))}" alt="">`).join('')}</div>` : ''}`;
+  };
+  const o = document.createElement('div'); o.className = 'sheet-bg';
+  let fmt = 'pdf', ph = pics.length > 0;
+  const draw = () => {
+    o.innerHTML = `<div class="sheet" role="dialog" aria-label="Exportieren"><h3>Rezept exportieren</h3>
+      <div class="seg"><span class="note tiny">Format</span> <button type="button" class="chip" data-fmt="pdf" aria-pressed="${fmt === 'pdf'}">PDF</button><button type="button" class="chip" data-fmt="txt" aria-pressed="${fmt === 'txt'}">Text</button></div>
+      <div class="seg"><span class="note tiny">Fotos</span> <button type="button" class="chip" data-ph="1" aria-pressed="${ph}" ${pics.length ? '' : 'disabled'}>mit Fotos</button><button type="button" class="chip" data-ph="0" aria-pressed="${!ph}">ohne Fotos</button></div>
+      <p class="note tiny">${fmt === 'pdf' ? 'Es öffnet sich der Druckdialog. Dort kannst du auf dem iPhone über Teilen «In Dateien sichern» wählen (PDF).' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'} Zutatenmengen für ${p.n} Portionen.</p>
+      <p class="note tiny err" id="x-msg"></p>
+      <div class="acts"><button type="button" class="chip" id="x-cancel">Abbrechen</button>${fmt === 'txt' ? '<button type="button" class="chip" id="x-copy">Kopieren</button>' : ''}<button type="button" class="chip on" id="x-go">Exportieren</button></div></div>`;
+  };
+  draw(); document.body.appendChild(o);
+  const msg = t => { const m = $('#x-msg', o); if (m) m.textContent = t; };
+  const fname = (slug(r.n) || 'rezept');
+  o.addEventListener('click', async e => {
+    if (e.target === o || e.target.id === 'x-cancel') { o.remove(); return; }
+    const f = e.target.closest('[data-fmt]'); if (f) { fmt = f.dataset.fmt; draw(); return; }
+    const q = e.target.closest('[data-ph]'); if (q) { ph = q.dataset.ph === '1'; draw(); return; }
+    if (e.target.id === 'x-copy') { try { await navigator.clipboard.writeText(asText()); msg('Kopiert.'); } catch { msg('⚠ Kopieren nicht möglich.'); } return; }
+    if (e.target.id !== 'x-go') return;
+    if (fmt === 'pdf') {
+      let pa = $('#printarea'); if (!pa) { pa = document.createElement('div'); pa.id = 'printarea'; document.body.appendChild(pa); }
+      pa.innerHTML = asHtml(ph);
+      const imgs = [...pa.querySelectorAll('img')];
+      msg(imgs.length ? 'Fotos werden geladen …' : '');
+      await Promise.race([Promise.all(imgs.map(i => i.complete ? 0 : new Promise(res => { i.onload = i.onerror = res; }))), new Promise(res => setTimeout(res, 6000))]);
+      const t0 = document.title; document.title = fname; document.body.classList.add('printing'); o.remove();
+      const done = () => { document.body.classList.remove('printing'); document.title = t0; window.removeEventListener('afterprint', done); };
+      window.addEventListener('afterprint', done); setTimeout(() => window.print(), 100);
+      return;
+    }
+    const text = asText();
+    try {
+      if (ph && pics.length && navigator.canShare) {
+        msg('Fotos werden vorbereitet …');
+        const files = [new File([text], fname + '.txt', { type: 'text/plain' })];
+        for (let i = 0; i < pics.length; i++) { const b = await (await fetch(imgUrl(pics[i], 1400))).blob(); files.push(new File([b], fname + '-' + (i + 1) + '.jpg', { type: b.type || 'image/jpeg' })); }
+        if (navigator.canShare({ files })) { await navigator.share({ files, title: r.n }); o.remove(); return; }
+      }
+    } catch (err) { if (err && err.name === 'AbortError') return; msg('Fotos liessen sich nicht mitgeben, es wird nur der Text exportiert.'); }
+    try {
+      if (navigator.share) { await navigator.share({ title: r.n, text }); o.remove(); return; }
+    } catch (err) { if (err && err.name === 'AbortError') return; }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' })); a.download = fname + '.txt'; document.body.appendChild(a); a.click(); a.remove(); msg('Als Textdatei gespeichert.');
+  });
+}
+
 /* Rezeptfoto als Foto eines Ordners / Überordners festlegen */
 function openPhotoSheet(r, ref) {
   ref = ref || r.cover;
@@ -1444,7 +1511,7 @@ function renderDetail(r) {
     ${r.cover ? `<div class="hero"><img src="${esc(imgUrl(r.cover, 1200))}" data-full="${esc(imgUrl(r.cover, 1800))}" alt="${esc(r.n)}"></div>` : ''}
     <div class="head"><h2>${esc(r.n)}</h2>
       <button class="star" type="button" id="star" aria-pressed="${state.fav.has(r.id)}" aria-label="Favorit">${state.fav.has(r.id) ? '★' : '☆'}</button></div>
-    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><button type="button" class="chip dbtn" id="fmulti" aria-label="Ordner wählen" title="Ordner wählen">📁</button><button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).filter(t => !isFolderTag(t)).length ? `<div class="mtags">${r.tags.filter(t => !isFolderTag(t)).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
+    <div class="meta"><div class="mtop"><span class="fchips">${foldersOf(r).map(x => `<span class="tag fchip">${esc((FB[x] || {}).icon || '')} ${esc(folderName(x))}<button type="button" data-rmf="${esc(x)}" aria-label="Aus Ordner entfernen">×</button></span>`).join('')}</span><span class="dtools"><button type="button" class="chip dbtn" id="fmulti" aria-label="Ordner wählen" title="Ordner wählen">📁</button><button type="button" class="chip dbtn" id="rexp" aria-label="Exportieren" title="Exportieren">📤</button><button type="button" class="chip dbtn" id="rmgr" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div>${(r.tags || []).filter(t => !isFolderTag(t)).length ? `<div class="mtags">${r.tags.filter(t => !isFolderTag(t)).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}</div>
     <div class="cols ${ing && steps ? 'two' : ''}">${ing}${steps}${pages}</div>`;
   countEl.textContent = '';
   window.scrollTo(0, 0);
@@ -1584,6 +1651,7 @@ view.addEventListener('click', e => {
     star.setAttribute('aria-pressed', state.fav.has(r.id)); star.textContent = state.fav.has(r.id) ? '★' : '☆';
     renderFilters(); return;
   }
+  if (e.target.closest('#rexp')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) recipeExport(r); return; }
   if (e.target.closest('#rmgr')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openEditSheet(r); return; }
   if (e.target.closest('#fmulti')) { const r = byId[decodeURIComponent(location.hash.slice(4))]; if (r) openFolderMulti(r); return; }
   const rmf = e.target.closest('[data-rmf]');

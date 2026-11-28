@@ -416,3 +416,16 @@ mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
 .hlv .chip[data-lvl=up]{color:#1f9d43;border-color:#1f9d43}
 .hlv .chip[data-lvl=down]{color:#d33a2c;border-color:#d33a2c}
 .crumbs .libbtn{float:right;padding:2px 10px;font-size:16px;line-height:1.5;margin-left:8px}
+#printarea{display:none}
+@media print{
+ body.printing{background:#fff!important}
+ body.printing>*:not(#printarea){display:none!important}
+ body.printing #printarea{display:block;color:#000;background:#fff;font:11.5pt/1.45 Georgia,serif;padding:0}
+ #printarea h1{font-size:22pt;margin:0 0 4pt}
+ #printarea h2{font-size:14pt;margin:14pt 0 4pt;border-bottom:1px solid #999}
+ #printarea h3{font-size:12pt;margin:10pt 0 2pt}
+ #printarea .pm{color:#555;margin:0 0 8pt}
+ #printarea ul{margin:0;padding-left:16pt}
+ #printarea .st{margin:3pt 0}
+ #printarea .pa-pics img{display:block;max-width:100%;max-height:12cm;margin:8pt auto;break-inside:avoid}
+}
