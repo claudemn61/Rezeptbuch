@@ -805,11 +805,11 @@ function openLib(fid) {
   const btn = 'flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px';
   o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen${isAll ? '' : ': ' + esc(libName(fid))}</h3>
     <div style="display:flex;gap:10px;margin:2px 0 6px"><button class="chip" type="button" id="l-new" style="${btn}" aria-label="Neue Seite mit Text und Foto">📝 Text, Foto</button><button class="chip" type="button" id="l-add" style="${btn}" aria-label="PDF einlesen (wird zur Seite)">📄 PDF</button></div>
-    <label class="xl" style="display:block">Neue Einträge ablegen in <select id="l-tgt" style="width:100%;margin-top:4px;font:inherit;font-size:15px;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">${tgtOpts()}</select></label>
-    <div class="rlist grow" id="l-list" style="overflow:auto;margin-top:10px"></div>
+    <label class="xl" style="display:block;flex:none">Neue Einträge ablegen in <select id="l-tgt" style="width:100%;margin-top:4px;font:inherit;font-size:15px;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">${tgtOpts()}</select></label>
+    <div class="rlist" id="l-list" style="overflow:auto;margin-top:10px;flex:0 1 auto;justify-content:flex-start"></div>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
-    <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
+    <div class="acts" style="margin-top:auto;padding-top:12px"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
   document.body.appendChild(o);
   let busy = false;
   const get = (k, i) => ((cfg.docs && cfg.docs[k]) || [])[i];
