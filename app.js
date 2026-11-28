@@ -1219,27 +1219,27 @@ function recipeExport(r) {
       wrap(t, sz, b, CW - ind).forEach((ln, k) => { if (y - lh < M) newPage(); y -= lh; if (k === 0 && o2.pre) text(o2.pre, M, y, sz, b, o2.gray); text(ln, M + ind, y, sz, b, o2.gray); });
       y -= (o2.gap == null ? 3 : o2.gap);
     };
+    const imgs = []; let skipped = 0;
+    const addPic = async (ref, maxH) => {
+      const d = await new Promise(res => {
+        const im = new Image(); im.crossOrigin = 'anonymous'; const to = setTimeout(() => res(null), 9000);
+        im.onload = () => { clearTimeout(to); try { const sc = Math.min(1, 1200 / Math.max(im.naturalWidth, im.naturalHeight)); const c = document.createElement('canvas'); c.width = Math.round(im.naturalWidth * sc); c.height = Math.round(im.naturalHeight * sc); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0, c.width, c.height); const bin = atob(c.toDataURL('image/jpeg', 0.85).split(',')[1]); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); res({ w: c.width, h: c.height, u }); } catch { res(null); } };
+        im.onerror = () => { clearTimeout(to); res(null); }; im.src = imgUrl(ref, 1200);
+      });
+      if (!d) { skipped++; return; }
+      const idx = imgs.push(d) - 1, s2 = Math.min(CW / d.w, maxH / d.h), dw = d.w * s2, dh = d.h * s2;
+      if (y - dh < M) newPage(); y -= dh;
+      page.ops.push(`q ${dw.toFixed(1)} 0 0 ${dh.toFixed(1)} ${(M + (CW - dw) / 2).toFixed(1)} ${y.toFixed(1)} cm /Im${idx} Do Q`); y -= 10;
+    };
     para(r.n, { sz: 20, b: true, gap: 4 });
     if (where) para(where, { sz: 10, gray: true, gap: 8 });
+    if (withPics && r.cover) await addPic(r.cover, 280);
     if (ings.length) { y -= 6; para('Zutaten, für ' + p.n, { sz: 13, b: true, gap: 4 }); ings.forEach(x => para(x, { pre: '•', ind: 12, gap: 1.5 })); }
     if (r.steps.length) {
       y -= 10; para('Zubereitung', { sz: 13, b: true, gap: 4 }); let k = 0;
       r.steps.forEach(t => { if (isHeading(t)) { k = 0; y -= 4; para(headText(t), { b: true, sz: 11.5, gap: 2 }); } else para(t, { pre: ++k + '.', ind: 16, gap: 3 }); });
     }
-    const imgs = []; let skipped = 0;
-    if (withPics) {
-      for (const ref of pics) {
-        const d = await new Promise(res => {
-          const im = new Image(); im.crossOrigin = 'anonymous'; const to = setTimeout(() => res(null), 9000);
-          im.onload = () => { clearTimeout(to); try { const sc = Math.min(1, 1200 / Math.max(im.naturalWidth, im.naturalHeight)); const c = document.createElement('canvas'); c.width = Math.round(im.naturalWidth * sc); c.height = Math.round(im.naturalHeight * sc); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0, c.width, c.height); const bin = atob(c.toDataURL('image/jpeg', 0.85).split(',')[1]); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); res({ w: c.width, h: c.height, u }); } catch { res(null); } };
-          im.onerror = () => { clearTimeout(to); res(null); }; im.src = imgUrl(ref, 1200);
-        });
-        if (!d) { skipped++; continue; }
-        const idx = imgs.push(d) - 1, s2 = Math.min(CW / d.w, 420 / d.h), dw = d.w * s2, dh = d.h * s2;
-        if (y - dh < M) newPage(); y -= dh;
-        page.ops.push(`q ${dw.toFixed(1)} 0 0 ${dh.toFixed(1)} ${(M + (CW - dw) / 2).toFixed(1)} ${y.toFixed(1)} cm /Im${idx} Do Q`); y -= 10;
-      }
-    }
+    if (withPics) { for (const ref of pics.filter(x => x !== r.cover)) await addPic(ref, 420); }
     const parts = [], off = []; let len = 0;
     const put = x => { const u = typeof x === 'string' ? Uint8Array.from(x, ch => ch.charCodeAt(0) & 255) : x; parts.push(u); len += u.length; };
     const obj = (n, body, data) => { off[n] = len; put(n + ' 0 obj\n' + body + (data ? '\nstream\n' : '\n')); if (data) { put(data); put('\nendstream\n'); } put('endobj\n'); };
