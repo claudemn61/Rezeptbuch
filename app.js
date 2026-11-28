@@ -795,7 +795,7 @@ function openLib(fid) {
   const f = FB[fid]; if (!f) return;
   const o = document.createElement('div'); o.className = 'sheet-bg'; o.style.zIndex = '90';
   o.innerHTML = `<div class="sheet imp full" role="dialog" aria-label="Basiswissen"><h3>📚 Basiswissen</h3>
-    <div style="display:flex;gap:10px;margin:2px 0 12px"><button class="chip" type="button" id="l-new" style="flex:1;justify-content:center;text-align:center;padding:12px 8px;font-size:16px" aria-label="Neue Seite mit Text und Foto">📝 Text, Foto</button><button class="chip" type="button" id="l-add" style="flex:1;justify-content:center;text-align:center;padding:12px 8px;font-size:16px" aria-label="PDF einlesen (wird zur Seite)">📄 PDF</button></div>
+    <div style="display:flex;gap:10px;margin:2px 0 12px"><button class="chip" type="button" id="l-new" style="flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px" aria-label="Neue Seite mit Text und Foto">📝 Text, Foto</button><button class="chip" type="button" id="l-add" style="flex:1;justify-content:center;text-align:center;padding:6px 8px;font-size:16px" aria-label="PDF einlesen (wird zur Seite)">📄 PDF</button></div>
     <div class="rlist grow" id="l-list" style="overflow:auto"></div>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
