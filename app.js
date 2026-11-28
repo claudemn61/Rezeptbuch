@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const APP_VERSION = '1.9.8';
+const APP_VERSION = '1.9.9';
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -853,16 +853,18 @@ function openEditSheet(r) {
     if (ocr) {
       const only = items[+ocr.dataset.ocr];
       keepText();
-      if ((r.ing.length || r.steps.length) && !confirm('Die vorhandenen Zutaten und Schritte durch den Text aus den Fotos ersetzen?')) return;
       const msg = $('#p-msg', o); lock(true);
       try {
         const urls = []; let k = 0;
         for (const it of [only]) { msg.textContent = 'Foto ' + (++k) + ' wird geladen …'; urls.push(it.dataUrl || await loadImageData(it.path)); }
         const rec = await extractFromDataUrls(urls, t => { msg.textContent = t; });
         const hadNone = !r.ing.length && !r.steps.length;
-        r = { ...r, ing: (rec.ing || []).map(x => String(x).trim()).filter(Boolean), steps: (rec.steps || []).map(x => String(x).trim()).filter(Boolean) };
+        const nIng = (rec.ing || []).map(x => String(x).trim()).filter(Boolean), nSt = (rec.steps || []).map(x => String(x).trim()).filter(Boolean);
+        const rep = [];
+        if (nIng.length && (!r.ing.length || confirm('Auf dem Foto wurden ' + nIng.length + ' Zutaten gefunden. Die vorhandenen Zutaten ersetzen?'))) { r = { ...r, ing: nIng }; rep.push('Zutaten'); }
+        if (nSt.length && (!r.steps.length || confirm('Auf dem Foto wurden ' + nSt.length + ' Zeilen Zubereitung gefunden. Die vorhandene Zubereitung ersetzen?'))) { r = { ...r, steps: nSt }; rep.push('Zubereitung'); }
         if (rec.port > 0 && hadNone) r.port = Math.min(99, +rec.port);
-        lock(false); draw('Gelesen. Bitte prüfen (Mengen, Schritte) und speichern.');
+        lock(false); draw(rep.length ? 'Übernommen: ' + rep.join(' und ') + '. Bitte prüfen (Mengen, Schritte) und speichern.' : 'Auf diesem Foto wurde nichts übernommen (nichts gefunden oder abgelehnt).');
       } catch (err) { lock(false); msg.textContent = '⚠ ' + err.message; }
       return;
     }
