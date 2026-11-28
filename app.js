@@ -751,7 +751,7 @@ async function pdfToPage(file) {
       tools: [{ name: 'seite', description: 'Textseite aus einem PDF', input_schema: { type: 'object', properties: {
         titel: { type: 'string', description: 'Kurzer Titel der Seite' },
         text: { type: 'string', description: 'Vollständiger Inhalt als Freitext, in der Sprache des PDF, nichts weglassen und nichts erfinden. Zwischentitel als eigene Zeile mit «# » am Anfang. Absätze durch Leerzeilen trennen, Aufzählungen mit «- ». Tabellen zeilenweise als «Spalte: Wert» oder «a | b | c». Keine Nummerierung von Schritten hinzufügen.' } }, required: ['titel', 'text'] } }],
-      tool_choice: { type: 'tool', name: 'seite' },
+      tool_choice: { type: 'auto' },
       messages: [{ role: 'user', content: [{ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } }, { type: 'text', text: 'Übertrage dieses PDF vollständig in eine Textseite.' }] }] })
   });
   if (!r.ok) { let m = ''; try { m = (await r.json()).error.message; } catch {} throw new Error(r.status === 401 ? 'Claude-API-Schlüssel ungültig' : 'Claude-API: ' + r.status + (m ? ' – ' + m : '')); }
