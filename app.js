@@ -738,6 +738,27 @@ function openImport() {
   start();
 }
 
+/* PDF in eine Basiswissen-Seite (Titel + Freitext) umwandeln */
+async function pdfToPage(file) {
+  const key = lsGet('rb_akey');
+  if (!key) throw new Error('Kein Claude-API-Schlüssel hinterlegt (Einstellungen → Tokens)');
+  const data = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('PDF lässt sich nicht lesen')); fr.readAsDataURL(file); });
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 16000,
+      system: 'Du überträgst den Inhalt eines PDF in eine lesbare Textseite. Antworte ausschliesslich, indem du das Tool «seite» genau einmal aufrufst. Schreibe keinen weiteren Text.',
+      tools: [{ name: 'seite', description: 'Textseite aus einem PDF', input_schema: { type: 'object', properties: {
+        titel: { type: 'string', description: 'Kurzer Titel der Seite' },
+        text: { type: 'string', description: 'Vollständiger Inhalt als Freitext, in der Sprache des PDF, nichts weglassen und nichts erfinden. Zwischentitel als eigene Zeile mit «# » am Anfang. Absätze durch Leerzeilen trennen, Aufzählungen mit «- ». Tabellen zeilenweise als «Spalte: Wert» oder «a | b | c». Keine Nummerierung von Schritten hinzufügen.' } }, required: ['titel', 'text'] } }],
+      tool_choice: { type: 'tool', name: 'seite' },
+      messages: [{ role: 'user', content: [{ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } }, { type: 'text', text: 'Übertrage dieses PDF vollständig in eine Textseite.' }] }] })
+  });
+  if (!r.ok) { let m = ''; try { m = (await r.json()).error.message; } catch {} throw new Error(r.status === 401 ? 'Claude-API-Schlüssel ungültig' : 'Claude-API: ' + r.status + (m ? ' – ' + m : '')); }
+  const j = await r.json(); const t = (j.content || []).find(c => c.type === 'tool_use');
+  if (!t || !t.input || !String(t.input.text || '').trim()) throw new Error('Aus dem PDF liess sich kein Text lesen' + (j.stop_reason === 'max_tokens' ? ' (zu lang)' : ''));
+  return { n: String(t.input.titel || '').trim() || file.name.replace(/\.pdf$/i, ''), t: String(t.input.text).replace(/\s+$/, '') };
+}
 /* Basiswissen: je Hauptordner PDFs und eigene Seiten (Foto + Freitext). Dateien unter doc/<ordner>/, Liste in config.json */
 const libBlob = {}, libImg = {};
 let libRedraw = null;
@@ -750,7 +771,7 @@ function openLib(fid) {
     <p class="note tiny">Eigene Seiten mit Foto und Text sowie PDFs zu diesem Ordner. Zum Öffnen antippen.</p>
     <div class="rlist grow" id="l-list" style="overflow:auto"></div>
     <button class="chip big on" type="button" id="l-new">＋ Seite (Foto und Text)</button>
-    <button class="chip big" type="button" id="l-add">＋ PDF hinzufügen</button>
+    <button class="chip big" type="button" id="l-add">＋ PDF einlesen (wird zur Seite)</button>
     <input id="l-file" type="file" accept="application/pdf,.pdf" multiple hidden>
     <p class="note tiny err" id="l-msg"></p>
     <div class="acts"><button type="button" class="chip" id="l-close">Schliessen</button></div></div>`;
@@ -790,17 +811,12 @@ function openLib(fid) {
       for (const file of files) {
         if (!/\.pdf$/i.test(file.name) && file.type !== 'application/pdf') throw new Error('«' + file.name + '» ist keine PDF-Datei');
         if (file.size > 20 * 1024 * 1024) throw new Error('«' + file.name + '» ist zu gross (über 20 MB)');
-        msg('«' + file.name + '» wird gespeichert …');
-        const b64 = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = () => rej(new Error('Datei lässt sich nicht lesen')); fr.readAsDataURL(file); });
-        const base = file.name.replace(/\.pdf$/i, '');
-        const path = `doc/${fid}/${slug(base) || 'datei'}-${Date.now().toString(36)}.pdf`;
-        const x = await putFile(path, b64, 'App: Basiswissen');
-        if (!x.ok) throw new Error('PDF speichern fehlgeschlagen (' + x.status + ')');
-        libBlob[path] = URL.createObjectURL(file);
-        (cfg.docs[fid] = cfg.docs[fid] || []).push({ n: base, p: path });
+        msg('«' + file.name + '» wird gelesen und umgewandelt …');
+        const pg = await pdfToPage(file);
+        (cfg.docs[fid] = cfg.docs[fid] || []).push({ id: docNewId(), n: pg.n, t: pg.t });
         persist(); draw();
       }
-      msg('Gespeichert. Auf anderen Geräten ist die PDF nach etwa einer Minute abrufbar.');
+      msg('Als Seite übernommen. Bitte mit ✏️ prüfen und bei Bedarf korrigieren.');
     } catch (err) { msg('⚠ ' + err.message); }
     busy = false; o.querySelectorAll('button').forEach(b => { b.disabled = false; });
   });
@@ -812,16 +828,17 @@ function openDocPage(fid, id) {
   const body = t => (t || '').split('\n').map(l => /^#\s/.test(l) ? `<h4 class="dh">${esc(l.replace(/^#\s+/, ''))}</h4>` : l.trim() ? `<p class="dp">${esc(l)}</p>` : '<p class="dp sp"></p>').join('');
   const draw = () => {
     const x = ((cfg.docs && cfg.docs[fid]) || []).find(y => y.id === id); if (!x) { o.remove(); return; }
-    o.innerHTML = `<main><div class="backrow"><button class="back" type="button" id="d-back">‹ Zurück</button></div>
+    o.innerHTML = `<main><div class="backrow dback"><button class="back" type="button" id="d-back">‹ Zurück</button></div>
       ${x.im ? `<div class="hero"><img src="${esc(docSrc(x.im))}" alt="${esc(x.n)}"></div>` : ''}
       <div class="head"><h2>${esc(x.n)}</h2></div>
       <div class="meta"><div class="mtop"><span class="fchips"><span class="tag fchip">📚 ${esc((FB[fid] || {}).name || '')}</span></span><span class="dtools"><button type="button" class="chip dbtn" id="d-exp" aria-label="Exportieren" title="Exportieren">📤</button><button type="button" class="chip dbtn" id="d-edit" aria-label="Bearbeiten" title="Bearbeiten">✏️</button></span></div></div>
-      <div class="cols"><section class="panel">${body(x.t) || '<p class="note">Noch kein Text.</p>'}</section></div></main>`;
+      <div class="cols"><section class="panel">${body(x.t) || '<p class="note">Noch kein Text.</p>'}</section></div>
+      <p style="text-align:center;margin:18px 0 0"><button type="button" class="chip" id="d-back2">Schliessen</button></p></main>`;
   };
   draw(); document.body.appendChild(o);
   o.addEventListener('click', e => {
     const x = ((cfg.docs && cfg.docs[fid]) || []).find(y => y.id === id); if (!x) return;
-    if (e.target.closest('#d-back')) { o.remove(); return; }
+    if (e.target.closest('#d-back') || e.target.closest('#d-back2')) { o.remove(); return; }
     if (e.target.closest('#d-edit')) { openDocEdit(fid, id, draw); return; }
     if (e.target.closest('#d-exp')) {
       recipeExport({ id: 'doc-' + id, n: x.n, ing: [], steps: (x.t || '').split('\n').map(l => l.trim()).filter(Boolean), cover: x.im ? docSrc(x.im) : '', pages: [], free: true, where: '📚 Basiswissen · ' + ((FB[fid] || {}).name || '') });
@@ -1845,7 +1862,7 @@ const HELP = [
   ['Ordner verwalten', 'Auf der Startseite <b>✏️</b> antippen. Dann kannst du Ordner antippen (Name, Symbol, Farbe, Foto), per Ziehen sortieren, neue anlegen, unter «Liegt in» in einen anderen Ordner schieben und Das Raster für Home schaltest du in den Einstellungen ein (dort bekommst du passende Anordnungen vorgeschlagen). Grösse von Ordnern und Rezepten stellst du ebenfalls dort ein. Nochmals <b>✓</b> tippen beendet das Bearbeiten.', [['Bearbeiten starten', 'edit']]],
   ['Rezept importieren', 'Mit <b>➕</b> wählst du zuerst die Quelle: Foto, Scan oder PDF (Claude liest den Text), einen Link einfügen (z. B. von chefkoch.de) oder Rezepttext per Copy/Paste einfügen. Du siehst vor dem Speichern eine Vorschau und kannst alles korrigieren.', [['Import öffnen', 'import']]],
   ['Einstellungen', 'Das Zahnrad oben rechts öffnet die Einstellungen als ganze Seite (Schliessen mit ×): hell/dunkel, Grösse und Aussehen der Kacheln und Der Knopf <b>🔑 Tokens</b> führt zu den Eingabefeldern für GitHub-Token, Claude-Schlüssel und Link-Dienst.', [['Einstellungen öffnen', 'settings']]],
-  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort sammelst du Wissen zu diesem Ordner: mit <b>＋ Seite</b> eine eigene Seite mit Foto und frei editierbarem Text (✏️ bearbeiten, 📤 exportieren), mit <b>＋ PDF hinzufügen</b> eine PDF (bis 20 MB). Mit <b>✕</b> entfernst du einen Eintrag. Dafür braucht es den GitHub-Token.'],
+  ['Basiswissen (📚)', 'In jedem Hauptordner steht oben rechts ein <b>📚</b>. Dort sammelst du Wissen zu diesem Ordner: mit <b>＋ Seite</b> eine eigene Seite mit Foto und frei editierbarem Text (✏️ bearbeiten, 📤 exportieren), mit <b>＋ PDF einlesen</b> ein PDF (bis 20 MB), das Claude in eine solche Seite umwandelt. Dafür braucht es den Claude-Schlüssel. Mit <b>✕</b> entfernst du einen Eintrag. Dafür braucht es den GitHub-Token.'],
   ['Token, Schlüssel, Worker', '<b>GitHub-Token</b>: damit du Änderungen speichern darfst. <b>Claude-Schlüssel</b>: für den Foto-Import. <b>Worker-Adresse</b>: für den Link-Import. Ohne diese Angaben kannst du die App nur lesen.', [['Token eintragen', 'tok'], ['Import-Angaben', 'akey']]],
   ['Wenn etwas nicht stimmt', 'Die App ganz schliessen (auf dem iPhone im App-Wechsler nach oben wischen) und neu öffnen. Hilft das nicht, die App vom Home-Bildschirm löschen und neu hinzufügen. Neue Fotos erscheinen auf anderen Geräten erst nach 1–2 Minuten.', []]
 ];
