@@ -876,7 +876,7 @@ function openLib(fid) {
 function openDocPage(fid, id) {
   const d = ((cfg.docs && cfg.docs[fid]) || []).find(x => x.id === id); if (!d) return;
   const o = document.createElement('div'); o.className = 'docpage'; o.style.cssText = 'position:fixed;inset:0;z-index:95;overflow:auto;background:var(--bg)';
-  const body = t => (t || '').split('\n').map(l => /^#\s/.test(l) ? `<h4 class="dh">${esc(l.replace(/^#\s+/, ''))}</h4>` : l.trim() ? `<p class="dp">${esc(l)}</p>` : '<p class="dp sp"></p>').join('');
+  const body = t => (t || '').split('\n').map(l => /^#\s/.test(l) ? `<h4 class="dh">${esc(l.replace(/^#\s+/, ''))}</h4>` : l.trim() ? (/^-\s/.test(l) ? `<p class="dp li">• ${esc(l.replace(/^-\s+/, ''))}</p>` : `<p class="dp">${esc(l)}</p>`) : '<p class="dp sp"></p>').join('');
   const draw = () => {
     const x = ((cfg.docs && cfg.docs[fid]) || []).find(y => y.id === id); if (!x) { o.remove(); return; }
     o.innerHTML = `<main><div class="backrow dback"><button class="back" type="button" id="d-back">‹ Zurück</button></div>
