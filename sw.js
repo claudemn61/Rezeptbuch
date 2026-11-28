@@ -36,7 +36,8 @@ self.addEventListener('fetch', e => {
   }
 
   // Bilder von aussen: einmal gesehen, später auch offline verfügbar
-  if (req.destination === 'image') {
+  // (CORS-Anfragen, z. B. für den PDF-Export, gehen direkt ans Netz: ein gespeichertes opakes Bild wäre dafür unbrauchbar)
+  if (req.destination === 'image' && req.mode !== 'cors') {
     e.respondWith(caches.open(IMGS).then(async c => {
       const hit = await c.match(req);
       if (hit) return hit;

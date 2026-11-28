@@ -1202,13 +1202,71 @@ function recipeExport(r) {
       ${r.steps.length ? `<h2>Zubereitung</h2>${steps}` : ''}
       ${withPics && pics.length ? `<div class="pa-pics">${pics.map(x => `<img src="${esc(imgUrl(x, 1400))}" alt="">`).join('')}</div>` : ''}`;
   };
+  /* Einfaches PDF direkt im Browser erzeugen (A4, Helvetica, Fotos als JPEG) */
+  const buildPdf = async withPics => {
+    const W = 595, H = 842, M = 50, CW = W - 2 * M;
+    const cx = document.createElement('canvas').getContext('2d');
+    const wd = (t, sz, b) => { cx.font = (b ? 'bold ' : '') + sz + 'px Helvetica, Arial, sans-serif'; return cx.measureText(t).width; };
+    const CP = { '€': 128, '‚': 130, '„': 132, '…': 133, '‘': 145, '’': 146, '“': 147, '”': 148, '•': 149, '–': 150, '—': 151 };
+    const enc = t => Array.from(String(t)).map(ch => { const c = ch.charCodeAt(0); const v = CP[ch] || (c < 256 ? c : 63); const x = String.fromCharCode(v); return x === '(' || x === ')' || x === '\\' ? '\\' + x : (v < 32 ? ' ' : x); }).join('');
+    const pages = []; let page, y;
+    const newPage = () => { page = { ops: [] }; pages.push(page); y = H - M; };
+    newPage();
+    const text = (t, x, yy, sz, b, gray) => page.ops.push(`BT ${gray ? '0.4 g' : '0 g'} /${b ? 'F2' : 'F1'} ${sz} Tf ${x.toFixed(1)} ${yy.toFixed(1)} Td (${enc(t)}) Tj ET`);
+    const wrap = (t, sz, b, w) => { const L = []; let cur = ''; String(t).split(/\s+/).filter(Boolean).forEach(wr => { const tt = cur ? cur + ' ' + wr : wr; if (!cur || wd(tt, sz, b) <= w) cur = tt; else { L.push(cur); cur = wr; } }); if (cur) L.push(cur); return L.length ? L : ['']; };
+    const para = (t, o2 = {}) => {
+      const sz = o2.sz || 11, b = !!o2.b, ind = o2.ind || 0, lh = sz * 1.35;
+      wrap(t, sz, b, CW - ind).forEach((ln, k) => { if (y - lh < M) newPage(); y -= lh; if (k === 0 && o2.pre) text(o2.pre, M, y, sz, b, o2.gray); text(ln, M + ind, y, sz, b, o2.gray); });
+      y -= (o2.gap == null ? 3 : o2.gap);
+    };
+    para(r.n, { sz: 20, b: true, gap: 4 });
+    if (where) para(where, { sz: 10, gray: true, gap: 8 });
+    if (ings.length) { y -= 6; para('Zutaten, für ' + p.n, { sz: 13, b: true, gap: 4 }); ings.forEach(x => para(x, { pre: '•', ind: 12, gap: 1.5 })); }
+    if (r.steps.length) {
+      y -= 10; para('Zubereitung', { sz: 13, b: true, gap: 4 }); let k = 0;
+      r.steps.forEach(t => { if (isHeading(t)) { k = 0; y -= 4; para(headText(t), { b: true, sz: 11.5, gap: 2 }); } else para(t, { pre: ++k + '.', ind: 16, gap: 3 }); });
+    }
+    const imgs = []; let skipped = 0;
+    if (withPics) {
+      for (const ref of pics) {
+        const d = await new Promise(res => {
+          const im = new Image(); im.crossOrigin = 'anonymous'; const to = setTimeout(() => res(null), 9000);
+          im.onload = () => { clearTimeout(to); try { const sc = Math.min(1, 1200 / Math.max(im.naturalWidth, im.naturalHeight)); const c = document.createElement('canvas'); c.width = Math.round(im.naturalWidth * sc); c.height = Math.round(im.naturalHeight * sc); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0, c.width, c.height); const bin = atob(c.toDataURL('image/jpeg', 0.85).split(',')[1]); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); res({ w: c.width, h: c.height, u }); } catch { res(null); } };
+          im.onerror = () => { clearTimeout(to); res(null); }; im.src = imgUrl(ref, 1200);
+        });
+        if (!d) { skipped++; continue; }
+        const idx = imgs.push(d) - 1, s2 = Math.min(CW / d.w, 420 / d.h), dw = d.w * s2, dh = d.h * s2;
+        if (y - dh < M) newPage(); y -= dh;
+        page.ops.push(`q ${dw.toFixed(1)} 0 0 ${dh.toFixed(1)} ${(M + (CW - dw) / 2).toFixed(1)} ${y.toFixed(1)} cm /Im${idx} Do Q`); y -= 10;
+      }
+    }
+    const parts = [], off = []; let len = 0;
+    const put = x => { const u = typeof x === 'string' ? Uint8Array.from(x, ch => ch.charCodeAt(0) & 255) : x; parts.push(u); len += u.length; };
+    const obj = (n, body, data) => { off[n] = len; put(n + ' 0 obj\n' + body + (data ? '\nstream\n' : '\n')); if (data) { put(data); put('\nendstream\n'); } put('endobj\n'); };
+    const base = 5 + imgs.length, np = pages.length;
+    put('%PDF-1.4\n');
+    obj(1, '<< /Type /Catalog /Pages 2 0 R >>');
+    obj(2, '<< /Type /Pages /Kids [' + pages.map((_, i) => (base + 2 * i + 1) + ' 0 R').join(' ') + '] /Count ' + np + ' >>');
+    obj(3, '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');
+    obj(4, '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');
+    imgs.forEach((d, i) => obj(5 + i, `<< /Type /XObject /Subtype /Image /Width ${d.w} /Height ${d.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${d.u.length} >>`, d.u));
+    const res = `<< /Font << /F1 3 0 R /F2 4 0 R >>${imgs.length ? ' /XObject << ' + imgs.map((_, i) => `/Im${i} ${5 + i} 0 R`).join(' ') + ' >>' : ''} >>`;
+    pages.forEach((pg, i) => {
+      const c = pg.ops.join('\n'), cn = base + 2 * i;
+      obj(cn, `<< /Length ${c.length} >>`, c);
+      obj(cn + 1, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Contents ${cn} 0 R /Resources ${res} >>`);
+    });
+    const N = base + 2 * np, xr = len;
+    put('xref\n0 ' + N + '\n0000000000 65535 f \n' + Array.from({ length: N - 1 }, (_, i) => String(off[i + 1]).padStart(10, '0') + ' 00000 n \n').join('') + 'trailer\n<< /Size ' + N + ' /Root 1 0 R >>\nstartxref\n' + xr + '\n%%EOF');
+    return { blob: new Blob(parts, { type: 'application/pdf' }), skipped };
+  };
   const o = document.createElement('div'); o.className = 'sheet-bg';
   let fmt = 'pdf', ph = pics.length > 0;
   const draw = () => {
     o.innerHTML = `<div class="sheet" role="dialog" aria-label="Exportieren"><h3>Rezept exportieren</h3>
       <div class="xl">Format</div><div class="seg"><button type="button" data-fmt="pdf" aria-pressed="${fmt === 'pdf'}">PDF</button><button type="button" data-fmt="txt" aria-pressed="${fmt === 'txt'}">Text</button></div>
       <div class="xl">Fotos</div><div class="seg"><button type="button" data-ph="1" aria-pressed="${ph}" ${pics.length ? '' : 'disabled'}>mit Fotos</button><button type="button" data-ph="0" aria-pressed="${!ph}">ohne Fotos</button></div>
-      <p class="note tiny">${fmt === 'pdf' ? 'Es öffnet sich der Druckdialog. Dort kannst du auf dem iPhone über Teilen «In Dateien sichern» wählen (PDF).' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'} Zutatenmengen für ${p.n} Portionen.</p>
+      <p class="note tiny">${fmt === 'pdf' ? 'Die PDF wird in der App erstellt. Danach öffnet sich das Teilen-Menü, dort wählst du zum Beispiel «In Dateien sichern».' : ph ? 'Text und Fotos werden über das Teilen-Menü weitergegeben, wenn das Gerät das erlaubt.' : 'Der Text wird geteilt, gespeichert oder kopiert.'} Zutatenmengen für ${p.n} Portionen.</p>
       <p class="note tiny err" id="x-msg"></p>
       <div class="acts"><button type="button" class="chip" id="x-cancel">Abbrechen</button>${fmt === 'txt' ? '<button type="button" class="chip" id="x-copy">Kopieren</button>' : ''}<button type="button" class="chip on" id="x-go">Exportieren</button></div></div>`;
   };
@@ -1222,14 +1280,19 @@ function recipeExport(r) {
     if (e.target.id === 'x-copy') { try { await navigator.clipboard.writeText(asText()); msg('Kopiert.'); } catch { msg('⚠ Kopieren nicht möglich.'); } return; }
     if (e.target.id !== 'x-go') return;
     if (fmt === 'pdf') {
-      let pa = $('#printarea'); if (!pa) { pa = document.createElement('div'); pa.id = 'printarea'; document.body.appendChild(pa); }
-      pa.innerHTML = asHtml(ph);
-      const imgs = [...pa.querySelectorAll('img')];
-      msg(imgs.length ? 'Fotos werden geladen …' : '');
-      await Promise.race([Promise.all(imgs.map(i => i.complete ? 0 : new Promise(res => { i.onload = i.onerror = res; }))), new Promise(res => setTimeout(res, 6000))]);
-      const t0 = document.title; document.title = fname; document.body.classList.add('printing'); o.remove();
-      const done = () => { document.body.classList.remove('printing'); document.title = t0; window.removeEventListener('afterprint', done); };
-      window.addEventListener('afterprint', done); setTimeout(() => window.print(), 100);
+      $('#x-go', o).disabled = true; msg('PDF wird erstellt …');
+      try {
+        const { blob, skipped } = await buildPdf(ph);
+        const file = new File([blob], fname + '.pdf', { type: 'application/pdf' });
+        if (skipped) msg(skipped + ' Foto(s) liessen sich nicht einbetten (blockiert vom Bildserver).');
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try { await navigator.share({ files: [file], title: r.n }); if (!skipped) o.remove(); } catch (err) { if (!err || err.name !== 'AbortError') throw err; }
+        } else {
+          const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname + '.pdf'; document.body.appendChild(a); a.click(); a.remove();
+          if (!skipped) msg('PDF wurde gespeichert.');
+        }
+      } catch (err) { msg('⚠ PDF konnte nicht erstellt werden: ' + (err && err.message || err)); }
+      const g = $('#x-go', o); if (g) g.disabled = false;
       return;
     }
     const text = asText();
