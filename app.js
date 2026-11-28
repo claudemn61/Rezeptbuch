@@ -212,7 +212,7 @@ function normalize(c) {
   const seen = new Set();
   (c.folders || []).forEach(f => {
     if (!f || !f.id || seen.has(f.id)) return; seen.add(f.id);
-    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false, ...(byId[f.photo] ? { photo: f.photo } : {}), ...(/^img\/f\//.test(f.img || '') ? { img: f.img } : {}) });
+    out.folders.push({ id: String(f.id), name: String(f.name || f.id), icon: f.icon || ICONS[f.id] || '📁', color: f.color || defColor(f.id), parent: f.parent || null, show: f.show !== false, ...(byId[f.photo] ? { photo: f.photo, ...(typeof f.pimg === 'string' && f.pimg ? { pimg: f.pimg } : {}) } : {}), ...(/^img\/f\//.test(f.img || '') ? { img: f.img } : {}) });
   });
   folders.forEach(b => { if (!seen.has(b)) out.folders.push(defFolder(b)); });
   const ids = new Set(out.folders.map(f => f.id));
@@ -667,7 +667,7 @@ function openImport() {
       try {
         await saveUserRecipe(out, files);
         cfg.assign[id] = chosen; persist();
-        if (files.length && $('#r-fp', o) && $('#r-fp', o).checked && FB[out.folder]) { FB[out.folder].photo = id; persist(); renderFilters(); }
+        if (files.length && $('#r-fp', o) && $('#r-fp', o).checked && FB[out.folder]) { FB[out.folder].photo = id; delete FB[out.folder].pimg; persist(); renderFilters(); }
         o.remove(); location.hash = '#/r/' + id;
       }
       catch (e) { btn.disabled = false; btn.textContent = 'Speichern'; msg.textContent = '⚠ ' + e.message; }
@@ -820,7 +820,7 @@ function openEditSheet(r) {
         <button type="button" class="chip ib2" data-crop="${i}" aria-label="Ausschnitt" title="Ausschnitt">✂</button>
         <button type="button" class="chip ib2" data-del="${i}" aria-label="Bild entfernen" title="Bild entfernen">−</button>
         <button type="button" class="chip ib2" data-ocr="${i}" aria-label="Text aus diesem Foto lesen" title="Text aus diesem Foto lesen">🔍</button>
-        <button type="button" class="chip ib2" id="${i === 0 ? 'p-photo' : 'p-photo' + i}" data-pphoto="${i}" aria-label="Titelbild als Ordnerfoto verwenden" title="Als Ordnerfoto verwenden">🖼️</button>
+        <button type="button" class="chip ib2" id="${i === 0 ? 'p-photo' : 'p-photo' + i}" data-pphoto="${i}" aria-label="Dieses Bild als Ordnerfoto verwenden" title="Dieses Bild als Ordnerfoto verwenden">🖼️</button>
         <button type="button" class="chip ib2" data-padd="1" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></div>`).join('') || '<div class="pic"><span class="note tiny" style="flex:1">Keine Bilder.</span><button type="button" class="chip ib2" data-padd="1" aria-label="Bilder hinzufügen" title="Bilder hinzufügen">＋</button></div>'}</div>
       <input id="p-file" type="file" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden></div>
       <label>Name<input id="e-n" type="text" value="${esc(r.n)}"></label>
@@ -836,7 +836,7 @@ function openEditSheet(r) {
   const lock = on => { busyOn = on; o.querySelectorAll('button').forEach(b => { b.disabled = on; }); };
   const cleanup = () => {
     let ch = false;
-    cfg.folders.forEach(f => { if (f.photo === r.id) { delete f.photo; ch = true; } });
+    cfg.folders.forEach(f => { if (f.photo === r.id) { delete f.photo; delete f.pimg; ch = true; } });
     if (cfg.assign[r.id]) { delete cfg.assign[r.id]; ch = true; }
     if (state.fav.has(r.id)) { state.fav.delete(r.id); ch = true; }
     if (ch) persist();
@@ -906,7 +906,8 @@ function openEditSheet(r) {
     if (e.target.id === 'p-cancel') { o.remove(); return; }
     if (e.target.id === 'p-add' || e.target.closest('[data-padd]')) { $('#p-file', o).click(); return; }
     if (e.target.id === 'p-imp') { keepText(); readInto(); return; }
-    if (e.target.closest('[data-pphoto]')) { openPhotoSheet(r); return; }
+    const pph = e.target.closest('[data-pphoto]');
+    if (pph) { const it = items[+pph.dataset.pphoto]; if (!it || !it.path) { $('#p-msg', o).textContent = 'Dieses Bild zuerst speichern, danach als Ordnerfoto wählen.'; return; } openPhotoSheet(r, it.path); return; }
     const ocr = e.target.closest('[data-ocr]');
     if (ocr) {
       const only = items[+ocr.dataset.ocr];
@@ -978,7 +979,7 @@ function openEditSheet(r) {
 function folderPhoto(id) {
   if ((FB[id] || {}).img) return imgUrl(FB[id].img, 240);
   const pr = byId[(FB[id] || {}).photo];
-  if (pr && pr.cover) return imgUrl(pr.cover, 240);
+  if (pr && pr.cover) { const pi = FB[id].pimg; return imgUrl(pi && [pr.cover, ...(pr.pages || [])].includes(pi) ? pi : pr.cover, 240); }
   const sub = subtree(id);
   const c = R.filter(r => r.cover && foldersOf(r).some(x => sub.has(x)));
   const best = c.find(r => r.ing && r.ing.length && r.steps && r.steps.length) || c[0];
@@ -1181,13 +1182,14 @@ window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
 
 /* Rezeptfoto als Foto eines Ordners / Überordners festlegen */
-function openPhotoSheet(r) {
+function openPhotoSheet(r, ref) {
+  ref = ref || r.cover;
   const ids = []; foldersOf(r).forEach(x => pathOf(x).forEach(f => { if (!ids.includes(f.id)) ids.push(f.id); }));
   const o = document.createElement('div');
   o.className = 'sheet-bg';
   const draw = () => {
-    o.innerHTML = `<div class="sheet" role="dialog" aria-label="Ordnerfoto"><h3>Foto von «${esc(r.n)}» verwenden für</h3><div class="mvlist">${ids.map(id => {
-      const f = FB[id], on = f.photo === r.id;
+    o.innerHTML = `<div class="sheet" role="dialog" aria-label="Ordnerfoto"><h3>Dieses Foto von «${esc(r.n)}» verwenden für</h3><p style="text-align:center"><img src="${esc(imgUrl(ref, 300))}" alt="" style="max-height:120px;max-width:100%;border-radius:8px"></p><div class="mvlist">${ids.map(id => {
+      const f = FB[id], on = f.photo === r.id && (f.pimg || r.cover) === ref;
       return `<button type="button" class="mv" data-fp="${esc(id)}">${on ? '✓ ' : ''}${esc(f.icon)} ${esc(pathOf(id).map(x => x.name).join(' › '))}</button>`; }).join('')}</div>
       <p class="note tiny">Antippen setzt oder entfernt das Foto. Ohne Auswahl nimmt die App automatisch ein passendes Rezeptfoto. Sichtbar bei Einstellungen → Ordner-Kacheln → Fotos.</p>
       <div class="acts"><button type="button" class="chip on" id="fp-ok">Fertig</button></div></div>`;
@@ -1197,7 +1199,7 @@ function openPhotoSheet(r) {
     if (e.target === o || e.target.id === 'fp-ok') { o.remove(); return; }
     const b = e.target.closest('[data-fp]'); if (!b) return;
     const f = FB[b.dataset.fp];
-    if (f.photo === r.id) delete f.photo; else f.photo = r.id;
+    if (f.photo === r.id && (f.pimg || r.cover) === ref) { delete f.photo; delete f.pimg; } else { f.photo = r.id; if (ref === r.cover) delete f.pimg; else f.pimg = ref; }
     persist(); renderFilters(); draw();
   });
 }
